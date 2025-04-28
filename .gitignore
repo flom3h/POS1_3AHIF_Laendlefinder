@@ -1,0 +1,121 @@
+# ========================
+# Global
+# ========================
+# Ignore system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore node_modules if any web tools are used
+node_modules/
+
+# Ignore logs and temp files
+*.log
+*.tmp
+
+# Ignore env files
+.env
+.env.*
+
+# Ignore build outputs
+/build/
+/dist/
+out/
+bin/
+obj/
+
+# Ignore IDE settings
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ========================
+# Python Backend
+# ========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.mypy_cache/
+.pytest_cache/
+htmlcov/
+.tox/
+.coverage
+coverage.xml
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# Database
+*.sqlite3
+*.db
+
+# ========================
+# Flutter Mobile App
+# ========================
+# Flutter-specific
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+generated_plugin_registrant.dart
+
+# iOS
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Runner.xcworkspace/
+ios/Pods/
+ios/DerivedData/
+
+# Android
+android/.gradle/
+android/app/build/
+android/build/
+
+# VSCode
+flutter-app/.vscode/
+
+# ========================
+# WPF Windows App
+# ========================
+# Visual Studio files
+*.obj
+*.exe
+*.dll
+*.pdb
+*.cache
+*.dbmdl
+*.bak
+*.bak2
+*.sdf
+*.ipch
+*.opensdf
+*.suo
+*.idb
+
+# Build folders
+wpf-app/bin/
+wpf-app/obj/
+
+# Packages
+wpf-app/packages/
+# NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Local user settings
+*.user
+*.userosscache
+*.sln.docstates
