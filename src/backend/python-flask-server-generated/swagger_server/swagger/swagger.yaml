@@ -1,0 +1,243 @@
+openapi: 3.0.0
+info:
+  title: Events API
+  description: Eine API zur Verwaltung von User-Logins und Event-Abfragen
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /login:
+    post:
+      tags:
+      - login
+      summary: Benutzer logt sich ein
+      operationId: user_login_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/user_body"
+        required: true
+      responses:
+        "201":
+          description: Benutzer konnte sich einloggen
+        "404":
+          description: Benutzer konnte nicht gefunden werden
+      x-openapi-router-controller: swagger_server.controllers.login_controller
+  /registrieren:
+    post:
+      tags:
+      - registrieren
+      summary: Benutzer erstellt seinen Account
+      operationId: user_reg_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/reg_body"
+        required: true
+      responses:
+        "201":
+          description: Benutzer konnte erstellt werden
+        "404":
+          description: Benutzer konnte nicht erstellt werden
+      x-openapi-router-controller: swagger_server.controllers.login_controller
+  /kategorien:
+    get:
+      tags:
+      - abrufen
+      summary: Kategorien abrufen von API
+      operationId: kategorien_get
+      responses:
+        "200":
+          description: Erfolgreiches Erhalten der API Kategorien
+        "500":
+          description: Fehler beim Abrufen der Kategorien
+      x-openapi-router-controller: swagger_server.controllers.abrufen_controller
+  /events:
+    get:
+      tags:
+      - abrufen
+      summary: Events abrufen (mit optionalen Filtern)
+      operationId: events_get
+      parameters:
+      - name: eventname
+        in: query
+        description: Filtere Events nach Eventnamen
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: kategorie
+        in: query
+        description: Filtere Events nach Kategorie
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: ort
+        in: query
+        description: Filtere Events nach Ort
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: region
+        in: query
+        description: Filtere Events nach Region
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: datum
+        in: query
+        description: Filtere Events nach Datum (Format YYYY-MM-DD)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date
+      responses:
+        "200":
+          description: Erfolgreiche Antwort mit Eventdaten
+        "500":
+          description: Fehler beim Abrufen der Events
+      x-openapi-router-controller: swagger_server.controllers.abrufen_controller
+  /events/{id}:
+    get:
+      tags:
+      - abrufen
+      summary: Details zu einem einzelnen Event abrufen
+      operationId: event_by_id_get
+      parameters:
+      - name: id
+        in: path
+        description: Die ID des Events
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Erfolgreiche Antwort mit Eventdetails
+        "404":
+          description: Event nicht gefunden
+        "500":
+          description: Fehler beim Abrufen des Events
+      x-openapi-router-controller: swagger_server.controllers.abrufen_controller
+  /favoriten:
+    get:
+      tags:
+      - favoriten
+      summary: Favoriten eines Benutzers abrufen
+      operationId: favoriten_get
+      parameters:
+      - name: benutzername
+        in: query
+        description: "Der Benutzer, dessen Favoriten abgerufen werden"
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Liste der Favoriten wurde erfolgreich abgerufen
+        "404":
+          description: Benutzer nicht gefunden
+        "500":
+          description: Fehler beim Abrufen der Favoriten
+      x-openapi-router-controller: swagger_server.controllers.favoriten_controller
+    post:
+      tags:
+      - favoriten
+      summary: Event zu den Favoriten hinzufügen
+      operationId: favoriten_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/favoriten_body"
+        required: true
+      responses:
+        "201":
+          description: Event erfolgreich zu den Favoriten hinzugefügt
+        "400":
+          description: Ungültige Anfrage (z. B. fehlender Parameter)
+        "404":
+          description: Benutzer oder Event nicht gefunden
+        "500":
+          description: Serverfehler beim Hinzufügen zu Favoriten
+      x-openapi-router-controller: swagger_server.controllers.favoriten_controller
+    delete:
+      tags:
+      - favoriten
+      summary: Event aus den Favoriten entfernen
+      operationId: favoriten_delete
+      parameters:
+      - name: benutzername
+        in: query
+        description: "Der Benutzer, dessen Favoriten bearbeitet werden"
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: event_id
+        in: query
+        description: "Die ID des Events, das entfernt werden soll"
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Event wurde erfolgreich aus den Favoriten entfernt
+        "404":
+          description: Benutzer oder Event nicht gefunden
+        "500":
+          description: Fehler beim Entfernen des Events aus den Favoriten
+      x-openapi-router-controller: swagger_server.controllers.favoriten_controller
+components:
+  schemas:
+    user_body:
+      required:
+      - benutzername
+      - passwort
+      type: object
+      properties:
+        benutzername:
+          type: string
+        passwort:
+          type: string
+    reg_body:
+      required:
+      - benutzername
+      - email
+      - passwort
+      type: object
+      properties:
+        benutzername:
+          type: string
+        email:
+          type: string
+        passwort:
+          type: string
+    favoriten_body:
+      required:
+      - benutzername
+      - event_id
+      type: object
+      properties:
+        benutzername:
+          type: string
+        event_id:
+          type: integer
+
