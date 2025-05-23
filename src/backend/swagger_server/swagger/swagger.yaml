@@ -205,6 +205,14 @@ paths:
         "500":
           description: Fehler beim Entfernen des Events aus den Favoriten
       x-openapi-router-controller: swagger_server.controllers.favoriten_controller
+  /eventbrite/events:
+    get:
+      tags:
+        - Eventbrite
+      responses:
+        200:
+          description: Events fetched and stored successfully
+
 components:
   schemas:
     user_body:
