@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 
 import connexion
-
+import sqlite3
 from swagger_server import encoder
 
+
+def init_db():
+    pass
+    
 
 def main():
     app = connexion.App(__name__, specification_dir='./swagger/')
