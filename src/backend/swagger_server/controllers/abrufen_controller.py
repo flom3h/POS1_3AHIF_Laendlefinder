@@ -2,7 +2,7 @@ import connexion
 import six
 
 from swagger_server import util
-
+from swagger_server.__main__ import supabase
 
 def event_by_id_get(id):  # noqa: E501
     """Details zu einem einzelnen Event abrufen
