@@ -209,22 +209,28 @@ components:
   schemas:
     user_body:
       required:
-      - benutzername
+      - firstname
+      - lastname
       - passwort
       type: object
       properties:
-        benutzername:
+        firstname:
+          type: string
+        lastname:
           type: string
         passwort:
           type: string
     reg_body:
       required:
-      - benutzername
+      - firstname
+      - lastname
       - email
       - passwort
       type: object
       properties:
-        benutzername:
+        firstname:
+          type: string
+        lastname:
           type: string
         email:
           type: string
