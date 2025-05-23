@@ -41,7 +41,7 @@ paths:
           description: Benutzer konnte erstellt werden
         "404":
           description: Benutzer konnte nicht erstellt werden
-      x-openapi-router-controller: swagger_server.controllers.login_controller
+      x-openapi-router-controller: swagger_server.controllers.registrieren_controller
   /kategorien:
     get:
       tags:
