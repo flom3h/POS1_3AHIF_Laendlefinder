@@ -14,7 +14,7 @@ class UserBody(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, benutzername: str=None, passwort: str=None):  # noqa: E501
+    def __init__(self, email: str=None, passwort: str=None):  # noqa: E501
         """UserBody - a model defined in Swagger
 
         :param benutzername: The benutzername of this UserBody.  # noqa: E501
@@ -23,15 +23,15 @@ class UserBody(Model):
         :type passwort: str
         """
         self.swagger_types = {
-            'benutzername': str,
+            'email': str,
             'passwort': str
         }
 
         self.attribute_map = {
-            'benutzername': 'benutzername',
+            'email': 'email',
             'passwort': 'passwort'
         }
-        self._benutzername = benutzername
+        self._email = email
         self._passwort = passwort
 
     @classmethod
@@ -46,28 +46,28 @@ class UserBody(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def benutzername(self) -> str:
+    def email(self) -> str:
         """Gets the benutzername of this UserBody.
 
 
         :return: The benutzername of this UserBody.
         :rtype: str
         """
-        return self._benutzername
+        return self._email
 
-    @benutzername.setter
-    def benutzername(self, benutzername: str):
+    @email.setter
+    def email(self, email: str):
         """Sets the benutzername of this UserBody.
 
 
         :param benutzername: The benutzername of this UserBody.
         :type benutzername: str
         """
-        if benutzername is None:
+        if email is None:
             raise ValueError("Invalid value for `benutzername`, must not be `None`")  # noqa: E501
 
-        self._benutzername = benutzername
-
+        self._email = email
+    
     @property
     def passwort(self) -> str:
         """Gets the passwort of this UserBody.
