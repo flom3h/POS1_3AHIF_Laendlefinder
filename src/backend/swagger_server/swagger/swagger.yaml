@@ -205,9 +205,15 @@ paths:
         "500":
           description: Fehler beim Entfernen des Events aus den Favoriten
       x-openapi-router-controller: swagger_server.controllers.favoriten_controller
+      security:
+        - basicAuth: []
   
 
 components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
   schemas:
     user_body:
       required:
