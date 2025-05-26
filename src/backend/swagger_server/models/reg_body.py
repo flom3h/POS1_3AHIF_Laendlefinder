@@ -14,7 +14,7 @@ class RegBody(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, benutzername: str=None, email: str=None, passwort: str=None):  # noqa: E501
+    def __init__(self, firstname: str=None, lastname: str=None, email: str=None, passwort: str=None):  # noqa: E501
         """RegBody - a model defined in Swagger
 
         :param benutzername: The benutzername of this RegBody.  # noqa: E501
@@ -25,17 +25,20 @@ class RegBody(Model):
         :type passwort: str
         """
         self.swagger_types = {
-            'benutzername': str,
+            'firstname': str,
+            'lastname': str,
             'email': str,
             'passwort': str
         }
 
         self.attribute_map = {
-            'benutzername': 'benutzername',
+            'firstname': 'firstname',
+            'lastname': 'lastname',
             'email': 'email',
             'passwort': 'passwort'
         }
-        self._benutzername = benutzername
+        self._firstname = firstname
+        self._lastname = lastname
         self._email = email
         self._passwort = passwort
 
@@ -51,27 +54,50 @@ class RegBody(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def benutzername(self) -> str:
+    def firstname(self) -> str:
         """Gets the benutzername of this RegBody.
 
 
         :return: The benutzername of this RegBody.
         :rtype: str
         """
-        return self._benutzername
+        return self._firstname
 
-    @benutzername.setter
-    def benutzername(self, benutzername: str):
+    @firstname.setter
+    def firstname(self, firstname: str):
         """Sets the benutzername of this RegBody.
 
 
         :param benutzername: The benutzername of this RegBody.
         :type benutzername: str
         """
-        if benutzername is None:
+        if firstname is None:
             raise ValueError("Invalid value for `benutzername`, must not be `None`")  # noqa: E501
 
-        self._benutzername = benutzername
+        self._firstname = firstname
+
+    @property
+    def lastname(self) -> str:
+        """Gets the benutzername of this RegBody.
+
+
+        :return: The benutzername of this RegBody.
+        :rtype: str
+        """
+        return self._lastname
+
+    @lastname.setter
+    def lastname(self, lastname: str):
+        """Sets the benutzername of this RegBody.
+
+
+        :param benutzername: The benutzername of this RegBody.
+        :type benutzername: str
+        """
+        if lastname is None:
+            raise ValueError("Invalid value for `benutzername`, must not be `None`")  # noqa: E501
+
+        self._lastname = lastname
 
     @property
     def email(self) -> str:
