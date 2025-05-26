@@ -17,4 +17,5 @@ def user_login_post(body):  # noqa: E501
     """
     if connexion.request.is_json:
         body = UserBody.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+    
+    

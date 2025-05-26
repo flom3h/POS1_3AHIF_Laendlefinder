@@ -18,11 +18,16 @@ def user_reg_post(body):  # noqa: E501
     if connexion.request.is_json:
         body = RegBody.from_dict(connexion.request.get_json())  # noqa: E501
 
+    exists = supabase.table("User").select("*").eq("email", body.email).execute()
+    if exists.data:
+        return {"message": "User already exists"}, 400
+
     data = {
         "firstname": body.firstname,
         "lastname": body.lastname,
         "email": body.email,
-        "password": body.passwort
+        "password": body.passwort,
+        "isAdmin": False
     }
-    supabase.table("users").insert(data).execute()
-    return {"status": "success"}, 201
+    supabase.table("User").insert(data).execute()
+    return {"message": "success"}, 201
