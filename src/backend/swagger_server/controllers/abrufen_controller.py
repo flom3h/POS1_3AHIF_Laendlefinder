@@ -36,7 +36,22 @@ def events_get(eventname=None, kategorie=None, ort=None, region=None, datum=None
     :rtype: None
     """
     datum = util.deserialize_date(datum)
-    return 'do some magic!'
+    query = supabase.table("Events").select("*")
+
+    if eventname:
+        query = query.ilike("eventname", f"%{eventname}%")
+    if kategorie:
+        query = query.eq("kategorie", kategorie)
+    if ort:
+        query = query.eq("ort", ort)
+    if region:
+        query = query.eq("region", region)
+    if datum:
+        query = query.eq("datum", datum)
+
+    response = query.execute()
+    return response.data
+    
 
 
 def kategorien_get():  # noqa: E501
