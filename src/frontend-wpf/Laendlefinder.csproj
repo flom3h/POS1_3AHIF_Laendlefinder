@@ -8,4 +8,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Classes\" />
+    <Folder Include="Collections\" />
+    <Folder Include="images\" />
+    <Folder Include="UserControlls\" />
+    <Folder Include="Pages\" />
+  </ItemGroup>
+
 </Project>
