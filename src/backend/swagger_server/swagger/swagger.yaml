@@ -217,11 +217,14 @@ components:
   schemas:
     user_body:
       required:
-      - email
+      - firstname
+      - lastname
       - passwort
       type: object
       properties:
-        email:
+        firstname:
+          type: string
+        lastname:
           type: string
         passwort:
           type: string
@@ -251,4 +254,9 @@ components:
           type: string
         event_id:
           type: integer
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Basic Authentication für die API
 

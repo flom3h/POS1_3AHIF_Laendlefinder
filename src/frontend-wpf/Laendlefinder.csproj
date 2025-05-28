@@ -13,7 +13,6 @@
     <Folder Include="Collections\" />
     <Folder Include="images\" />
     <Folder Include="UserControlls\" />
-    <Folder Include="Pages\" />
   </ItemGroup>
 
 </Project>
