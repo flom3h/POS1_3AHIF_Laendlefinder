@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Classes\" />
-    <Folder Include="Collections\" />
     <Folder Include="FontStyles\" />
     <Folder Include="images\" />
     <Folder Include="UserControlls\" />
