@@ -119,3 +119,6 @@ artifacts/
 *.user
 *.userosscache
 *.sln.docstates
+
+# .vs weg
+src/frontend-wpf/.vs
