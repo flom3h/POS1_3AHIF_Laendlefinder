@@ -217,14 +217,11 @@ components:
   schemas:
     user_body:
       required:
-      - firstname
-      - lastname
+      - email
       - passwort
       type: object
       properties:
-        firstname:
-          type: string
-        lastname:
+        email:
           type: string
         passwort:
           type: string

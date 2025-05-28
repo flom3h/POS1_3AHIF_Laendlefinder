@@ -23,11 +23,11 @@ def user_reg_post(body):  # noqa: E501
     if exists.data:
         return {"message": "User existiert bereits"}, 400
 
-    body.passwort = body.passwort.encode('utf-8')
+    raw_password = body.passwort.encode('utf-8')
     salt = bcrypt.gensalt()
-    body.passwort = bcrypt.hashpw(body.passwort, salt)
-    body.passwort = bcrypt.hashpw(body.passwort, salt).decode('utf-8')  # Bytes → String
-
+    hashed_password = bcrypt.hashpw(raw_password, salt)
+    body.passwort = hashed_password.decode('utf-8')  
+    
     data = {
         "firstname": body.firstname,
         "lastname": body.lastname,
