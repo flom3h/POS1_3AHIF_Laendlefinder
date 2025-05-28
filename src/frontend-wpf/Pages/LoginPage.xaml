@@ -1,0 +1,44 @@
+<Page x:Class="Laendlefinder.Pages.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Laendlefinder.Pages"
+      mc:Ignorable="d"
+      Title="LoginPage"
+      Height="450"
+      Width="800">
+
+      <Grid>
+            <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="2*" />
+                  <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+        
+            <StackPanel Background="DarkGreen" Grid.Column="0">
+
+
+                  
+                  <TextBlock 
+                        Text="Was geht ab in Vorararlberg?"
+                        FontSize="40"
+                        Style="{StaticResource OpenSansSemiBold}"
+                  />
+                  
+               
+                  
+                  
+                  
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="30">
+                  <TextBlock Text="Login"
+                             FontSize="28"
+                             FontWeight="Bold"
+                             Margin="0,0,0,20"/>
+                  <TextBox Margin="0,0,0,10"/>
+                  <PasswordBox Margin="0,0,0,20"/>
+                  <Button Content="Login" Background="Green" Foreground="White" Height="40"/>
+            </StackPanel>
+      </Grid>
+</Page>

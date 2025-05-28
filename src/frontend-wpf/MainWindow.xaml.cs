@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Laendlefinder.Pages;
 
 namespace Laendlefinder
 {
@@ -19,6 +20,7 @@ namespace Laendlefinder
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Navigate(new LoginPage());
         }
     }
 }
