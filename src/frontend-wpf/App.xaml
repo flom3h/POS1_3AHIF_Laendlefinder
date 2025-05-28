@@ -4,6 +4,22 @@
              xmlns:local="clr-namespace:Laendlefinder"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="OpenSansBold">
+            <Setter Property="TextElement.FontFamily"
+                    Value="./Fonts/#Open Sans Bold">
+            </Setter>
+        </Style>
+        
+        <Style x:Key="OpenSansSemiBold">
+            <Setter Property="TextElement.FontFamily"
+                    Value="./Fonts/#Open Sans Semi Bold">
+            </Setter>
+        </Style>
+        
+        <Style x:Key="OpenSansExtra">
+            <Setter Property="TextElement.FontFamily"
+                    Value="./Fonts/#Open Sans Extra Bold">
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

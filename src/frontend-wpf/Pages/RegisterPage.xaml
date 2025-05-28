@@ -7,6 +7,33 @@
       mc:Ignorable="d"
       Title="RegisterPage" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.ColumnSpan="2" Fill="#134611"/>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Grid.Column="1" Fill="#FFF"/>
+        </Grid>
+        <Rectangle Grid.Column="1" Fill="#FFF" RadiusX="40" RadiusY="40"/>
+        <StackPanel Grid.Column="0" Height="50px" VerticalAlignment="Top" Orientation="Horizontal">
+            <Label Grid.Column="0" Content="Ländlefinder" Foreground="#E8FCCF" Margin="15,0,0,0" VerticalAlignment="Center"></Label>
+        </StackPanel>
         
+        <TextBlock Grid.Column="0" Width="20px" Height="50px" HorizontalAlignment="Left" Margin="30, 0,0,0" Foreground="White" Text="Entdecke mit Ländlefinder alle brandheißen Events in Vorarlberg."></TextBlock>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Account erstellen" FontSize="24" HorizontalAlignment="Left" FontWeight="Bold" Margin="0,0,0,20"/>
+            <TextBox Width="200" Margin="0,0,0,10"/>
+            <PasswordBox Width="200" Margin="0,0,0,10" />
+            <Button Content="Registrieren" Width="200"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <TextBlock Text="Bereits registriert?" HorizontalAlignment="Center" Margin="0,1,82,0"/>
+                <Button Content="Ja!" Width="20"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
