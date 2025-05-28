@@ -24,7 +24,8 @@
             <Label Grid.Column="0" Content="Ländlefinder" Foreground="#E8FCCF" Margin="15,0,0,0" VerticalAlignment="Center"></Label>
         </StackPanel>
         
-        <TextBlock Grid.Column="0" Width="20px" Height="50px" HorizontalAlignment="Left" Margin="30, 0,0,0" Foreground="White" Text="Entdecke mit Ländlefinder alle brandheißen Events in Vorarlberg."></TextBlock>
+        <Label Grid.Column="0" Width="200px" Height="50px" HorizontalAlignment="Left" Margin="30, 0,0,0" Foreground="White" Content="Entdecke mit Ländlefinder alle brandheißen Events in Vorarlberg."></Label>
+
         <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Account erstellen" FontSize="24" HorizontalAlignment="Left" FontWeight="Bold" Margin="0,0,0,20"/>
             <TextBox Width="200" Margin="0,0,0,10"/>
