@@ -16,13 +16,19 @@
             </Grid.ColumnDefinitions>
         
             <StackPanel Background="DarkGreen" Grid.Column="0">
-                  <TextBlock Text="Ländlefinder"
-                             Foreground="White"
-                             FontSize="24"
-                             FontFamily="pack://application:,,,/FontStyles/OpenSans-Italic.ttf#Open Sans Italic"
 
-                             Margin="20"/>
-            
+
+                  
+                  <TextBlock 
+                        Text="Was geht ab in Vorararlberg?"
+                        FontSize="40"
+                        Style="{StaticResource OpenSansSemiBold}"
+                  />
+                  
+               
+                  
+                  
+                  
             </StackPanel>
 
             <StackPanel Grid.Column="1" Margin="30">
