@@ -11,8 +11,28 @@
   <ItemGroup>
     <Folder Include="Classes\" />
     <Folder Include="Collections\" />
+    <Folder Include="FontStyles\" />
     <Folder Include="images\" />
     <Folder Include="UserControlls\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="FontStyles\static\OpenSans-Bold.ttf" />
+    <None Remove="FontStyles\static\OpenSans-BoldItalic.ttf" />
+    <None Remove="FontStyles\static\OpenSans-ExtraBold.ttf" />
+    <None Remove="FontStyles\static\OpenSans_Condensed-Light.ttf" />
+    <None Remove="FontStyles\static\OpenSans-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="FontStyles\static\OpenSans-ExtraBoldItalic.ttf" />
+    <AdditionalFiles Include="FontStyles\static\OpenSans-ExtraBoldItalic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AdditionalFiles>
+    <None Remove="FontStyles\static\OpenSans-Italic.ttf" />
+    <Resource Include="FontStyles\static\OpenSans-Italic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
