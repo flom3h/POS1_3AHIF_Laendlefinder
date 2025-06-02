@@ -74,9 +74,10 @@
         </Style>
         
         <Style TargetType="Button" x:Key="EyeButtonStyle">
-            <Setter Property="Width" Value="20"/>
-            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="35"/>
+            <Setter Property="Height" Value="34"/>
             <Setter Property="Content" Value="👁"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
         </Style>

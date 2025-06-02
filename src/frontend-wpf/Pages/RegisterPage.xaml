@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Laendlefinder.Pages"
       mc:Ignorable="d"
-      Title="Registrieren" Height="500" Width="1000">
+      Title="Registrieren">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -24,29 +24,41 @@
             <Label Grid.Column="0" Content="Ländlefinder" FontWeight="ExtraBold" FontSize="20px" Foreground="#E8FCCF" Margin="15,0,0,0" VerticalAlignment="Center"></Label>
         </StackPanel>
         
-        <Label Grid.Column="0" Height="250" HorizontalAlignment="Left" Margin="15, 0,0,0" FontSize="28" Foreground="White">
+        <Label Grid.Column="0" Height="250" HorizontalAlignment="Left" Margin="15, 0,0,0" FontSize="32" Foreground="White">
             <TextBlock FontWeight="Medium" Text="Entdecke mit Ländlefinder alle brandheißen Events in Vorarlberg." TextWrapping="Wrap"/>
         </Label>
 
-        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Account erstellen" FontSize="24" HorizontalAlignment="Left" Foreground="#134611" FontWeight="Bold" Margin="0,0,0,20"/>
-            <Label Content="Vorname" Margin="0" Padding="0" FontSize="15"/>
-            <TextBox x:Name="SnBox" FontSize="15" Width="300" Height="30px" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
-            <Label Content="Nachname" Margin="0" Padding="0" FontSize="15"/>
-            <TextBox x:Name="LnBox" FontSize="15" Width="300" Height="30px" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
-            <Label Content="E-Mail" Margin="0" Padding="0" FontSize="15"/>
-            <TextBox x:Name="MailBox" FontSize="15" Width="300" Height="30px" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
-            <Label Content="Passwort" Margin="0" Padding="0" FontSize="15"/>
+        <StackPanel Grid.Column="1" Width="500px" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Account erstellen" FontSize="32" HorizontalAlignment="Left" Foreground="#134611" FontWeight="Bold" Margin="0,0,0,20"/>
+            <Label Content="Vorname" Margin="0" Padding="0" FontSize="20"/>
             <Grid>
-                <TextBox x:Name="PlainPasswordBox" FontSize="15" Width="300" Height="30px" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
-                <PasswordBox x:Name="PasswordBox" FontSize="15" Width="300" Height="30px" Margin="0,0,0,10" Style="{StaticResource LoginRegisterPasswordBox}"/>
+                <TextBox x:Name="SnBox" TextChanged="SnBox_OnTextChanged" FontSize="25" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
+                <Label x:Name="PlaceholderSn" IsHitTestVisible="False" FontSize="25" Padding="0" Content="Gib hier deinen Vornamen ein..." Foreground="Gray"/>
+            </Grid>
+            <Label Content="Nachname" Margin="0" Padding="0" FontSize="20"/>
+            <Grid>
+                <TextBox x:Name="LnBox" FontSize="25" TextChanged="LnBox_OnTextChanged" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
+                <Label x:Name="PlaceholderLn" IsHitTestVisible="False" FontSize="25" Padding="0" Content="Gib hier deinen Nachnamen ein..." Foreground="Gray"/>
+            </Grid>
+            <Label Content="E-Mail" Margin="0" Padding="0" FontSize="20"/>
+            <Grid>
+                <TextBox x:Name="MailBox" TextChanged="MailBox_OnTextChanged" FontSize="25" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
+                <Label x:Name="PlaceholderMail" IsHitTestVisible="False" FontSize="25" Padding="0" Content="Gib hier deine E-Mail ein..." Foreground="Gray"/>
+            </Grid>
+            <Label Content="Passwort" Margin="0" Padding="0" FontSize="20"/>
+            <Grid>
+                <Grid>
+                    <TextBox x:Name="PlainPasswordBox" FontSize="25" TextChanged="PlainPasswordBox_OnTextChanged" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
+                    <PasswordBox x:Name="PasswordBox" FontSize="25" PasswordChanged="PasswordBox_OnPasswordChanged" Margin="0,0,0,10" Style="{StaticResource LoginRegisterPasswordBox}"/>
+                    <Label x:Name="PlaceholderPassword" IsHitTestVisible="False" FontSize="25" Padding="0" Content="Gib hier dein Passwort ein..." Foreground="Gray"/>
+                </Grid>
                 <Button Style="{StaticResource EyeButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ChangePasswordVisibility_Click"/>
             </Grid>
             
-            <Button Content="Account erstellen" Width="300" Height="30px" Style="{StaticResource LoginRegisterButton}" Click="RegButton_Click"/>
+            <Button Content="Account erstellen" FontSize="20" Height="35px" Style="{StaticResource LoginRegisterButton}" Click="RegButton_Click"/>
             <StackPanel Orientation="Horizontal"  Margin="0,10,0,0" >
-                <TextBlock Text="Bereits registriert?" Foreground="#636363"/>
-                <Button Content="Ja!" Width="30" Foreground="#134611">
+                <TextBlock Text="Bereits registriert?" FontSize="15" Foreground="#636363"/>
+                <Button Content="Ja!" Width="30" FontSize="15" Foreground="#134611">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="Transparent"/>
