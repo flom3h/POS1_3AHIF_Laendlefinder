@@ -5,8 +5,33 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Laendlefinder.Pages"
       mc:Ignorable="d"
-      Title="CalendarPge" Height="450" Width="800">
+      Title="CalendarPage">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Background="#f0f0f0" Width="120">
+            <Button Content="Icon" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+            <Button Content="Home" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+            <Button Content="Entdecken" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+            <Button Content="Kalender" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+            <Button Content="Favoriten" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+            <Button Content="Map" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+            <Button Content="Profil" Margin="10, 80, 10, 10" Padding="10" HorizontalAlignment="Stretch"/>
+        </StackPanel>
+
+
+
+        <StackPanel Grid.Column="1" Margin="20,10,20,0">
+            <TextBlock Text="Deine Events im Überblick" 
+                       FontSize="24" FontWeight="Bold" 
+                       Margin="0,0,0,20" 
+                       HorizontalAlignment="Left"/>
+            <Border Background="White" CornerRadius="10" Padding="20" Width="400" HorizontalAlignment="Center">
+                <Calendar />
+            </Border>
+        </StackPanel>
     </Grid>
+
 </Page>
