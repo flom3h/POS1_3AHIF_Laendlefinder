@@ -21,6 +21,15 @@ namespace Laendlefinder
         {
             InitializeComponent();
             MainFrame.Navigate(new LoginPage());
+            LoginPage.LoginButtonClickedNavHome += DisplayHome;
+    
+        }
+        
+        private void DisplayHome (object sender, System.EventArgs e)
+        {
+            MainPage mainPage = new MainPage();
+            MainFrame.Navigate(mainPage);
+            
         }
     }
 }
