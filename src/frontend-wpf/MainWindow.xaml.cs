@@ -29,6 +29,7 @@ namespace Laendlefinder
         {
             MainPage mainPage = new MainPage();
             MainFrame.Navigate(mainPage);
+            
         }
     }
 }
