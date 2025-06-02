@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Classes\" />
     <Folder Include="FontStyles\" />
     <Folder Include="images\" />
     <Folder Include="UserControlls\" />
