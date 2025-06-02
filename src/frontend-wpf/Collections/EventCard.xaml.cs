@@ -1,11 +1,19 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
-namespace Laendlefinder.Collections;
-
-public partial class EventCard : UserControl
+namespace Laendlefinder.Collections
 {
-    public EventCard()
+    public partial class EventCard : UserControl
     {
-        InitializeComponent();
+        public EventCard()
+        {
+            InitializeComponent();
+        }
+
+        private void Favbutton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Placeholder");
+        }
+        
     }
 }

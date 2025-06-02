@@ -4,9 +4,25 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Laendlefinder.Pages"
+      xmlns:mapsui="clr-namespace:Mapsui.UI.Wpf;assembly=Mapsui.UI.Wpf"
       mc:Ignorable="d"
-      Title="MapPage" Height="450" Width="800">
+      Title="MapPage">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Column="0" Background="#f0f0f0" Width="120">
+            <Button Content="Icon" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+            <Button Content="Home" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+            <Button Content="Entdecken" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+            <Button Content="Kalender" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+            <Button Content="Favoriten" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+            <Button Content="Map" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+            <Button Content="Profil" Margin="10, 80, 10, 10" Padding="10" HorizontalAlignment="Stretch"/>
+        </StackPanel>
+        <mapsui:MapControl x:Name="MapView" Grid.Column="1"/>
         
     </Grid>
 </Page>
