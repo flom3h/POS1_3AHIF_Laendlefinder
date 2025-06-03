@@ -58,7 +58,7 @@
             <Button Content="Account erstellen" FontSize="20" Height="35px" Style="{StaticResource LoginRegisterButton}" Click="RegButton_Click"/>
             <StackPanel Orientation="Horizontal"  Margin="0,10,0,0" >
                 <TextBlock Text="Bereits registriert?" FontSize="15" Foreground="#636363"/>
-                <Button Content="Ja!" Width="30" FontSize="15" Foreground="#134611">
+                <Button Content="Ja!" Width="30" FontSize="15" Click="YesLoginButton_Click" Foreground="#134611">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="Transparent"/>

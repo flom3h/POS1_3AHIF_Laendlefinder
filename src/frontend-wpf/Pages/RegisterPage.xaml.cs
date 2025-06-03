@@ -61,4 +61,9 @@ public partial class RegisterPage : Page
     {
         PlaceholderPassword.Visibility = string.IsNullOrEmpty(PasswordBox.Password) ? Visibility.Visible : Visibility.Collapsed;
     }
+
+    private void YesLoginButton_Click(object sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
 }
