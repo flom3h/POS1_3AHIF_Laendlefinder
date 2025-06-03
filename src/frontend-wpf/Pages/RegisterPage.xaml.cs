@@ -7,6 +7,8 @@ namespace Laendlefinder.Pages;
 public partial class RegisterPage : Page
 {
     private bool passwordVisible = false;
+
+    public static event EventHandler LoginButtonClickedNavLogin;
     public RegisterPage()
     {
         InitializeComponent();
@@ -64,6 +66,6 @@ public partial class RegisterPage : Page
 
     private void YesLoginButton_Click(object sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        LoginButtonClickedNavLogin?.Invoke(this, EventArgs.Empty);
     }
 }

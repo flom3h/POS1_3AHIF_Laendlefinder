@@ -13,6 +13,7 @@ public partial class LoginPage : Page
 {
     private bool passwordVisible = false;
     public static event EventHandler LoginButtonClickedNavHome;
+    public static event EventHandler LoginButtonClickedNavRegister;
     public LoginPage()
     {
         InitializeComponent();
@@ -83,4 +84,8 @@ public partial class LoginPage : Page
         }
     }
 
+    private void NavToRegisterPage(object sender, RoutedEventArgs e)
+    {
+        LoginButtonClickedNavRegister?.Invoke(this, EventArgs.Empty);
+    }
 }
