@@ -67,6 +67,7 @@ public partial class LoginPage : Page
                 HttpResponseMessage response = await client.PostAsync("/login", content);
 
                 string responseString = await response.Content.ReadAsStringAsync();
+                string message = JsonDocument.Parse(responseString).RootElement.GetProperty("message").GetString();
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -74,7 +75,7 @@ public partial class LoginPage : Page
                 }
                 else
                 {
-                    MessageBox.Show("Login fehlgeschlagen: " + responseString);
+                    MessageBox.Show("Login fehlgeschlagen: " + message);
                 }
             }
             catch (Exception ex)

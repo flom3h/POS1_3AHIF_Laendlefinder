@@ -88,6 +88,7 @@ public partial class RegisterPage : Page
                 HttpResponseMessage response = await client.PostAsync("/registrieren", content);
 
                 string responseString = await response.Content.ReadAsStringAsync();
+                string message = JsonDocument.Parse(responseString).RootElement.GetProperty("message").GetString();
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -95,7 +96,7 @@ public partial class RegisterPage : Page
                 }
                 else
                 {
-                    MessageBox.Show("Registrierung fehlgeschlagen: " + responseString);
+                    MessageBox.Show("Registrierung fehlgeschlagen: " + message);
                 }
             }
             catch (Exception ex)
