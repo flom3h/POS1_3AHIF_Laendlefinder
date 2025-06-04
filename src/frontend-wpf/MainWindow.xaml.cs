@@ -25,6 +25,7 @@ namespace Laendlefinder
             LoginPage.LoginButtonClickedNavRegister += DisplayRegister;
 
             RegisterPage.LoginButtonClickedNavLogin += DisplayLogin;
+            RegisterPage.LoginButtonClickedNavHome += DisplayHome;
         }
         
         private void DisplayHome (object sender, System.EventArgs e)

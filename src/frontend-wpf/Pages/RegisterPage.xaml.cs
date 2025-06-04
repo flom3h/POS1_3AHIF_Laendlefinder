@@ -67,7 +67,7 @@ public partial class RegisterPage : Page
             MessageBox.Show("Das Passwort muss mindestens 8 Zeichen lang sein.");
             return;
         }
-        /*
+        
         var regData = new RegRequest()
         {
             firstname = sn,
@@ -85,7 +85,7 @@ public partial class RegisterPage : Page
                 string json = JsonSerializer.Serialize(regData);
                 HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                HttpResponseMessage response = await client.PostAsync("/register", content);
+                HttpResponseMessage response = await client.PostAsync("/registrieren", content);
 
                 string responseString = await response.Content.ReadAsStringAsync();
 
@@ -95,14 +95,14 @@ public partial class RegisterPage : Page
                 }
                 else
                 {
-                    MessageBox.Show("Login fehlgeschlagen: " + responseString);
+                    MessageBox.Show("Registrierung fehlgeschlagen: " + responseString);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Fehler beim Login: " + ex.Message);
+                MessageBox.Show("Fehler beim Registrieren: " + ex.Message);
             }
-        }*/
+        }
     }
 
     private void SnBox_OnTextChanged(object sender, TextChangedEventArgs e)
