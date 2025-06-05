@@ -20,11 +20,8 @@ namespace Laendlefinder
         public MainWindow()
         {
             InitializeComponent();
-<<<<<<< Updated upstream
             MainFrame.Navigate(new RegisterPage());
-=======
             MainFrame.Navigate(new CalendarPage());
->>>>>>> Stashed changes
             LoginPage.LoginButtonClickedNavHome += DisplayHome;
             LoginPage.LoginButtonClickedNavRegister += DisplayRegister;
 
