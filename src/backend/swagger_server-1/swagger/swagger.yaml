@@ -131,17 +131,17 @@ paths:
         "500":
           description: Fehler beim Abrufen des Events
       x-openapi-router-controller: swagger_server.controllers.abrufen_controller
-  /events/import:
-    post:
+  /events/fetch:
+    get:
       tags:
       - abrufen
-      summary: Importiert Events von der externen API in die Datenbank
-      operationId: events_import_post
+      summary: Alle Events abrufen
+      operationId: fetch_all_events_get
       responses:
-        "201":
-          description: Events erfolgreich importiert
+        "200":
+          description: Erfolgreiche Antwort mit allen Eventdaten
         "500":
-          description: Fehler beim Importieren der Events
+          description: Fehler beim Abrufen der Events
       x-openapi-router-controller: swagger_server.controllers.abrufen_controller
   /favoriten:
     get:
@@ -220,7 +220,6 @@ paths:
       security:
         - basicAuth: []
   
-
 components:
   securitySchemes:
     basicAuth:
@@ -268,4 +267,3 @@ components:
       type: http
       scheme: basic
       description: Basic Authentication für die API
-

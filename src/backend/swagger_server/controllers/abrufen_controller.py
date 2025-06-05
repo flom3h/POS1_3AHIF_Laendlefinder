@@ -18,36 +18,33 @@ def event_by_id_get(id):  # noqa: E501
 
 
 def events_get(eventname=None, kategorie=None, ort=None, region=None, datum=None):  # noqa: E501
-    """Events abrufen (mit optionalen Filtern)
-
-     # noqa: E501
-
-    :param eventname: Filtere Events nach Eventnamen
-    :type eventname: str
-    :param kategorie: Filtere Events nach Kategorie
-    :type kategorie: str
-    :param ort: Filtere Events nach Ort
-    :type ort: str
-    :param region: Filtere Events nach Region
-    :type region: str
-    :param datum: Filtere Events nach Datum (Format YYYY-MM-DD)
-    :type datum: str
-
-    :rtype: None
-    """
-    datum = util.deserialize_date(datum)
     query = supabase.table("Events").select("*")
 
     if eventname:
-        query = query.ilike("eventname", f"%{eventname}%")
-    if kategorie:
-        query = query.eq("kategorie", kategorie)
-    if ort:
-        query = query.eq("ort", ort)
-    if region:
-        query = query.eq("region", region)
+        query = query.ilike("name", f"%{eventname}%")
     if datum:
-        query = query.eq("datum", datum)
+        query = query.eq("date", datum)
+    if kategorie:
+        # Hole type_id aus Type-Tabelle
+        type_resp = supabase.table("Type").select("tid").eq("type", kategorie).execute()
+        if type_resp.data:
+            type_id = type_resp.data[0]["tid"]
+            query = query.eq("type", type_id)
+        else:
+            return []
+    # Für ort/region: Hole alle passenden Event-IDs aus Location und filtere dann
+    if ort or region:
+        loc_query = supabase.table("Location").select("lid, address, name")
+        if ort:
+            loc_query = loc_query.ilike("address", f"%{ort}%")
+        if region:
+            loc_query = loc_query.ilike("address", f"%{region}%")
+        loc_resp = loc_query.execute()
+        lids = [loc["lid"] for loc in loc_resp.data]
+        if lids:
+            query = query.in_("eid", lids)
+        else:
+            return []
 
     response = query.execute()
     return response.data
@@ -63,3 +60,16 @@ def kategorien_get():  # noqa: E501
     :rtype: None
     """
     return 'do some magic!'
+
+from swagger_server.services.event_fetcher import fetch_and_store_events
+
+def events_import_post():  # noqa: E501
+    """Importiert Events von der externen API und speichert sie in der Datenbank
+
+    :rtype: None
+    """
+    try:
+        events = fetch_and_store_events()
+        return {"message": f"{len(events)} Events importiert."}, 201
+    except Exception as e:
+        return {"error": str(e)}, 500
