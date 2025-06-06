@@ -4,9 +4,73 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Laendlefinder.Pages"
+      xmlns:svg="http://sharpvectors.codeplex.com/runtime/"
+      xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
       mc:Ignorable="d"
-      Title="ExplorePage" Height="450" Width="800">
+      Title="ExplorePage">
+    <Page.Resources>
+        <!-- Sidebar Button Style -->
+        <Style x:Key="SidebarButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Margin" Value="10,5"/>
+        </Style>
+
+        <!-- Sidebar Background -->
+        <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="#2C2C2C"/>
+    </Page.Resources>
+    
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.RowSpan="2" Grid.Column="0" Background="{StaticResource SidebarBackgroundBrush}" Width="140">
+            <!-- SVG Icon Button -->
+            <Button Background="Transparent" BorderThickness="0" Margin="0,20,0,20" HorizontalAlignment="Center">
+                <!-- SVG Icon gelöscht bei mir gibt es da probleme -->
+            </Button>
+
+            <!-- Navigation Buttons -->
+            <Button Content="Home" Style="{StaticResource SidebarButtonStyle}"/>
+            <Button Content="Entdecken" Style="{StaticResource SidebarButtonStyle}"/>
+            <Button Content="Kalender" Style="{StaticResource SidebarButtonStyle}"/>
+            <Button Content="Favoriten" Style="{StaticResource SidebarButtonStyle}"/>
+            <Button Content="Map" Style="{StaticResource SidebarButtonStyle}"/>
+
+            <!-- Bottom Spacer -->
+            <StackPanel VerticalAlignment="Bottom" Margin="0,40,0,0">
+                <Button Content="Profil" Style="{StaticResource SidebarButtonStyle}"/>
+            </StackPanel>
+        </StackPanel>
+        <Label Grid.Column="1" Content="Was gibt es heute?" VerticalContentAlignment="Center" Margin="15,0,0,0" HorizontalAlignment="Left" FontSize="26" FontWeight="Bold"/>
+        <ComboBox Grid.Column="2" HorizontalAlignment="Right" Width="200px" FontSize="26"/>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Orientation="Horizontal">
+            <RadioButton Content="Heute" GroupName="RadioTimeGroup" Margin="20,0,0,0"/>
+            <RadioButton Content="Morgen" GroupName="RadioTimeGroup" Margin="15,0,0,0"/>
+            <RadioButton Content="Dieses Wochenende" GroupName="RadioTimeGroup" Margin="15,0,0,0"/>
+            <RadioButton Content="Datum auswählen" GroupName="RadioTimeGroup" Margin="15,0,0,0"/>
+        </StackPanel>
         
     </Grid>
 </Page>
