@@ -1,9 +1,9 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Laendlefinder.Pages;
 
-public partial class ExplorePage : Page
+public partial class FavoritesPage : Page
 {
     public static event EventHandler HomeButtonClickedNavHome;
     public static event EventHandler ExploreButtonClickedNavExplore;
@@ -11,11 +11,12 @@ public partial class ExplorePage : Page
     public static event EventHandler FavsButtonClickedNavFavs;
     public static event EventHandler MapButtonClickedNavMap;
     public static event EventHandler ProfileButtonClickedNavProfile;
-    public ExplorePage()
+    
+    public FavoritesPage()
     {
         InitializeComponent();
     }
-
+    
     private void HomeButton_Click(object sender, RoutedEventArgs e)
     {
         HomeButtonClickedNavHome?.Invoke(this, EventArgs.Empty);

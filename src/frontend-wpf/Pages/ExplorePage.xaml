@@ -9,6 +9,9 @@
       mc:Ignorable="d"
       Title="ExplorePage">
     <Page.Resources>
+        <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
         <!-- Sidebar Button Style -->
         <Style x:Key="SidebarButtonStyle" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
@@ -42,29 +45,33 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.RowSpan="2" Grid.Column="0" Background="{StaticResource SidebarBackgroundBrush}" Width="140">
+        <StackPanel Grid.RowSpan="2" HorizontalAlignment="Left" Grid.Column="0" Background="{StaticResource SidebarBackgroundBrush}" Width="140">
             <!-- SVG Icon Button -->
             <Button Background="Transparent" BorderThickness="0" Margin="0,20,0,20" HorizontalAlignment="Center">
-                <!-- SVG Icon gelöscht bei mir gibt es da probleme -->
+                <svgc:SvgViewbox Width="36" Height="36"
+                                 Source="/Assets/Kalender.svg"
+                                 Stretch="Uniform"/>
             </Button>
 
             <!-- Navigation Buttons -->
-            <Button Content="Home" Style="{StaticResource SidebarButtonStyle}"/>
-            <Button Content="Entdecken" Style="{StaticResource SidebarButtonStyle}"/>
-            <Button Content="Kalender" Style="{StaticResource SidebarButtonStyle}"/>
-            <Button Content="Favoriten" Style="{StaticResource SidebarButtonStyle}"/>
-            <Button Content="Map" Style="{StaticResource SidebarButtonStyle}"/>
+            <Button Content="Home" Click="HomeButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+            <Button Content="Entdecken" Click="ExploreButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+            <Button Content="Kalender" Click="CalndarButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+            <Button Content="Favoriten" Click="FavsButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+            <Button Content="Map" Click="MapButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
 
             <!-- Bottom Spacer -->
             <StackPanel VerticalAlignment="Bottom" Margin="0,40,0,0">
-                <Button Content="Profil" Style="{StaticResource SidebarButtonStyle}"/>
+                <Button Content="Profil" Click="ProfileButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
             </StackPanel>
         </StackPanel>
         <Label Grid.Column="1" Content="Was gibt es heute?" VerticalContentAlignment="Center" Margin="15,0,0,0" HorizontalAlignment="Left" FontSize="26" FontWeight="Bold"/>
-        <ComboBox Grid.Column="2" HorizontalAlignment="Right" Width="200px" FontSize="26"/>
+        <ComboBox Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource ComboBoxStyle}" MinWidth="150" Margin="0,0,15,0" FontSize="17">
+            <ComboBoxItem Content="Keine Region" IsSelected="True"/>
+        </ComboBox>
         <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Orientation="Horizontal">
             <RadioButton Content="Heute" GroupName="RadioTimeGroup" Margin="20,0,0,0"/>
             <RadioButton Content="Morgen" GroupName="RadioTimeGroup" Margin="15,0,0,0"/>

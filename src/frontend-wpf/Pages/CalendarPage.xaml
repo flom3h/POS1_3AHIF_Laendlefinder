@@ -74,8 +74,10 @@
 
             <Border Background="White" CornerRadius="8"
                     Padding="10" Width="360"
-                    HorizontalAlignment="Center"
-                    Effect="{DynamicResource {x:Static SystemParameters.DropShadowKey}}">
+                    HorizontalAlignment="Center">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.2"/>
+                </Border.Effect>
                 <Calendar BorderThickness="0"
                           FontSize="14"
                           HorizontalAlignment="Center"
