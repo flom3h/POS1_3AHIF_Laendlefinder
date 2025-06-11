@@ -1,8 +1,6 @@
 import connexion
 import six
-import requests
-import json
-from datetime import datetime
+
 from swagger_server import util
 from swagger_server.__main__ import supabase
 
@@ -20,55 +18,58 @@ def event_by_id_get(id):  # noqa: E501
 
 
 def events_get(eventname=None, kategorie=None, ort=None, region=None, datum=None):  # noqa: E501
-    """Events abrufen (mit optionalen Filtern)
+    query = supabase.table("Events").select("*")
+
+    if eventname:
+        query = query.ilike("name", f"%{eventname}%")
+    if datum:
+        query = query.eq("date", datum)
+    if kategorie:
+        # Hole type_id aus Type-Tabelle
+        type_resp = supabase.table("Type").select("tid").eq("type", kategorie).execute()
+        if type_resp.data:
+            type_id = type_resp.data[0]["tid"]
+            query = query.eq("type", type_id)
+        else:
+            return []
+    # Für ort/region: Hole alle passenden Event-IDs aus Location und filtere dann
+    if ort or region:
+        loc_query = supabase.table("Location").select("lid, address, name")
+        if ort:
+            loc_query = loc_query.ilike("address", f"%{ort}%")
+        if region:
+            loc_query = loc_query.ilike("address", f"%{region}%")
+        loc_resp = loc_query.execute()
+        lids = [loc["lid"] for loc in loc_resp.data]
+        if lids:
+            query = query.in_("eid", lids)
+        else:
+            return []
+
+    response = query.execute()
+    return response.data
+    
+
+
+def kategorien_get():  # noqa: E501
+    """Kategorien abrufen von API
 
      # noqa: E501
 
-    :param eventname: Filtere Events nach Eventnamen
-    :type eventname: str
-    :param kategorie: Filtere Events nach Kategorie
-    :type kategorie: str
-    :param ort: Filtere Events nach Ort
-    :type ort: str
-    :param region: Filtere Events nach Region
-    :type region: str
-    :param datum: Filtere Events nach Datum (Format YYYY-MM-DD)
-    :type datum: str
 
     :rtype: None
     """
-    
+    return 'do some magic!'
 
-def kategorien_get():  # noqa: E501
-    """Kategorien abrufen von API"""
+from swagger_server.services.event_fetcher import fetch_and_store_events
 
-    url = "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/caa60bb5-9885-4595-ba88-3fe898ba08eb/concepts"
-    params = {
-        "token": "9c0bfbfad78d3b4d25bfa70b47497d9c",
-        "language": "de"
-    }
+def events_import_post():  # noqa: E501
+    """Importiert Events von der externen API und speichert sie in der Datenbank
 
+    :rtype: None
+    """
     try:
-        
-        antwort = requests.get(url, params=params)
-
-        # Prüfen, ob die Antwort einen HTTP-Fehlercode enthält (z. B. 404, 500)
-        antwort.raise_for_status()
-
-        # Die Antwort als JSON-Daten (also als Python-Dictionary) interpretieren
-        daten = antwort.json()
-
-        # Gelöst mit chatgpt
-        # Eine Liste von Kategorien erstellen: Aus jedem Eintrag im "@graph"-Feld
-        # wird der Wert des Schlüssels "skos:prefLabel" entnommen, falls vorhanden.
-        # Falls der Schlüssel fehlt, wird "Unbenannt" als Standardwert verwendet.
-        kategorien_liste = []
-        for eintrag in daten.get("@graph", []):
-            bezeichnung = eintrag.get("skos:prefLabel", "Unbenannt")
-            kategorien_liste.append(bezeichnung)
-
-        return kategorien_liste
-
-    except requests.RequestException as fehler:
-        # Wenn ein Fehler bei der Anfrage auftritt, gib ein Dictionary mit der Fehlermeldung zurück
-        return {"fehler": str(fehler)}
+        events = fetch_and_store_events()
+        return {"message": f"{len(events)} Events importiert."}, 201
+    except Exception as e:
+        return {"error": str(e)}, 500

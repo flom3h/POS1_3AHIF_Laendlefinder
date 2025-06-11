@@ -11,7 +11,6 @@
   <ItemGroup>
     <Folder Include="FontStyles\" />
     <Folder Include="images\" />
-    <Folder Include="UserControlls\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +35,9 @@
   <ItemGroup>
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.7.25104.5739" />
     <PackageReference Include="Mapsui3.UI.Wpf" Version="3.0.0-alpha.3" />
+    <PackageReference Include="PresentationFramework" Version="4.6.0" />
+    <PackageReference Include="PresentationFramework.Aero2" Version="1.0.1" />
+    <PackageReference Include="SharpVectors.Wpf" Version="1.8.4.2" />
     <PackageReference Include="SkiaSharp.Views.WPF" Version="3.119.0" />
   </ItemGroup>
 

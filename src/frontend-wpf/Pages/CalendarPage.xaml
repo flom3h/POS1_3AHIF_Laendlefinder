@@ -4,34 +4,85 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Laendlefinder.Pages"
+      xmlns:svg="http://sharpvectors.codeplex.com/runtime/"
+      xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
       mc:Ignorable="d"
       Title="CalendarPage">
-    <Grid>
+
+    <Page.Resources>
+        <!-- Sidebar Button Style -->
+        <Style x:Key="SidebarButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Margin" Value="10,5"/>
+        </Style>
+
+        <!-- Sidebar Background -->
+        <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="#2C2C2C"/>
+    </Page.Resources>
+
+    <Grid Background="#F3F3F3">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="140"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Background="#f0f0f0" Width="120">
-            <Button Content="Icon" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Home" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Entdecken" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Kalender" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Favoriten" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Map" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Profil" Margin="10, 80, 10, 10" Padding="10" HorizontalAlignment="Stretch"/>
+
+        <!-- Sidebar -->
+        <StackPanel Grid.Column="0" Background="{StaticResource SidebarBackgroundBrush}" Width="140">
+            <!-- SVG Icon Button -->
+            <Button Background="Transparent" BorderThickness="0" Margin="0,20,0,20" HorizontalAlignment="Center">
+                <svgc:SvgViewbox Width="36" Height="36"
+                                Source="/Assets/Kalender.svg"
+                                Stretch="Uniform"/>
+            </Button>
+
+            <!-- Navigation Buttons -->
+            <Button Content="Home" Style="{StaticResource SidebarButtonStyle}"/>
+            <Button Content="Entdecken" Style="{StaticResource SidebarButtonStyle}"/>
+            <Button Content="Kalender" Style="{StaticResource SidebarButtonStyle}"/>
+            <Button Content="Favoriten" Style="{StaticResource SidebarButtonStyle}"/>
+            <Button Content="Map" Style="{StaticResource SidebarButtonStyle}"/>
+
+            <!-- Bottom Spacer -->
+            <StackPanel VerticalAlignment="Bottom" Margin="0,40,0,0">
+                <Button Content="Profil" Style="{StaticResource SidebarButtonStyle}"/>
+            </StackPanel>
         </StackPanel>
 
-
-
-        <StackPanel Grid.Column="1" Margin="20,10,20,0">
-            <TextBlock Text="Deine Events im Überblick" 
-                       FontSize="24" FontWeight="Bold" 
-                       Margin="0,0,0,20" 
+        <!-- Main Content -->
+        <StackPanel Grid.Column="1" Margin="30,30,30,0">
+            <TextBlock Text="Deine Events im Überblick"
+                       FontSize="24" FontWeight="Bold"
+                       Foreground="Black"
+                       Margin="0,0,0,20"
                        HorizontalAlignment="Left"/>
-            <Border Background="White" CornerRadius="10" Padding="20" Width="400" HorizontalAlignment="Center">
-                <Calendar />
+
+            <Border Background="White" CornerRadius="8"
+                    Padding="10" Width="360"
+                    HorizontalAlignment="Center">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.2"/>
+                </Border.Effect>
+                <Calendar BorderThickness="0"
+                          FontSize="14"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"/>
             </Border>
         </StackPanel>
     </Grid>
-
 </Page>
