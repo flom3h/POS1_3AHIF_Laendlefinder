@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Laendlefinder.Pages"
       xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d"
       Title="ProfilePage" MinHeight="450" MinWidth="800">
     <Grid>
@@ -32,5 +33,28 @@
                 <Button Content="Profil" Click="ProfileButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
             </StackPanel>
         </StackPanel>
+        <Grid Grid.Column="1">
+            <StackPanel Margin="0,20,20,20">
+                <TextBlock Text="Profil" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+                <Label Content="Vorname" Margin="0" Padding="0" FontSize="20"/>
+                <xctk:WatermarkTextBox x:Name="SnBox" FontSize="20" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
+                <Label Content="Nachname" Margin="0" Padding="0" FontSize="20"/>
+                <xctk:WatermarkTextBox x:Name="LnBox" FontSize="20" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
+                <Label Content="E-Mail" Margin="0" Padding="0" FontSize="20"/>
+                <xctk:WatermarkTextBox x:Name="MailBox" FontSize="20" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
+                <Label Content="Passwort" Margin="0" Padding="0" FontSize="20"/>
+            <Grid>
+                <Grid>
+                    <xctk:WatermarkTextBox x:Name="PlainPasswordBox" FontSize="20" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
+                    <xctk:WatermarkPasswordBox x:Name="PasswordBox" FontSize="20" Margin="0,0,0,10" Style="{StaticResource LoginRegisterPasswordBoxWatermark}"/>
+                </Grid>
+                <Button Style="{StaticResource EyeButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ChangePasswordVisibility_Click"/>
+            </Grid>
+            <Grid>
+                <Button Content="Änderungen speichern" Margin="0,20,0,0" Padding="10" FontSize="20" HorizontalAlignment="Left" Style="{StaticResource ProfilePageButton}" Click="SaveChangesButton_Click"/>
+                <Button Content="Abmelden" Margin="0,20,0,0" Padding="10" FontSize="20" HorizontalAlignment="Right" Style="{StaticResource ProfilePageButton}" Click="LogOutButton_Click"/>
+            </Grid>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

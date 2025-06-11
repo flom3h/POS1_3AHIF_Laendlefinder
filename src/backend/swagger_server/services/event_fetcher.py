@@ -27,6 +27,7 @@ params = {
 }
 
 def extract_event_data(event):
+    print(event.keys())  # Debugging line to see the keys in the event object
     types = event.get("@type", [])
     if isinstance(types, str):
         types = [types]
@@ -42,6 +43,8 @@ def extract_event_data(event):
     address = address_obj.get("streetAddress", "")
     nameoflocation = location.get("name", "")
     geo = location.get("geo", {})
+    if not geo:
+        return None
     longitude = geo.get("longitude", "")
     latitude = geo.get("latitude", "")
 
@@ -49,27 +52,32 @@ def extract_event_data(event):
         event.get("dcls:dynamicUrlPortrait")
         or event.get("thumbnailUrl")
         or event.get("contentUrl")
-        or ""
+        or (event.get("image", [{}])[0].get("contentUrl") if isinstance(event.get("image", []), list) and event.get("image") else "")
+        or "no data"
     )
+    if not picture:
+        picture = "no data"
 
     linktoevent = event.get("url", "")
-    # Save external id for reference, but do not use as DB PK
-    external_id = event.get("@id", event.get("id", ""))
+    external_id = str(event.get("@id", "")).strip()
+    if not external_id:
+        print("No external_id found for event:", event)
+        return None
+
     nameofevent = event.get("name", "")
 
-    start_date = ""
-    time = ""
-    if is_event:
-        start_date = event.get("startDate", "")
-        if not start_date:
-            schedule = event.get("eventSchedule", [{}])[0]
-            start_date = schedule.get("startDate", "")
-        date = start_date[:10] if start_date else ""
-        time = start_date[11:16] if start_date else ""
-    else:
-        date = ""
+    # Always try to get the actual event start date
+    start_date = event.get("startDate", "")
+    if not start_date:
+        schedule = event.get("eventSchedule", [{}])
+        if schedule and isinstance(schedule, list):
+            start_date = schedule[0].get("startDate", "")
+    date = start_date[:10] if start_date else "no data"
+    time = start_date[11:16] if start_date else "no data"
 
     description = event.get("description", "")
+    if not description:
+        description = "no data"
 
     typeofevent = ", ".join(types) if isinstance(types, list) else str(types)
 
@@ -88,8 +96,25 @@ def extract_event_data(event):
         "typeofevent": typeofevent
     }
 
+def fetch_and_store_events():
+    response = requests.get(url, params=params)
+    data = json.loads(response.text)
+    events = data.get("@graph", [])
+    # Only keep events with geo and proper data
+    extracted = [e for e in (extract_event_data(event) for event in events) if e is not None]
+    upload_to_database(extracted)
+    return extracted
+
 def upload_to_database(events):
     for event in events:
+        # Skip if event with same external_id already exists
+        existing = supabase.table("Events") \
+            .select("eid") \
+            .eq("external_id", event.get("external_id", "")) \
+            .execute()
+        if existing.data:
+            continue  # Skip this event
+
         # 1. Insert or get Type
         type_name = event.get("typeofevent", "Unbekannt")
         type_resp = supabase.table("Type").select("tid").eq("type", type_name).execute()
@@ -106,8 +131,8 @@ def upload_to_database(events):
             "description": event.get("description", ""),
             "link": event.get("linktoevent", ""),
             "picture": event.get("picture", ""),
-            "type": type_id
-            # "external_id": event.get("external_id", None)
+            "type": type_id,
+            "external_id": event.get("external_id", "")
         }
         event_insert = supabase.table("Events").insert(event_data).execute()
         eid = event_insert.data[0]["eid"]
@@ -123,15 +148,6 @@ def upload_to_database(events):
             "link": event.get("linktoevent", "")
         }
         supabase.table("Location").insert(location_data).execute()
-
-def fetch_and_store_events():
-    response = requests.get(url, params=params)
-    data = json.loads(response.text)
-    events = data.get("@graph", [])
-    extracted = [extract_event_data(event) for event in events]
-    # Upload to database (implement this function as needed)
-    upload_to_database(extracted)
-    return extracted
 
 # Example usage (remove or adapt for production)
 if __name__ == "__main__":
