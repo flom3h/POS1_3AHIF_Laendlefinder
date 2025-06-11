@@ -1,0 +1,771 @@
+{
+  "@id": "59a58a86-c691-440b-bc9f-4781ff0b606f",
+  "@type": [
+    "Event",
+    "dcls:Event"
+  ],
+  "dc:multilingual": true,
+  "dc:translation": [
+    "de",
+    "en"
+  ],
+  "dc:classification": [
+    {
+      "@id": "f4139eca-bbea-4409-8102-2ee60b240408",
+      "@type": "skos:Concept",
+      "dc:multilingual": true,
+      "dc:translation": [
+        "de",
+        "en"
+      ],
+      "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/7e0572b9-cc37-4f76-a87b-c23505ee9c58/concepts/f4139eca-bbea-4409-8102-2ee60b240408?language=de",
+      "skos:prefLabel": "LECH",
+      "skos:inScheme": {
+        "@id": "7e0572b9-cc37-4f76-a87b-c23505ee9c58",
+        "@type": "skos:ConceptScheme"
+      },
+      "skos:topConceptOf": {
+        "@id": "7e0572b9-cc37-4f76-a87b-c23505ee9c58",
+        "@type": "skos:ConceptScheme"
+      },
+      "dct:created": "2018-07-26T10:38:07.945+02:00",
+      "dct:modified": "2025-04-09T16:57:42.483+02:00"
+    },
+    {
+      "@id": "89c116e6-b7ba-470a-b2bb-09cffc6b5217",
+      "@type": "skos:Concept",
+      "dc:multilingual": true,
+      "dc:translation": [
+        "de",
+        "en"
+      ],
+      "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/9e1142e8-2765-40f6-80a7-5cfeef9e05cc/concepts/89c116e6-b7ba-470a-b2bb-09cffc6b5217?language=de",
+      "skos:prefLabel": "Zug",
+      "url": "https://interface.deskline.net/location/type/TO",
+      "skos:inScheme": {
+        "@id": "9e1142e8-2765-40f6-80a7-5cfeef9e05cc",
+        "@type": "skos:ConceptScheme"
+      },
+      "skos:broader": {
+        "@id": "4c5c9ad3-b732-4132-9564-959b9dcf00fe",
+        "@type": "skos:Concept"
+      },
+      "skos:ancestors": [
+        {
+          "@id": "4c5c9ad3-b732-4132-9564-959b9dcf00fe",
+          "@type": "skos:Concept"
+        },
+        {
+          "@id": "1b854a8e-8860-4a79-a001-28bed8672965",
+          "@type": "skos:Concept"
+        },
+        {
+          "@id": "3f2071de-f817-4f6f-a470-d1193bcbcbf4",
+          "@type": "skos:Concept"
+        }
+      ],
+      "dct:created": "2018-11-29T17:11:21.987+01:00",
+      "dct:modified": "2025-05-27T22:44:15.904+02:00"
+    },
+    {
+      "@id": "85bf08e4-96db-4b60-bbf7-1b08f9dfda5d",
+      "@type": "skos:Concept",
+      "dc:multilingual": true,
+      "dc:translation": [
+        "de"
+      ],
+      "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/6b933f7c-408d-484f-98ae-07164aceeb66/concepts/85bf08e4-96db-4b60-bbf7-1b08f9dfda5d?language=de",
+      "skos:prefLabel": "Inaktiv",
+      "skos:inScheme": {
+        "@id": "6b933f7c-408d-484f-98ae-07164aceeb66",
+        "@type": "skos:ConceptScheme"
+      },
+      "skos:topConceptOf": {
+        "@id": "6b933f7c-408d-484f-98ae-07164aceeb66",
+        "@type": "skos:ConceptScheme"
+      },
+      "dct:created": "2019-07-09T13:34:16.282+02:00",
+      "dct:modified": "2024-12-19T13:30:38.291+01:00"
+    },
+    {
+      "@id": "f20487f7-8d50-450e-b3da-f0da9cbc934a",
+      "@type": "skos:Concept",
+      "dc:multilingual": true,
+      "dc:translation": [
+        "de"
+      ],
+      "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts/f20487f7-8d50-450e-b3da-f0da9cbc934a?language=de",
+      "skos:prefLabel": "Lokaler ExpertClient",
+      "dct:description": "L",
+      "skos:inScheme": {
+        "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+        "@type": "skos:ConceptScheme"
+      },
+      "skos:topConceptOf": {
+        "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+        "@type": "skos:ConceptScheme"
+      },
+      "dct:created": "2021-05-28T08:11:19.690+02:00",
+      "dct:modified": "2024-12-19T13:30:38.374+01:00"
+    },
+    {
+      "@id": "a9ffd498-3499-4bec-9410-c173d08c84cf",
+      "@type": "skos:Concept",
+      "dc:multilingual": true,
+      "dc:translation": [
+        "de"
+      ],
+      "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts/a9ffd498-3499-4bec-9410-c173d08c84cf?language=de",
+      "skos:prefLabel": "Internet",
+      "dct:description": "T",
+      "skos:inScheme": {
+        "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+        "@type": "skos:ConceptScheme"
+      },
+      "skos:topConceptOf": {
+        "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+        "@type": "skos:ConceptScheme"
+      },
+      "dct:created": "2021-05-28T08:11:19.735+02:00",
+      "dct:modified": "2024-12-19T13:30:38.383+01:00"
+    },
+    {
+      "@id": "ab360997-1bcf-47a8-a610-4887f61221c2",
+      "@type": "skos:Concept",
+      "dc:multilingual": true,
+      "dc:translation": [
+        "de"
+      ],
+      "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts/ab360997-1bcf-47a8-a610-4887f61221c2?language=de",
+      "skos:prefLabel": "Infomedia/Informator",
+      "dct:description": "I",
+      "skos:inScheme": {
+        "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+        "@type": "skos:ConceptScheme"
+      },
+      "skos:topConceptOf": {
+        "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+        "@type": "skos:ConceptScheme"
+      },
+      "dct:created": "2021-05-28T08:11:19.756+02:00",
+      "dct:modified": "2024-12-19T13:30:38.393+01:00"
+    },
+    {
+      "@id": "a4617840-6492-4ef6-83d8-fdb33f4f8686",
+      "@type": "skos:Concept",
+      "dc:multilingual": true,
+      "dc:translation": [
+        "de"
+      ],
+      "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts/a4617840-6492-4ef6-83d8-fdb33f4f8686?language=de",
+      "skos:prefLabel": "Katalog",
+      "dct:description": "C",
+      "skos:inScheme": {
+        "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+        "@type": "skos:ConceptScheme"
+      },
+      "skos:topConceptOf": {
+        "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+        "@type": "skos:ConceptScheme"
+      },
+      "dct:created": "2021-05-28T08:11:19.776+02:00",
+      "dct:modified": "2024-12-19T13:30:38.402+01:00"
+    },
+    {
+      "@id": "6af5c235-e3ac-4839-abcc-a8ecea327899",
+      "@type": "skos:Concept",
+      "dc:multilingual": true,
+      "dc:translation": [
+        "de"
+      ],
+      "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts/6af5c235-e3ac-4839-abcc-a8ecea327899?language=de",
+      "skos:prefLabel": "PIA",
+      "dct:description": "P",
+      "skos:inScheme": {
+        "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+        "@type": "skos:ConceptScheme"
+      },
+      "skos:topConceptOf": {
+        "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+        "@type": "skos:ConceptScheme"
+      },
+      "dct:created": "2021-05-28T08:11:19.799+02:00",
+      "dct:modified": "2024-12-19T13:30:38.411+01:00"
+    },
+    {
+      "@id": "bc8e72c0-34c6-4a34-a295-06ea7aab6475",
+      "@type": "skos:Concept",
+      "dc:multilingual": true,
+      "dc:translation": [
+        "de"
+      ],
+      "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/3db31b97-89d2-47a4-b304-ddf71b6d61f7/concepts/bc8e72c0-34c6-4a34-a295-06ea7aab6475?language=de",
+      "skos:prefLabel": "Town",
+      "skos:inScheme": {
+        "@id": "3db31b97-89d2-47a4-b304-ddf71b6d61f7",
+        "@type": "skos:ConceptScheme"
+      },
+      "skos:topConceptOf": {
+        "@id": "3db31b97-89d2-47a4-b304-ddf71b6d61f7",
+        "@type": "skos:ConceptScheme"
+      },
+      "dct:created": "2019-04-18T11:26:41.146+02:00",
+      "dct:modified": "2024-12-19T13:30:38.220+01:00"
+    },
+    {
+      "@id": "0a44ff88-ae48-4c33-9ea8-29e9bcd7731a",
+      "@type": "skos:Concept",
+      "dc:multilingual": true,
+      "dc:translation": [
+        "de"
+      ],
+      "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/1253922d-5099-4212-8cbe-250eae74da38/concepts/0a44ff88-ae48-4c33-9ea8-29e9bcd7731a?language=de",
+      "skos:prefLabel": "Entwurf",
+      "url": "",
+      "skos:inScheme": {
+        "@id": "1253922d-5099-4212-8cbe-250eae74da38",
+        "@type": "skos:ConceptScheme"
+      },
+      "skos:topConceptOf": {
+        "@id": "1253922d-5099-4212-8cbe-250eae74da38",
+        "@type": "skos:ConceptScheme"
+      },
+      "dct:created": "2021-05-28T10:48:10.260+02:00",
+      "dct:modified": "2025-03-10T08:04:26.121+01:00"
+    },
+    {
+      "@id": "c1d55423-ecfc-4526-ad5a-4d8f46e64a9b",
+      "@type": "skos:Concept",
+      "dc:multilingual": true,
+      "dc:translation": [
+        "de"
+      ],
+      "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/b541a86e-9f75-47ab-9c80-8e3deb272add/concepts/c1d55423-ecfc-4526-ad5a-4d8f46e64a9b?language=de",
+      "skos:prefLabel": "Zug",
+      "skos:inScheme": {
+        "@id": "b541a86e-9f75-47ab-9c80-8e3deb272add",
+        "@type": "skos:ConceptScheme"
+      },
+      "skos:topConceptOf": {
+        "@id": "b541a86e-9f75-47ab-9c80-8e3deb272add",
+        "@type": "skos:ConceptScheme"
+      },
+      "dct:created": "2019-04-02T13:58:40.765+02:00",
+      "dct:modified": "2019-04-02T13:58:40.765+02:00"
+    },
+    {
+      "@id": "4e68aa2f-4182-490e-9115-a5f8cccd56ad",
+      "@type": "skos:Concept",
+      "dc:multilingual": true,
+      "dc:translation": [
+        "de"
+      ],
+      "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/33ab515d-0ac9-4548-b61e-3d6cc0dc1983/concepts/4e68aa2f-4182-490e-9115-a5f8cccd56ad?language=de",
+      "skos:prefLabel": "Veranstaltungen und Veranstaltungsserien",
+      "url": "",
+      "skos:inScheme": {
+        "@id": "33ab515d-0ac9-4548-b61e-3d6cc0dc1983",
+        "@type": "skos:ConceptScheme"
+      },
+      "skos:topConceptOf": {
+        "@id": "33ab515d-0ac9-4548-b61e-3d6cc0dc1983",
+        "@type": "skos:ConceptScheme"
+      },
+      "dct:created": "2023-08-03T10:44:10.616+02:00",
+      "dct:modified": "2023-09-04T16:07:35.871+02:00"
+    },
+    {
+      "@id": "1d810685-0d58-45dc-b80b-329ce27bbb47",
+      "@type": "skos:Concept",
+      "dc:multilingual": true,
+      "dc:translation": [
+        "de"
+      ],
+      "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/fa7c7f3a-a8d1-48d5-b497-65d77f2747fa/concepts/1d810685-0d58-45dc-b80b-329ce27bbb47?language=de",
+      "skos:prefLabel": "INAKTIV",
+      "skos:inScheme": {
+        "@id": "fa7c7f3a-a8d1-48d5-b497-65d77f2747fa",
+        "@type": "skos:ConceptScheme"
+      },
+      "skos:topConceptOf": {
+        "@id": "fa7c7f3a-a8d1-48d5-b497-65d77f2747fa",
+        "@type": "skos:ConceptScheme"
+      },
+      "dct:created": "2020-12-04T08:48:35.260+01:00",
+      "dct:modified": "2020-12-04T08:48:35.260+01:00"
+    }
+  ],
+  "name": "Montags Pop-Up im Restaurant Kl\u00f6sterle",
+  "dc:additionalInformation": [
+    {
+      "@id": "ebca6aa8-3e60-498b-a947-3e342354e8a5",
+      "@type": [
+        "CreativeWork",
+        "MediaObject",
+        "TextObject",
+        "dcls:AdditionalInformation",
+        "dcls:Erg\u00e4nzende Information"
+      ],
+      "dc:multilingual": false,
+      "dc:translation": [
+        "de"
+      ],
+      "dc:classification": [
+        {
+          "@id": "4de6293d-e60c-428e-8f5c-6de19d288e64",
+          "@type": "skos:Concept",
+          "dc:multilingual": true,
+          "dc:translation": [
+            "de"
+          ],
+          "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/7f1f335c-2642-4a85-adad-454e54e184ab/concepts/4de6293d-e60c-428e-8f5c-6de19d288e64?language=de",
+          "skos:prefLabel": "EventHeaderShort",
+          "dct:description": "Feratel",
+          "skos:inScheme": {
+            "@id": "7f1f335c-2642-4a85-adad-454e54e184ab",
+            "@type": "skos:ConceptScheme",
+            "dc:multilingual": false,
+            "dc:translation": [
+              "de",
+              "en",
+              "nl"
+            ],
+            "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/7f1f335c-2642-4a85-adad-454e54e184ab?language=de",
+            "skos:prefLabel": "Externe Informationstypen",
+            "dc:hasConcept": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/7f1f335c-2642-4a85-adad-454e54e184ab/concepts?language=de",
+            "dct:created": "2020-10-06T13:20:55.723+02:00",
+            "dct:modified": "2023-05-02T14:17:04.934+02:00"
+          },
+          "skos:topConceptOf": {
+            "@id": "7f1f335c-2642-4a85-adad-454e54e184ab",
+            "@type": "skos:ConceptScheme"
+          },
+          "dct:created": "2020-10-06T13:20:56.178+02:00",
+          "dct:modified": "2024-12-19T13:30:37.469+01:00"
+        },
+        {
+          "@id": "f20487f7-8d50-450e-b3da-f0da9cbc934a",
+          "@type": "skos:Concept",
+          "dc:multilingual": true,
+          "dc:translation": [
+            "de"
+          ],
+          "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts/f20487f7-8d50-450e-b3da-f0da9cbc934a?language=de",
+          "skos:prefLabel": "Lokaler ExpertClient",
+          "dct:description": "L",
+          "skos:inScheme": {
+            "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+            "@type": "skos:ConceptScheme",
+            "dc:multilingual": false,
+            "dc:translation": [
+              "de",
+              "en",
+              "nl"
+            ],
+            "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e?language=de",
+            "skos:prefLabel": "Feratel - Systeme",
+            "dc:hasConcept": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts?language=de",
+            "dct:created": "2021-05-28T08:11:19.640+02:00",
+            "dct:modified": "2021-05-28T08:11:19.640+02:00"
+          },
+          "skos:topConceptOf": {
+            "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+            "@type": "skos:ConceptScheme"
+          },
+          "dct:created": "2021-05-28T08:11:19.690+02:00",
+          "dct:modified": "2024-12-19T13:30:38.374+01:00"
+        },
+        {
+          "@id": "a9ffd498-3499-4bec-9410-c173d08c84cf",
+          "@type": "skos:Concept",
+          "dc:multilingual": true,
+          "dc:translation": [
+            "de"
+          ],
+          "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts/a9ffd498-3499-4bec-9410-c173d08c84cf?language=de",
+          "skos:prefLabel": "Internet",
+          "dct:description": "T",
+          "skos:inScheme": {
+            "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+            "@type": "skos:ConceptScheme",
+            "dc:multilingual": false,
+            "dc:translation": [
+              "de",
+              "en",
+              "nl"
+            ],
+            "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e?language=de",
+            "skos:prefLabel": "Feratel - Systeme",
+            "dc:hasConcept": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts?language=de",
+            "dct:created": "2021-05-28T08:11:19.640+02:00",
+            "dct:modified": "2021-05-28T08:11:19.640+02:00"
+          },
+          "skos:topConceptOf": {
+            "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+            "@type": "skos:ConceptScheme"
+          },
+          "dct:created": "2021-05-28T08:11:19.735+02:00",
+          "dct:modified": "2024-12-19T13:30:38.383+01:00"
+        },
+        {
+          "@id": "ab360997-1bcf-47a8-a610-4887f61221c2",
+          "@type": "skos:Concept",
+          "dc:multilingual": true,
+          "dc:translation": [
+            "de"
+          ],
+          "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts/ab360997-1bcf-47a8-a610-4887f61221c2?language=de",
+          "skos:prefLabel": "Infomedia/Informator",
+          "dct:description": "I",
+          "skos:inScheme": {
+            "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+            "@type": "skos:ConceptScheme",
+            "dc:multilingual": false,
+            "dc:translation": [
+              "de",
+              "en",
+              "nl"
+            ],
+            "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e?language=de",
+            "skos:prefLabel": "Feratel - Systeme",
+            "dc:hasConcept": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts?language=de",
+            "dct:created": "2021-05-28T08:11:19.640+02:00",
+            "dct:modified": "2021-05-28T08:11:19.640+02:00"
+          },
+          "skos:topConceptOf": {
+            "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+            "@type": "skos:ConceptScheme"
+          },
+          "dct:created": "2021-05-28T08:11:19.756+02:00",
+          "dct:modified": "2024-12-19T13:30:38.393+01:00"
+        },
+        {
+          "@id": "6af5c235-e3ac-4839-abcc-a8ecea327899",
+          "@type": "skos:Concept",
+          "dc:multilingual": true,
+          "dc:translation": [
+            "de"
+          ],
+          "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts/6af5c235-e3ac-4839-abcc-a8ecea327899?language=de",
+          "skos:prefLabel": "PIA",
+          "dct:description": "P",
+          "skos:inScheme": {
+            "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+            "@type": "skos:ConceptScheme",
+            "dc:multilingual": false,
+            "dc:translation": [
+              "de",
+              "en",
+              "nl"
+            ],
+            "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e?language=de",
+            "skos:prefLabel": "Feratel - Systeme",
+            "dc:hasConcept": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts?language=de",
+            "dct:created": "2021-05-28T08:11:19.640+02:00",
+            "dct:modified": "2021-05-28T08:11:19.640+02:00"
+          },
+          "skos:topConceptOf": {
+            "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+            "@type": "skos:ConceptScheme"
+          },
+          "dct:created": "2021-05-28T08:11:19.799+02:00",
+          "dct:modified": "2024-12-19T13:30:38.411+01:00"
+        },
+        {
+          "@id": "bfad51ef-9dc2-4f14-bdbb-27e6f5c72ead",
+          "@type": "skos:Concept",
+          "dc:multilingual": true,
+          "dc:translation": [
+            "de"
+          ],
+          "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/df38135f-2f44-4fb5-a595-c89961cd1374/concepts/bfad51ef-9dc2-4f14-bdbb-27e6f5c72ead?language=de",
+          "skos:prefLabel": "description",
+          "dct:description": "<p>Kurzbeschreibung</p>",
+          "url": "",
+          "skos:inScheme": {
+            "@id": "df38135f-2f44-4fb5-a595-c89961cd1374",
+            "@type": "skos:ConceptScheme",
+            "dc:multilingual": false,
+            "dc:translation": [
+              "de",
+              "en",
+              "nl"
+            ],
+            "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/df38135f-2f44-4fb5-a595-c89961cd1374?language=de",
+            "skos:prefLabel": "Informationstypen",
+            "dc:hasConcept": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/df38135f-2f44-4fb5-a595-c89961cd1374/concepts?language=de",
+            "dct:created": "2020-09-10T15:42:15.966+02:00",
+            "dct:modified": "2023-05-16T08:27:19.560+02:00"
+          },
+          "skos:topConceptOf": {
+            "@id": "df38135f-2f44-4fb5-a595-c89961cd1374",
+            "@type": "skos:ConceptScheme"
+          },
+          "dct:created": "2023-04-27T09:52:14.926+02:00",
+          "dct:modified": "2025-05-23T09:41:39.876+02:00"
+        }
+      ],
+      "name": "Kurzbeschreibung",
+      "description": "<p>&laquo; Hoon&rsquo;s Nasi Lemak Night &raquo;<br/>Montag Pop-Up, 31.08.2020</p> <p>Wir gehen mit Hoon&rsquo;s diese Woche in eine andere Richtung und pr&auml;sentieren eine neue Seite der singapurischen K&uuml;che mit einem malaiischen Gericht &ndash; Nasi Lemak. Duftender Kokosreis, serviert mit gebratenem Kurkuma-Huhn, ger&ouml;steten Erdn&uuml;ssen, verschiedenen w&uuml;rzigen Beilagen und nicht zu vergessen einer gesunden Portion Sambal. Wie immer gibt es zum Start &ldquo;Pork buns&rdquo; und passende Cocktails und Getr&auml;nke, um die Sch&auml;rfe zu mildern.</p> <p>Montag 31.08. ab 17.30 Uhr,<br/>bei sch&ouml;nem Wetter auch im Freien.</p> <p>Bitte reservieren sie Ihren Tisch per E-Mail, Online oder auch gerne telefonisch.</p>"
+    },
+    {
+      "@id": "cc8a1fe9-611e-4126-a749-ef16920b54c5",
+      "@type": [
+        "CreativeWork",
+        "MediaObject",
+        "TextObject",
+        "dcls:AdditionalInformation",
+        "dcls:Erg\u00e4nzende Information"
+      ],
+      "dc:multilingual": false,
+      "dc:translation": [
+        "de"
+      ],
+      "dc:classification": [
+        {
+          "@id": "625bd22a-be87-48da-a563-3ec2f5262c39",
+          "@type": "skos:Concept",
+          "dc:multilingual": true,
+          "dc:translation": [
+            "de"
+          ],
+          "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/7f1f335c-2642-4a85-adad-454e54e184ab/concepts/625bd22a-be87-48da-a563-3ec2f5262c39?language=de",
+          "skos:prefLabel": "EventHeader",
+          "dct:description": "Feratel",
+          "skos:inScheme": {
+            "@id": "7f1f335c-2642-4a85-adad-454e54e184ab",
+            "@type": "skos:ConceptScheme",
+            "dc:multilingual": false,
+            "dc:translation": [
+              "de",
+              "en",
+              "nl"
+            ],
+            "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/7f1f335c-2642-4a85-adad-454e54e184ab?language=de",
+            "skos:prefLabel": "Externe Informationstypen",
+            "dc:hasConcept": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/7f1f335c-2642-4a85-adad-454e54e184ab/concepts?language=de",
+            "dct:created": "2020-10-06T13:20:55.723+02:00",
+            "dct:modified": "2023-05-02T14:17:04.934+02:00"
+          },
+          "skos:topConceptOf": {
+            "@id": "7f1f335c-2642-4a85-adad-454e54e184ab",
+            "@type": "skos:ConceptScheme"
+          },
+          "dct:created": "2020-10-06T13:20:56.152+02:00",
+          "dct:modified": "2024-12-19T13:30:37.464+01:00"
+        },
+        {
+          "@id": "f20487f7-8d50-450e-b3da-f0da9cbc934a",
+          "@type": "skos:Concept",
+          "dc:multilingual": true,
+          "dc:translation": [
+            "de"
+          ],
+          "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts/f20487f7-8d50-450e-b3da-f0da9cbc934a?language=de",
+          "skos:prefLabel": "Lokaler ExpertClient",
+          "dct:description": "L",
+          "skos:inScheme": {
+            "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+            "@type": "skos:ConceptScheme",
+            "dc:multilingual": false,
+            "dc:translation": [
+              "de",
+              "en",
+              "nl"
+            ],
+            "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e?language=de",
+            "skos:prefLabel": "Feratel - Systeme",
+            "dc:hasConcept": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts?language=de",
+            "dct:created": "2021-05-28T08:11:19.640+02:00",
+            "dct:modified": "2021-05-28T08:11:19.640+02:00"
+          },
+          "skos:topConceptOf": {
+            "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+            "@type": "skos:ConceptScheme"
+          },
+          "dct:created": "2021-05-28T08:11:19.690+02:00",
+          "dct:modified": "2024-12-19T13:30:38.374+01:00"
+        },
+        {
+          "@id": "a9ffd498-3499-4bec-9410-c173d08c84cf",
+          "@type": "skos:Concept",
+          "dc:multilingual": true,
+          "dc:translation": [
+            "de"
+          ],
+          "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts/a9ffd498-3499-4bec-9410-c173d08c84cf?language=de",
+          "skos:prefLabel": "Internet",
+          "dct:description": "T",
+          "skos:inScheme": {
+            "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+            "@type": "skos:ConceptScheme",
+            "dc:multilingual": false,
+            "dc:translation": [
+              "de",
+              "en",
+              "nl"
+            ],
+            "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e?language=de",
+            "skos:prefLabel": "Feratel - Systeme",
+            "dc:hasConcept": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts?language=de",
+            "dct:created": "2021-05-28T08:11:19.640+02:00",
+            "dct:modified": "2021-05-28T08:11:19.640+02:00"
+          },
+          "skos:topConceptOf": {
+            "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+            "@type": "skos:ConceptScheme"
+          },
+          "dct:created": "2021-05-28T08:11:19.735+02:00",
+          "dct:modified": "2024-12-19T13:30:38.383+01:00"
+        },
+        {
+          "@id": "ab360997-1bcf-47a8-a610-4887f61221c2",
+          "@type": "skos:Concept",
+          "dc:multilingual": true,
+          "dc:translation": [
+            "de"
+          ],
+          "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts/ab360997-1bcf-47a8-a610-4887f61221c2?language=de",
+          "skos:prefLabel": "Infomedia/Informator",
+          "dct:description": "I",
+          "skos:inScheme": {
+            "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+            "@type": "skos:ConceptScheme",
+            "dc:multilingual": false,
+            "dc:translation": [
+              "de",
+              "en",
+              "nl"
+            ],
+            "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e?language=de",
+            "skos:prefLabel": "Feratel - Systeme",
+            "dc:hasConcept": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts?language=de",
+            "dct:created": "2021-05-28T08:11:19.640+02:00",
+            "dct:modified": "2021-05-28T08:11:19.640+02:00"
+          },
+          "skos:topConceptOf": {
+            "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+            "@type": "skos:ConceptScheme"
+          },
+          "dct:created": "2021-05-28T08:11:19.756+02:00",
+          "dct:modified": "2024-12-19T13:30:38.393+01:00"
+        },
+        {
+          "@id": "6af5c235-e3ac-4839-abcc-a8ecea327899",
+          "@type": "skos:Concept",
+          "dc:multilingual": true,
+          "dc:translation": [
+            "de"
+          ],
+          "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts/6af5c235-e3ac-4839-abcc-a8ecea327899?language=de",
+          "skos:prefLabel": "PIA",
+          "dct:description": "P",
+          "skos:inScheme": {
+            "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+            "@type": "skos:ConceptScheme",
+            "dc:multilingual": false,
+            "dc:translation": [
+              "de",
+              "en",
+              "nl"
+            ],
+            "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e?language=de",
+            "skos:prefLabel": "Feratel - Systeme",
+            "dc:hasConcept": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/d6a7058b-95d9-474c-a618-47914428d66e/concepts?language=de",
+            "dct:created": "2021-05-28T08:11:19.640+02:00",
+            "dct:modified": "2021-05-28T08:11:19.640+02:00"
+          },
+          "skos:topConceptOf": {
+            "@id": "d6a7058b-95d9-474c-a618-47914428d66e",
+            "@type": "skos:ConceptScheme"
+          },
+          "dct:created": "2021-05-28T08:11:19.799+02:00",
+          "dct:modified": "2024-12-19T13:30:38.411+01:00"
+        },
+        {
+          "@id": "1561486e-a190-44d6-b20d-668c425cb93e",
+          "@type": "skos:Concept",
+          "dc:multilingual": true,
+          "dc:translation": [
+            "de"
+          ],
+          "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/df38135f-2f44-4fb5-a595-c89961cd1374/concepts/1561486e-a190-44d6-b20d-668c425cb93e?language=de",
+          "skos:prefLabel": "text",
+          "dct:description": "<p>Detailbeschreibung</p>",
+          "url": "",
+          "skos:inScheme": {
+            "@id": "df38135f-2f44-4fb5-a595-c89961cd1374",
+            "@type": "skos:ConceptScheme",
+            "dc:multilingual": false,
+            "dc:translation": [
+              "de",
+              "en",
+              "nl"
+            ],
+            "dc:entityUrl": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/df38135f-2f44-4fb5-a595-c89961cd1374?language=de",
+            "skos:prefLabel": "Informationstypen",
+            "dc:hasConcept": "https://v-cloud.vorarlberg.travel/api/v4/concept_schemes/df38135f-2f44-4fb5-a595-c89961cd1374/concepts?language=de",
+            "dct:created": "2020-09-10T15:42:15.966+02:00",
+            "dct:modified": "2023-05-16T08:27:19.560+02:00"
+          },
+          "skos:topConceptOf": {
+            "@id": "df38135f-2f44-4fb5-a595-c89961cd1374",
+            "@type": "skos:ConceptScheme"
+          },
+          "dct:created": "2023-04-27T09:52:15.521+02:00",
+          "dct:modified": "2025-05-23T09:54:49.245+02:00"
+        }
+      ],
+      "name": "Beschreibung",
+      "description": "<p>&laquo;Pizzeria &bdquo;La Sirena&ldquo;&raquo;<br/>Montags Pop-Up 24.08.2020</p> <p>Erneut h&auml;lt am Montag die Sommer-Pizzeria &ldquo;La Sirena&rdquo; Einzug im Restaurant Kl&ouml;sterle.<br/>Wie in unseren Lieblingspizzerien konzentrieren auch wir uns auf das Wesentliche: Erwarten Sie klassische Aperitifs, Gianna Nannini, die aus dem Lautsprecher singt, und einige gro&szlig;artige Pizzas im neapolitanischen Stil!</p> <p>Montag 24.08. ab 17.30,<br/>bei sch&ouml;nem Wetter auch im Freien.</p> <p>Wir bereiten nur eine begrenzte Anzahl an Pizzas vor, bitte reservieren sie Ihren Teig &uuml;ber E-mail oder auch telefonisch </p>"
+    },
+    {
+      "@id": "36c8bde2-1bc6-476f-82e5-3b3a350ee904",
+      "@type": [
+        "CreativeWork",
+        "MediaObject",
+        "TextObject",
+        "dcls:AdditionalInformation",
+        "dcls:Erg\u00e4nzende Information"
+      ],
+      "dc:multilingual": false,
+      "dc:translation": [
+        "en"
+      ]
+    }
+  ],
+  "image": [
+    {
+      "@id": "38057e97-c99f-4445-a4b8-f439156e0d83",
+      "@type": [
+        "CreativeWork",
+        "MediaObject",
+        "ImageObject",
+        "dcls:ImageObject",
+        "dcls:Bild"
+      ],
+      "dc:multilingual": true,
+      "dc:translation": [
+        "de",
+        "en"
+      ],
+      "dc:classification": [
+        {
+          "@id": "248eb3dc-81ab-45a1-9cc5-58b51cb8a05a",
+          "@type": "skos:Concept"
+        },
+        {
+          "@id": "f20487f7-8d50-450e-b3da-f0da9cbc934a",
+          "@type": "skos:Concept"
+        },
+        {
+          "@id": "a9ffd498-3499-4bec-9410-c173d08c84cf",
+          "@type": "skos:Concept"
+        },
+        {
+          "@id": "ab360997-1bcf-47a8-a610-4887f61221c2",
+          "@type": "skos:Concept"
+        },
+        {
+          "@id": "a4617840-6492-4ef6-83d8-fdb33f4f8686",
+          "@type": "skos:Concept"
