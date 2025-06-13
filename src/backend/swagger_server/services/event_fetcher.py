@@ -27,13 +27,9 @@ params = {
 }
 
 def extract_event_data(event):
-    print(event.keys())  # Debugging line to see the keys in the event object
     types = event.get("@type", [])
     if isinstance(types, str):
         types = [types]
-
-    is_event = "Event" in types or "dcls:Event" in types
-    is_place = "Place" in types or "TouristAttraction" in types
 
     location = event.get("location", {})
     if isinstance(location, list):
@@ -58,12 +54,6 @@ def extract_event_data(event):
     if not picture:
         picture = "no data"
 
-    linktoevent = event.get("url", "")
-    external_id = str(event.get("@id", "")).strip()
-    if not external_id:
-        print("No external_id found for event:", event)
-        return None
-
     nameofevent = event.get("name", "")
 
     # Always try to get the actual event start date
@@ -87,8 +77,6 @@ def extract_event_data(event):
         "longitude": longitude,
         "latitude": latitude,
         "picture": picture,
-        "linktoevent": linktoevent,
-        "external_id": external_id,  # Only for reference, not as PK
         "nameofevent": nameofevent,
         "date": date,
         "time": time,
@@ -96,21 +84,11 @@ def extract_event_data(event):
         "typeofevent": typeofevent
     }
 
-def fetch_and_store_events():
-    response = requests.get(url, params=params)
-    data = json.loads(response.text)
-    events = data.get("@graph", [])
-    # Only keep events with geo and proper data
-    extracted = [e for e in (extract_event_data(event) for event in events) if e is not None]
-    upload_to_database(extracted)
-    return extracted
-
 def upload_to_database(events):
     for event in events:
-        # Skip if event with same external_id already exists
         existing = supabase.table("Events") \
             .select("eid") \
-            .eq("external_id", event.get("external_id", "")) \
+            .eq("name", event.get("nameofevent", "")) \
             .execute()
         if existing.data:
             continue  # Skip this event
@@ -129,10 +107,8 @@ def upload_to_database(events):
             "date": event.get("date", None),
             "time": event.get("time", None),
             "description": event.get("description", ""),
-            "link": event.get("linktoevent", ""),
             "picture": event.get("picture", ""),
             "type": type_id,
-            "external_id": event.get("external_id", "")
         }
         event_insert = supabase.table("Events").insert(event_data).execute()
         eid = event_insert.data[0]["eid"]
@@ -145,9 +121,17 @@ def upload_to_database(events):
             "longitude": float(event.get("longitude", 0) or 0),
             "latitude": float(event.get("latitude", 0) or 0),
             "picture": event.get("picture", ""),
-            "link": event.get("linktoevent", "")
         }
         supabase.table("Location").insert(location_data).execute()
+
+def fetch_and_store_events():
+    response = requests.get(url, params=params)
+    data = json.loads(response.text)
+    events = data.get("@graph", [])
+    # Only keep events with geo and proper data
+    extracted = [e for e in (extract_event_data(event) for event in events) if e is not None]
+    upload_to_database(extracted)
+    return extracted
 
 # Example usage (remove or adapt for production)
 if __name__ == "__main__":
