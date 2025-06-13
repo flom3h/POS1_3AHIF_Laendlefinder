@@ -7,33 +7,68 @@
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d"
       Title="MainPage">
-    <Grid>
+    <Page.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="#FFFFFF"></Setter> 
+            <Setter Property="Padding" Value="40"></Setter>
+            <Setter Property="FontFamily" Value="Montserrat"/>
+            
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}"  BorderThickness="1" CornerRadius="5" >
+                            <ContentPresenter VerticalAlignment="Center" Margin="12 0, 0, 0"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#595959"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+   <Grid>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/> 
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <Grid Grid.Row="1"> 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        
-        <StackPanel Grid.Column="0" Background="#f0f0f0" Width="120">
-            <Button Content="Icon" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Home" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Entdecken" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Kalender" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Favoriten" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Map" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Profil" Margin="10, 80, 10, 10" Padding="10" HorizontalAlignment="Stretch"/>
-        </StackPanel>
-        
+
+        <Grid Grid.Column="0" Background="#134611" Width="120">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0">
+                <Button Content="Icon" Margin="10" Padding="10" HorizontalAlignment="Stretch" />
+                <Button Content="Home" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+                <Button Content="Entdecken" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+                <Button Content="Kalender" Margin="10" Padding="10" HorizontalAlignment="Stretch" />
+                <Button Content="Favoriten" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+                <Button Content="Map" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+            </StackPanel>
+
+            <Button Grid.Row="1" Content="Profil" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
+        </Grid>
+
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
+
             <StackPanel Grid.Row="0" Orientation="Vertical" Margin="10">
                 <TextBlock Text="Was geht ab in Vorarlberg?" FontSize="24" FontWeight="Bold"/>
                 <Grid Margin="0,10,0,10">
@@ -48,7 +83,8 @@
                     </ComboBox>
                 </Grid>
             </StackPanel>
-            
         </Grid>
     </Grid>
+</Grid>
+
 </Page>

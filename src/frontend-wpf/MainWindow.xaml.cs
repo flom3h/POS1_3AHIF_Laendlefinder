@@ -21,7 +21,7 @@ namespace Laendlefinder
         {
             InitializeComponent();
             MainFrame.Navigate(new RegisterPage());
-            MainFrame.Navigate(new CalendarPage());
+            MainFrame.Navigate(new ProfilePage());
             LoginPage.LoginButtonClickedNavHome += DisplayHome;
             LoginPage.LoginButtonClickedNavRegister += DisplayRegister;
 

@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <Folder Include="FontStyles\" />
+    <Folder Include="Fonts\" />
     <Folder Include="images\" />
   </ItemGroup>
 
@@ -23,13 +24,7 @@
 
   <ItemGroup>
     <None Remove="FontStyles\static\OpenSans-ExtraBoldItalic.ttf" />
-    <AdditionalFiles Include="FontStyles\static\OpenSans-ExtraBoldItalic.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </AdditionalFiles>
     <None Remove="FontStyles\static\OpenSans-Italic.ttf" />
-    <AdditionalFiles Include="FontStyles\static\OpenSans-Italic.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </AdditionalFiles>
   </ItemGroup>
 
   <ItemGroup>
@@ -43,29 +38,20 @@
 
   <ItemGroup>
     <None Remove="Fonts\OpenSans-Bold.ttf" />
-    <Resource Include="Fonts\OpenSans-Bold.ttf" />
     <None Remove="Fonts\OpenSans-BoldItalic.ttf" />
-    <Resource Include="Fonts\OpenSans-BoldItalic.ttf" />
     <None Remove="Fonts\OpenSans-ExtraBold.ttf" />
-    <Resource Include="Fonts\OpenSans-ExtraBold.ttf" />
     <None Remove="Fonts\OpenSans-ExtraBoldItalic.ttf" />
-    <Resource Include="Fonts\OpenSans-ExtraBoldItalic.ttf" />
     <None Remove="Fonts\OpenSans-Italic.ttf" />
-    <Resource Include="Fonts\OpenSans-Italic.ttf" />
     <None Remove="Fonts\OpenSans-Light.ttf" />
-    <Resource Include="Fonts\OpenSans-Light.ttf" />
     <None Remove="Fonts\OpenSans-LightItalic.ttf" />
-    <Resource Include="Fonts\OpenSans-LightItalic.ttf" />
     <None Remove="Fonts\OpenSans-Medium.ttf" />
-    <AdditionalFiles Include="Fonts\OpenSans-Medium.ttf" />
     <None Remove="Fonts\OpenSans-MediumItalic.ttf" />
-    <Resource Include="Fonts\OpenSans-MediumItalic.ttf" />
     <None Remove="Fonts\OpenSans-Regular.ttf" />
-    <Resource Include="Fonts\OpenSans-Regular.ttf" />
     <None Remove="Fonts\OpenSans-SemiBold.ttf" />
-    <Resource Include="Fonts\OpenSans-SemiBold.ttf" />
     <None Remove="Fonts\OpenSans-SemiBoldItalic.ttf" />
-    <Resource Include="Fonts\OpenSans-SemiBoldItalic.ttf" />
+    <None Remove="Fonts\Montserrat-Regular.ttf" />
+    <None Remove="FontStyles\static\Montserrat-Regular.ttf" />
+    <None Remove="FontStyles\OpenSans\static\OpenSans-Italic.ttf" />
   </ItemGroup>
 
 </Project>
