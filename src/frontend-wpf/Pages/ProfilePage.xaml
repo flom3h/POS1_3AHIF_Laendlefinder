@@ -9,6 +9,56 @@
       mc:Ignorable="d"
       Title="ProfilePage" MinHeight="450" MinWidth="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.065*"/>
+            <ColumnDefinition Width="0.935*"/>
+        </Grid.ColumnDefinitions>
         
+        <Grid Grid.RowSpan="2" HorizontalAlignment="Stretch" Grid.Column="0" Background="{StaticResource SidebarBackgroundBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/> 
+                <RowDefinition Height="*"/>    
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Button Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Grid.Row="0" Margin="0,10,0,20">
+                <Image Source="../images/WhiteLogo.png" Height="50" Width="40"></Image>
+            </Button>
+
+            <StackPanel Grid.Row="1">
+                <Button Content="Home" Click="HomeButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+                <Button Content="Entdecken" Click="ExploreButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+                <Button Content="Kalender" Click="CalndarButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+                <Button Content="Favoriten" Click="FavsButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+                <Button Content="Map" Click="MapButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+            </StackPanel>
+
+            <!-- Profil Button ganz unten -->
+            <Button Content="Profil" Click="ProfileButton_Click" Style="{StaticResource SidebarButtonStyle}" Grid.Row="2" Margin="0,20,0,10"/>
+
+        </Grid>
+        <Grid Grid.Column="1">
+            <StackPanel Margin="20,20,20,20">
+                <TextBlock Text="Profil" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+                <Label Content="Vorname" Margin="0" Padding="0" FontSize="20"/>
+                <xctk:WatermarkTextBox x:Name="SnBox" FontSize="20" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
+                <Label Content="Nachname" Margin="0" Padding="0" FontSize="20"/>
+                <xctk:WatermarkTextBox x:Name="LnBox" FontSize="20" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
+                <Label Content="E-Mail" Margin="0" Padding="0" FontSize="20"/>
+                <xctk:WatermarkTextBox x:Name="MailBox" FontSize="20" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
+                <Label Content="Passwort" Margin="0" Padding="0" FontSize="20"/>
+            <Grid>
+                <Grid>
+                    <xctk:WatermarkTextBox x:Name="PlainPasswordBox" FontSize="20" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
+                    <xctk:WatermarkPasswordBox x:Name="PasswordBox" FontSize="20" Margin="0,0,0,10" Style="{StaticResource LoginRegisterPasswordBoxWatermark}"/>
+                </Grid>
+                <Button Style="{StaticResource EyeButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ChangePasswordVisibility_Click"/>
+            </Grid>
+            <Grid>
+                <Button Content="Änderungen speichern" Margin="0,20,0,0" Padding="10" FontSize="20" HorizontalAlignment="Left" Style="{StaticResource ProfilePageButton}" Click="SaveChangesButton_Click"/>
+                <Button Content="Abmelden" Margin="0,20,0,0" Padding="10" FontSize="20" HorizontalAlignment="Right" Style="{StaticResource ProfilePageButton}" Click="LogOutButton_Click"/>
+            </Grid>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
