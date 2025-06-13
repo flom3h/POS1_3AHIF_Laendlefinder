@@ -162,7 +162,7 @@ paths:
         "500":
           description: Fehler beim Importieren der Events
       x-openapi-router-controller: swagger_server.controllers.abrufen_controller
-  /favoriten:
+  /favoriten/{uid}:
     get:
       tags:
       - favoriten
@@ -170,18 +170,16 @@ paths:
       operationId: favoriten_get
       parameters:
       - name: uid
-        in: query
+        in: path
         description: "Der Benutzer, dessen Favoriten abgerufen werden"
         required: true
-        style: form
-        explode: true
         schema:
           type: integer
       responses:
         "200":
           description: Liste der Favoriten wurde erfolgreich abgerufen
         "404":
-          description: Benutzer nicht gefunden
+          description: Keine Favoriten für den angegebenen Benutzer gefunden
         "500":
           description: Fehler beim Abrufen der Favoriten
       x-openapi-router-controller: swagger_server.controllers.favoriten_controller

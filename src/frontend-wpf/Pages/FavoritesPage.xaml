@@ -32,5 +32,17 @@
                 <Button Content="Profil" Click="ProfileButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
             </StackPanel>
         </StackPanel>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Vertical" Margin="0, 10, 0, 10">
+                <TextBlock Text="Deine Favoriten" FontSize="24" FontWeight="Bold"/>
+            </StackPanel>
+            <ScrollViewer Grid.Row="1" Margin="0,0,0,0" VerticalScrollBarVisibility="Auto">
+                <WrapPanel x:Name="EventsPanel" Orientation="Horizontal" ItemWidth="325" ItemHeight="200"/>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Page>
