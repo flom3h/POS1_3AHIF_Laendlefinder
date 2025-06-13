@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Collections\" />
     <Folder Include="FontStyles\" />
     <Folder Include="Fonts\" />
     <Folder Include="images\" />

@@ -5,6 +5,7 @@ from swagger_server.models.user_body import UserBody  # noqa: E501
 from swagger_server import util
 from swagger_server.__main__ import supabase  # Supabase-Client importieren
 import bcrypt
+from swagger_server.controllers.abrufen_controller import get_user_id
 
 
 def user_login_post(body):  # noqa: E501
@@ -32,7 +33,7 @@ def user_login_post(body):  # noqa: E501
     entered_password = body.passwort.encode('utf-8')
 
     if bcrypt.checkpw(entered_password, stored_hash):
-        return {"message": "Erfolgreich angemeldet"}, 200
+        return {"message": "Erfolgreich angemeldet", "userID": get_user_id(body.email)[0]}, 201
     else:
         return {"message": "Ungültige Anmeldeinformationen"}, 401
     

@@ -5,6 +5,7 @@ import bcrypt
 from swagger_server.models.reg_body import RegBody  # noqa: E501
 from swagger_server import util
 from swagger_server.__main__ import supabase  # Supabase-Client importieren
+from swagger_server.controllers.abrufen_controller import get_user_id
 
 def user_reg_post(body):  # noqa: E501
     """Benutzer erstellt seinen Account
@@ -36,4 +37,4 @@ def user_reg_post(body):  # noqa: E501
         "isAdmin": False
     }
     supabase.table("User").insert(data).execute()
-    return {"message": "success"}, 201
+    return {"message": "success", "userID": get_user_id(body.email)[0]}, 201

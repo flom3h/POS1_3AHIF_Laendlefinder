@@ -54,6 +54,25 @@ paths:
         "500":
           description: Fehler beim Abrufen der Kategorien
       x-openapi-router-controller: swagger_server.controllers.abrufen_controller
+  /user_id/{email}:
+    get:
+      tags:
+      - abrufen
+      summary: User-ID eines Benutzers abrufen
+      operationId: get_user_id
+      parameters:
+      - name: email
+        in: path
+        description: Die E-Mail-Adresse des Benutzers, dessen ID abgerufen werden soll
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Erfolgreiches Abrufen der User-ID
+        "404":
+          description: Benutzer nicht gefunden
+      x-openapi-router-controller: swagger_server.controllers.abrufen_controller
   /events:
     get:
       tags:
@@ -150,14 +169,14 @@ paths:
       summary: Favoriten eines Benutzers abrufen
       operationId: favoriten_get
       parameters:
-      - name: benutzername
+      - name: uid
         in: query
         description: "Der Benutzer, dessen Favoriten abgerufen werden"
         required: true
         style: form
         explode: true
         schema:
-          type: string
+          type: integer
       responses:
         "200":
           description: Liste der Favoriten wurde erfolgreich abgerufen
@@ -193,14 +212,14 @@ paths:
       summary: Event aus den Favoriten entfernen
       operationId: favoriten_delete
       parameters:
-      - name: benutzername
+      - name: uid
         in: query
         description: "Der Benutzer, dessen Favoriten bearbeitet werden"
         required: true
         style: form
         explode: true
         schema:
-          type: string
+          type: integer
       - name: event_id
         in: query
         description: "Die ID des Events, das entfernt werden soll"
@@ -255,12 +274,12 @@ components:
           type: string
     favoriten_body:
       required:
-      - benutzername
+      - uid
       - event_id
       type: object
       properties:
-        benutzername:
-          type: string
+        uid:
+          type: integer
         event_id:
           type: integer
   securitySchemes:

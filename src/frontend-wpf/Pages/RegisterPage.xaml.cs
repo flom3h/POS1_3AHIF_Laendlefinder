@@ -12,6 +12,7 @@ namespace Laendlefinder.Pages;
 
 public partial class RegisterPage : Page
 {
+    public int CurrentUserID { get; set; } = 0;
     private bool passwordVisible = false;
     
     public static event EventHandler LoginButtonClickedNavHome;
@@ -92,6 +93,7 @@ public partial class RegisterPage : Page
 
                 if (response.IsSuccessStatusCode)
                 {
+                    CurrentUserID = JsonDocument.Parse(responseString).RootElement.GetProperty("userID").GetInt32();
                     LoginButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
                 }
                 else

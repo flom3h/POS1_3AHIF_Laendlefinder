@@ -73,3 +73,16 @@ def events_import_post():  # noqa: E501
         return {"message": f"{len(events)} Events importiert."}, 201
     except Exception as e:
         return {"error": str(e)}, 500
+    
+def get_user_id(email):
+    """Holt die User-ID basierend auf der E-Mail-Adresse
+
+    :param email: Die E-Mail-Adresse des Benutzers
+    :type email: str
+
+    :rtype: int
+    """
+    result = supabase.table("User").select("uid").eq("email", email).execute()
+    if result.data:
+        return result.data[0]["uid"], 200
+    return None, 404

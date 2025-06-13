@@ -20,8 +20,8 @@ namespace Laendlefinder
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new RegisterPage());
-            MainFrame.Navigate(new ProfilePage());
+            MainFrame.Navigate(new LoginPage());
+            MainFrame.Navigate(new MainPage());
             LoginPage.LoginButtonClickedNavHome += DisplayHome;
             LoginPage.LoginButtonClickedNavRegister += DisplayRegister;
 
