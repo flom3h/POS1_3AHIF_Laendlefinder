@@ -9,19 +9,32 @@
       Title="MapPage">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.07*"/>
+            <ColumnDefinition Width="0.93*"/>
         </Grid.ColumnDefinitions>
         
-        <StackPanel Grid.Column="0" Background="#f0f0f0" Width="120">
-            <Button Content="Icon" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Home" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Entdecken" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Kalender" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Favoriten" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Map" Margin="10" Padding="10" HorizontalAlignment="Stretch"/>
-            <Button Content="Profil" Margin="10, 80, 10, 10" Padding="10" HorizontalAlignment="Stretch"/>
-        </StackPanel>
+        <Grid Grid.RowSpan="2" HorizontalAlignment="Stretch" Grid.Column="0" Background="{StaticResource SidebarBackgroundBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/> 
+                <RowDefinition Height="*"/>    
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Button Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Grid.Row="0" Margin="0,8,0,15">
+                <Image Source="../images/WhiteLogo.png" Height="70" Width="55"></Image>
+            </Button>
+
+            <StackPanel Grid.Row="1">
+                <Button Content="Home" Click="HomeButton_Click" Style="{StaticResource SidebarButtonStyle}" />
+                <Button Content="Entdecken" Click="ExploreButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+                <Button Content="Kalender" Click="CalndarButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+                <Button Content="Favoriten" Click="FavsButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+                <Button Content="Map" Click="MapButton_Click" Style="{StaticResource SidebarButtonStyle}" Background="#245C33"/>
+            </StackPanel>
+
+            <Button Content="Profil" Click="ProfileButton_Click" Style="{StaticResource SidebarButtonStyle}" Grid.Row="2" Margin="0,20,0,10"/>
+
+        </Grid>
         <mapsui:MapControl x:Name="MapView" Grid.Column="1"/>
         
     </Grid>

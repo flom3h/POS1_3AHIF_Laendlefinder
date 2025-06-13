@@ -9,60 +9,35 @@
       mc:Ignorable="d"
       Title="CalendarPage">
 
-    <Page.Resources>
-        <!-- Sidebar Button Style -->
-        <Style x:Key="SidebarButtonStyle" TargetType="Button">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="FontWeight" Value="Normal"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="Padding" Value="10,5"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left" />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Margin" Value="10,5"/>
-        </Style>
-
-        <!-- Sidebar Background -->
-        <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="#2C2C2C"/>
-    </Page.Resources>
-
-    <Grid Background="#F3F3F3">
+    
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="140"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.07*"/>
+            <ColumnDefinition Width="0.93*"/>
         </Grid.ColumnDefinitions>
+        
+        <Grid Grid.RowSpan="2" HorizontalAlignment="Stretch" Grid.Column="0" Background="{StaticResource SidebarBackgroundBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/> 
+                <RowDefinition Height="*"/>    
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-        <!-- Sidebar -->
-        <StackPanel Grid.Column="0" Background="{StaticResource SidebarBackgroundBrush}" Width="140">
-            <!-- SVG Icon Button -->
-            <Button Background="Transparent" BorderThickness="0" Margin="0,20,0,20" HorizontalAlignment="Center">
-                <svgc:SvgViewbox Width="36" Height="36"
-                                Source="/Assets/Kalender.svg"
-                                Stretch="Uniform"/>
+            <Button Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Grid.Row="0" Margin="0,8,0,15">
+                <Image Source="../images/WhiteLogo.png" Height="70" Width="55"></Image>
             </Button>
 
-            <!-- Navigation Buttons -->
-            <Button Content="Home" Style="{StaticResource SidebarButtonStyle}"/>
-            <Button Content="Entdecken" Style="{StaticResource SidebarButtonStyle}"/>
-            <Button Content="Kalender" Style="{StaticResource SidebarButtonStyle}"/>
-            <Button Content="Favoriten" Style="{StaticResource SidebarButtonStyle}"/>
-            <Button Content="Map" Style="{StaticResource SidebarButtonStyle}"/>
-
-            <!-- Bottom Spacer -->
-            <StackPanel VerticalAlignment="Bottom" Margin="0,40,0,0">
-                <Button Content="Profil" Style="{StaticResource SidebarButtonStyle}"/>
+            <StackPanel Grid.Row="1">
+                <Button Content="Home" Click="HomeButton_Click" Style="{StaticResource SidebarButtonStyle}" />
+                <Button Content="Entdecken" Click="ExploreButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+                <Button Content="Kalender" Click="CalndarButton_Click" Style="{StaticResource SidebarButtonStyle}"  Background="#245C33"/>
+                <Button Content="Favoriten" Click="FavsButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+                <Button Content="Map" Click="MapButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
             </StackPanel>
-        </StackPanel>
+
+            <Button Content="Profil" Click="ProfileButton_Click" Style="{StaticResource SidebarButtonStyle}" Grid.Row="2" Margin="0,20,0,10"/>
+
+        </Grid>
 
         <!-- Main Content -->
         <StackPanel Grid.Column="1" Margin="30,30,30,0">

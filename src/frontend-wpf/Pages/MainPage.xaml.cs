@@ -18,8 +18,6 @@ public partial class MainPage : Page
     public static event EventHandler FavsButtonClickedNavFavs;
     public static event EventHandler MapButtonClickedNavMap;
     public static event EventHandler ProfileButtonClickedNavProfile;
-    public static event EventHandler SaveChangesButtonClickedNavHome;
-    public static event EventHandler LogOutButtonClickedNavLogin;
     public MainPage()
     {
         InitializeComponent();
@@ -85,6 +83,4 @@ public partial class MainPage : Page
     {
         ProfileButtonClickedNavProfile?.Invoke(this, EventArgs.Empty);
     }
-
-    
 }

@@ -49,6 +49,19 @@ namespace Laendlefinder
             FavoritesPage.MapButtonClickedNavMap += DisplayMap;
             FavoritesPage.ProfileButtonClickedNavProfile += DisplayProfile;
 
+            CalendarPage.HomeButtonClickedNavHome += DisplayHome;
+            CalendarPage.ExploreButtonClickedNavExplore += DisplayExplore;
+            CalendarPage.CalendarButtonClickedNavCalendar += DisplayCalendar;
+            CalendarPage.FavsButtonClickedNavFavs += DisplayFavorites;
+            CalendarPage.MapButtonClickedNavMap += DisplayMap;
+            CalendarPage.ProfileButtonClickedNavProfile += DisplayProfile;
+            
+            MapPage.HomeButtonClickedNavHome += DisplayHome;
+            MapPage.ExploreButtonClickedNavExplore += DisplayExplore;
+            MapPage.CalendarButtonClickedNavCalendar += DisplayCalendar;
+            MapPage.FavsButtonClickedNavFavs += DisplayFavorites;
+            MapPage.MapButtonClickedNavMap += DisplayMap;
+            MapPage.ProfileButtonClickedNavProfile += DisplayProfile;
             
             ProfilePage.HomeButtonClickedNavHome += DisplayHome;
             ProfilePage.ExploreButtonClickedNavExplore += DisplayExplore;
