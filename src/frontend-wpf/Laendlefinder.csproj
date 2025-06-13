@@ -54,4 +54,11 @@
     <None Remove="FontStyles\OpenSans\static\OpenSans-Italic.ttf" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="FontStyles\static\OpenSans-SemiBold.ttf" />
+    <Resource Include="FontStyles\static\OpenSans-SemiBold.ttf" />
+    <None Remove="images\WhiteLogo.png" />
+    <Resource Include="images\WhiteLogo.png" />
+  </ItemGroup>
+
 </Project>

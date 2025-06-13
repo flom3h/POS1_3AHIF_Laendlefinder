@@ -5,23 +5,10 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style x:Key="OpenSansBold">
-            <Setter Property="TextElement.FontFamily"
-                    Value="./Fonts/#Open Sans Bold">
-            </Setter>
-        </Style>
-        
-        <Style x:Key="OpenSansSemiBold">
-            <Setter Property="TextElement.FontFamily"
-                    Value="./Fonts/#Open Sans Semi Bold">
-            </Setter>
-        </Style>
-        
-        <Style x:Key="OpenSansExtra">
-            <Setter Property="TextElement.FontFamily"
-                    Value="./Fonts/#Open Sans Extra Bold">
-            </Setter>
-        </Style>
+        <FontFamily x:Key="OpenSansBold">pack://application:,,,/FontStyles/static/#Open Sans Bold</FontFamily>
+        <FontFamily x:Key="OpenSansSemiBold">pack://application:,,,/FontStyles/static//#Open Sans SemiBold</FontFamily>
+        <FontFamily x:Key="OpenSansExtraBold">pack://application:,,,/FontStyles/static//#Open Sans ExtraBold</FontFamily>
+
         
         <Style x:Key="LoginRegisterButton" TargetType="Button">
             <Setter Property="Background" Value="#3DA35D"/>
@@ -157,25 +144,25 @@
         <Style x:Key="SidebarButtonStyle" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="FontWeight" Value="Normal"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Regular"/>
+            <Setter Property="Margin" Value="0,0,0,30"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="0,5"/>
+            <Setter Property="FontFamily" Value="{StaticResource OpenSansSemiBold}"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left" />
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="Margin" Value="10,5"/>
         </Style>
 
-        <!-- Sidebar Background -->
         <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="#2C2C2C"/>
     </Application.Resources>
 </Application>
