@@ -10,7 +10,7 @@
         <Rectangle Fill="White" RadiusX="10" RadiusY="10" Margin="10" Stroke="Gray" StrokeThickness="2"/>
         <StackPanel Margin="20" Orientation="Horizontal">
             <StackPanel>
-                <Label x:Name="NameLabel" Content="Langer Titel" FontSize="16" FontWeight="Bold" Padding="0" Margin="0,0,0,10"/>
+                <Label x:Name="NameLabel" Content="Langer Titel" FontSize="16" FontWeight="Bold" Padding="0" Margin="0,0,0,10" Width="185"/>
                 <Grid>
                     <Rectangle x:Name="ImagePlaceholder" Fill="LightGray" RadiusX="10" RadiusY="10" Width="185" Height="130"/>
                     <!--<Image x:Name="EventImage" Width="185" Height="130" Stretch="UniformToFill"/>-->
