@@ -28,14 +28,12 @@ namespace Laendlefinder
             RegisterPage.LoginButtonClickedNavLogin += DisplayLogin;
             RegisterPage.LoginButtonClickedNavHome += DisplayHome;
             
-            ProfilePage.HomeButtonClickedNavHome += DisplayHome;
-            ProfilePage.ExploreButtonClickedNavExplore += DisplayExplore;
-            ProfilePage.CalendarButtonClickedNavCalendar += DisplayCalendar;
-            ProfilePage.FavsButtonClickedNavFavs += DisplayFavorites;
-            ProfilePage.MapButtonClickedNavMap += DisplayMap;
-            ProfilePage.ProfileButtonClickedNavProfile += DisplayProfile;
-            ProfilePage.SaveChangesButtonClickedNavHome += DisplayHome;
-            ProfilePage.LogOutButtonClickedNavLogin += DisplayLogin;
+            MainPage.HomeButtonClickedNavHome += DisplayHome;
+            MainPage.ExploreButtonClickedNavExplore += DisplayExplore;
+            MainPage.CalendarButtonClickedNavCalendar += DisplayCalendar;
+            MainPage.FavsButtonClickedNavFavs += DisplayFavorites;
+            MainPage.MapButtonClickedNavMap += DisplayMap;
+            MainPage.ProfileButtonClickedNavProfile += DisplayProfile;
             
             ExplorePage.HomeButtonClickedNavHome += DisplayHome;
             ExplorePage.ExploreButtonClickedNavExplore += DisplayExplore;
@@ -50,6 +48,19 @@ namespace Laendlefinder
             FavoritesPage.FavsButtonClickedNavFavs += DisplayFavorites;
             FavoritesPage.MapButtonClickedNavMap += DisplayMap;
             FavoritesPage.ProfileButtonClickedNavProfile += DisplayProfile;
+
+            
+            ProfilePage.HomeButtonClickedNavHome += DisplayHome;
+            ProfilePage.ExploreButtonClickedNavExplore += DisplayExplore;
+            ProfilePage.CalendarButtonClickedNavCalendar += DisplayCalendar;
+            ProfilePage.FavsButtonClickedNavFavs += DisplayFavorites;
+            ProfilePage.MapButtonClickedNavMap += DisplayMap;
+            ProfilePage.ProfileButtonClickedNavProfile += DisplayProfile;
+            ProfilePage.SaveChangesButtonClickedNavHome += DisplayHome;
+            ProfilePage.LogOutButtonClickedNavLogin += DisplayLogin;
+            
+            
+            
         }
         
         private void DisplayHome (object sender, System.EventArgs e)

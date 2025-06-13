@@ -33,7 +33,6 @@
                 <Button Content="Map" Click="MapButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
             </StackPanel>
 
-            <!-- Profil Button ganz unten -->
             <Button Content="Profil" Click="ProfileButton_Click" Style="{StaticResource SidebarButtonStyle}" Grid.Row="2" Margin="0,20,0,10" Background="#245C33"/>
 
         </Grid>
