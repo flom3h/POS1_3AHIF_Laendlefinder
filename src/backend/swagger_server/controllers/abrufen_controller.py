@@ -18,7 +18,7 @@ def event_by_id_get(id):  # noqa: E501
 
 
 def events_get(eventname=None, kategorie=None, ort=None, region=None, datum=None):  # noqa: E501
-    query = supabase.table("Events").select("*")
+    query = supabase.table("Events").select("eid, name, date, time, description, picture, type")
 
     if eventname:
         query = query.ilike("name", f"%{eventname}%")
@@ -34,7 +34,7 @@ def events_get(eventname=None, kategorie=None, ort=None, region=None, datum=None
             return []
     # Für ort/region: Hole alle passenden Event-IDs aus Location und filtere dann
     if ort or region:
-        loc_query = supabase.table("Location").select("lid, address, name")
+        loc_query = supabase.table("Location").select("lid, address, name, longitude, latitude, picture")
         if ort:
             loc_query = loc_query.ilike("address", f"%{ort}%")
         if region:
