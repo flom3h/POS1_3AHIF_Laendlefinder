@@ -32,24 +32,27 @@ public partial class EventMiniViewUserControl : UserControl
         TimeLabel.Content = ev.time.ToString(@"hh\:mm");
         TypeButton.Content = ev.type?.ToString() ?? "Unbekannt";
 
-        /*if (!string.IsNullOrEmpty(ev.picture))
+        if (!string.IsNullOrEmpty(ev.picture))
         {
             try
             {
                 EventImage.Source = new BitmapImage(new Uri(ev.picture, UriKind.Absolute));
                 ImagePlaceholder.Visibility = Visibility.Collapsed;
+                EventImage.Visibility = Visibility.Visible;
             }
             catch
             {
                 EventImage.Source = null;
                 ImagePlaceholder.Visibility = Visibility.Visible;
+                EventImage.Visibility = Visibility.Collapsed;
             }
         }
         else
         {
             EventImage.Source = null;
             ImagePlaceholder.Visibility = Visibility.Visible;
-        }*/
+            EventImage.Visibility = Visibility.Collapsed;
+        }
     }
     
     private void MoreButton_OnClick(object sender, RoutedEventArgs e)

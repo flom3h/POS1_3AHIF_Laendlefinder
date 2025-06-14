@@ -13,7 +13,13 @@
                 <Label x:Name="NameLabel" Content="Langer Titel" FontSize="16" FontWeight="Bold" Padding="0" Margin="0,0,0,10" Width="185"/>
                 <Grid>
                     <Rectangle x:Name="ImagePlaceholder" Fill="LightGray" RadiusX="10" RadiusY="10" Width="185" Height="130"/>
-                    <!--<Image x:Name="EventImage" Width="185" Height="130" Stretch="UniformToFill"/>-->
+                    <Border CornerRadius="10" Width="185" Height="130" Background="Transparent">
+                        <Image x:Name="EventImage" Width="185" Height="130" Stretch="UniformToFill">
+                            <Image.Clip>
+                                <RectangleGeometry Rect="0,0,185,130" RadiusX="10" RadiusY="10"/>
+                            </Image.Clip>
+                        </Image>
+                    </Border>
                     <Button x:Name="FavButton" Width="20" Height="20" Style="{StaticResource FavButtonStyle}" Margin="0,5,5,0" HorizontalAlignment="Right" Background="Black" Foreground="White" Click="FavButton_OnClick" VerticalAlignment="Top" Content="★"/>
                 </Grid>
             </StackPanel>
