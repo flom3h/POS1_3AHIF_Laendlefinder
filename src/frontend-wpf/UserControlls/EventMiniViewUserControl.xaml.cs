@@ -2,11 +2,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Laendlefinder.Classes;
+using Laendlefinder.Pages;
 
 namespace Laendlefinder.UserControlls;
 
 public partial class EventMiniViewUserControl : UserControl
 {
+    public static event EventHandler MoreInfoButtonClickedNavMoreInfo;
+
     public EventMiniViewUserControl()
     {
         InitializeComponent();
@@ -41,6 +44,6 @@ public partial class EventMiniViewUserControl : UserControl
     
     private void MoreButton_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        MoreInfoButtonClickedNavMoreInfo?.Invoke(this, EventArgs.Empty);
     }
 }

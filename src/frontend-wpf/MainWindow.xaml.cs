@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Laendlefinder.Pages;
+using Laendlefinder.UserControlls;
 
 namespace Laendlefinder
 {
@@ -63,6 +64,13 @@ namespace Laendlefinder
             MapPage.MapButtonClickedNavMap += DisplayMap;
             MapPage.ProfileButtonClickedNavProfile += DisplayProfile;
             
+            MoreInfoPage.HomeButtonClickedNavHome += DisplayHome;
+            MoreInfoPage.ExploreButtonClickedNavExplore += DisplayExplore;
+            MoreInfoPage.CalendarButtonClickedNavCalendar += DisplayCalendar;
+            MoreInfoPage.FavsButtonClickedNavFavs += DisplayFavorites;
+            MoreInfoPage.MapButtonClickedNavMap += DisplayMap;
+            MoreInfoPage.ProfileButtonClickedNavProfile += DisplayProfile;
+            
             ProfilePage.HomeButtonClickedNavHome += DisplayHome;
             ProfilePage.ExploreButtonClickedNavExplore += DisplayExplore;
             ProfilePage.CalendarButtonClickedNavCalendar += DisplayCalendar;
@@ -72,7 +80,7 @@ namespace Laendlefinder
             ProfilePage.SaveChangesButtonClickedNavHome += DisplayHome;
             ProfilePage.LogOutButtonClickedNavLogin += DisplayLogin;
             
-            
+            EventMiniViewUserControl.MoreInfoButtonClickedNavMoreInfo += DisplayMoreInfo;
             
         }
         
@@ -121,6 +129,12 @@ namespace Laendlefinder
         private void DisplayMap (object sender, System.EventArgs e)
         {
             MapPage mainPage = new MapPage();
+            MainFrame.Navigate(mainPage);
+        }
+        
+        private void DisplayMoreInfo (object sender, System.EventArgs e)
+        {
+            MoreInfoPage mainPage = new MoreInfoPage();
             MainFrame.Navigate(mainPage);
         }
     }
