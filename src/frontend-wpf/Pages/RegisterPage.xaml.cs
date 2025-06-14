@@ -49,20 +49,20 @@ public partial class RegisterPage : Page
     
     private async void AsncMethode(object sender, RoutedEventArgs e)
     {
-        string sn = SnBox.Text;
-        string ln = LnBox.Text;
-        if (string.IsNullOrEmpty(sn) || string.IsNullOrEmpty(ln) || string.IsNullOrWhiteSpace(sn) || string.IsNullOrWhiteSpace(ln) || Regex.IsMatch(sn, @"\d") || Regex.IsMatch(ln, @"\d"))
+        string sn = SnBox.Text.Trim();
+        string ln = LnBox.Text.Trim();
+        if (string.IsNullOrEmpty(sn) || string.IsNullOrEmpty(ln) || Regex.IsMatch(sn, @"\d") || Regex.IsMatch(ln, @"\d"))
         {
             MessageBox.Show("Vorname und Nachname dürfen nicht leer sein oder Zahlen enthalten.");
             return;
         }
-        string email = MailBox.Text;
+        string email = MailBox.Text.Trim();
         if (string.IsNullOrEmpty(email) || !Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$")) // Prüft auf simple E-Mail
         {
             MessageBox.Show("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
             return;
         }
-        string passwort = passwordVisible ? PlainPasswordBox.Text : PasswordBox.Password;
+        string passwort = passwordVisible ? PlainPasswordBox.Text.Trim() : PasswordBox.Password.Trim();
         if (string.IsNullOrEmpty(passwort) || passwort.Length < 8)
         {
             MessageBox.Show("Das Passwort muss mindestens 8 Zeichen lang sein.");

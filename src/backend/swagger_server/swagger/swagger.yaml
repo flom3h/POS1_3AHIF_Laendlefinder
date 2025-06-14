@@ -42,6 +42,33 @@ paths:
         "404":
           description: Benutzer konnte nicht erstellt werden
       x-openapi-router-controller: swagger_server.controllers.registrieren_controller
+  /update/{uid}:
+    post:
+      tags:
+      - Benutzer aktualisieren
+      summary: Benutzer aktualisiert seine Daten
+      operationId: update_user_data
+      parameters:
+      - name: uid
+        in: path
+        description: Die ID des Benutzers, dessen Daten aktualisiert werden sollen
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/reg_body"
+        required: true
+      responses:
+        "200":
+          description: Benutzerdaten erfolgreich aktualisiert
+        "404":
+          description: Benutzer nicht gefunden
+        "500":
+          description: Fehler beim Aktualisieren der Benutzerdaten
+      x-openapi-router-controller: swagger_server.controllers.registrieren_controller
   /kategorien:
     get:
       tags:
@@ -73,6 +100,27 @@ paths:
         "404":
           description: Benutzer nicht gefunden
       x-openapi-router-controller: swagger_server.controllers.abrufen_controller
+  /user/{uid}:
+    get:
+      tags:
+      - abrufen
+      summary: Benutzerinformationen abrufen
+      operationId: get_user_data
+      parameters:
+      - name: uid
+        in: path
+        description: Die ID des Benutzers, dessen Informationen abgerufen werden sollen
+        required: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Erfolgreiches Abrufen der Benutzerinformationen
+        "404":
+          description: Benutzer nicht gefunden
+        "500":
+          description: Fehler beim Abrufen der Benutzerinformationen
+      x-openapi-router-controller: swagger_server.controllers.registrieren_controller
   /events:
     get:
       tags:

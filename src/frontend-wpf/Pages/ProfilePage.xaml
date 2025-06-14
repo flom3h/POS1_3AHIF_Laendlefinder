@@ -40,16 +40,26 @@
             <StackPanel Margin="25,30,20,20">
                 <TextBlock Text="Profil" FontSize="30" FontWeight="SemiBold" Margin="0,0,0,20"/>
                 <Label Content="Vorname" Margin="0" Padding="0" FontSize="20"/>
-                <xctk:WatermarkTextBox x:Name="SnBox" FontSize="20" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
-                <Label Content="Nachname" Margin="0" Padding="0" FontSize="20"/>
-                <xctk:WatermarkTextBox x:Name="LnBox" FontSize="20" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
-                <Label Content="E-Mail" Margin="0" Padding="0" FontSize="20"/>
-                <xctk:WatermarkTextBox x:Name="MailBox" FontSize="20" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
-                <Label Content="Passwort" Margin="0" Padding="0" FontSize="20"/>
+            <Grid Margin="0,0,0,10">
+                <TextBox x:Name="SnBox" TextChanged="SnBox_OnTextChanged" FontSize="25" Style="{StaticResource LoginRegisterTextBox}"/>
+                <Label x:Name="PlaceholderSn" IsHitTestVisible="False" FontSize="20" VerticalAlignment="Center" Padding="0" Foreground="Gray"/>
+            </Grid>
+            <Label Content="Nachname" Margin="0" Padding="0" FontSize="20"/>
+            <Grid Margin="0,0,0,10">
+                <TextBox x:Name="LnBox" FontSize="25" TextChanged="LnBox_OnTextChanged" Style="{StaticResource LoginRegisterTextBox}"/>
+                <Label x:Name="PlaceholderLn" IsHitTestVisible="False" FontSize="20" Padding="0" VerticalAlignment="Center" Foreground="Gray"/>
+            </Grid>
+            <Label Content="E-Mail" Margin="0" Padding="0" FontSize="20"/>
+            <Grid Margin="0,0,0,10">
+                <TextBox x:Name="MailBox" TextChanged="MailBox_OnTextChanged" FontSize="25" Style="{StaticResource LoginRegisterTextBox}"/>
+                <Label x:Name="PlaceholderMail" IsHitTestVisible="False" FontSize="20" VerticalAlignment="Center" Padding="0" Foreground="Gray"/>
+            </Grid>
+            <Label Content="Passwort" Margin="0" Padding="0" FontSize="20"/>
             <Grid>
                 <Grid>
-                    <xctk:WatermarkTextBox x:Name="PlainPasswordBox" FontSize="20" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
-                    <xctk:WatermarkPasswordBox x:Name="PasswordBox" FontSize="20" Margin="0,0,0,10" Style="{StaticResource LoginRegisterPasswordBoxWatermark}"/>
+                    <TextBox x:Name="PlainPasswordBox" FontSize="25" TextChanged="PlainPasswordBox_OnTextChanged" Style="{StaticResource LoginRegisterTextBox}"/>
+                    <PasswordBox x:Name="PasswordBox" FontSize="25" PasswordChanged="PasswordBox_OnPasswordChanged" Style="{StaticResource LoginRegisterPasswordBox}"/>
+                    <Label x:Name="PlaceholderPassword" IsHitTestVisible="False" FontSize="20" VerticalAlignment="Center" Padding="0" Content="Gib hier dein Passwort ein..." Foreground="Gray"/>
                 </Grid>
                 <Button Style="{StaticResource EyeButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ChangePasswordVisibility_Click"/>
             </Grid>
