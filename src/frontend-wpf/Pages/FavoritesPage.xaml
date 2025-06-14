@@ -9,38 +9,41 @@
       Title="FavoritesPage" MinHeight="450" MinWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="0.07*"/>
+            <ColumnDefinition Width="0.93*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.RowSpan="2" HorizontalAlignment="Left" Grid.Column="0" Background="{StaticResource SidebarBackgroundBrush}" Width="140">
-            <!-- SVG Icon Button -->
-            <Button Background="Transparent" BorderThickness="0" Margin="0,20,0,20" HorizontalAlignment="Center">
-                <svgc:SvgViewbox Width="36" Height="36"
-                                 Source="/Assets/Kalender.svg"
-                                 Stretch="Uniform"/>
+        
+        <Grid Grid.RowSpan="2" HorizontalAlignment="Stretch" Grid.Column="0" Background="{StaticResource SidebarBackgroundBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/> 
+                <RowDefinition Height="*"/>    
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Button Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Grid.Row="0" Margin="0,8,0,15">
+                <Image Source="../images/WhiteLogo.png" Height="70" Width="55"></Image>
             </Button>
 
-            <!-- Navigation Buttons -->
-            <Button Content="Home" Click="HomeButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
-            <Button Content="Entdecken" Click="ExploreButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
-            <Button Content="Kalender" Click="CalndarButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
-            <Button Content="Favoriten" Click="FavsButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
-            <Button Content="Map" Click="MapButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
-
-            <!-- Bottom Spacer -->
-            <StackPanel VerticalAlignment="Bottom" Margin="0,40,0,0">
-                <Button Content="Profil" Click="ProfileButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+            <StackPanel Grid.Row="1">
+                <Button Content="Home" Click="HomeButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+                <Button Content="Entdecken" Click="ExploreButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+                <Button Content="Kalender" Click="CalndarButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
+                <Button Content="Favoriten" Click="FavsButton_Click" Style="{StaticResource SidebarButtonStyle}" Background="#245C33"/>
+                <Button Content="Map" Click="MapButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
             </StackPanel>
-        </StackPanel>
+
+            <Button Content="Profil" Click="ProfileButton_Click" Style="{StaticResource SidebarButtonStyle}" Grid.Row="2" Margin="0,20,0,10" />
+
+        </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" Orientation="Vertical" Margin="0, 10, 0, 10">
+            <StackPanel Grid.Row="0" Orientation="Vertical" Margin="15, 10, 10, 10">
                 <TextBlock Text="Deine Favoriten" FontSize="24" FontWeight="Bold"/>
             </StackPanel>
-            <ScrollViewer Grid.Row="1" Margin="-10,0,10,0" VerticalScrollBarVisibility="Auto">
+            <ScrollViewer Grid.Row="1" Margin="15,0,10,0" VerticalScrollBarVisibility="Auto">
                 <Grid>
                     <WrapPanel x:Name="EventsPanel" Orientation="Horizontal" ItemWidth="325" ItemHeight="200"/>
                     <Label x:Name="NoFavoritesLbl" FontSize="15" Foreground="Gray" Content="Du hast noch keine Favoriten." VerticalAlignment="Center" HorizontalAlignment="Center"/>
