@@ -35,11 +35,16 @@ public partial class FavoritesPage : Page
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 HttpResponseMessage response = await client.GetAsync($"/favoriten/{uid}");
-                response.EnsureSuccessStatusCode();
+                if (!response.IsSuccessStatusCode)
+                {
+                    NoFavoritesLbl.Visibility = Visibility.Visible;
+                    return;
+                }
 
                 string responseString = await response.Content.ReadAsStringAsync();
                 var events = JsonSerializer.Deserialize<List<Event>>(responseString);
-
+                
+                NoFavoritesLbl.Visibility = Visibility.Collapsed;
                 eventCollection.Clear();
                 foreach (var ev in events)
                 {

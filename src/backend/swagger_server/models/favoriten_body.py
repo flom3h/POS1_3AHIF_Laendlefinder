@@ -14,25 +14,25 @@ class FavoritenBody(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, benutzername: str=None, event_id: int=None):  # noqa: E501
+    def __init__(self, uid: int=None, eid: int=None):  # noqa: E501
         """FavoritenBody - a model defined in Swagger
 
-        :param benutzername: The benutzername of this FavoritenBody.  # noqa: E501
-        :type benutzername: str
-        :param event_id: The event_id of this FavoritenBody.  # noqa: E501
-        :type event_id: int
+        :param uid: The uid of this FavoritenBody.  # noqa: E501
+        :type uid: int
+        :param eid: The eid of this FavoritenBody.  # noqa: E501
+        :type eid: int
         """
         self.swagger_types = {
-            'benutzername': str,
-            'event_id': int
+            'uid': int,
+            'eid': int
         }
 
         self.attribute_map = {
-            'benutzername': 'benutzername',
-            'event_id': 'event_id'
+            'uid': 'uid',
+            'eid': 'eid'
         }
-        self._benutzername = benutzername
-        self._event_id = event_id
+        self._uid = uid
+        self._eid = eid
 
     @classmethod
     def from_dict(cls, dikt) -> 'FavoritenBody':
@@ -46,47 +46,46 @@ class FavoritenBody(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def benutzername(self) -> str:
-        """Gets the benutzername of this FavoritenBody.
+    def uid(self) -> int:
+        """Gets the uid of this FavoritenBody.
 
 
-        :return: The benutzername of this FavoritenBody.
-        :rtype: str
-        """
-        return self._benutzername
-
-    @benutzername.setter
-    def benutzername(self, benutzername: str):
-        """Sets the benutzername of this FavoritenBody.
-
-
-        :param benutzername: The benutzername of this FavoritenBody.
-        :type benutzername: str
-        """
-        if benutzername is None:
-            raise ValueError("Invalid value for `benutzername`, must not be `None`")  # noqa: E501
-
-        self._benutzername = benutzername
-
-    @property
-    def event_id(self) -> int:
-        """Gets the event_id of this FavoritenBody.
-
-
-        :return: The event_id of this FavoritenBody.
+        :return: The uid of this FavoritenBody.
         :rtype: int
         """
-        return self._event_id
+        return self._uid
 
-    @event_id.setter
-    def event_id(self, event_id: int):
-        """Sets the event_id of this FavoritenBody.
+    @uid.setter
+    def uid(self, uid: int):
+        """Sets the uid of this FavoritenBody.
 
 
-        :param event_id: The event_id of this FavoritenBody.
-        :type event_id: int
+        :param uid: The uid of this FavoritenBody.
+        :type uid: int
         """
-        if event_id is None:
-            raise ValueError("Invalid value for `event_id`, must not be `None`")  # noqa: E501
+        if uid is None:
+            raise ValueError("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
-        self._event_id = event_id
+        self._uid = uid
+
+    @property
+    def eid(self) -> int:
+        """Gets the eid of this FavoritenBody.
+
+
+        :return: The eid of this FavoritenBody.
+        :rtype: int
+        """
+        return self._eid
+
+    @eid.setter
+    def eid(self, eid: int):
+        """Sets the eid of this FavoritenBody.
+
+        :param eid: The eid of this FavoritenBody.
+        :type eid: int
+        """
+        if eid is None:
+            raise ValueError("Invalid value for `eid`, must not be `None`")  # noqa: E501
+
+        self._eid = eid

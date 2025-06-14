@@ -1,4 +1,7 @@
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -11,6 +14,7 @@ namespace Laendlefinder.UserControlls;
 public partial class EventMiniViewUserControl : UserControl
 {
     private int uid = LoginPage.CurrentUserID == 0 ? RegisterPage.CurrentUserID : LoginPage.CurrentUserID;
+    public int eid = 0;
     private bool _isFavorite = false;
     public static event EventHandler MoreInfoButtonClickedNavMoreInfo;
 
@@ -21,7 +25,8 @@ public partial class EventMiniViewUserControl : UserControl
 
     public void SetEventData(Event ev)
     {
-        CheckIfFavoriteAsync(uid , ev.name);
+        eid = (int)ev.eid;
+        CheckIfFavoriteAsync(uid, eid);
         NameLabel.Content = ev.name;
         DateLabel.Content = ev.date.ToShortDateString();
         TimeLabel.Content = ev.time.ToString(@"hh\:mm");
@@ -52,33 +57,66 @@ public partial class EventMiniViewUserControl : UserControl
         MoreInfoButtonClickedNavMoreInfo?.Invoke(this, EventArgs.Empty);
     }
 
-    private void FavButton_OnClick(object sender, RoutedEventArgs e)
+    private async void FavButton_OnClick(object sender, RoutedEventArgs e)
     {
         if (_isFavorite)
-        {
-            
+        {// DELETE
+            using (HttpClient client = new HttpClient())
+            {
+                var response = await client.DeleteAsync($"http://127.0.0.1:8081/favoriten/delete/{uid}/{eid}");
+                if (response.IsSuccessStatusCode)
+                {
+                    _isFavorite = false;
+                    FavButton.Background = Brushes.Black;
+                    FavButton.Foreground = Brushes.White;
+                }
+            }
         }
         else
-        {
+        {// POST
+            var favData = new FavRequest()
+            {
+                uid = uid,
+                eid = eid
+            };
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://127.0.0.1:8081");
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string json = JsonSerializer.Serialize(favData);
+                HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync("/favoriten", content);
+                string responseString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    _isFavorite = true;
+                    FavButton.Background = Brushes.White;
+                    FavButton.Foreground = Brushes.Black;
+                }
+            }
             
         }
     }
 
-    public async void CheckIfFavoriteAsync(int uid, string eventName)
+    public async void CheckIfFavoriteAsync(int uid, int eid)
     {
-        using var client = new HttpClient();
-        var response = await client.GetAsync($"http://127.0.0.1:8081/favoriten/{uid}/{eventName}");
-        if (response.IsSuccessStatusCode)
+        using (HttpClient client = new HttpClient())
         {
-            _isFavorite = true;
-            FavButton.Background = Brushes.White;
-            FavButton.Foreground = Brushes.Black;
-        }
-        else
-        {
-            _isFavorite = false;
-            FavButton.Background = Brushes.Black;
-            FavButton.Foreground = Brushes.White;
+            var response = await client.GetAsync($"http://127.0.0.1:8081/favoriten/{uid}/{eid}");
+            if (response.IsSuccessStatusCode)
+            {
+                _isFavorite = true;
+                FavButton.Background = Brushes.White;
+                FavButton.Foreground = Brushes.Black;
+            }
+            else
+            {
+                _isFavorite = false;
+                FavButton.Background = Brushes.Black;
+                FavButton.Foreground = Brushes.White;
+            }
         }
     }
 }

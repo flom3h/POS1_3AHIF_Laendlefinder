@@ -40,8 +40,11 @@
             <StackPanel Grid.Row="0" Orientation="Vertical" Margin="0, 10, 0, 10">
                 <TextBlock Text="Deine Favoriten" FontSize="24" FontWeight="Bold"/>
             </StackPanel>
-            <ScrollViewer Grid.Row="1" Margin="0,0,0,0" VerticalScrollBarVisibility="Auto">
-                <WrapPanel x:Name="EventsPanel" Orientation="Horizontal" ItemWidth="325" ItemHeight="200"/>
+            <ScrollViewer Grid.Row="1" Margin="-10,0,10,0" VerticalScrollBarVisibility="Auto">
+                <Grid>
+                    <WrapPanel x:Name="EventsPanel" Orientation="Horizontal" ItemWidth="325" ItemHeight="200"/>
+                    <Label x:Name="NoFavoritesLbl" FontSize="15" Foreground="Gray" Content="Du hast noch keine Favoriten." VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
             </ScrollViewer>
         </Grid>
     </Grid>

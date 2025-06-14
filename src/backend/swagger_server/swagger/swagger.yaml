@@ -184,7 +184,7 @@ paths:
           description: Fehler beim Abrufen der Favoriten
       x-openapi-router-controller: swagger_server.controllers.favoriten_controller
       
-  /favoriten/{uid}/{event_name}:
+  /favoriten/{uid}/{eid}:
     get:
       tags:
       - favoriten
@@ -197,12 +197,12 @@ paths:
         required: true
         schema:
           type: integer
-      - name: event_name
+      - name: eid
         in: path
-        description: "Der Name des Events, das überprüft werden soll"
+        description: "Die ID des Events, das überprüft werden soll"
         required: true
         schema:
-          type: string
+          type: integer
       responses:
         "200":
           description: Event ist in den Favoriten des Benutzers
@@ -233,7 +233,7 @@ paths:
         "500":
           description: Serverfehler beim Hinzufügen zu Favoriten
       x-openapi-router-controller: swagger_server.controllers.favoriten_controller
-  /favoriten/delete/{uid}/{event_name}:
+  /favoriten/delete/{uid}/{eid}:
     delete:
       tags:
       - favoriten
@@ -246,12 +246,12 @@ paths:
         required: true
         schema:
           type: integer
-      - name: event_name
+      - name: eid
         in: path
-        description: "Der Name des Events, das entfernt werden soll"
+        description: "Die ID des Events, das entfernt werden soll"
         required: true
         schema:
-          type: string
+          type: integer
       responses:
         "200":
           description: Event wurde erfolgreich aus den Favoriten entfernt
@@ -298,13 +298,13 @@ components:
     favoriten_body:
       required:
       - uid
-      - event_name
+      - eid
       type: object
       properties:
         uid:
           type: integer
-        event_name:
-          type: string
+        eid:
+          type: integer
   securitySchemes:
     basicAuth:
       type: http
