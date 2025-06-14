@@ -4,8 +4,8 @@ import six
 from swagger_server import util
 from swagger_server.__main__ import supabase
 
-def event_by_id_get(id):  
-    response = supabase.table("Events").select("*").eq("eid", id).single().execute()
+def event_by_id_get(eid):  
+    response = supabase.table("Events").select("*").eq("eid", eid).single().execute()
     if response.data:
         return response.data, 200
     else:
