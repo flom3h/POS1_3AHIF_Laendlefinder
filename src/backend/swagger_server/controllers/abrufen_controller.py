@@ -5,11 +5,18 @@ from swagger_server import util
 from swagger_server.__main__ import supabase
 
 def event_by_id_get(eid):  
-    response = supabase.table("Events").select("*").eq("eid", eid).single().execute()
-    if response.data:
-        return response.data, 200
-    else:
+    event_resp = supabase.table("Events").select("eid, name, date, time, description, picture, type").eq("eid", eid).single().execute()
+    if not event_resp.data:
         return {"error": "Event nicht gefunden"}, 404
+
+    event = event_resp.data
+
+    loc_resp = supabase.table("Location").select("lid, address, name, longitude, latitude, picture").eq("lid", eid).single().execute()
+    location = loc_resp.data if loc_resp.data else None
+
+    event["location"] = location
+    return event, 200
+
 
 
 def events_get(eventname=None, kategorie=None, ort=None, region=None, datum=None):  # noqa: E501

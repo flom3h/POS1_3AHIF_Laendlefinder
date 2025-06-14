@@ -9,4 +9,6 @@ public class Event
     public string description { get; set; }
     public string picture { get; set; }
     public long? type { get; set; }
+    
+    public Location location { get; set; }
 }

@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Laendlefinder.Pages"
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
       mc:Ignorable="d"
       Title="MoreInfoPage">
    
@@ -50,9 +51,27 @@
                     <RowDefinition Height="*"/>   <!-- Restlicher Inhalt -->
                 </Grid.RowDefinitions>
 
-                <!-- Bild oben über volle Breite -->
-                <Rectangle x:Name="EventImage" Grid.Row="0" Fill="LightGray" RadiusX="10" RadiusY="10" Height="130" HorizontalAlignment="Stretch" Grid.ColumnSpan="2"/>
-
+                <Grid Grid.Row="0" Height="250" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
+                    <Rectangle x:Name="ImagePlaceholder"
+                               Fill="LightGray"
+                               RadiusX="10" RadiusY="10"
+                               Height="250"
+                               HorizontalAlignment="Stretch"/>
+                    <Border CornerRadius="10"
+                            Height="250"
+                            Background="Transparent"
+                            HorizontalAlignment="Stretch">
+                        <Image x:Name="EventImage"
+                               Height="250"
+                               Stretch="UniformToFill"
+                               Visibility="Collapsed"
+                               HorizontalAlignment="Stretch">
+                            <Image.Clip>
+                                <RectangleGeometry Rect="0,0,9999,250" RadiusX="10" RadiusY="10"/>
+                            </Image.Clip>
+                        </Image>
+                    </Border>
+                </Grid>
                 <!-- Zwei Spalten darunter -->
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
@@ -62,30 +81,31 @@
 
                     <!-- Linke Spalte: Infos -->
                     <StackPanel Grid.Column="0" Orientation="Vertical" Margin="0,20,20,0">
-                        <Label x:Name="NameLabel" Content="Langer Titel" FontSize="30" FontFamily="{StaticResource OpenSansBold}" FontWeight="Bold" Padding="0" Margin="0,0,0,10"/>
+                        <Label x:Name="NameLabel" Content="Langer Titel" FontSize="40" FontFamily="{StaticResource OpenSansBold}" FontWeight="Bold" Padding="0" Margin="0,0,0,35"/>
                         <TextBlock FontSize="20" FontWeight="Bold" Text="Datum und Uhrzeit" Margin="0,0,0,10"/>
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Image Source="../images/calendar.png" Height="20" Width="20" Margin="0,0,5,0"/>
                             <TextBlock x:Name="DateText" Text="Datum" FontSize="16"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                            <Image Source="../images/clock.png" Height="20" Width="20" Margin="0,0,5,0"/>
                             <TextBlock x:Name="TimeText" Text="Uhrzeit" FontSize="16"/>
                         </StackPanel>
-                        <TextBlock FontSize="20" FontWeight="Bold" Text="Location" Margin="0,20,0,10"/>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                            <Image Source="../images/location.png" Height="20" Width="20" Margin="0,0,5,0"/>
-                            <TextBlock Text="Ort" FontSize="16" TextWrapping="Wrap"/>
-                        </StackPanel>
+                        <TextBlock FontSize="20" FontWeight="Bold" Text="Event Description" Margin="0,30,0,10"/>
+                        <wv2:WebView2 x:Name="DescriptionWebView" Height="300" Margin="10"/>
+                        
+
+                        
                     </StackPanel>
 
                     <!-- Rechte Spalte: Beschreibung + Google Map -->
                     <StackPanel Grid.Column="1" Orientation="Vertical" Margin="20,20,0,0">
-                        <TextBlock FontSize="20" FontWeight="Bold" Text="Event Description" Margin="0,0,0,10"/>
-                        <TextBlock TextWrapping="Wrap" Margin="0,0,0,20">
-                            <Run x:Name="DescriptionText" Text="Beschreibung"/>
-                        </TextBlock>
-                        <WebBrowser x:Name="GoogleMapBrowser" Height="300" HorizontalAlignment="Stretch"/>
+                        <Button x:Name="FavButton" Width="50" Height="50" Style="{StaticResource FavButtonStyle}" Margin="0,5,5,0" HorizontalAlignment="Right" Background="Black" Foreground="White" Click="FavButton_OnClick" VerticalAlignment="Top" Content="★"/>
+
+                        <TextBlock FontSize="20" FontWeight="Bold" Text="Location" Margin="0,30,0,10"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                            <TextBlock x:Name="LocationText" Text="Ort" FontSize="16" TextWrapping="Wrap"/>
+                        </StackPanel>
+                        
+                        <wv2:WebView2 x:Name="GoogleMapBrowser" Height="300" HorizontalAlignment="Stretch"/>
                     </StackPanel>
                 </Grid>
             </Grid>
