@@ -175,19 +175,17 @@ paths:
         "500":
           description: Fehler beim Abrufen der Events
       x-openapi-router-controller: swagger_server.controllers.abrufen_controller
-  /events/{id}:
+  /events/{eid}:
     get:
       tags:
       - abrufen
       summary: Details zu einem einzelnen Event abrufen
       operationId: event_by_id_get
       parameters:
-      - name: id
+      - name: eid
         in: path
         description: Die ID des Events
         required: true
-        style: simple
-        explode: false
         schema:
           type: integer
       responses:

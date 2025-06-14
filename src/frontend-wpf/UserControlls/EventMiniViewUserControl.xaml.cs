@@ -16,7 +16,7 @@ public partial class EventMiniViewUserControl : UserControl
     private int uid = LoginPage.CurrentUserID == 0 ? RegisterPage.CurrentUserID : LoginPage.CurrentUserID;
     public int eid = 0;
     private bool _isFavorite = false;
-    public static event EventHandler MoreInfoButtonClickedNavMoreInfo;
+    public static event EventHandler<int> MoreInfoButtonClickedNavMoreInfo; // int für eid
 
     public EventMiniViewUserControl()
     {
@@ -57,7 +57,8 @@ public partial class EventMiniViewUserControl : UserControl
     
     private void MoreButton_OnClick(object sender, RoutedEventArgs e)
     {
-        MoreInfoButtonClickedNavMoreInfo?.Invoke(this, EventArgs.Empty);
+        MoreInfoButtonClickedNavMoreInfo?.Invoke(this, eid);
+        
     }
 
     private async void FavButton_OnClick(object sender, RoutedEventArgs e)

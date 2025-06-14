@@ -21,7 +21,7 @@ namespace Laendlefinder
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new LoginPage());
+            MainFrame.Navigate(new MainPage());
             //MainFrame.Navigate(new MainPage());
             LoginPage.LoginButtonClickedNavHome += DisplayHome;
             LoginPage.LoginButtonClickedNavRegister += DisplayRegister;
@@ -132,9 +132,9 @@ namespace Laendlefinder
             MainFrame.Navigate(mainPage);
         }
         
-        private void DisplayMoreInfo (object sender, System.EventArgs e)
+        private void DisplayMoreInfo (object sender, int eid)
         {
-            MoreInfoPage mainPage = new MoreInfoPage();
+            MoreInfoPage mainPage = new MoreInfoPage(eid);
             MainFrame.Navigate(mainPage);
         }
     }
