@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:Laendlefinder.Pages"
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d"
-      Title="MoreInfoPage" Height="450" Width="800">
+      Title="MoreInfoPage">
+   
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.07*"/>
@@ -39,29 +40,55 @@
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
-            <StackPanel Grid.Row="0" Orientation="Vertical" Margin="10">
-                <TextBlock Text="Was geht ab in Vorarlberg?" FontSize="24" FontWeight="Bold"/>
-                <Grid Margin="0,10,0,10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <xctk:WatermarkTextBox Grid.Column="0" Padding="10" Watermark="Suche Events, Kategorien, Orte"/>
-                    <ComboBox Grid.Column="1" Margin="10,0,0,0" Width="120">
-                        <ComboBoxItem Content="Vorarlberg"/>
-                    </ComboBox>
-                </Grid>
-            </StackPanel>
-                
-            <ScrollViewer Grid.Row="2" Margin="10" VerticalScrollBarVisibility="Auto">
-                <WrapPanel x:Name="EventsPanel" Orientation="Horizontal" ItemWidth="325" ItemHeight="200" Width="720"/>
-            </ScrollViewer>
-            </Grid>
 
+            <!-- Inhalt -->
+            <Grid Grid.Row="0" Grid.Column="0" Margin="25,20,20,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/> <!-- Bild -->
+                    <RowDefinition Height="*"/>   <!-- Restlicher Inhalt -->
+                </Grid.RowDefinitions>
+
+                <!-- Bild oben über volle Breite -->
+                <Rectangle x:Name="ImagePlaceholder" Grid.Row="0" Fill="LightGray" RadiusX="10" RadiusY="10" Height="130" HorizontalAlignment="Stretch" Grid.ColumnSpan="2"/>
+
+                <!-- Zwei Spalten darunter -->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Linke Spalte: Infos -->
+                    <StackPanel Grid.Column="0" Orientation="Vertical" Margin="0,20,20,0">
+                        <Label x:Name="NameLabel" Content="Langer Titel" FontSize="30" FontFamily="{StaticResource OpenSansBold}" FontWeight="Bold" Padding="0" Margin="0,0,0,10"/>
+                        <TextBlock FontSize="20" FontWeight="Bold" Text="Datum und Uhrzeit" Margin="0,0,0,10"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Image Source="../images/calendar.png" Height="20" Width="20" Margin="0,0,5,0"/>
+                            <TextBlock Text="Datum" FontSize="16"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <Image Source="../images/clock.png" Height="20" Width="20" Margin="0,0,5,0"/>
+                            <TextBlock Text="Uhrzeit" FontSize="16"/>
+                        </StackPanel>
+                        <TextBlock FontSize="20" FontWeight="Bold" Text="Location" Margin="0,20,0,10"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <Image Source="../images/location.png" Height="20" Width="20" Margin="0,0,5,0"/>
+                            <TextBlock Text="Ort" FontSize="16" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Rechte Spalte: Beschreibung + Google Map -->
+                    <StackPanel Grid.Column="1" Orientation="Vertical" Margin="20,20,0,0">
+                        <TextBlock FontSize="20" FontWeight="Bold" Text="Event Description" Margin="0,0,0,10"/>
+                        <TextBlock TextWrapping="Wrap" Margin="0,0,0,20">
+                            <Run Text="Beschreibung"/>
+                        </TextBlock>
+                        <WebBrowser x:Name="GoogleMapBrowser" Height="300" HorizontalAlignment="Stretch"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>
