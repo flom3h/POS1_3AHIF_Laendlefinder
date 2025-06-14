@@ -14,7 +14,7 @@
                 <Grid>
                     <Rectangle x:Name="ImagePlaceholder" Fill="LightGray" RadiusX="10" RadiusY="10" Width="185" Height="130"/>
                     <!--<Image x:Name="EventImage" Width="185" Height="130" Stretch="UniformToFill"/>-->
-                    <Button x:Name="FavButton" Width="20" Height="20" Style="{StaticResource FavButtonStyle}" Margin="0,5,5,0" HorizontalAlignment="Right" VerticalAlignment="Top" Content="★"/>
+                    <Button x:Name="FavButton" Width="20" Height="20" Style="{StaticResource FavButtonStyle}" Margin="0,5,5,0" HorizontalAlignment="Right" Background="Black" Foreground="White" Click="FavButton_OnClick" VerticalAlignment="Top" Content="★"/>
                 </Grid>
             </StackPanel>
             <StackPanel Margin="10,0,0,0">

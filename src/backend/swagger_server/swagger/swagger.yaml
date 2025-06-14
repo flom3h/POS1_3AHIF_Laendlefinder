@@ -183,6 +183,35 @@ paths:
         "500":
           description: Fehler beim Abrufen der Favoriten
       x-openapi-router-controller: swagger_server.controllers.favoriten_controller
+      
+  /favoriten/{uid}/{event_name}:
+    get:
+      tags:
+      - favoriten
+      summary: Überprüfen, ob ein Event in den Favoriten eines Benutzers ist
+      operationId: is_favorit
+      parameters:
+      - name: uid
+        in: path
+        description: "Der Benutzer, dessen Favoriten überprüft werden"
+        required: true
+        schema:
+          type: integer
+      - name: event_name
+        in: path
+        description: "Der Name des Events, das überprüft werden soll"
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Event ist in den Favoriten des Benutzers
+        "404":
+          description: Event oder Benutzer nicht gefunden
+        "500":
+          description: Fehler beim Überprüfen der Favoriten
+      x-openapi-router-controller: swagger_server.controllers.favoriten_controller
+  /favoriten:
     post:
       tags:
       - favoriten
@@ -198,12 +227,13 @@ paths:
         "201":
           description: Event erfolgreich zu den Favoriten hinzugefügt
         "400":
-          description: Ungültige Anfrage (z. B. fehlender Parameter)
+          description: Ungültige Anfrage (z. B. fehlender Parameter)
         "404":
           description: Benutzer oder Event nicht gefunden
         "500":
           description: Serverfehler beim Hinzufügen zu Favoriten
       x-openapi-router-controller: swagger_server.controllers.favoriten_controller
+  /favoriten/delete/{uid}/{event_name}:
     delete:
       tags:
       - favoriten
@@ -211,21 +241,17 @@ paths:
       operationId: favoriten_delete
       parameters:
       - name: uid
-        in: query
+        in: path
         description: "Der Benutzer, dessen Favoriten bearbeitet werden"
         required: true
-        style: form
-        explode: true
         schema:
           type: integer
-      - name: event_id
-        in: query
-        description: "Die ID des Events, das entfernt werden soll"
+      - name: event_name
+        in: path
+        description: "Der Name des Events, das entfernt werden soll"
         required: true
-        style: form
-        explode: true
         schema:
-          type: integer
+          type: string
       responses:
         "200":
           description: Event wurde erfolgreich aus den Favoriten entfernt
@@ -234,8 +260,7 @@ paths:
         "500":
           description: Fehler beim Entfernen des Events aus den Favoriten
       x-openapi-router-controller: swagger_server.controllers.favoriten_controller
-      security:
-        - basicAuth: []
+      
   
 
 components:
@@ -273,13 +298,13 @@ components:
     favoriten_body:
       required:
       - uid
-      - event_id
+      - event_name
       type: object
       properties:
         uid:
           type: integer
-        event_id:
-          type: integer
+        event_name:
+          type: string
   securitySchemes:
     basicAuth:
       type: http

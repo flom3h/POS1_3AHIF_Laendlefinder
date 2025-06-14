@@ -22,7 +22,7 @@ namespace Laendlefinder
         {
             InitializeComponent();
             MainFrame.Navigate(new LoginPage());
-            MainFrame.Navigate(new MainPage());
+            //MainFrame.Navigate(new MainPage());
             LoginPage.LoginButtonClickedNavHome += DisplayHome;
             LoginPage.LoginButtonClickedNavRegister += DisplayRegister;
 
