@@ -64,9 +64,15 @@
                 </Grid>
             </StackPanel>
             
-            <ScrollViewer Grid.Row="2" Margin="10" VerticalScrollBarVisibility="Auto">
-                <WrapPanel x:Name="EventsPanel" Orientation="Horizontal" ItemWidth="325" ItemHeight="200" Width="720" />
+            <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <WrapPanel x:Name="EventsPanel"
+                           Orientation="Horizontal"
+                           HorizontalAlignment="Center"
+                           Margin="20"
+                           ItemWidth="625"
+                           ItemHeight="Auto"/>
             </ScrollViewer>
+
         </Grid>
     </Grid>
 
