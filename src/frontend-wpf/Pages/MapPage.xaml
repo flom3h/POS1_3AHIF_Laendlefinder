@@ -12,16 +12,16 @@
             <ColumnDefinition Width="0.07*"/>
             <ColumnDefinition Width="0.93*"/>
         </Grid.ColumnDefinitions>
-        
+
         <Grid Grid.RowSpan="2" HorizontalAlignment="Stretch" Grid.Column="0" Background="{StaticResource SidebarBackgroundBrush}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/> 
-                <RowDefinition Height="*"/>    
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Button Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Grid.Row="0" Margin="0,8,0,15">
-                <Image Source="../images/WhiteLogo.png" Height="70" Width="55"></Image>
+                <Image Source="../images/WhiteLogo.png" Height="70" Width="55"/>
             </Button>
 
             <StackPanel Grid.Row="1">
@@ -33,9 +33,9 @@
             </StackPanel>
 
             <Button Content="Profil" Click="ProfileButton_Click" Style="{StaticResource SidebarButtonStyle}" Grid.Row="2" Margin="0,20,0,10"/>
-
         </Grid>
+
+        <!-- Mapsui MapControl für die Karte -->
         <mapsui:MapControl x:Name="MapView" Grid.Column="1"/>
-        
     </Grid>
 </Page>

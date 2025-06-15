@@ -2,6 +2,7 @@
 using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using Laendlefinder.Classes;
@@ -22,8 +23,37 @@ public partial class MainPage : Page
     public MainPage()
     {
         InitializeComponent();
+        /*StartBackendServer();
+        Task.Delay(16000);*/
         LoadEventsAsync();
     }
+    
+    /*private void StartBackendServer()
+    {
+        string backendDir = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\src\backend");
+        string scriptPath = System.IO.Path.Combine(backendDir, "start_server.py");
+
+        if (!System.IO.Directory.Exists(backendDir))
+        {
+            MessageBox.Show("Backend-Verzeichnis nicht gefunden: " + backendDir);
+            return;
+        }
+        if (!System.IO.File.Exists(scriptPath))
+        {
+            MessageBox.Show("Backend-Skript nicht gefunden: " + scriptPath);
+            return;
+        }
+
+        var startInfo = new ProcessStartInfo
+        {
+            FileName = "python.exe",
+            Arguments = $"\"{scriptPath}\"",
+            WorkingDirectory = backendDir,
+            UseShellExecute = false,
+            CreateNoWindow = true
+        };
+        Process.Start(startInfo);
+    }*/
 
     private async void LoadEventsAsync()
     {

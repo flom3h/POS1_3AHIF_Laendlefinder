@@ -69,7 +69,14 @@ def extract_event_data(event):
     if not description:
         description = "no data"
 
-    typeofevent = ", ".join(types) if isinstance(types, list) else str(types)
+    classifications = event.get("dc:classification", [])
+    typeofevent = "Unbekannt"
+    if classifications and isinstance(classifications, list):
+        pref_labels = [c["skos:prefLabel"] for c in classifications if "skos:prefLabel" in c]
+        if len(pref_labels) > 1:
+            typeofevent = pref_labels[1]
+        elif pref_labels:
+            typeofevent = pref_labels[0]
 
     return {
         "address": address,

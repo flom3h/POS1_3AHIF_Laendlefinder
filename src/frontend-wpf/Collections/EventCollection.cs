@@ -10,6 +10,9 @@ namespace Laendlefinder.Collections;
 
 public class EventCollection : ObservableCollection<Event>
 {
+    public static EventCollection Events { get; } = new EventCollection();
+    public List<Event> events { get; } = new List<Event>();
+    
     public void Serialize(string filename)
     {
         using (StreamWriter stream = new StreamWriter(filename))
