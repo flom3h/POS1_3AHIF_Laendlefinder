@@ -23,7 +23,6 @@ public partial class MapPage : Page
 {
     public static event EventHandler HomeButtonClickedNavHome;
     public static event EventHandler ExploreButtonClickedNavExplore;
-    public static event EventHandler CalendarButtonClickedNavCalendar;
     public static event EventHandler FavsButtonClickedNavFavs;
     public static event EventHandler MapButtonClickedNavMap;
     public static event EventHandler ProfileButtonClickedNavProfile;
@@ -180,11 +179,7 @@ public partial class MapPage : Page
     {
         ExploreButtonClickedNavExplore?.Invoke(this, EventArgs.Empty);
     }
-
-    private void CalndarButton_Click(object sender, RoutedEventArgs e)
-    {
-        CalendarButtonClickedNavCalendar?.Invoke(this, EventArgs.Empty);
-    }
+    
 
     private void FavsButton_Click(object sender, RoutedEventArgs e)
     {

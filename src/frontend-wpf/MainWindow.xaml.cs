@@ -31,49 +31,36 @@ namespace Laendlefinder
             
             MainPage.HomeButtonClickedNavHome += DisplayHome;
             MainPage.ExploreButtonClickedNavExplore += DisplayExplore;
-            MainPage.CalendarButtonClickedNavCalendar += DisplayCalendar;
             MainPage.FavsButtonClickedNavFavs += DisplayFavorites;
             MainPage.MapButtonClickedNavMap += DisplayMap;
             MainPage.ProfileButtonClickedNavProfile += DisplayProfile;
             
             ExplorePage.HomeButtonClickedNavHome += DisplayHome;
             ExplorePage.ExploreButtonClickedNavExplore += DisplayExplore;
-            ExplorePage.CalendarButtonClickedNavCalendar += DisplayCalendar;
             ExplorePage.FavsButtonClickedNavFavs += DisplayFavorites;
             ExplorePage.MapButtonClickedNavMap += DisplayMap;
             ExplorePage.ProfileButtonClickedNavProfile += DisplayProfile;
             
             FavoritesPage.HomeButtonClickedNavHome += DisplayHome;
             FavoritesPage.ExploreButtonClickedNavExplore += DisplayExplore;
-            FavoritesPage.CalendarButtonClickedNavCalendar += DisplayCalendar;
             FavoritesPage.FavsButtonClickedNavFavs += DisplayFavorites;
             FavoritesPage.MapButtonClickedNavMap += DisplayMap;
             FavoritesPage.ProfileButtonClickedNavProfile += DisplayProfile;
-
-            CalendarPage.HomeButtonClickedNavHome += DisplayHome;
-            CalendarPage.ExploreButtonClickedNavExplore += DisplayExplore;
-            CalendarPage.CalendarButtonClickedNavCalendar += DisplayCalendar;
-            CalendarPage.FavsButtonClickedNavFavs += DisplayFavorites;
-            CalendarPage.MapButtonClickedNavMap += DisplayMap;
-            CalendarPage.ProfileButtonClickedNavProfile += DisplayProfile;
             
             MapPage.HomeButtonClickedNavHome += DisplayHome;
             MapPage.ExploreButtonClickedNavExplore += DisplayExplore;
-            MapPage.CalendarButtonClickedNavCalendar += DisplayCalendar;
             MapPage.FavsButtonClickedNavFavs += DisplayFavorites;
             MapPage.MapButtonClickedNavMap += DisplayMap;
             MapPage.ProfileButtonClickedNavProfile += DisplayProfile;
             
             MoreInfoPage.HomeButtonClickedNavHome += DisplayHome;
             MoreInfoPage.ExploreButtonClickedNavExplore += DisplayExplore;
-            MoreInfoPage.CalendarButtonClickedNavCalendar += DisplayCalendar;
             MoreInfoPage.FavsButtonClickedNavFavs += DisplayFavorites;
             MoreInfoPage.MapButtonClickedNavMap += DisplayMap;
             MoreInfoPage.ProfileButtonClickedNavProfile += DisplayProfile;
             
             ProfilePage.HomeButtonClickedNavHome += DisplayHome;
             ProfilePage.ExploreButtonClickedNavExplore += DisplayExplore;
-            ProfilePage.CalendarButtonClickedNavCalendar += DisplayCalendar;
             ProfilePage.FavsButtonClickedNavFavs += DisplayFavorites;
             ProfilePage.MapButtonClickedNavMap += DisplayMap;
             ProfilePage.ProfileButtonClickedNavProfile += DisplayProfile;
@@ -99,12 +86,6 @@ namespace Laendlefinder
         private void DisplayRegister (object sender, System.EventArgs e)
         {
             RegisterPage mainPage = new RegisterPage();
-            MainFrame.Navigate(mainPage);
-        }
-        
-        private void DisplayCalendar (object sender, System.EventArgs e)
-        {
-            CalendarPage mainPage = new CalendarPage();
             MainFrame.Navigate(mainPage);
         }
         

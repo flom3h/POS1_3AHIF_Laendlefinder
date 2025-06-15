@@ -31,7 +31,6 @@
            <StackPanel Grid.Row="1">
                <Button Content="Home" Click="HomeButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
                <Button Content="Entdecken" Click="ExploreButton_Click" Style="{StaticResource SidebarButtonStyle}" Background="#245C33" />
-               <Button Content="Kalender" Click="CalndarButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
                <Button Content="Favoriten" Click="FavsButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
                <Button Content="Map" Click="MapButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
            </StackPanel>

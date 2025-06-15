@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:Laendlefinder.Pages"
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+      xmlns:mapsui="clr-namespace:Mapsui.UI.Wpf;assembly=Mapsui.UI.Wpf"
       mc:Ignorable="d"
       Title="MoreInfoPage">
    
@@ -29,7 +30,6 @@
             <StackPanel Grid.Row="1">
                 <Button Content="Home" Click="HomeButton_Click" Style="{StaticResource SidebarButtonStyle}" Background="#245C33"/>
                 <Button Content="Entdecken" Click="ExploreButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
-                <Button Content="Kalender" Click="CalndarButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
                 <Button Content="Favoriten" Click="FavsButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
                 <Button Content="Map" Click="MapButton_Click" Style="{StaticResource SidebarButtonStyle}"/>
             </StackPanel>
@@ -38,77 +38,79 @@
 
         </Grid>
 
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <!-- Inhalt -->
-            <Grid Grid.Row="0" Grid.Column="0" Margin="25,20,20,20">
+        <ScrollViewer Grid.Column="1">
+            <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/> <!-- Bild -->
-                    <RowDefinition Height="*"/>   <!-- Restlicher Inhalt -->
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0" Height="250" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
-                    <Rectangle x:Name="ImagePlaceholder"
-                               Fill="LightGray"
-                               RadiusX="10" RadiusY="10"
-                               Height="250"
-                               HorizontalAlignment="Stretch"/>
-                    <Border CornerRadius="10"
-                            Height="250"
-                            Background="Transparent"
-                            HorizontalAlignment="Stretch">
-                        <Image x:Name="EventImage"
-                               Height="250"
-                               Stretch="UniformToFill"
-                               Visibility="Collapsed"
-                               HorizontalAlignment="Stretch">
-                            <Image.Clip>
-                                <RectangleGeometry Rect="0,0,9999,250" RadiusX="10" RadiusY="10"/>
-                            </Image.Clip>
-                        </Image>
-                    </Border>
-                </Grid>
-                <!-- Zwei Spalten darunter -->
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="3*"/>
-                    </Grid.ColumnDefinitions>
+                <!-- Inhalt -->
+                <Grid Grid.Row="0" Grid.Column="0" Margin="25,20,20,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/> <!-- Bild -->
+                        <RowDefinition Height="*"/>   <!-- Restlicher Inhalt -->
+                    </Grid.RowDefinitions>
 
-                    <!-- Linke Spalte: Infos -->
-                    <StackPanel Grid.Column="0" Orientation="Vertical" Margin="0,20,20,0">
-                        <Label x:Name="NameLabel" Content="Langer Titel" FontSize="40" FontFamily="{StaticResource OpenSansBold}" FontWeight="Bold" Padding="0" Margin="0,0,0,35"/>
-                        <TextBlock FontSize="20" FontWeight="Bold" Text="Datum und Uhrzeit" Margin="0,0,0,10"/>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <TextBlock x:Name="DateText" Text="Datum" FontSize="16"/>
+                    <Grid Grid.Row="0" Height="250" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
+                        <Rectangle x:Name="ImagePlaceholder"
+                                   Fill="LightGray"
+                                   RadiusX="10" RadiusY="10"
+                                   Height="250"
+                                   HorizontalAlignment="Stretch"/>
+                        <Border CornerRadius="10"
+                                Height="250"
+                                Background="Transparent"
+                                HorizontalAlignment="Stretch">
+                            <Image x:Name="EventImage"
+                                   Height="250"
+                                   Stretch="UniformToFill"
+                                   Visibility="Collapsed"
+                                   HorizontalAlignment="Stretch">
+                                <Image.Clip>
+                                    <RectangleGeometry Rect="0,0,9999,250" RadiusX="10" RadiusY="10"/>
+                                </Image.Clip>
+                            </Image>
+                        </Border>
+                    </Grid>
+                    <!-- Zwei Spalten darunter -->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Linke Spalte: Infos -->
+                        <StackPanel Grid.Column="0" Orientation="Vertical" Margin="0,20,20,0">
+                            <Label x:Name="NameLabel" Content="Langer Titel" FontSize="40" FontFamily="{StaticResource OpenSansBold}" FontWeight="Bold" Padding="0" Margin="0,0,0,35"/>
+                            <TextBlock FontSize="20" FontWeight="Bold" Text="Datum und Uhrzeit" Margin="0,0,0,10"/>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                                <TextBlock x:Name="DateText" Text="Datum" FontSize="16"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <TextBlock x:Name="TimeText" Text="Uhrzeit" FontSize="16"/>
+                            </StackPanel>
+                            <TextBlock FontSize="20" FontWeight="Bold" Text="Event Description" Margin="0,30,0,10"/>
+                            <wv2:WebView2 x:Name="DescriptionWebView" Height="300" Margin="10"/>
+                            
+
+                            
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                            <TextBlock x:Name="TimeText" Text="Uhrzeit" FontSize="16"/>
+
+                        <!-- Rechte Spalte: Beschreibung + Google Map -->
+                        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="20,20,0,0">
+                            <Button x:Name="FavButton" Width="50" Height="50" Style="{StaticResource FavButtonStyle}" Margin="0,5,5,0" HorizontalAlignment="Right" Background="Black" Foreground="White" Click="FavButton_OnClick" VerticalAlignment="Top" Content="★"/>
+
+                            <TextBlock FontSize="20" FontWeight="Bold" Text="Location" Margin="0,30,0,10"/>
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                                <TextBlock x:Name="LocationText" Text="Ort" FontSize="16" TextWrapping="Wrap"/>
+                            </StackPanel>
+                            
+                            <mapsui:MapControl x:Name="OpenStreetMapViewer" Height="300" HorizontalAlignment="Stretch" />
                         </StackPanel>
-                        <TextBlock FontSize="20" FontWeight="Bold" Text="Event Description" Margin="0,30,0,10"/>
-                        <wv2:WebView2 x:Name="DescriptionWebView" Height="300" Margin="10"/>
-                        
-
-                        
-                    </StackPanel>
-
-                    <!-- Rechte Spalte: Beschreibung + Google Map -->
-                    <StackPanel Grid.Column="1" Orientation="Vertical" Margin="20,20,0,0">
-                        <Button x:Name="FavButton" Width="50" Height="50" Style="{StaticResource FavButtonStyle}" Margin="0,5,5,0" HorizontalAlignment="Right" Background="Black" Foreground="White" Click="FavButton_OnClick" VerticalAlignment="Top" Content="★"/>
-
-                        <TextBlock FontSize="20" FontWeight="Bold" Text="Location" Margin="0,30,0,10"/>
-                        <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
-                            <TextBlock x:Name="LocationText" Text="Ort" FontSize="16" TextWrapping="Wrap"/>
-                        </StackPanel>
-                        
-                        <wv2:WebView2 x:Name="GoogleMapBrowser" Height="300" HorizontalAlignment="Stretch"/>
-                    </StackPanel>
+                    </Grid>
                 </Grid>
             </Grid>
-        </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>
