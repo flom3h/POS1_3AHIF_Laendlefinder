@@ -12,7 +12,6 @@
     <Folder Include="Collections\" />
     <Folder Include="FontStyles\" />
     <Folder Include="Fonts\" />
-    <Folder Include="images\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +33,7 @@
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3344-prerelease" />
     <PackageReference Include="PresentationFramework" Version="4.6.0" />
     <PackageReference Include="PresentationFramework.Aero2" Version="1.0.1" />
+    <PackageReference Include="SharpVectors.Reloaded" Version="1.8.4.2" />
     <PackageReference Include="SharpVectors.Wpf" Version="1.8.4.2" />
     <PackageReference Include="SkiaSharp.Views.WPF" Version="3.119.0" />
   </ItemGroup>
@@ -61,6 +61,8 @@
     <Resource Include="FontStyles\static\OpenSans-SemiBold.ttf" />
     <None Remove="images\WhiteLogo.png" />
     <Resource Include="images\WhiteLogo.png" />
+    <None Remove="images\star-light-svgrepo-com.svg" />
+    <Resource Include="images\star-light-svgrepo-com.svg" />
   </ItemGroup>
 
 </Project>

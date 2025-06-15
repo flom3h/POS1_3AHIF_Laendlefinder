@@ -48,8 +48,8 @@ public partial class MoreInfoPage : Page
 
                     Dispatcher.Invoke(() => {
                         NameLabel.Content = ev.name ?? "Name unbekannt";
-                        DateText.Text = ev.date.ToShortDateString() ?? "Kein Datum verfügbar";
-                        TimeText.Text = ev.time.ToString(@"hh\:mm") ?? "Keine Uhrzeit verfügbar";
+                        DateText.Text = ev.date.ToString("dddd, dd.MM.yyyy", new CultureInfo("de-DE")) ?? "Kein Datum verfügbar";
+                        TimeText.Text = ev.time.ToString(@"hh\:mm") +" Uhr" ?? "Keine Uhrzeit verfügbar";
                         LocationText.Text = ev.location.name + ", "+ ev.location.address ?? "Keine Adresse verfügbar"; 
                         if (!string.IsNullOrEmpty(ev.picture))
                         {
@@ -72,6 +72,8 @@ public partial class MoreInfoPage : Page
                             ImagePlaceholder.Visibility = Visibility.Visible;
                             EventImage.Visibility = Visibility.Collapsed;
                         }
+                        
+                        // HTML Beschreibung in lesbare Form umschreiben mit Nuget Package
                         DescriptionWebView.EnsureCoreWebView2Async().ContinueWith(_ =>
                         {
                             DescriptionWebView.Dispatcher.Invoke(() =>
