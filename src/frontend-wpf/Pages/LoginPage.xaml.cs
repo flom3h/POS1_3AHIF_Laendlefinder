@@ -87,6 +87,21 @@ public partial class LoginPage : Page
         }
     }
 
+    private void MailBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        PlaceholderMail.Visibility = string.IsNullOrEmpty(MailBox.Text) ? Visibility.Visible : Visibility.Collapsed;
+    }
+    
+    private void PlainPasswordBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        PlaceholderPassword.Visibility = string.IsNullOrEmpty(PlainPasswordBox.Text) ? Visibility.Visible : Visibility.Collapsed;
+    }
+
+    private void PasswordBox_OnPasswordChanged(object sender, RoutedEventArgs e)
+    {
+        PlaceholderPassword.Visibility = string.IsNullOrEmpty(PasswordBox.Password) ? Visibility.Visible : Visibility.Collapsed;
+    }
+    
     private void NavToRegisterPage(object sender, RoutedEventArgs e)
     {
         LoginButtonClickedNavRegister?.Invoke(this, EventArgs.Empty);
