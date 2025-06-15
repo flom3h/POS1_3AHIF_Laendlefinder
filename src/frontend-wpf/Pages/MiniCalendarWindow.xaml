@@ -1,0 +1,13 @@
+<Window x:Class="Laendlefinder.Pages.MiniCalendarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Laendlefinder.Pages"
+        mc:Ignorable="d"
+        Title="Datum auswählen" Width="250" Height="270" WindowStartupLocation="CenterOwner">
+    <StackPanel Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Calendar x:Name="CalendarControl"/>
+        <Button Content="OK" Margin="0,10,0,0" FontSize="14" Click="OkButton_Clicked" IsDefault="True" Style="{StaticResource ProfilePageButton}"/>
+    </StackPanel>
+</Window>

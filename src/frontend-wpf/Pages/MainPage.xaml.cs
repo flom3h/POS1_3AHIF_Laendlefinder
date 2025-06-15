@@ -11,7 +11,7 @@ namespace Laendlefinder.Pages;
 
 public partial class MainPage : Page
 {
-    private EventCollection eventCollection = new();
+    public static EventCollection eventCollection = new();
     private EventCollection filteredCollection = new();
     public static event EventHandler HomeButtonClickedNavHome;
     public static event EventHandler ExploreButtonClickedNavExplore;

@@ -70,4 +70,42 @@ public class EventCollection : ObservableCollection<Event>
         }
         return results;
     }
+    
+    public EventCollection FilterByDate(DateTime date)
+    {
+        var results = new EventCollection();
+        
+        foreach (var ev in this)
+        {
+            if (ev == null || ev.date == null)
+            {
+                continue;
+            }
+
+            if (ev.date.Date == date.Date)
+            {
+                results.Add(ev);
+            }
+        }
+        return results;
+    }
+    
+    public EventCollection FilterByDateRange(DateTime startDate, DateTime endDate)
+    {
+        var results = new EventCollection();
+        
+        foreach (var ev in this)
+        {
+            if (ev == null || ev.date == null)
+            {
+                continue;
+            }
+
+            if (ev.date.Date >= startDate.Date && ev.date.Date <= endDate.Date)
+            {
+                results.Add(ev);
+            }
+        }
+        return results;
+    }
 }
