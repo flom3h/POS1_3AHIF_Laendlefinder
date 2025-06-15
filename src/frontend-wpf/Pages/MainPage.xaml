@@ -51,7 +51,15 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <xctk:WatermarkTextBox Grid.Column="0" FontSize="14" x:Name="SearchBox" Padding="10" Watermark="Suche nach Events, Kategorien, Orte, ..."/>
+                    <Border CornerRadius="8" Background="White" BorderBrush="#CCC" BorderThickness="1">
+                        <xctk:WatermarkTextBox Grid.Column="0"
+                                               FontSize="14"
+                                               x:Name="SearchBox"
+                                               Padding="10"
+                                               Watermark="Suche nach Events, Kategorien, Orte, ..." 
+                                               Background="Transparent"
+                                               BorderThickness="0"/>
+                    </Border>
                     <Button IsDefault="True" Grid.Column="1" Content="Suchen" Margin="10,0,0,0" Click="SearchButton_Click" FontSize="20" Width="120" Style="{StaticResource ProfilePageButton}"/>
                 </Grid>
             </StackPanel>

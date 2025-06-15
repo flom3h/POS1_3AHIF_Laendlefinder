@@ -55,8 +55,10 @@ public partial class MoreInfoPage : Page
                     Dispatcher.Invoke(() => {
                         NameLabel.Content = ev.name ?? "Name unbekannt";
                         DateText.Text = "- " + ev.date.ToString("dddd, dd.MM.yyyy", new CultureInfo("de-DE")) ?? "Kein Datum verfügbar";
-                        TimeText.Text = "- " + ev.time.ToString(@"hh\:mm") +" Uhr" ?? "Keine Uhrzeit verfügbar";
-                        LocationText.Text = "- " + ev.Location.name + ", "+ ev.Location.address ?? "Keine Adresse verfügbar"; 
+                        if (ev.time == TimeSpan.Zero)
+                            TimeText.Text = "- Ganzer Tag";
+                        else
+                            TimeText.Text = "- " + ev.time.ToString(@"hh\:mm") + " Uhr";                        LocationText.Text = "- " + ev.Location.name + ", "+ ev.Location.address ?? "Keine Adresse verfügbar"; 
                         if (!string.IsNullOrEmpty(ev.picture))
                         {
                             try
