@@ -80,11 +80,15 @@ public partial class MoreInfoPage : Page
                         }
                         
                         // HTML Beschreibung in lesbare Form umschreiben mit Nuget Package
+                        string description = string.IsNullOrWhiteSpace(ev.description) || ev.description.Trim().ToLower() == "no data"
+                            ? "Keine Beschreibung verfügbar."
+                            : ev.description;
+
                         DescriptionWebView.EnsureCoreWebView2Async().ContinueWith(_ =>
                         {
                             DescriptionWebView.Dispatcher.Invoke(() =>
                             {
-                                var html = $"<html><body style='font-family:sans-serif;font-size:14px'>{ev.description}</body></html>";
+                                var html = $"<html><body style='font-family:sans-serif;font-size:14px'>{description}</body></html>";
                                 DescriptionWebView.NavigateToString(html);
                             });
                         });
@@ -92,9 +96,7 @@ public partial class MoreInfoPage : Page
                         double lng = ev.Location.longitude;
 
                         LoadGoogleMaps(lat, lng);
-
-
-
+                        
                     });
                 }
                 else
