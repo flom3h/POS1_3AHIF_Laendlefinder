@@ -182,4 +182,5 @@ public partial class ProfilePage : Page
         PlaceholderPassword.Visibility =
             string.IsNullOrEmpty(PasswordBox.Password) ? Visibility.Visible : Visibility.Collapsed;
     }
+    
 }

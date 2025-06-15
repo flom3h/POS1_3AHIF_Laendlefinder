@@ -24,7 +24,7 @@
                <RowDefinition Height="Auto"/>
            </Grid.RowDefinitions>
 
-           <Button Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Grid.Row="0" Margin="0,8,0,15">
+           <Button Style="{StaticResource NoHoverEffect}" HorizontalAlignment="Center" Grid.Row="0" Margin="0,8,0,15" Click="HomeButton_Click">
                <Image Source="../images/WhiteLogo.png" Height="70" Width="55"></Image>
            </Button>
 
