@@ -44,7 +44,12 @@
             </StackPanel>
             <ScrollViewer Grid.Row="1" Margin="15,0,10,0" VerticalScrollBarVisibility="Auto">
                 <Grid>
-                    <WrapPanel x:Name="EventsPanel" Orientation="Horizontal" ItemWidth="325" ItemHeight="200"/>
+                    <WrapPanel x:Name="EventsPanel"
+                               Orientation="Horizontal"
+                               HorizontalAlignment="Center"
+                               Margin="20"
+                               ItemWidth="625"
+                               ItemHeight="Auto"/>
                     <Label x:Name="NoFavoritesLbl" FontSize="15" Foreground="Gray" Content="Du hast noch keine Favoriten." VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </ScrollViewer>
