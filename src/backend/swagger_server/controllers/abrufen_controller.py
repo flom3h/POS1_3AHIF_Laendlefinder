@@ -14,42 +14,52 @@ def event_by_id_get(eid):
     loc_resp = supabase.table("Location").select("lid, address, name, longitude, latitude, picture").eq("lid", eid).single().execute()
     location = loc_resp.data if loc_resp.data else None
 
-    event["location"] = location
+    event["Location"] = location
     return event, 200
 
 
 
 def events_get(eventname=None, kategorie=None, ort=None, region=None, datum=None):  # noqa: E501
-    query = supabase.table("Events").select("eid, name, date, time, description, picture, type")
+    """Alle Events mit zugehöriger Location abrufen
 
-    if eventname:
-        query = query.ilike("name", f"%{eventname}%")
-    if datum:
-        query = query.eq("date", datum)
-    if kategorie:
-        # Hole type_id aus Type-Tabelle
-        type_resp = supabase.table("Type").select("tid").eq("type", kategorie).execute()
-        if type_resp.data:
-            type_id = type_resp.data[0]["tid"]
-            query = query.eq("type", type_id)
-        else:
-            return []
-    # Für ort/region: Hole alle passenden Event-IDs aus Location und filtere dann
-    if ort or region:
-        loc_query = supabase.table("Location").select("lid, address, name, longitude, latitude, picture")
-        if ort:
-            loc_query = loc_query.ilike("address", f"%{ort}%")
-        if region:
-            loc_query = loc_query.ilike("address", f"%{region}%")
-        loc_resp = loc_query.execute()
-        lids = [loc["lid"] for loc in loc_resp.data]
-        if lids:
-            query = query.in_("eid", lids)
-        else:
-            return []
+    :rtype: None
+    """
+    # Holt alle Events und die zugehörige Location (1:1 über gleiche ID)
+    events = supabase.table("Events").select("*, Location(*)").execute()
+    if not events.data:
+        return {"message": "Keine Events gefunden"}, 404
+    return events.data, 200
 
-    response = query.execute()
-    return response.data
+    #query = supabase.table("Events").select("eid, name, date, time, description, picture, type")
+    #
+    #if eventname:
+    #    query = query.ilike("name", f"%{eventname}%")
+    #if datum:
+    #    query = query.eq("date", datum)
+    #if kategorie:
+    #    # Hole type_id aus Type-Tabelle
+    #    type_resp = supabase.table("Type").select("tid").eq("type", kategorie).execute()
+    #    if type_resp.data:
+    #        type_id = type_resp.data[0]["tid"]
+    #        query = query.eq("type", type_id)
+    #    else:
+    #        return []
+    ## Für ort/region: Hole alle passenden Event-IDs aus Location und filtere dann
+    #if ort or region:
+    #    loc_query = supabase.table("Location").select("lid, address, name, longitude, latitude, picture")
+    #    if ort:
+    #        loc_query = loc_query.ilike("address", f"%{ort}%")
+    #    if region:
+    #        loc_query = loc_query.ilike("address", f"%{region}%")
+    #    loc_resp = loc_query.execute()
+    #    lids = [loc["lid"] for loc in loc_resp.data]
+    #    if lids:
+    #        query = query.in_("eid", lids)
+    #    else:
+    #        return []
+    #
+    #response = query.execute()
+    #return response.data
     
 
 

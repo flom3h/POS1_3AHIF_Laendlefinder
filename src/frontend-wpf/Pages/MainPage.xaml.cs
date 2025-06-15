@@ -12,6 +12,7 @@ namespace Laendlefinder.Pages;
 public partial class MainPage : Page
 {
     private EventCollection eventCollection = new();
+    private EventCollection filteredCollection = new();
     public static event EventHandler HomeButtonClickedNavHome;
     public static event EventHandler ExploreButtonClickedNavExplore;
     public static event EventHandler CalendarButtonClickedNavCalendar;
@@ -82,5 +83,17 @@ public partial class MainPage : Page
     private void ProfileButton_Click(object sender, RoutedEventArgs e)
     {
         ProfileButtonClickedNavProfile?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void SearchButton_Click(object sender, RoutedEventArgs e)
+    {
+        string searchText = SearchBox.Text.Trim();
+        if (string.IsNullOrEmpty(searchText))
+        {
+            eventCollection.Draw(EventsPanel);
+        }
+        filteredCollection = eventCollection.Search(searchText);
+        EventsPanel.Children.Clear();
+        filteredCollection.Draw(EventsPanel);
     }
 }

@@ -50,7 +50,7 @@ public partial class MoreInfoPage : Page
                         NameLabel.Content = ev.name ?? "Name unbekannt";
                         DateText.Text = ev.date.ToString("dddd, dd.MM.yyyy", new CultureInfo("de-DE")) ?? "Kein Datum verfügbar";
                         TimeText.Text = ev.time.ToString(@"hh\:mm") +" Uhr" ?? "Keine Uhrzeit verfügbar";
-                        LocationText.Text = ev.location.name + ", "+ ev.location.address ?? "Keine Adresse verfügbar"; 
+                        LocationText.Text = ev.Location.name + ", "+ ev.Location.address ?? "Keine Adresse verfügbar"; 
                         if (!string.IsNullOrEmpty(ev.picture))
                         {
                             try
@@ -82,8 +82,8 @@ public partial class MoreInfoPage : Page
                                 DescriptionWebView.NavigateToString(html);
                             });
                         });
-                        double lat = ev.location.latitude;
-                        double lng = ev.location.longitude;
+                        double lat = ev.Location.latitude;
+                        double lng = ev.Location.longitude;
 
                         LoadGoogleMaps(lat, lng);
 
