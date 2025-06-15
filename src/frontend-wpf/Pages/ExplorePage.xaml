@@ -46,8 +46,8 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="0" Orientation="Vertical" Margin="10">
-                <TextBlock Text="Was gibt es Heute?" FontSize="24" FontWeight="Bold"/>
+            <StackPanel Grid.Row="0" Orientation="Vertical" Margin="25,30,20,20">
+                <TextBlock Text="Was gibt es Heute?" FontSize="30" FontWeight="SemiBold"/>
                 <Grid Margin="0,10,0,10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
