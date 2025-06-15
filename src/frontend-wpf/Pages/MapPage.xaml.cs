@@ -126,7 +126,7 @@ public partial class MapPage : Page
         }
 
         // Bild nur einmal laden und registrieren
-        if (_markerBitmapId == null)
+        /*if (_markerBitmapId == null)
         {
             var markerPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "gps.png");
             if (!File.Exists(markerPath))
@@ -136,7 +136,7 @@ public partial class MapPage : Page
             }
             using var markerStream = File.OpenRead(markerPath);
             _markerBitmapId = BitmapRegistry.Instance.Register(markerStream);
-        }
+        }*/
 
         foreach (var ev in events)
         {
@@ -146,8 +146,10 @@ public partial class MapPage : Page
 
             feature.Styles.Add(new SymbolStyle
             {
-                SymbolScale = 0.7,
-                BitmapId = _markerBitmapId.Value
+                SymbolType = SymbolType.Ellipse,
+                Fill = new Brush(Color.Red),
+                Outline = new Pen(Color.White, 2),
+                SymbolScale = 1
             });
             features.Add(feature);
         }

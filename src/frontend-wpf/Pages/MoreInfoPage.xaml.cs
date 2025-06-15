@@ -53,7 +53,7 @@ public partial class MoreInfoPage : Page
                     var ev = JsonSerializer.Deserialize<Event>(json);
 
                     Dispatcher.Invoke(() => {
-                        NameLabel.Content = ev.name ?? "Name unbekannt";
+                        NameLabel.Text = ev.name ?? "Name unbekannt";
                         DateText.Text = "- " + ev.date.ToString("dddd, dd.MM.yyyy", new CultureInfo("de-DE")) ?? "Kein Datum verfügbar";
                         if (ev.time == TimeSpan.Zero)
                             TimeText.Text = "- Ganzer Tag";
