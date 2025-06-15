@@ -41,24 +41,24 @@
                 <Label Content="Vorname" Margin="0" Padding="0" FontSize="20"/>
             <Grid Margin="0,0,0,10">
                 <TextBox x:Name="SnBox" TextChanged="SnBox_OnTextChanged" FontSize="25" Style="{StaticResource LoginRegisterTextBox}"/>
-                <Label x:Name="PlaceholderSn" IsHitTestVisible="False" FontSize="20" VerticalAlignment="Center" Padding="0" Foreground="Gray"/>
+                <Label x:Name="PlaceholderSn" IsHitTestVisible="False" FontSize="15" VerticalAlignment="Center" Padding="0" Foreground="#80808080" Margin="5,0,0,0"/>
             </Grid>
             <Label Content="Nachname" Margin="0" Padding="0" FontSize="20"/>
             <Grid Margin="0,0,0,10">
                 <TextBox x:Name="LnBox" FontSize="25" TextChanged="LnBox_OnTextChanged" Style="{StaticResource LoginRegisterTextBox}"/>
-                <Label x:Name="PlaceholderLn" IsHitTestVisible="False" FontSize="20" Padding="0" VerticalAlignment="Center" Foreground="Gray"/>
+                <Label x:Name="PlaceholderLn" IsHitTestVisible="False" FontSize="15" Padding="0" VerticalAlignment="Center" Foreground="#80808080" Margin="5,0,0,0"/>
             </Grid>
             <Label Content="E-Mail" Margin="0" Padding="0" FontSize="20"/>
             <Grid Margin="0,0,0,10">
                 <TextBox x:Name="MailBox" TextChanged="MailBox_OnTextChanged" FontSize="25" Style="{StaticResource LoginRegisterTextBox}"/>
-                <Label x:Name="PlaceholderMail" IsHitTestVisible="False" FontSize="20" VerticalAlignment="Center" Padding="0" Foreground="Gray"/>
+                <Label x:Name="PlaceholderMail" IsHitTestVisible="False" FontSize="15" VerticalAlignment="Center" Padding="0" Foreground="#80808080" Margin="5,0,0,0"/>
             </Grid>
             <Label Content="Passwort" Margin="0" Padding="0" FontSize="20"/>
             <Grid>
                 <Grid>
                     <TextBox x:Name="PlainPasswordBox" FontSize="25" TextChanged="PlainPasswordBox_OnTextChanged" Style="{StaticResource LoginRegisterTextBox}"/>
-                    <PasswordBox x:Name="PasswordBox" FontSize="25" PasswordChanged="PasswordBox_OnPasswordChanged" Style="{StaticResource LoginRegisterPasswordBox}"/>
-                    <Label x:Name="PlaceholderPassword" IsHitTestVisible="False" FontSize="20" VerticalAlignment="Center" Padding="0" Content="Gib hier dein Passwort ein..." Foreground="Gray"/>
+                    <PasswordBox x:Name="PasswordBox" FontSize="15" PasswordChanged="PasswordBox_OnPasswordChanged" Style="{StaticResource LoginRegisterPasswordBox}"/>
+                    <Label x:Name="PlaceholderPassword" IsHitTestVisible="False" FontSize="15" VerticalAlignment="Center" Padding="0" Content="Gib hier dein Passwort ein..." Foreground="#80808080" Margin="5,0,0,0"/>
                 </Grid>
                 <Button Style="{StaticResource EyeButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ChangePasswordVisibility_Click"/>
             </Grid>
