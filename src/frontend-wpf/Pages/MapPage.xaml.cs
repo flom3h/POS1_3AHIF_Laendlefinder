@@ -45,9 +45,24 @@ public partial class MapPage : Page
         MapView.Viewport.ViewportChanged += Viewport_ViewportChanged;
 
         LoadEventsAsync();
+        MapView.Info += MapView_Info;
     }
 
     private bool _isResettingViewport = false;
+
+    private void MapView_Info(object sender, Mapsui.UI.MapInfoEventArgs e)
+    {
+        if (e.MapInfo?.Feature != null && e.MapInfo.Layer?.Name == "EventMarkerLayer")
+        {
+            var eventName = e.MapInfo.Feature["EventName"] as string;
+            var ev = EventCollection.Events.FirstOrDefault(ev => ev.name == eventName);
+            if (ev != null)
+            {
+                var moreInfoPage = new MoreInfoPage((int)ev.eid);
+                NavigationService?.Navigate(moreInfoPage);
+            }
+        } 
+    }
 
     private void Viewport_ViewportChanged(object? sender, System.EventArgs e)
     {
