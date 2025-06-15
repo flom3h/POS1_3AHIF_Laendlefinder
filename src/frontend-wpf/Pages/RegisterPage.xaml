@@ -50,7 +50,7 @@
                 <Grid>
                     <TextBox x:Name="PlainPasswordBox" FontSize="20" Height="35"  TextChanged="PlainPasswordBox_OnTextChanged" Margin="0,0,0,10" Style="{StaticResource LoginRegisterTextBox}"/>
                     <PasswordBox x:Name="PasswordBox" FontSize="15" Height="35" PasswordChanged="PasswordBox_OnPasswordChanged" Margin="0,0,0,10" Style="{StaticResource LoginRegisterPasswordBox}"/>
-                    <Label x:Name="PlaceholderPassword" IsHitTestVisible="False" FontSize="15" Padding="0" Content="Gib hier dein Passwort ein..." Foreground="#80808080" Margin="5,7,0,0"/>
+                    <Label x:Name="PlaceholderPassword" IsHitTestVisible="False" FontSize="15" Padding="0" Content="Gib hier dein neues Passwort ein..." Foreground="#80808080" Margin="5,7,0,0"/>
                 </Grid>
                 <Button Style="{StaticResource EyeButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ChangePasswordVisibility_Click"/>
             </Grid>
