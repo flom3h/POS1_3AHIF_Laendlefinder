@@ -54,37 +54,28 @@ namespace Laendlefinder.Pages
                 MapView.Navigator.NavigateTo(_vorarlbergEnvelope, ScaleMethod.Fit, 0); // 0 = keine Animation
             };
 
-            // Events laden
             LoadEventsAsync();
         }
 
         // Cursor ändern, wenn über einem Event-Marker
         private void MapView_MouseMove(object sender, MouseEventArgs e)
         {
-            // WPF-Point holen
             var wpfPoint = e.GetPosition(MapView);
-            // In Mapsui-Point umwandeln
             var mapsuiPoint = new Mapsui.Geometries.Point(wpfPoint.X, wpfPoint.Y);
             var info = MapView.GetMapInfo(mapsuiPoint);
 
-            MapView.Cursor = (info?.Feature != null && info.Layer?.Name == "EventMarkerLayer")
-                ? Cursors.Hand
-                : Cursors.Arrow;
+            MapView.Cursor = (info?.Feature != null && info.Layer?.Name == "EventMarkerLayer") ? Cursors.Hand : Cursors.Arrow;
         }
 
-        // Linksklick auf einen Marker navigiert zur MoreInfoPage
         private void MapView_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            // WPF-Point holen
             var wpfPoint = e.GetPosition(MapView);
-            // In Mapsui-Point umwandeln
             var mapsuiPoint = new Mapsui.Geometries.Point(wpfPoint.X, wpfPoint.Y);
             var info = MapView.GetMapInfo(mapsuiPoint);
 
             if (info?.Feature == null || info.Layer?.Name != "EventMarkerLayer")
                 return;
 
-            // EventId auslesen
             var eventIdObj = info.Feature["EventId"];
             if (eventIdObj == null) return;
 
@@ -107,7 +98,6 @@ namespace Laendlefinder.Pages
                 MessageBox.Show("NavigationService ist nicht verfügbar.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        // Asynchrones Laden der Events aus der API
         private async void LoadEventsAsync()
         {
             using var client = new HttpClient { BaseAddress = new Uri("http://127.0.0.1:8081") };
@@ -136,7 +126,6 @@ namespace Laendlefinder.Pages
             }
         }
 
-        // Anzeige der Event-Marker auf der Karte
         private void ShowEventLocationsOnMap(IEnumerable<Event> events)
         {
             // Alten Layer entfernen
@@ -182,7 +171,7 @@ namespace Laendlefinder.Pages
         private void HomeButton_Click(object sender, RoutedEventArgs e) => HomeButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
         private void ExploreButton_Click(object sender, RoutedEventArgs e) => ExploreButtonClickedNavExplore?.Invoke(this, EventArgs.Empty);
         private void FavsButton_Click(object sender, RoutedEventArgs e) => FavsButtonClickedNavFavs?.Invoke(this, EventArgs.Empty);
-        private void MapButton_Click(object sender, RoutedEventArgs e) { /* Bereits auf Map */ }
+        private void MapButton_Click(object sender, RoutedEventArgs e)  => MapButtonClickedNavMap?.Invoke(this, EventArgs.Empty);
         private void ProfileButton_Click(object sender, RoutedEventArgs e) => ProfileButtonClickedNavProfile?.Invoke(this, EventArgs.Empty);
     }
 }
