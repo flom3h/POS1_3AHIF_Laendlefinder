@@ -57,6 +57,7 @@ public partial class EventMiniViewUserControl : UserControl
 
 public static async Task LoadTypesAsync()
 {
+    Console.WriteLine("LoadTypesAsync called");
     if (Types.Count == 0)
     {
         using (HttpClient client = new HttpClient())
@@ -83,7 +84,10 @@ public static async Task LoadTypesAsync()
         CheckIfFavoriteAsync(uid, eid);
         NameLabel.Content = ev.name;
         DateLabel.Content = ev.date.ToShortDateString();
-        TimeLabel.Content = ev.time.ToString(@"hh\:mm");
+        if (ev.time == TimeSpan.Zero)
+            TimeLabel.Content = "Ganztägig";
+        else
+            TimeLabel.Content = ev.time.ToString(@"hh\:mm") + " Uhr";
         var typeName = await GetTypeNameById(ev.type);
         TypeButton.Content = typeName ?? "Unbekannt";
 
