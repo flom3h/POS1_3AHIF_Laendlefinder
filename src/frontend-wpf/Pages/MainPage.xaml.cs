@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Laendlefinder.Classes;
 using Laendlefinder.Collections;
+using Serilog.Core;
 
 namespace Laendlefinder.Pages;
 
@@ -76,9 +77,11 @@ public partial class MainPage : Page
                 }
 
                 eventCollection.Draw(EventsPanel);
+                MainWindow.Logger.Information("Events erfolgreich geladen und angezeigt.");
             }
             catch (Exception ex)
             {
+                MainWindow.Logger.Error("Fehler beim Laden der Events: " + ex.Message);
                 MessageBox.Show("Fehler beim Laden der Events: " + ex.Message);
             }
         }
@@ -87,26 +90,31 @@ public partial class MainPage : Page
     private void HomeButton_Click(object sender, RoutedEventArgs e)
     {
         HomeButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
+        MainWindow.Logger.Information("HomeButton geklickt, Navigation zur Startseite.");
     }
 
     private void ExploreButton_Click(object sender, RoutedEventArgs e)
     {
         ExploreButtonClickedNavExplore?.Invoke(this, EventArgs.Empty);
+        MainWindow.Logger.Information("ExploreButton geklickt, Navigation zur Erkundungsseite.");
     }
 
     private void FavsButton_Click(object sender, RoutedEventArgs e)
     {
         FavsButtonClickedNavFavs?.Invoke(this, EventArgs.Empty);
+        MainWindow.Logger.Information("FavsButton geklickt, Navigation zur Favoritenseite.");
     }
 
     private void MapButton_Click(object sender, RoutedEventArgs e)
     {
         MapButtonClickedNavMap?.Invoke(this, EventArgs.Empty);
+        MainWindow.Logger.Information("MapButton geklickt, Navigation zur Kartenseite.");
     }
 
     private void ProfileButton_Click(object sender, RoutedEventArgs e)
     {
         ProfileButtonClickedNavProfile?.Invoke(this, EventArgs.Empty);
+        MainWindow.Logger.Information("ProfileButton geklickt, Navigation zur Profilseite.");
     }
 
     private void SearchButton_Click(object sender, RoutedEventArgs e)
@@ -119,5 +127,6 @@ public partial class MainPage : Page
         filteredCollection = eventCollection.Search(searchText);
         EventsPanel.Children.Clear();
         filteredCollection.Draw(EventsPanel);
+        MainWindow.Logger.Information($"Suchergebnisse für '{searchText}' angezeigt.");
     }
 }

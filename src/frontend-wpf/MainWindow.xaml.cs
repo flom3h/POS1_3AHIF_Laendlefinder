@@ -10,6 +10,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Laendlefinder.Pages;
 using Laendlefinder.UserControlls;
+using Serilog.Core;
+using Serilog;
 
 namespace Laendlefinder
 {
@@ -18,6 +20,11 @@ namespace Laendlefinder
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static Logger Logger = new LoggerConfiguration()
+            .WriteTo.Console()
+            .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day, retainedFileCountLimit: 7)
+            .CreateLogger();
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -75,48 +82,56 @@ namespace Laendlefinder
         {
             MainPage mainPage = new MainPage();
             MainFrame.Navigate(mainPage);
+            Logger.Information("MainPage aufgerufen.");
         }
         
         private void DisplayLogin (object sender, System.EventArgs e)
         {
             LoginPage mainPage = new LoginPage();
             MainFrame.Navigate(mainPage);
+            Logger.Information("LoginPage aufgerufen.");
         }
         
         private void DisplayRegister (object sender, System.EventArgs e)
         {
             RegisterPage mainPage = new RegisterPage();
             MainFrame.Navigate(mainPage);
+            Logger.Information("RegisterPage aufgerufen.");
         }
         
         private void DisplayExplore (object sender, System.EventArgs e)
         {
             ExplorePage mainPage = new ExplorePage();
             MainFrame.Navigate(mainPage);
+            Logger.Information("ExplorePage aufgerufen.");
         }
         
         private void DisplayProfile (object sender, System.EventArgs e)
         {
             ProfilePage mainPage = new ProfilePage();
             MainFrame.Navigate(mainPage);
+            Logger.Information("ProfilePage aufgerufen.");
         }
         
         private void DisplayFavorites (object sender, System.EventArgs e)
         {
             FavoritesPage mainPage = new FavoritesPage();
             MainFrame.Navigate(mainPage);
+            Logger.Information("FavoritesPage aufgerufen.");
         }
         
         private void DisplayMap (object sender, System.EventArgs e)
         {
             MapPage mainPage = new MapPage();
             MainFrame.Navigate(mainPage);
+            Logger.Information("MapPage aufgerufen.");
         }
         
         private void DisplayMoreInfo (object sender, int eid)
         {
             MoreInfoPage mainPage = new MoreInfoPage(eid);
             MainFrame.Navigate(mainPage);
+            Logger.Information($"MoreInfoPage für Event {eid} aufgerufen.");
         }
     }
 }

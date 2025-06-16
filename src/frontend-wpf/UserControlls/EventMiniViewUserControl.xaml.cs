@@ -52,12 +52,12 @@ public partial class EventMiniViewUserControl : UserControl
         Console.WriteLine("Kein passender Typ gefunden!");
     }
     return type?.type;
+    MainWindow.Logger.Information($"GetTypeNameById aufgerufen mit: {typeId}, gibt zurueck type: {type?.type}");
 }
 
 
 public static async Task LoadTypesAsync()
 {
-    Console.WriteLine("LoadTypesAsync called");
     if (Types.Count == 0)
     {
         using (HttpClient client = new HttpClient())
@@ -74,7 +74,7 @@ public static async Task LoadTypesAsync()
             Types = types ?? new List<Laendlefinder.Classes.Type>();
         }
     }
-    
+    MainWindow.Logger.Information($"LoadTypesAsync aufgerufen, gibt zurueck: {Types.Count} Types");
 }
     
     public async void SetEventData(Event ev)
@@ -90,6 +90,9 @@ public static async Task LoadTypesAsync()
             TimeLabel.Content = ev.time.ToString(@"hh\:mm") + " Uhr";
         var typeName = await GetTypeNameById(ev.type);
         TypeButton.Content = typeName ?? "Unbekannt";
+        MainWindow.Logger.Information("Daten von einem Event gesetzt: " +
+                                      $"Name: {ev.name}, Datum: {ev.date.ToShortDateString()}, " +
+                                      $"Zeit: {ev.time.ToString(@"hh\:mm")}, Typ: {typeName ?? "Unbekannt"}");
 
         if (!string.IsNullOrEmpty(ev.picture))
         {
@@ -98,12 +101,14 @@ public static async Task LoadTypesAsync()
                 EventImage.Source = new BitmapImage(new Uri(ev.picture, UriKind.Absolute));
                 ImagePlaceholder.Visibility = Visibility.Collapsed;
                 EventImage.Visibility = Visibility.Visible;
+                MainWindow.Logger.Information($"Event-Bild geladen: {ev.picture}");
             }
             catch
             {
                 EventImage.Source = null;
                 ImagePlaceholder.Visibility = Visibility.Visible;
                 EventImage.Visibility = Visibility.Collapsed;
+                MainWindow.Logger.Error($"Fehler beim Laden des Event-Bildes: {ev.picture}");
             }
         }
         else
@@ -111,13 +116,14 @@ public static async Task LoadTypesAsync()
             EventImage.Source = null;
             ImagePlaceholder.Visibility = Visibility.Visible;
             EventImage.Visibility = Visibility.Collapsed;
+            MainWindow.Logger.Information("Kein Event-Bild vorhanden, Platzhalter angezeigt.");
         }
     }
     
     private void MoreButton_OnClick(object sender, RoutedEventArgs e)
     {
         MoreInfoButtonClickedNavMoreInfo?.Invoke(this, eid);
-        
+        MainWindow.Logger.Information("MoreButton geklickt, Navigation zur MoreInfoPage.");
     }
 
     private async void FavButton_OnClick(object sender, RoutedEventArgs e)
@@ -132,7 +138,7 @@ public static async Task LoadTypesAsync()
                     _isFavorite = false;
                     FavButton.Foreground = Brushes.White;
                     SetFavIcon(_isFavorite);
-
+                    MainWindow.Logger.Information($"Event {eid} wurde aus Favoriten entfernt.");
                 }
             }
         }
@@ -158,6 +164,7 @@ public static async Task LoadTypesAsync()
                     _isFavorite = true;
                     FavButton.Foreground = Brushes.Black;
                     SetFavIcon(_isFavorite);
+                    MainWindow.Logger.Information($"Event {eid} wurde zu Favoriten hinzugefügt.");
                 }
             }
             
@@ -168,6 +175,7 @@ public static async Task LoadTypesAsync()
         if (FavButton.Content is Viewbox viewbox && viewbox.Child is Path path)
         {
             path.Data = Geometry.Parse(isFavorite ? StarFilledPath : StarOutlinePath);
+            MainWindow.Logger.Information($"FavIcon gesetzt: {isFavorite}");
         }
     }
 
@@ -187,6 +195,7 @@ public static async Task LoadTypesAsync()
                 FavButton.Foreground = Brushes.White;
             }
             SetFavIcon(_isFavorite);
+            MainWindow.Logger.Information($"CheckIfFavoriteAsync aufgerufen: uid={uid}, eid={eid}, isFavorite={_isFavorite}");
         }
     }
 }

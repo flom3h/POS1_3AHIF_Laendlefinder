@@ -16,5 +16,6 @@ public partial class MiniCalendarWindow : Window
         SelectedDate = CalendarControl.SelectedDate ?? DateTime.Now;
         DialogResult = true;
         Close();
+        MainWindow.Logger.Information($"MiniCalendar geschlossen und ausgewähltes Datum: {SelectedDate.ToShortDateString()}");
     }
 }

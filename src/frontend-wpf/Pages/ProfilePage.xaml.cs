@@ -41,6 +41,7 @@ public partial class ProfilePage : Page
                 PlaceholderSn.Content = user.firstname;
                 PlaceholderLn.Content = user.lastname;
                 PlaceholderMail.Content = user.email;
+                MainWindow.Logger.Information($"ProfilePage: User geladen: {user.firstname} {user.lastname}, Email: {user.email}");
             }
         }
     }
@@ -54,12 +55,14 @@ public partial class ProfilePage : Page
             PlainPasswordBox.Text = PasswordBox.Password;
             PasswordBox.Visibility = Visibility.Collapsed;
             PlainPasswordBox.Visibility = Visibility.Visible;
+            MainWindow.Logger.Information("Passwortfeld auf Klartext umgeschaltet.");
         }
         else
         {
             PasswordBox.Password = PlainPasswordBox.Text;
             PasswordBox.Visibility = Visibility.Visible;
             PlainPasswordBox.Visibility = Visibility.Collapsed;
+            MainWindow.Logger.Information("Passwortfeld auf versteckt umgeschaltet.");
         }
     }
 
@@ -100,6 +103,7 @@ public partial class ProfilePage : Page
             Regex.IsMatch(ln, @"\d"))
         {
             MessageBox.Show("Vorname und Nachname dürfen nicht leer sein oder Zahlen enthalten.");
+            MainWindow.Logger.Error("Ungültige Eingabe für Vorname oder Nachname.");
             return;
         }
 
@@ -110,6 +114,7 @@ public partial class ProfilePage : Page
             !Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$")) // Prüft auf simple E-Mail
         {
             MessageBox.Show("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
+            MainWindow.Logger.Error("Ungültige E-Mail-Adresse eingegeben.");
             return;
         }
 
@@ -117,6 +122,7 @@ public partial class ProfilePage : Page
         if (string.IsNullOrEmpty(passwort) || passwort.Length < 8)
         {
             MessageBox.Show("Das Passwort muss mindestens 8 Zeichen lang sein.");
+            MainWindow.Logger.Error("Ungültiges Passwort eingegeben.");
             return;
         }
 
@@ -141,11 +147,13 @@ public partial class ProfilePage : Page
             if (response.IsSuccessStatusCode)
             {
                 MessageBox.Show("Änderungen erfolgreich gespeichert.");
+                MainWindow.Logger.Information("Änderungen erfolgreich gespeichert.");
                 SaveChangesButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
             }
             else
             {
                 MessageBox.Show("Fehler beim Speichern der Änderungen: " + responseString);
+                MainWindow.Logger.Error("Fehler beim Speichern der Änderungen: " + responseString);
             }
         }
 

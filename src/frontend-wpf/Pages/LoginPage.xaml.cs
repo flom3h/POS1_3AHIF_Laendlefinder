@@ -31,12 +31,14 @@ public partial class LoginPage : Page
             PlainPasswordBox.Text = PasswordBox.Password;
             PasswordBox.Visibility = Visibility.Collapsed;
             PlainPasswordBox.Visibility = Visibility.Visible;
+            MainWindow.Logger.Information("Passwortfeld auf Klartext umgeschaltet.");
         }
         else
         {
             PasswordBox.Password = PlainPasswordBox.Text;
             PasswordBox.Visibility = Visibility.Visible;
             PlainPasswordBox.Visibility = Visibility.Collapsed;
+            MainWindow.Logger.Information("Passwortfeld auf versteckt umgeschaltet.");
         }
     }
 
@@ -73,16 +75,19 @@ public partial class LoginPage : Page
                 if (response.IsSuccessStatusCode)
                 {
                     CurrentUserID = JsonDocument.Parse(responseString).RootElement.GetProperty("userID").GetInt32();
+                    MainWindow.Logger.Information($"Login erfolgreich für Benutzer {CurrentUserID}.");
                     LoginButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
                 }
                 else
                 {
                     MessageBox.Show("Login fehlgeschlagen: " + message);
+                    MainWindow.Logger.Error($"Login fehlgeschlagen: {message}");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Fehler beim Login: " + ex.Message);
+                MainWindow.Logger.Error($"Fehler beim Login: {ex.Message}");
             }
         }
     }

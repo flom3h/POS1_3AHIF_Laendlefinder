@@ -50,18 +50,21 @@ public partial class ExplorePage : Page
 
         if (selectedRadio != null)
         {
+            MainWindow.Logger.Information("RadioButton für Datumsauswahl wurde ausgewählt: " + selectedRadio.Content.ToString());
             string selectedText = selectedRadio.Content.ToString();
             if (selectedText == "Heute")
             {
                 filteredCollection = eventCollection.FilterByDate(DateTime.Today);
                 EventsPanel.Children.Clear();
                 filteredCollection.Draw(EventsPanel);
+                MainWindow.Logger.Information("Events für heute gefiltert und angezeigt.");
             }
             else if (selectedText == "Morgen")
             {
                 filteredCollection = eventCollection.FilterByDate(DateTime.Today.AddDays(1));
                 EventsPanel.Children.Clear();
                 filteredCollection.Draw(EventsPanel);
+                MainWindow.Logger.Information("Events für morgen gefiltert und angezeigt.");
             }
             else if (selectedText == "Nächste 7 Tage")
             {
@@ -70,16 +73,19 @@ public partial class ExplorePage : Page
                 filteredCollection = eventCollection.FilterByDateRange(startDate, endDate);
                 EventsPanel.Children.Clear();
                 filteredCollection.Draw(EventsPanel);
+                MainWindow.Logger.Information("Events für die nächsten 7 Tage gefiltert und angezeigt.");
             }
             else if (selectedText == "Datum auswählen")
             {
                 var miniCalendarWindow = new MiniCalendarWindow();
+                MainWindow.Logger.Information("MiniCalendar geöffnet, um ein Datum auszuwählen.");
                 if (miniCalendarWindow.ShowDialog() == true)
                 {
                     var selectedDate = miniCalendarWindow.SelectedDate;
                     filteredCollection = eventCollection.FilterByDate(selectedDate);
                     EventsPanel.Children.Clear();
                     filteredCollection.Draw(EventsPanel);
+                    MainWindow.Logger.Information($"Events für das ausgewählte Datum {selectedDate.ToShortDateString()} gefiltert und angezeigt.");
                 }
             }
         }

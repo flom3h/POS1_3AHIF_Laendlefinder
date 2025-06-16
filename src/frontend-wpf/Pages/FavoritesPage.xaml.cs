@@ -37,6 +37,7 @@ public partial class FavoritesPage : Page
                 if (!response.IsSuccessStatusCode)
                 {
                     NoFavoritesLbl.Visibility = Visibility.Visible;
+                    MainWindow.Logger.Information($"Keine Favoriten für Benutzer {uid} gefunden.");
                     return;
                 }
 
@@ -51,9 +52,11 @@ public partial class FavoritesPage : Page
                 }
 
                 eventCollection.Draw(EventsPanel);
+                MainWindow.Logger.Information($"Favoriten für Benutzer {uid} geladen: {events.Count} Events gefunden.");
             }
             catch (Exception ex)
             {
+                MainWindow.Logger.Error("Fehler beim Laden der Events: " + ex.Message);
                 MessageBox.Show("Fehler beim Laden der Events: " + ex.Message);
             }
         }

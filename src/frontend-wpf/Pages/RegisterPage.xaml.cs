@@ -33,12 +33,14 @@ public partial class RegisterPage : Page
             PlainPasswordBox.Text = PasswordBox.Password;
             PasswordBox.Visibility = Visibility.Collapsed;
             PlainPasswordBox.Visibility = Visibility.Visible;
+            MainWindow.Logger.Information("Passwortfeld auf Klartext umgeschaltet.");
         }
         else
         {
             PasswordBox.Password = PlainPasswordBox.Text;
             PasswordBox.Visibility = Visibility.Visible;
             PlainPasswordBox.Visibility = Visibility.Collapsed;
+            MainWindow.Logger.Information("Passwortfeld auf versteckt umgeschaltet.");
         }
     }
 
@@ -54,18 +56,21 @@ public partial class RegisterPage : Page
         if (string.IsNullOrEmpty(sn) || string.IsNullOrEmpty(ln) || Regex.IsMatch(sn, @"\d") || Regex.IsMatch(ln, @"\d"))
         {
             MessageBox.Show("Vorname und Nachname dürfen nicht leer sein oder Zahlen enthalten.");
+            MainWindow.Logger.Error("Vorname oder Nachname ungültig: " + sn + " " + ln);
             return;
         }
         string email = MailBox.Text.Trim();
         if (string.IsNullOrEmpty(email) || !Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$")) // Prüft auf simple E-Mail
         {
             MessageBox.Show("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
+            MainWindow.Logger.Error("Ungültige E-Mail-Adresse eingegeben: " + email);
             return;
         }
         string passwort = passwordVisible ? PlainPasswordBox.Text.Trim() : PasswordBox.Password.Trim();
         if (string.IsNullOrEmpty(passwort) || passwort.Length < 8)
         {
             MessageBox.Show("Das Passwort muss mindestens 8 Zeichen lang sein.");
+            MainWindow.Logger.Error("Ungültiges Passwort eingegeben: " + passwort);
             return;
         }
         
@@ -94,16 +99,19 @@ public partial class RegisterPage : Page
                 if (response.IsSuccessStatusCode)
                 {
                     CurrentUserID = JsonDocument.Parse(responseString).RootElement.GetProperty("userID").GetInt32();
+                    MessageBox.Show("Registrierung für Benutzer " + CurrentUserID + " erfolgreich.");
                     LoginButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
                 }
                 else
                 {
                     MessageBox.Show("Registrierung fehlgeschlagen: " + message);
+                    MainWindow.Logger.Error("Registrierung fehlgeschlagen: " + message);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Fehler beim Registrieren: " + ex.Message);
+                MainWindow.Logger.Error("Fehler beim Registrieren: " + ex.Message);
             }
         }
     }
