@@ -1,200 +1,188 @@
-﻿using System.Windows;
+﻿using System;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
-using Mapsui.UI.Wpf;
-using Mapsui.Layers;
-using Mapsui.Utilities;
-using Mapsui.Projection;
+using System.Windows.Input;
+using System.Windows.Navigation;
 using Mapsui;
 using Mapsui.Geometries;
+using Mapsui.Layers;
+using Mapsui.Providers;
+using Mapsui.Projection;
 using Mapsui.Styles;
+using Mapsui.UI.Wpf;
 using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
 using Laendlefinder.Classes;
 using Laendlefinder.Collections;
-using Mapsui.Providers;
-using System.Linq;
+using Mapsui.Utilities;
 
-namespace Laendlefinder.Pages;
-
-public partial class MapPage : Page
+namespace Laendlefinder.Pages
 {
-    public static event EventHandler HomeButtonClickedNavHome;
-    public static event EventHandler ExploreButtonClickedNavExplore;
-    public static event EventHandler FavsButtonClickedNavFavs;
-    public static event EventHandler MapButtonClickedNavMap;
-    public static event EventHandler ProfileButtonClickedNavProfile;
-    private readonly BoundingBox _vorarlbergEnvelope;
-    private int? _markerBitmapId = null;
-
-    public MapPage()
+    public partial class MapPage : Page
     {
-        InitializeComponent();
-        var tileLayer = OpenStreetMap.CreateTileLayer();
-        MapView.Map?.Layers.Add(tileLayer);
+        public static event EventHandler HomeButtonClickedNavHome;
+        public static event EventHandler ExploreButtonClickedNavExplore;
+        public static event EventHandler FavsButtonClickedNavFavs;
+        public static event EventHandler MapButtonClickedNavMap;
+        public static event EventHandler ProfileButtonClickedNavProfile;
 
-        var min = SphericalMercator.FromLonLat(9.60, 46.88);
-        var max = SphericalMercator.FromLonLat(10.23, 47.60);
-        _vorarlbergEnvelope = new BoundingBox(min.X, min.Y, max.X, max.Y);
+        private readonly BoundingBox _vorarlbergEnvelope;
 
-        MapView.Navigator.NavigateTo(_vorarlbergEnvelope, ScaleMethod.Fit, 0, null);
-
-        MapView.Viewport.ViewportChanged += Viewport_ViewportChanged;
-
-        LoadEventsAsync();
-        MapView.Info += MapView_Info;
-    }
-
-    private bool _isResettingViewport = false;
-
-    private void MapView_Info(object sender, Mapsui.UI.MapInfoEventArgs e)
-    {
-        if (e.MapInfo?.Feature != null && e.MapInfo.Layer?.Name == "EventMarkerLayer")
+        public MapPage()
         {
-            var eventName = e.MapInfo.Feature["EventName"] as string;
-            var ev = EventCollection.Events.FirstOrDefault(ev => ev.name == eventName);
-            if (ev != null)
+            InitializeComponent();
+
+            // Basiskarte hinzufügen
+            var tileLayer = OpenStreetMap.CreateTileLayer();
+            MapView.Map?.Layers.Add(tileLayer);
+
+            // Viewport auf Vorarlberg setzen
+            var min = SphericalMercator.FromLonLat(9.60, 46.88);
+            var max = SphericalMercator.FromLonLat(10.23, 47.60);
+            _vorarlbergEnvelope = new BoundingBox(min.X, min.Y, max.X, max.Y);
+    
+            // Events & Cursor-Handling
+            MapView.MouseMove += MapView_MouseMove;
+            MapView.MouseLeftButtonUp += MapView_MouseLeftButtonUp;
+
+            // Initiales Zoomen nach Laden der MapView
+            MapView.Loaded += (sender, e) => 
             {
-                var moreInfoPage = new MoreInfoPage((int)ev.eid);
-                NavigationService?.Navigate(moreInfoPage);
-            }
-        } 
-    }
+                MapView.Navigator.NavigateTo(_vorarlbergEnvelope, ScaleMethod.Fit, 0); // 0 = keine Animation
+            };
 
-    private void Viewport_ViewportChanged(object? sender, System.EventArgs e)
-    {
-        if (_isResettingViewport) return;
-
-        var extent = MapView.Viewport.Extent;
-        if (extent.MinX < _vorarlbergEnvelope.MinX ||
-            extent.MinY < _vorarlbergEnvelope.MinY ||
-            extent.MaxX > _vorarlbergEnvelope.MaxX ||
-            extent.MaxY > _vorarlbergEnvelope.MaxY)
-        {
-            _isResettingViewport = true;
-            MapView.Navigator.NavigateTo(_vorarlbergEnvelope, ScaleMethod.Fit, 0, null);
-            _isResettingViewport = false;
+            // Events laden
+            LoadEventsAsync();
         }
-    }
 
-    private async void LoadEventsAsync()
-    {
-        using (HttpClient client = new HttpClient())
+        // Cursor ändern, wenn über einem Event-Marker
+        private void MapView_MouseMove(object sender, MouseEventArgs e)
         {
+            // WPF-Point holen
+            var wpfPoint = e.GetPosition(MapView);
+            // In Mapsui-Point umwandeln
+            var mapsuiPoint = new Mapsui.Geometries.Point(wpfPoint.X, wpfPoint.Y);
+            var info = MapView.GetMapInfo(mapsuiPoint);
+
+            MapView.Cursor = (info?.Feature != null && info.Layer?.Name == "EventMarkerLayer")
+                ? Cursors.Hand
+                : Cursors.Arrow;
+        }
+
+        // Linksklick auf einen Marker navigiert zur MoreInfoPage
+        private void MapView_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            // WPF-Point holen
+            var wpfPoint = e.GetPosition(MapView);
+            // In Mapsui-Point umwandeln
+            var mapsuiPoint = new Mapsui.Geometries.Point(wpfPoint.X, wpfPoint.Y);
+            var info = MapView.GetMapInfo(mapsuiPoint);
+
+            if (info?.Feature == null || info.Layer?.Name != "EventMarkerLayer")
+                return;
+
+            // EventId auslesen
+            var eventIdObj = info.Feature["EventId"];
+            if (eventIdObj == null) return;
+
+            int eventId;
             try
             {
-                client.BaseAddress = new Uri("http://127.0.0.1:8081");
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                eventId = Convert.ToInt32(eventIdObj);
+            }
+            catch
+            {
+                MessageBox.Show("Ungültige Event-ID.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
-                HttpResponseMessage response = await client.GetAsync("/events");
+            // Navigation zur Detailseite
+            var moreInfoPage = new MoreInfoPage(eventId);
+            if (NavigationService != null)
+                NavigationService.Navigate(moreInfoPage);
+            else
+                MessageBox.Show("NavigationService ist nicht verfügbar.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        // Asynchrones Laden der Events aus der API
+        private async void LoadEventsAsync()
+        {
+            using var client = new HttpClient { BaseAddress = new Uri("http://127.0.0.1:8081") };
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            try
+            {
+                var response = await client.GetAsync("/events");
                 response.EnsureSuccessStatusCode();
 
-                string responseString = await response.Content.ReadAsStringAsync();
-                var events = JsonSerializer.Deserialize<List<Event>>(responseString);
+                var json = await response.Content.ReadAsStringAsync();
+                var events = JsonSerializer.Deserialize<List<Event>>(json);
 
                 EventCollection.Events.Clear();
-                foreach (var ev in events)
+                if (events != null)
                 {
-                    EventCollection.Events.Add(ev);
+                    foreach (var ev in events)
+                        EventCollection.Events.Add(ev);
                 }
 
-                // Events auf der Map anzeigen
                 ShowEventLocationsOnMap(EventCollection.Events);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Fehler beim Laden der Events: " + ex.Message);
+                MessageBox.Show($"Fehler beim Laden der Events: {ex.Message}", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-    }
 
-    public void ShowEventLocationsOnMap(IEnumerable<Event> events)
-    {
-        var features = new List<IFeature>();
-        if (events == null)
+        // Anzeige der Event-Marker auf der Karte
+        private void ShowEventLocationsOnMap(IEnumerable<Event> events)
         {
-            MessageBox.Show("Events ist null!");
-            return;
-        }
+            // Alten Layer entfernen
+            var existingLayer = MapView.Map.Layers.FirstOrDefault(l => l.Name == "EventMarkerLayer");
+            if (existingLayer != null)
+                MapView.Map.Layers.Remove(existingLayer);
 
-        if (!events.Any())
-        {
-            MessageBox.Show("Keine Events gefunden!");
-            return;
-        }
-
-        // Bild nur einmal laden und registrieren
-        /*if (_markerBitmapId == null)
-        {
-            var markerPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "gps.png");
-            if (!File.Exists(markerPath))
+            if (events == null || !events.Any())
             {
-                MessageBox.Show("gps.png nicht gefunden im Ausgabeverzeichnis!");
+                MapView.Refresh();
                 return;
             }
-            using var markerStream = File.OpenRead(markerPath);
-            _markerBitmapId = BitmapRegistry.Instance.Register(markerStream);
-        }*/
 
-        foreach (var ev in events)
-        {
-            var point = SphericalMercator.FromLonLat(ev.Location.longitude, ev.Location.latitude);
-            var feature = new Feature { Geometry = point };
-            feature["EventName"] = ev.name;
-
-            feature.Styles.Add(new SymbolStyle
+            var features = new List<IFeature>();
+            foreach (var ev in events)
             {
-                SymbolType = SymbolType.Ellipse,
-                Fill = new Brush(Color.Red),
-                Outline = new Pen(Color.White, 2),
-                SymbolScale = 1
-            });
-            features.Add(feature);
+                if (ev.Location == null) continue;
+
+                var point = SphericalMercator.FromLonLat(ev.Location.longitude, ev.Location.latitude);
+                var feature = new Feature { Geometry = point };
+                feature["EventId"] = ev.eid;
+                feature.Styles.Add(new SymbolStyle
+                {
+                    SymbolType = SymbolType.Ellipse,
+                    Fill = new Brush(Color.Red),
+                    Outline = new Pen(Color.White, 2),
+                    SymbolScale = 0.7f
+                });
+                features.Add(feature);
+            }
+
+            var markerLayer = new MemoryLayer
+            {
+                Name = "EventMarkerLayer",
+                DataSource = new MemoryProvider(features),
+                IsMapInfoLayer = true
+            };
+
+            MapView.Map.Layers.Add(markerLayer);
+            MapView.Refresh();
         }
 
-        var markerLayer = new MemoryLayer
-        {
-            Name = "EventMarkerLayer",
-            DataSource = new MemoryProvider(features)
-        };
-
-        var oldLayer = MapView.Map.Layers.FirstOrDefault(l => l.Name == "EventMarkerLayer");
-        if (oldLayer != null)
-            MapView.Map.Layers.Remove(oldLayer);
-
-        MapView.Map.Layers.Add(markerLayer);
-    }
-
-    private IEnumerable<Event> LoadEvents()
-    {
-        return EventCollection.Events;
-    }
-
-    private void HomeButton_Click(object sender, RoutedEventArgs e)
-    {
-        HomeButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
-    }
-
-    private void ExploreButton_Click(object sender, RoutedEventArgs e)
-    {
-        ExploreButtonClickedNavExplore?.Invoke(this, EventArgs.Empty);
-    }
-    
-
-    private void FavsButton_Click(object sender, RoutedEventArgs e)
-    {
-        FavsButtonClickedNavFavs?.Invoke(this, EventArgs.Empty);
-    }
-
-    private void MapButton_Click(object sender, RoutedEventArgs e)
-    {
-        MapButtonClickedNavMap?.Invoke(this, EventArgs.Empty);
-    }
-
-    private void ProfileButton_Click(object sender, RoutedEventArgs e)
-    {
-        ProfileButtonClickedNavProfile?.Invoke(this, EventArgs.Empty);
+        private void HomeButton_Click(object sender, RoutedEventArgs e) => HomeButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
+        private void ExploreButton_Click(object sender, RoutedEventArgs e) => ExploreButtonClickedNavExplore?.Invoke(this, EventArgs.Empty);
+        private void FavsButton_Click(object sender, RoutedEventArgs e) => FavsButtonClickedNavFavs?.Invoke(this, EventArgs.Empty);
+        private void MapButton_Click(object sender, RoutedEventArgs e) { /* Bereits auf Map */ }
+        private void ProfileButton_Click(object sender, RoutedEventArgs e) => ProfileButtonClickedNavProfile?.Invoke(this, EventArgs.Empty);
     }
 }
