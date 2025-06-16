@@ -61,7 +61,7 @@ public class EventCollection : ObservableCollection<Event>
             {
                 matchFound = true;
             }
-            else if (ev.type.HasValue && ev.type.ToString().Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+            else if (ev.type != null && ev.type.ToString().Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
             {
                 matchFound = true;
             }

@@ -77,6 +77,7 @@ def extract_event_data(event):
             typeofevent = pref_labels[1]
         elif pref_labels:
             typeofevent = pref_labels[0]
+        print("typeofevent:", typeofevent)
 
     return {
         "address": address,

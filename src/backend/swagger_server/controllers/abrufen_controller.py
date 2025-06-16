@@ -63,15 +63,12 @@ def events_get(eventname=None, kategorie=None, ort=None, region=None, datum=None
     
 
 
-def kategorien_get():  # noqa: E501
-    """Kategorien abrufen von API
-
-     # noqa: E501
-
-
-    :rtype: None
-    """
-    return 'do some magic!'
+def kategorien_get():
+    """Kategorien abrufen von API"""
+    # Hole alle Kategorien (Types) aus der Tabelle "Type"
+    types = supabase.table("Type").select("tid, type").execute()
+    kategorien = [{"tid": t["tid"], "type": t["type"]} for t in types.data]
+    return kategorien, 200
 
 from swagger_server.services.event_fetcher import fetch_and_store_events
 
