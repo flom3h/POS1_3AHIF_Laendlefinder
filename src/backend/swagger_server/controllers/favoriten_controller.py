@@ -19,7 +19,9 @@ def favoriten_delete(uid, eid):  # noqa: E501
 
     :rtype: None
     """
-    supabase.table("Favourites").delete().eq("uid", uid).eq("eid", eid).execute()
+    result = supabase.table("Favourites").delete().eq("uid", uid).eq("eid", eid).execute()
+    if not result.data:
+        return {"message": "Event ist nicht in den Favoriten"}, 404
     return {"message": "Event erfolgreich aus den Favoriten entfernt"}, 200
 
 

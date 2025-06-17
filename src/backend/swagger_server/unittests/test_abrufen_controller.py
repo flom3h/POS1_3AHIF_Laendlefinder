@@ -23,13 +23,13 @@ class TestAbrufenController(BaseTestCase):
         self.assertIn("name", data)
         self.assertIn("Location", data)
 
-    #def test_event_by_id_get_not_found(self): # bei funktion muss .single() entfernt werden weil sonst 500 Fehler
-    #    """Testet das Abrufen eines nicht existierenden Events"""
-    #    eid = 9999
-    #    response = self.client.open(
-    #        f'/events/{eid}',
-    #        method='GET')
-    #    self.assertEqual(response.status_code, 404)
+    def test_event_by_id_get_not_found(self): # bei funktion muss .single() entfernt werden weil sonst 500 Fehler
+        """Testet das Abrufen eines nicht existierenden Events"""
+        eid = 9999
+        response = self.client.open(
+            f'/events/{eid}',
+            method='GET')
+        self.assertEqual(response.status_code, 404)
 
     def test_events_get(self):
         """Testet das Abrufen aller Events"""
