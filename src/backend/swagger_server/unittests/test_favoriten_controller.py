@@ -12,18 +12,18 @@ from swagger_server.unittests import BaseTestCase
 class TestFavoritenController(BaseTestCase):
     """FavoritenController integration test stubs"""
 
-    #def test_favoriten_delete(self): # favoriten_delete noch anpassen
-    #    """Test case for favoriten_delete
-    #
-    #    Event aus den Favoriten entfernen
-    #    """
-    #    uid = 8
-    #    eid = 182
-    #    response = self.client.open(
-    #        f'/favoriten/{uid}/{eid}',
-    #        method='DELETE')
-    #    self.assertIn(response.status_code, [200, 404],
-    #                  'Response body is : ' + response.data.decode('utf-8'))
+    def test_favoriten_delete(self): # favoriten_delete noch anpassen
+        """Test case for favoriten_delete
+    
+        Event aus den Favoriten entfernen
+        """
+        uid = 8
+        eid = 182
+        response = self.client.open(
+            f'/favoriten/delete/{uid}/{eid}',
+            method='DELETE')
+        self.assertIn(response.status_code, [200, 404],
+                      'Response body is : ' + response.data.decode('utf-8'))
 
     def test_favoriten_delete_invalid_uid(self):
         """Test case for favoriten_delete_invalid_uid

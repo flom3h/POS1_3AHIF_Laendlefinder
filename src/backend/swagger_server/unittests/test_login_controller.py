@@ -75,11 +75,10 @@ class TestLoginController(BaseTestCase):
         data = response.get_json()
         self.assertEqual(data["message"], "Ungültige Anmeldeinformationen")
 
-    def delete_test_user(self):
-        """Löscht den Testbenutzer nach den Tests"""
-        result = supabase.table("User").delete().eq("email", self.test_user["email"]).execute()
-        if result.status_code != 204:
-            print("Fehler beim Löschen des Testbenutzers:", result.data)
+    def tearDown(self):
+        supabase.table("User").delete().eq("email", self.test_user["email"]).execute()
+        super().tearDown()
+        
 
 
 if __name__ == '__main__':

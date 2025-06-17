@@ -95,6 +95,14 @@ class TestRegistrierenController(BaseTestCase):
             content_type='application/json')
         self.assertEqual(response.status_code, 200)
 
+    def tearDown(self):
+        """Löscht den Testbenutzer nach den Tests"""
+        from swagger_server.__main__ import supabase
+        # Lösche sowohl den ursprünglichen als auch den ggf. geänderten User
+        supabase.table("User").delete().eq("email", self.test_user["email"]).execute()
+        supabase.table("User").delete().eq("email", "moritz.musterfrau@example.com").execute()
+        super().tearDown()
+
 if __name__ == '__main__':
     import unittest
     unittest.main()
