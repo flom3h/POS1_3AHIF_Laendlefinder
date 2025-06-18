@@ -82,6 +82,7 @@ public partial class FavoritesPage : Page
     */
     private void HomeButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("Home-Button wurde geklickt, Navigation zur HomePage.");
         HomeButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
     }
 
@@ -93,6 +94,7 @@ public partial class FavoritesPage : Page
     */
     private void ExploreButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("Explore-Button wurde geklickt, Navigation zur ExplorePage.");
         ExploreButtonClickedNavExplore?.Invoke(this, EventArgs.Empty);
     }
 
@@ -104,6 +106,7 @@ public partial class FavoritesPage : Page
     */
     private void FavsButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("Favs-Button wurde geklickt, Navigation zur FavsPage.");
         FavsButtonClickedNavFavs?.Invoke(this, EventArgs.Empty);
     }
 
@@ -115,6 +118,7 @@ public partial class FavoritesPage : Page
     */
     private void MapButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("Map-Button wurde geklickt, Navigation zur MapPage.");
         MapButtonClickedNavMap?.Invoke(this, EventArgs.Empty);
     }
 
@@ -126,6 +130,7 @@ public partial class FavoritesPage : Page
     */
     private void ProfileButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("Profile-Button wurde geklickt, Navigation zur ProfilePage.");
         ProfileButtonClickedNavProfile?.Invoke(this, EventArgs.Empty);
     }
 }

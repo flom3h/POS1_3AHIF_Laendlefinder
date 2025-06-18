@@ -205,6 +205,7 @@ public partial class RegisterPage : Page
     */
     private void YesLoginButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("Zurück-zum-Login-Button wurde geklickt, Navigation zur LoginPage.");
         LoginButtonClickedNavLogin?.Invoke(this, EventArgs.Empty);
     }
 }

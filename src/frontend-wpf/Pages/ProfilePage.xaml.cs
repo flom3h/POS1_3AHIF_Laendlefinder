@@ -93,6 +93,7 @@ public partial class ProfilePage : Page
      */
     private void HomeButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("HomeButton geklickt, Navigation zur Startseite.");
         HomeButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
     }
     
@@ -104,6 +105,7 @@ public partial class ProfilePage : Page
      */
     private void ExploreButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("ExploreButton geklickt, Navigation zur Erkundungsseite.");
         ExploreButtonClickedNavExplore?.Invoke(this, EventArgs.Empty);
     }
     
@@ -115,6 +117,7 @@ public partial class ProfilePage : Page
      */
     private void FavsButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("FavsButton geklickt, Navigation zur Favoritenseite.");
         FavsButtonClickedNavFavs?.Invoke(this, EventArgs.Empty);
     }
     
@@ -126,6 +129,7 @@ public partial class ProfilePage : Page
      */
     private void MapButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("MapButton geklickt, Navigation zur Kartenseite.");
         MapButtonClickedNavMap?.Invoke(this, EventArgs.Empty);
     }
     
@@ -137,6 +141,7 @@ public partial class ProfilePage : Page
      */
     private void ProfileButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("ProfileButton geklickt, Navigation zur Profilseite.");
         ProfileButtonClickedNavProfile?.Invoke(this, EventArgs.Empty);
     }
     
@@ -223,6 +228,7 @@ public partial class ProfilePage : Page
      */
     private void LogOutButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("LogoutButton geklickt, Navigation zur LoginPage.");
         LogOutButtonClickedNavLogin?.Invoke(this, EventArgs.Empty);
     }
     

@@ -70,11 +70,13 @@ namespace Laendlefinder.Pages
         */
         private void MapView_MouseMove(object sender, MouseEventArgs e)
         {
+            MainWindow.Logger.Information("MapView_MouseMove: Maus bewegt sich über der Karte.");
             var wpfPoint = e.GetPosition(MapView);
             var mapsuiPoint = new Mapsui.Geometries.Point(wpfPoint.X, wpfPoint.Y);
             var info = MapView.GetMapInfo(mapsuiPoint);
-
+            
             MapView.Cursor = (info?.Feature != null && info.Layer?.Name == "EventMarkerLayer") ? Cursors.Hand : Cursors.Arrow;
+            
         }
 
         /**
@@ -208,7 +210,11 @@ namespace Laendlefinder.Pages
         * @param sender Das auslösende Objekt.
         * @param e Event-Argumente.
         */
-        private void HomeButton_Click(object sender, RoutedEventArgs e) => HomeButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Logger.Information("Home-Button wurde geklickt, Navigation zur HomePage.");
+            HomeButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
+        }
 
         /**
         * Event-Handler für den Explore-Button. Löst das ExploreButtonClickedNavExplore-Event aus.
@@ -216,7 +222,11 @@ namespace Laendlefinder.Pages
         * @param sender Das auslösende Objekt.
         * @param e Event-Argumente.
         */
-        private void ExploreButton_Click(object sender, RoutedEventArgs e) => ExploreButtonClickedNavExplore?.Invoke(this, EventArgs.Empty);
+        private void ExploreButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Logger.Information("Explore-Button wurde geklickt, Navigation zur ExplorePage.");
+            ExploreButtonClickedNavExplore?.Invoke(this, EventArgs.Empty);
+        }
 
         /**
         * Event-Handler für den Favs-Button. Löst das FavsButtonClickedNavFavs-Event aus.
@@ -224,7 +234,11 @@ namespace Laendlefinder.Pages
         * @param sender Das auslösende Objekt.
         * @param e Event-Argumente.
         */
-        private void FavsButton_Click(object sender, RoutedEventArgs e) => FavsButtonClickedNavFavs?.Invoke(this, EventArgs.Empty);
+        private void FavsButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Logger.Information("Favs-Button wurde geklickt, Navigation zur FavsPage.");
+            FavsButtonClickedNavFavs?.Invoke(this, EventArgs.Empty);
+        }
 
         /**
         * Event-Handler für den Map-Button. Löst das MapButtonClickedNavMap-Event aus.
@@ -232,7 +246,11 @@ namespace Laendlefinder.Pages
         * @param sender Das auslösende Objekt.
         * @param e Event-Argumente.
         */
-        private void MapButton_Click(object sender, RoutedEventArgs e)  => MapButtonClickedNavMap?.Invoke(this, EventArgs.Empty);
+        private void MapButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Logger.Information("Map-Button wurde geklickt, Navigation zur MapPage.");
+            MapButtonClickedNavMap?.Invoke(this, EventArgs.Empty);
+        }
 
         /**
         * Event-Handler für den Profile-Button. Löst das ProfileButtonClickedNavProfile-Event aus.
@@ -240,6 +258,10 @@ namespace Laendlefinder.Pages
         * @param sender Das auslösende Objekt.
         * @param e Event-Argumente.
         */
-        private void ProfileButton_Click(object sender, RoutedEventArgs e) => ProfileButtonClickedNavProfile?.Invoke(this, EventArgs.Empty);
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Logger.Information("Profile-Button wurde geklickt, Navigation zur ProfilePage.");
+            ProfileButtonClickedNavProfile?.Invoke(this, EventArgs.Empty);
+        } 
     }
 }
