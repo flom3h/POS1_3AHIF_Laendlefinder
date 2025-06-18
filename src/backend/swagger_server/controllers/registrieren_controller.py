@@ -40,7 +40,7 @@ def user_reg_post(body):  # noqa: E501
     }
     supabase.table("User").insert(data).execute()
     logger.info(f"User {body.email} erfolgreich registriert.")    
-    return {"message": "success", "email": body.email}, 201
+    return {"message": "success", "userID": get_user_id(body.email)[0]}, 201
 
 def get_user_data(uid):  # noqa: E501
     """

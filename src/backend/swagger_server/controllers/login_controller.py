@@ -35,7 +35,7 @@ def user_login_post(body):  # noqa: E501
 
     if bcrypt.checkpw(entered_password, stored_hash):
         logger.info(f"Login erfolgreich für E-Mail: {body.email}")
-        return {"message": "Erfolgreich angemeldet", "email": body.email}, 201
+        return {"message": "Erfolgreich angemeldet", "userID": get_user_id(body.email)[0]}, 201
     else:
         logger.warning(f"Login fehlgeschlagen: Falsches Passwort für E-Mail {body.email}")
         return {"message": "Ungültige Anmeldeinformationen"}, 401

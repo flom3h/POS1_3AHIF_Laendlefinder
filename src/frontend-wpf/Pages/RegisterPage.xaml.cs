@@ -100,7 +100,6 @@ public partial class RegisterPage : Page
                 if (response.IsSuccessStatusCode)
                 {
                     CurrentUserID = JsonDocument.Parse(responseString).RootElement.GetProperty("userID").GetInt32();
-                    MessageBox.Show("Registrierung für Benutzer " + CurrentUserID + " erfolgreich.");
                     LoginButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
                 }
                 else
