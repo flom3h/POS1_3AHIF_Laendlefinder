@@ -118,5 +118,6 @@
 | 16.06.2025         | Kategorien in Projekt gefixt                            |
 | 16.06.2025         | Bugs gefixt                                             |
 | 17.06.2025         | Lastenheft hinzugefügt                                  |
-
-|
+| 18.06.2025         | Pflichtenheft hinzugefügt                               |
+| 18.06.2025         | Logging bei Frontend hinzugefügt                        |
+| 18.06.2025         | Doxygen in Frontend eingebaut                           |
