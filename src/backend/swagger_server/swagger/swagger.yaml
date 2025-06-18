@@ -210,7 +210,7 @@ paths:
                   uid:
                     type: integer
               example:
-                uid: 42
+                42
         "404":
           description: Benutzer nicht gefunden
       x-openapi-router-controller: swagger_server.controllers.abrufen_controller
@@ -258,92 +258,15 @@ paths:
     get:
       tags:
       - abrufen
-      summary: Events abrufen (mit optionalen Filtern)
+      summary: Events abrufen     
       description: |
         Ruft alle Events aus der Datenbank ab, jeweils mit der zugehörigen Location. 
-        Unterstützt verschiedene optionale Filter wie Eventname, Kategorie, Ort, 
-        Region und Datum. Alle Filter können miteinander kombiniert werden.
+        Liefert eine vollständige Liste aller verfügbaren Events mit ihren 
+        Detailinformationen und Standortdaten zurück.
       operationId: events_get
-      parameters:
-      - name: eventname
-        in: query
-        description: Filtere Events nach Eventnamen
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-        example: "Konzert"
-      - name: kategorie
-        in: query
-        description: Filtere Events nach Kategorie
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-        example: "Musik"
-      - name: ort
-        in: query
-        description: Filtere Events nach Ort
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-        example: "Dornbirn"
-      - name: region
-        in: query
-        description: Filtere Events nach Region
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-        example: "Vorarlberg"
-      - name: datum
-        in: query
-        description: Filtere Events nach Datum (Format YYYY-MM-DD)
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-          format: date
-        example: "2025-01-01"
       responses:
         "200":
           description: Erfolgreiche Antwort mit Eventdaten
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    eid:
-                      type: integer
-                    name:
-                      type: string
-                    date:
-                      type: string
-                    time:
-                      type: string
-                    Location:
-                      type: object
-                      properties:
-                        name:
-                          type: string
-                        address:
-                          type: string
-              example:
-                - eid: 789
-                  name: "Weihnachtskonzert"
-                  date: "2023-12-24"
-                  time: "19:30:00"
-                  Location:
-                    name: "Wiener Konzerthaus"
-                    address: "Lothringerstraße 20"
         "500":
           description: Fehler beim Abrufen der Events
       x-openapi-router-controller: swagger_server.controllers.abrufen_controller
@@ -386,7 +309,7 @@ paths:
                   picture:
                     type: string
                   type:
-                    type: string
+                    type: integer
                   Location:
                     type: object
                     properties:
@@ -409,7 +332,7 @@ paths:
                 time: "19:30:00"
                 description: "Klassische Weihnachtslieder in festlicher Atmosphäre"
                 picture: "https://example.com/bild.jpg"
-                type: "Konzert"
+                type: 24
                 Location:
                   lid: 789
                   address: "Lothringerstraße 20"
@@ -489,6 +412,15 @@ paths:
                   time: "19:30:00"
         "404":
           description: Keine Favoriten für den angegebenen Benutzer gefunden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: "Keine Favoriten gefunden"
         "500":
           description: Fehler beim Abrufen der Favoriten
       x-openapi-router-controller: swagger_server.controllers.favoriten_controller
