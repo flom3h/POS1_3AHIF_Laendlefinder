@@ -5,6 +5,7 @@
 05.05.2025 | Konzeptabgabe
 
 ## Rohat
+
 | Tag                | Thema                                                  |
 | ------------------ | ------------------------------------------------------ |
 | 25.04.2025         | Ideen konzipieren                                      |
@@ -35,56 +36,59 @@
 | 15.06.2025         | Google Maps integriert                                 |
 | 16.06.2025         | Designs geupdated                                      |
 
+## Joudi
 
-## Joudi 
-| Tag                | Thema                                                |
-| ------------------ | ---------------------------------------------------- |
-| 25.04.2025         | Ideen konzipieren                                    |
-| 25.04 - 22.05.2025 | Design Sketches konzipieren                          |
-| 21.05.2025         | Rest API Server generiert                            |
-| 21.05.2025         | API Endpoints hinzugefügt                            |
-| 23.05.2025         | API Registrieren hinzugefügt                         |
-| 26.05.2025         | Passwörter gehashed                                  |
-| 28.05.2025         | Register Page Grundaufbau & Design                   |
-| 30.05.2025         | Passwort Visibility eingebaut                        |
-| 02.06.2025         | Register Page Desgin verbessert                      |
-| 02.06.2025         | Register Passwort logik eingebaut                    |
-| 03.06.2025         | Register Page Logik und Datenbank Verbindung         |
-| 04.06.2025         | Register Page verbessert                             |
-| 05.06.2025         | Event UserControl erstellt                           |
-| 06.06.2025         | Explore Page designed                                |
-| 11.06.2025         | Profile Page erstellt                                |
-| 06.06.2025         | Navigation zwischen Pages erstellt                   |
-| 13.06.2025         | Backend Controllers verbessert                       |
-| 13.06.2025         | Login & Regsiter mit UserID verknüpft                |
-| 13.06.2025         | Favorites Page erstellt                              |
-| 13.06.2025         | Favorites Endpoint in Backend erstellt               |
-| 13.06.2025         | UserID handling in Login / RegisterPage geupdated    |
-| 14.06.2025         | Favorites Endpoint logik eingebaut                   |
-| 14.06.2025         | Events favorisieren hinzugefügt                      |
-| 14.06.2025         | Favoriten Controller verbessert                      |
-| 14.06.2025         | Favoriten delete in Controller eingebaut             |
-| 14.06.2025         | FavRequest Class erstellt (bekommt UserID & EventID) |
-| 14.06.2025         | Register Controller hinzugefügt                      |
-| 14.06.2025         | Profile Page verbessert                              |
-| 14.06.2025         | Input validation für User hinzugefügt                |
-| 14.06.2025         | Sidebar auf allen Pages gleich gemahcht              |
-| 15.06.2025         | Event suchfunktionalität eingebaut                   |
-| 15.06.2025         | EventCollection auf Suche geupdated                  |
-| 15.06.2025         | Location Property standartisiert im ganzen projekt   |
-| 15.06.2025         | Programmstart verschnellert                          |
-| 15.06.2025         | Buttons bei Login / Register nun defualt             |
-| 15.06.2025         | Unnötige Consolen Logs entfernt                      |
-| 16.06.2025         | MapMarker ersetzt                                    |
-| 16.06.2025         | MoreInfoPage Label ersetzt                           |
-| 16.06.2025         | Time Display ersetzt für Undefinierte Zeit           |
-| 16.06.2025         | Debugging bei LoadTypesAsync hinzugefügt             |
-| 16.06.2025         | Serilog logging hinzugefügt Front & Backend          |
-| 17.06.2025         | UnitTests im Backend hinzugefügt                     |
-| 17.06.2025         | UnitTests verbessert                                 |
-| 17.06.2025         | single() calls entfernt                              |
+| Tag                | Thema                                                  |
+| ------------------ | ------------------------------------------------------ |
+| 25.04.2025         | Ideen konzipieren                                      |
+| 25.04 - 22.05.2025 | Design Sketches konzipieren                            |
+| 21.05.2025         | Rest API Server generiert                              |
+| 21.05.2025         | API Endpoints hinzugefügt                              |
+| 23.05.2025         | API Registrieren hinzugefügt                           |
+| 26.05.2025         | Passwörter gehashed                                    |
+| 28.05.2025         | Register Page Grundaufbau & Design                     |
+| 30.05.2025         | Passwort Visibility eingebaut                          |
+| 02.06.2025         | Register Page Desgin verbessert                        |
+| 02.06.2025         | Register Passwort logik eingebaut                      |
+| 03.06.2025         | Register Page Logik und Datenbank Verbindung           |
+| 04.06.2025         | Register Page verbessert                               |
+| 05.06.2025         | Event UserControl erstellt                             |
+| 06.06.2025         | Explore Page designed                                  |
+| 11.06.2025         | Profile Page erstellt                                  |
+| 06.06.2025         | Navigation zwischen Pages erstellt                     |
+| 13.06.2025         | Backend Controllers verbessert                         |
+| 13.06.2025         | Login & Regsiter mit UserID verknüpft                  |
+| 13.06.2025         | Favorites Page erstellt                                |
+| 13.06.2025         | Favorites Endpoint in Backend erstellt                 |
+| 13.06.2025         | UserID handling in Login / RegisterPage geupdated      |
+| 14.06.2025         | Favorites Endpoint logik eingebaut                     |
+| 14.06.2025         | Events favorisieren hinzugefügt                        |
+| 14.06.2025         | Favoriten Controller verbessert                        |
+| 14.06.2025         | Favoriten delete in Controller eingebaut               |
+| 14.06.2025         | FavRequest Class erstellt (bekommt UserID & EventID)   |
+| 14.06.2025         | Register Controller hinzugefügt                        |
+| 14.06.2025         | Profile Page verbessert                                |
+| 14.06.2025         | Input validation für User hinzugefügt                  |
+| 14.06.2025         | Sidebar auf allen Pages gleich gemahcht                |
+| 15.06.2025         | Event suchfunktionalität eingebaut                     |
+| 15.06.2025         | EventCollection auf Suche geupdated                    |
+| 15.06.2025         | Location Property standartisiert im ganzen projekt     |
+| 15.06.2025         | Programmstart verschnellert                            |
+| 15.06.2025         | Buttons bei Login / Register nun defualt               |
+| 15.06.2025         | Unnötige Consolen Logs entfernt                        |
+| 16.06.2025         | MapMarker ersetzt                                      |
+| 16.06.2025         | MoreInfoPage Label ersetzt                             |
+| 16.06.2025         | Time Display ersetzt für Undefinierte Zeit             |
+| 16.06.2025         | Debugging bei LoadTypesAsync hinzugefügt               |
+| 16.06.2025         | Serilog logging hinzugefügt Frontend                   |
+| 17.06.2025         | UnitTests im Backend hinzugefügt                       |
+| 17.06.2025         | UnitTests verbessert                                   |
+| 17.06.2025         | single() calls entfernt                                |
+| 17.06.2025         | UnitTests für Backend erstellt                         |
+| 18.06.2025         | UnitTests für Frontend erstellt und Backend verbessert |
 
 ## Florian
+
 | Tag                | Thema                                                   |
 | ------------------ | ------------------------------------------------------- |
 | 25.04.2025         | Ideen konzipieren                                       |
@@ -114,4 +118,5 @@
 | 16.06.2025         | Kategorien in Projekt gefixt                            |
 | 16.06.2025         | Bugs gefixt                                             |
 | 17.06.2025         | Lastenheft hinzugefügt                                  |
+
 |
