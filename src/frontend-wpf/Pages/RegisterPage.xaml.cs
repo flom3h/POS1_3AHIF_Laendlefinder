@@ -20,6 +20,7 @@ public partial class RegisterPage : Page
     public RegisterPage()
     {
         InitializeComponent();
+        MainWindow.Logger.Information("RegisterPage initialized");
         PasswordBox.Visibility = Visibility.Visible;
         PlainPasswordBox.Visibility = Visibility.Collapsed;
     }

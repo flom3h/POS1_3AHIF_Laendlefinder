@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using Laendlefinder.Collections;
+using Serilog.Core;
 
 namespace Laendlefinder.Pages;
 
@@ -17,6 +18,7 @@ public partial class ExplorePage : Page
     {
         InitializeComponent();
         eventCollection.Draw(EventsPanel);
+        MainWindow.Logger.Information("ExplorePage initialized");
     }
 
     private void HomeButton_Click(object sender, RoutedEventArgs e)

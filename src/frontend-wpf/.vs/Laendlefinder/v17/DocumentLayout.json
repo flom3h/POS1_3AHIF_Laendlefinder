@@ -1,14 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\joudi\\OneDrive - HTL-Rankweil\\SJ_2022-25_1-3AHIF\\POS1\\POS1_3AHIF_Laendlefinder\\src\\frontend-wpf\\",
+  "WorkspaceRootPath": "C:\\Users\\flori\\Documents\\Scripts3AHIF\\POS1_3AHIF_Laendlefinder\\src\\frontend-wpf\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4EF411E3-AF42-4151-890A-443AB6D22ABB}|Laendlefinder.csproj|c:\\users\\joudi\\onedrive - htl-rankweil\\sj_2022-25_1-3ahif\\pos1\\pos1_3ahif_laendlefinder\\src\\frontend-wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4EF411E3-AF42-4151-890A-443AB6D22ABB}|Laendlefinder.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4EF411E3-AF42-4151-890A-443AB6D22ABB}|Laendlefinder.csproj|c:\\users\\flori\\documents\\scripts3ahif\\pos1_3ahif_laendlefinder\\src\\frontend-wpf\\pages\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EF411E3-AF42-4151-890A-443AB6D22ABB}|Laendlefinder.csproj|solutionrelative:pages\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4EF411E3-AF42-4151-890A-443AB6D22ABB}|Laendlefinder.csproj|c:\\users\\joudi\\onedrive - htl-rankweil\\sj_2022-25_1-3ahif\\pos1\\pos1_3ahif_laendlefinder\\src\\frontend-wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{4EF411E3-AF42-4151-890A-443AB6D22ABB}|Laendlefinder.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{4EF411E3-AF42-4151-890A-443AB6D22ABB}|Laendlefinder.csproj|c:\\users\\flori\\documents\\scripts3ahif\\pos1_3ahif_laendlefinder\\src\\frontend-wpf\\pages\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{4EF411E3-AF42-4151-890A-443AB6D22ABB}|Laendlefinder.csproj|solutionrelative:pages\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EF411E3-AF42-4151-890A-443AB6D22ABB}|Laendlefinder.csproj|c:\\users\\flori\\documents\\scripts3ahif\\pos1_3ahif_laendlefinder\\src\\frontend-wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EF411E3-AF42-4151-890A-443AB6D22ABB}|Laendlefinder.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,26 +31,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\joudi\\OneDrive - HTL-Rankweil\\SJ_2022-25_1-3AHIF\\POS1\\POS1_3AHIF_Laendlefinder\\src\\frontend-wpf\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\joudi\\OneDrive - HTL-Rankweil\\SJ_2022-25_1-3AHIF\\POS1\\POS1_3AHIF_Laendlefinder\\src\\frontend-wpf\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "LoginPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\flori\\Documents\\Scripts3AHIF\\POS1_3AHIF_Laendlefinder\\src\\frontend-wpf\\Pages\\LoginPage.xaml.cs",
+              "RelativeDocumentMoniker": "Pages\\LoginPage.xaml.cs",
+              "ToolTip": "C:\\Users\\flori\\Documents\\Scripts3AHIF\\POS1_3AHIF_Laendlefinder\\src\\frontend-wpf\\Pages\\LoginPage.xaml.cs",
+              "RelativeToolTip": "Pages\\LoginPage.xaml.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwDAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T10:20:15.366Z",
+              "WhenOpened": "2025-06-18T09:24:32.254Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\joudi\\OneDrive - HTL-Rankweil\\SJ_2022-25_1-3AHIF\\POS1\\POS1_3AHIF_Laendlefinder\\src\\frontend-wpf\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\joudi\\OneDrive - HTL-Rankweil\\SJ_2022-25_1-3AHIF\\POS1\\POS1_3AHIF_Laendlefinder\\src\\frontend-wpf\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
+              "Title": "LoginPage.xaml",
+              "DocumentMoniker": "C:\\Users\\flori\\Documents\\Scripts3AHIF\\POS1_3AHIF_Laendlefinder\\src\\frontend-wpf\\Pages\\LoginPage.xaml",
+              "RelativeDocumentMoniker": "Pages\\LoginPage.xaml",
+              "ToolTip": "C:\\Users\\flori\\Documents\\Scripts3AHIF\\POS1_3AHIF_Laendlefinder\\src\\frontend-wpf\\Pages\\LoginPage.xaml",
+              "RelativeToolTip": "Pages\\LoginPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-21T10:20:09.615Z",
+              "WhenOpened": "2025-06-18T09:24:13.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\flori\\Documents\\Scripts3AHIF\\POS1_3AHIF_Laendlefinder\\src\\frontend-wpf\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\flori\\Documents\\Scripts3AHIF\\POS1_3AHIF_Laendlefinder\\src\\frontend-wpf\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T10:20:15.366Z",
               "EditorCaption": ""
             }
           ]

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35931.197 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Laendlefinder", "Laendlefinder.csproj", "{4EF411E3-AF42-4151-890A-443AB6D22ABB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLaendlefinder", "TestLaendlefinder\TestLaendlefinder.csproj", "{0E39FAD9-D6EC-43A2-88F6-37A2B216C347}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4EF411E3-AF42-4151-890A-443AB6D22ABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EF411E3-AF42-4151-890A-443AB6D22ABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EF411E3-AF42-4151-890A-443AB6D22ABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E39FAD9-D6EC-43A2-88F6-37A2B216C347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E39FAD9-D6EC-43A2-88F6-37A2B216C347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E39FAD9-D6EC-43A2-88F6-37A2B216C347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E39FAD9-D6EC-43A2-88F6-37A2B216C347}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

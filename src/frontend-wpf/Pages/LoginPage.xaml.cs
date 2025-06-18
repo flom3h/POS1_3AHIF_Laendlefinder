@@ -20,6 +20,7 @@ public partial class LoginPage : Page
         InitializeComponent();
         PasswordBox.Visibility = Visibility.Visible;
         PlainPasswordBox.Visibility = Visibility.Collapsed;
+        MainWindow.Logger.Information("LoginPage initialized");
     }
 
     private void ChangePasswordVisibility_Click(object sender, RoutedEventArgs e)
@@ -45,6 +46,8 @@ public partial class LoginPage : Page
     private void LoginButton_Click(object sender, RoutedEventArgs e)
     {
         AsncMethode(sender, e);
+        MainWindow.Logger.Information("LoginButton wurde aktiviert.");
+
     }
 
     private async void AsncMethode(object sender, RoutedEventArgs e)

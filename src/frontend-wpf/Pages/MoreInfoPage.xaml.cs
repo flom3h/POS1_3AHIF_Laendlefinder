@@ -34,6 +34,7 @@ public partial class MoreInfoPage : Page
     {
         EventId = eventId;
         InitializeComponent();
+        MainWindow.Logger.Information("InfoPage initialized");
         CheckIfFavoriteAsync(uid, EventId);
 
         LoadEventData();
@@ -51,6 +52,8 @@ public partial class MoreInfoPage : Page
                 {
                     var json = await response.Content.ReadAsStringAsync();
                     var ev = JsonSerializer.Deserialize<Event>(json);
+                    
+                    MainWindow.Logger.Information("EventDaten geladen");
 
                     Dispatcher.Invoke(() => {
                         NameLabel.Text = ev.name ?? "Name unbekannt";
@@ -81,7 +84,6 @@ public partial class MoreInfoPage : Page
                             EventImage.Visibility = Visibility.Collapsed;
                         }
                         
-                        // HTML Beschreibung in lesbare Form umschreiben mit Nuget Package
                         string description = string.IsNullOrWhiteSpace(ev.description) || ev.description.Trim().ToLower() == "no data"
                             ? "Keine Beschreibung verfügbar."
                             : ev.description;
@@ -103,11 +105,13 @@ public partial class MoreInfoPage : Page
                 }
                 else
                 {
+                    MainWindow.Logger.Error($"Fehler beim Laden der Event Daten für Event {EventId}: {response.StatusCode}");
                     MessageBox.Show($"Fehler: {response.StatusCode}");
                 }
             }
             catch (Exception ex)
             {
+                MainWindow.Logger.Error(ex, $"Fehler beim Laden der Event Daten für Event {EventId}");
                 MessageBox.Show($"Fehler: {ex.Message}");
             }
         }
@@ -115,9 +119,9 @@ public partial class MoreInfoPage : Page
     private async void LoadGoogleMaps(double latitude, double longitude)
     {
         await GoogleMapBrowser.EnsureCoreWebView2Async();
-
+        MainWindow.Logger.Information("GoogleMaps gestartet");
         string mapsUrl = $"https://www.google.com/maps/search/?api=1&query={latitude.ToString(CultureInfo.InvariantCulture)},{longitude.ToString(CultureInfo.InvariantCulture)}";
-
+    
         GoogleMapBrowser.CoreWebView2.Navigate(mapsUrl);
     }
     

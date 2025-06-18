@@ -9,6 +9,7 @@ public partial class MiniCalendarWindow : Window
     public MiniCalendarWindow()
     {
         InitializeComponent();
+        MainWindow.Logger.Information("MiniCalendarWindow initialized");
     }
 
     private void OkButton_Clicked(object sender, RoutedEventArgs e)
