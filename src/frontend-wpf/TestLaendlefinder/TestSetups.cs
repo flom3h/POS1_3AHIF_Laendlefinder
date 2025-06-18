@@ -4,9 +4,18 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestLaendlefinder
 {
+    /**
+     * @class TestSetups
+     * @brief Enthält Tests für die Setups der Klassen Event, Location, Type, RegRequest und FavRequest.
+     * Diese Klasse testet das Setzen und Auslesen von Eigenschaften in den jeweiligen Klassen.
+     */
     [TestClass]
     public sealed class TestSetups
     {
+        /**
+         * Testet das Setzen und Auslesen aller Eigenschaften eines Event-Objekts.
+         * Erwartet, dass alle gesetzten Werte korrekt ausgelesen werden können.
+         */
         [TestMethod]
         public void Event_Property_Set_And_Get()
         {
@@ -33,6 +42,10 @@ namespace TestLaendlefinder
             Assert.AreEqual("Ort", ev.Location.name);
         }
 
+        /**
+         * Testet das Setzen und Auslesen aller Eigenschaften eines Location-Objekts.
+         * Erwartet, dass alle gesetzten Werte korrekt ausgelesen werden können.
+         */
         [TestMethod]
         public void Location_Property_Set_And_Get()
         {
@@ -54,6 +67,10 @@ namespace TestLaendlefinder
             Assert.AreEqual("loc.jpg", loc.picture);
         }
 
+        /**
+         * Testet das Setzen und Auslesen aller Eigenschaften eines Type-Objekts.
+         * Erwartet, dass alle gesetzten Werte korrekt ausgelesen werden können.
+         */
         [TestMethod]
         public void Type_Property_Set_And_Get()
         {
@@ -67,6 +84,10 @@ namespace TestLaendlefinder
             Assert.AreEqual("Konzert", t.type);
         }
 
+        /**
+         * Testet das Setzen und Auslesen aller Eigenschaften eines RegRequest-Objekts.
+         * Erwartet, dass alle gesetzten Werte korrekt ausgelesen werden können.
+         */
         [TestMethod]
         public void RegRequest_Property_Set_And_Get()
         {
@@ -84,6 +105,10 @@ namespace TestLaendlefinder
             Assert.AreEqual("geheim", req.passwort);
         }
 
+        /**
+         * Testet das Setzen und Auslesen aller Eigenschaften eines FavRequest-Objekts.
+         * Erwartet, dass alle gesetzten Werte korrekt ausgelesen werden können.
+         */
         [TestMethod]
         public void FavRequest_Property_Set_And_Get()
         {
@@ -97,6 +122,10 @@ namespace TestLaendlefinder
             Assert.AreEqual(22, fav.eid);
         }
 
+        /**
+         * Testet die Standardwerte eines neu erstellten Event-Objekts.
+         * Erwartet, dass alle Werte auf ihren Standardwerten stehen.
+         */
         [TestMethod]
         public void Event_Null_And_Default_Values()
         {

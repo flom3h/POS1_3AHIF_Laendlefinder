@@ -7,10 +7,19 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestLaendlefinder
 {
+    /**
+     * @class TestEventCollection
+     * @brief Enthält Tests für die EventCollection-Klasse.
+     * Diese Klasse testet die Funktionen der EventCollection.
+     */
     [TestClass]
     public sealed class TestEventCollection
     {
         [TestMethod]
+        /**
+         * Testet die Suche nach einem Event anhand des Namens.
+         * Erwartet, dass das Event gefunden wird.
+         */
         public void Search_ByName_FindsEvent()
         {
             var collection = new EventCollection
@@ -24,6 +33,10 @@ namespace TestLaendlefinder
         }
         
         [TestMethod]
+        /**
+         * Testet die Suche nach einem Event anhand eines nicht vorhandenen Textes.
+         * Erwartet, dass das Event nicht gefunden wird.
+         */
         public void Search_ByUnknownTerm_ReturnsEmpty()
         {
             var collection = new EventCollection
@@ -35,15 +48,24 @@ namespace TestLaendlefinder
             Assert.AreEqual(0, result.Count);
         }
         
+        /**
+        * Testet, dass null-Events bei der Suche ignoriert werden.
+        * Erwartet ein leeres Ergebnis.
+        */
+        [TestMethod]
         public void Search_NullEvent_Ignored()
         {
             var collection = new EventCollection();
-            collection.Add(null); // absichtlich null
+            collection.Add(null);
 
             var result = collection.Search("irgendwas");
             Assert.AreEqual(0, result.Count);
         }
 
+        /**
+        * Testet das Filtern nach Datum.
+        * Erwartet, dass nur das Event mit dem passenden Datum gefunden wird.
+        */
         [TestMethod]
         public void FilterByDate_FindsCorrectEvent()
         {
@@ -59,6 +81,10 @@ namespace TestLaendlefinder
             Assert.AreEqual("Event1", result.First().name);
         }
         
+        /**
+         * Testet das Filtern nach einem leeren EventCollection.
+         * Erwartet ein leeres Ergebnis.
+         */
         [TestMethod]
         public void FilterByDateRange_EmptyCollection_ReturnsEmpty()
         {
@@ -67,6 +93,10 @@ namespace TestLaendlefinder
             Assert.AreEqual(0, result.Count);
         }
 
+        /**
+         * Testet die Serialisierung einer leeren EventCollection.
+         * Erwartet, dass die Datei leer bleibt.
+         */
         [TestMethod]
         public void Serialize_EmptyCollection_CreatesEmptyFile()
         {
@@ -85,6 +115,10 @@ namespace TestLaendlefinder
             }
         }
 
+        /**
+         * Testet das Filtern nach einem Datumsbereich.
+         * Erwartet, dass alle Events im Bereich gefunden werden.
+         */
         [TestMethod]
         public void FilterByDateRange_FindsEventsInRange()
         {
@@ -101,6 +135,10 @@ namespace TestLaendlefinder
             Assert.AreEqual(2, result.Count);
         }
 
+        /**
+         * Testet die Serialisierung einer EventCollection mit Events.
+         * Erwartet, dass die Datei die Eventdaten enthält.
+         */
         [TestMethod]
         public void Serialize_WritesFile()
         {

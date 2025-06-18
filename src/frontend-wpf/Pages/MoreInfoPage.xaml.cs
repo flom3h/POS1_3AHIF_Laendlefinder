@@ -15,6 +15,12 @@ using Laendlefinder.Collections;
 namespace Laendlefinder.Pages;
 using Microsoft.Web.WebView2.Core;
 
+/**
+ * @class MoreInfoPage
+ * @brief Repräsentiert die Detailseite eines Events.
+ * Zeigt Informationen zu einem Event an, einschließlich Name, Datum, Uhrzeit, Ort, Beschreibung und Bild.
+ * Ermöglicht das Hinzufügen oder Entfernen des Events aus den Favoriten.
+ */
 public partial class MoreInfoPage : Page
 {
     private bool _isFavorite = false;
@@ -30,6 +36,10 @@ public partial class MoreInfoPage : Page
     public static event EventHandler MapButtonClickedNavMap;
     public static event EventHandler ProfileButtonClickedNavProfile;
     public int EventId;
+    /**
+    * Konstruktor für die MoreInfoPage. Initialisiert die Komponenten und prüft, ob das Event ein Favorit ist.
+    * @param eventId Die ID des anzuzeigenden Events.
+    */
     public MoreInfoPage(int eventId)
     {
         EventId = eventId;
@@ -39,7 +49,9 @@ public partial class MoreInfoPage : Page
 
         LoadEventData();
     }
-    
+    /**
+    * Lädt die Eventdaten vom Server und zeigt sie auf der Seite an.
+    */
     private async void LoadEventData()
     {
         using (HttpClient client = new HttpClient())
@@ -116,6 +128,11 @@ public partial class MoreInfoPage : Page
             }
         }
     }
+    /**
+    * Lädt die Google Maps Ansicht für die angegebenen Koordinaten.
+    * @param latitude Die Breite des Standorts.
+    * @param longitude Die Länge des Standorts.
+    */
     private async void LoadGoogleMaps(double latitude, double longitude)
     {
         await GoogleMapBrowser.EnsureCoreWebView2Async();
@@ -124,8 +141,9 @@ public partial class MoreInfoPage : Page
     
         GoogleMapBrowser.CoreWebView2.Navigate(mapsUrl);
     }
-    
-    
+    /**
+    * Prüft, ob das Event ein Favorit des aktuellen Benutzers ist.
+    */
     private async void CheckIfFavorite()
     {
         using (HttpClient client = new HttpClient())
@@ -143,7 +161,10 @@ public partial class MoreInfoPage : Page
             }
         }
     }
-
+    /**
+    * Setzt das Favoriten-Icon entsprechend dem Favoritenstatus des Events.
+    * @param isFavorite Der Favoritenstatus.
+    */
     private void SetFavIcon(bool isFavorite)
     {
         if (FavButton.Content is Viewbox viewbox && viewbox.Child is Path path)
@@ -151,7 +172,12 @@ public partial class MoreInfoPage : Page
             path.Data = Geometry.Parse(isFavorite ? StarFilledPath : StarOutlinePath);
         }
     }
-    
+    /**
+    * Event-Handler für den Klick auf den Favoriten-Button.
+    * Fügt das Event zu den Favoriten hinzu oder entfernt es aus den Favoriten.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private async void FavButton_OnClick(object sender, RoutedEventArgs e)
     {
         if (_isFavorite)
@@ -186,6 +212,11 @@ public partial class MoreInfoPage : Page
             }
         }
     }
+    /**
+    * Prüft asynchron, ob das Event ein Favorit des aktuellen Benutzers ist.
+    * @param userId Die User-ID.
+    * @param eventId Die Event-ID.
+    */
     public async void CheckIfFavoriteAsync(int uid, int eid)
     {
         using (HttpClient client = new HttpClient())
@@ -204,31 +235,62 @@ public partial class MoreInfoPage : Page
             SetFavIcon(_isFavorite);
         }
     }
+    /**
+    * Event-Handler für den Home-Button. Löst das HomeButtonClickedNavHome-Event aus.
+    * Leitet zur HomePage weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void HomeButton_Click(object sender, RoutedEventArgs e)
     {
         HomeButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
     }
-
+    /**
+    * Event-Handler für den Explore-Button. Löst das ExploreButtonClickedNavExplore-Event aus.
+    * Leitet zur ExplorePage weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void ExploreButton_Click(object sender, RoutedEventArgs e)
     {
         ExploreButtonClickedNavExplore?.Invoke(this, EventArgs.Empty);
     }
-
+    /**
+    * Event-Handler für den Kalender-Button. Löst das CalendarButtonClickedNavCalendar-Event aus.
+    * Leitet zur Kalenderseite weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void CalndarButton_Click(object sender, RoutedEventArgs e)
     {
         CalendarButtonClickedNavCalendar?.Invoke(this, EventArgs.Empty);
     }
-
+    /**
+    * Event-Handler für den Favs-Button. Löst das FavsButtonClickedNavFavs-Event aus.
+    * Leitet zur FavsPage weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void FavsButton_Click(object sender, RoutedEventArgs e)
     {
         FavsButtonClickedNavFavs?.Invoke(this, EventArgs.Empty);
     }
-
+    /**
+    * Event-Handler für den Map-Button. Löst das MapButtonClickedNavMap-Event aus.
+    * Leitet zur MapPage weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void MapButton_Click(object sender, RoutedEventArgs e)
     {
         MapButtonClickedNavMap?.Invoke(this, EventArgs.Empty);
     }
-
+    /**
+    * Event-Handler für den Profile-Button. Löst das ProfileButtonClickedNavProfile-Event aus.
+    * Leitet zur ProfilePage weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void ProfileButton_Click(object sender, RoutedEventArgs e)
     {
         ProfileButtonClickedNavProfile?.Invoke(this, EventArgs.Empty);

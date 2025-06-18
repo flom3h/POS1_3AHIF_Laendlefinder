@@ -9,12 +9,21 @@ using Laendlefinder.Classes;
 
 namespace Laendlefinder.Pages;
 
+/**
+ * @class LoginPage
+ * @brief Repräsentiert die Login-Seite der Anwendung.
+ * Ermöglicht Benutzern, sich mit E-Mail und Passwort anzumelden.
+ */
 public partial class LoginPage : Page
 {
     public static int CurrentUserID { get; set; } = 0;
     private bool passwordVisible = false;
     public static event EventHandler LoginButtonClickedNavHome;
     public static event EventHandler LoginButtonClickedNavRegister;
+
+    /**
+    * Konstruktor für die LoginPage. Initialisiert die Komponenten und setzt die Sichtbarkeit der Passwortfelder.
+    */
     public LoginPage()
     {
         InitializeComponent();
@@ -23,6 +32,12 @@ public partial class LoginPage : Page
         MainWindow.Logger.Information("LoginPage initialized");
     }
 
+    /**
+    * Event-Handler zum Umschalten der Passwortsichtbarkeit.
+    * Zeigt oder versteckt das Passwort im Klartextfeld.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void ChangePasswordVisibility_Click(object sender, RoutedEventArgs e)
     {
         passwordVisible = !passwordVisible;
@@ -43,6 +58,12 @@ public partial class LoginPage : Page
         }
     }
 
+    /**
+    * Event-Handler für den Login-Button. Löst das LoginButtonClickedNavHome-Event aus.
+    * Leitet zur HomePage weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void LoginButton_Click(object sender, RoutedEventArgs e)
     {
         AsncMethode(sender, e);
@@ -50,6 +71,12 @@ public partial class LoginPage : Page
 
     }
 
+    /**
+    * Asynchrone Methode zur Durchführung des Logins.
+    * Sendet die Login-Daten an den Server und verarbeitet die Antwort.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private async void AsncMethode(object sender, RoutedEventArgs e)
     {
         string email = MailBox.Text;
@@ -95,21 +122,45 @@ public partial class LoginPage : Page
         }
     }
 
+    /**
+    * Event-Handler für Textänderungen in der MailBox.
+    * Blendet den Platzhalter je nach Inhalt ein oder aus.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void MailBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
         PlaceholderMail.Visibility = string.IsNullOrEmpty(MailBox.Text) ? Visibility.Visible : Visibility.Collapsed;
     }
     
+    /**
+    * Event-Handler für Textänderungen im Klartext-Passwortfeld.
+    * Blendet den Platzhalter je nach Inhalt ein oder aus.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void PlainPasswordBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
         PlaceholderPassword.Visibility = string.IsNullOrEmpty(PlainPasswordBox.Text) ? Visibility.Visible : Visibility.Collapsed;
     }
 
+    /**
+    * Event-Handler für Änderungen im versteckten Passwortfeld.
+    * Blendet den Platzhalter je nach Inhalt ein oder aus.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void PasswordBox_OnPasswordChanged(object sender, RoutedEventArgs e)
     {
         PlaceholderPassword.Visibility = string.IsNullOrEmpty(PasswordBox.Password) ? Visibility.Visible : Visibility.Collapsed;
     }
     
+    /**
+    * Event-Handler für den Register-Button. Löst das LoginButtonClickedNavRegister-Event aus.
+    * Leitet zur RegisterPage weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void NavToRegisterPage(object sender, RoutedEventArgs e)
     {
         LoginButtonClickedNavRegister?.Invoke(this, EventArgs.Empty);

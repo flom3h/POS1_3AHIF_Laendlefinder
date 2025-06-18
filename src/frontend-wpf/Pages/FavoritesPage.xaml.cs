@@ -8,6 +8,11 @@ using Laendlefinder.Collections;
 
 namespace Laendlefinder.Pages;
 
+/**
+ * @class FavoritesPage
+ * @brief Repräsentiert die Favoriten-Seite der Anwendung.
+ * Zeigt eine Liste von favorisierten Events des aktuellen Benutzers an.
+ */
 public partial class FavoritesPage : Page
 {
     private int uid = LoginPage.CurrentUserID == 0 ? RegisterPage.CurrentUserID : LoginPage.CurrentUserID;
@@ -18,6 +23,9 @@ public partial class FavoritesPage : Page
     public static event EventHandler MapButtonClickedNavMap;
     public static event EventHandler ProfileButtonClickedNavProfile;
     
+    /**
+    * Konstruktor für die FavoritesPage. Initialisiert die Komponenten und lädt die Favoriten-Events.
+    */
     public FavoritesPage()
     {
         InitializeComponent();
@@ -25,6 +33,9 @@ public partial class FavoritesPage : Page
         MainWindow.Logger.Information("FavoritesPage initialized");
     }
     
+    /**
+    * Lädt die Favoriten-Events asynchron vom Server und zeigt sie an.
+    */
     private async void LoadEventsAsync()
     {
         using (HttpClient client = new HttpClient())
@@ -63,26 +74,56 @@ public partial class FavoritesPage : Page
         }
     }
     
+    /**
+    * Event-Handler für den Home-Button. Löst das HomeButtonClickedNavHome-Event aus.
+    * Leitet zur HomePage weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void HomeButton_Click(object sender, RoutedEventArgs e)
     {
         HomeButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
     }
 
+    /**
+    * Event-Handler für den Explore-Button. Löst das ExploreButtonClickedNavExplore-Event aus.
+    * Leitet zur ExplorePage weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void ExploreButton_Click(object sender, RoutedEventArgs e)
     {
         ExploreButtonClickedNavExplore?.Invoke(this, EventArgs.Empty);
     }
 
+    /**
+    * Event-Handler für den Favs-Button. Löst das FavsButtonClickedNavFavs-Event aus.
+    * Leitet zur FavoritesPage weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void FavsButton_Click(object sender, RoutedEventArgs e)
     {
         FavsButtonClickedNavFavs?.Invoke(this, EventArgs.Empty);
     }
 
+    /**
+    * Event-Handler für den Map-Button. Löst das MapButtonClickedNavMap-Event aus.
+    * Leitet zur MapPage weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void MapButton_Click(object sender, RoutedEventArgs e)
     {
         MapButtonClickedNavMap?.Invoke(this, EventArgs.Empty);
     }
 
+    /**
+    * Event-Handler für den Profile-Button. Löst das ProfileButtonClickedNavProfile-Event aus.
+    * Leitet zur ProfilePage weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void ProfileButton_Click(object sender, RoutedEventArgs e)
     {
         ProfileButtonClickedNavProfile?.Invoke(this, EventArgs.Empty);

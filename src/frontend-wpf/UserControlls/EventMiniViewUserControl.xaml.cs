@@ -12,6 +12,11 @@ using Laendlefinder.Pages;
 
 namespace Laendlefinder.UserControlls;
 
+/*
+ * @class EventMiniViewUserControl
+ * @brief Repräsentiert eine Miniaturansicht eines Events.
+ * Zeigt grundlegende Informationen an und ermöglicht das Hinzufügen zu Favoriten.
+ */
 public partial class EventMiniViewUserControl : UserControl
 {
     private int uid = LoginPage.CurrentUserID == 0 ? RegisterPage.CurrentUserID : LoginPage.CurrentUserID;
@@ -23,6 +28,9 @@ public partial class EventMiniViewUserControl : UserControl
     public static List<Laendlefinder.Classes.Type> Types { get; set; } = new();
     private Event? _pendingEvent;
     
+    /**
+     * Konstruktor für die EventMiniViewUserControl. Initialisiert die Komponenten und registriert das Loaded-Ereignis.
+     */
     public EventMiniViewUserControl()
     {
         InitializeComponent();
@@ -35,6 +43,11 @@ public partial class EventMiniViewUserControl : UserControl
         //     await LoadTypesAsync();
     }
     
+    /**
+     * Ruft den Typnamen anhand der Typ-ID ab.
+     * @param typeId Die ID des Typs.
+     * @return Der Name des Typs oder null, wenn nicht gefunden.
+     */
     private async Task<string?> GetTypeNameById(int typeId)
     {
         await LoadTypesAsync();
@@ -55,7 +68,11 @@ public partial class EventMiniViewUserControl : UserControl
     MainWindow.Logger.Information($"GetTypeNameById aufgerufen mit: {typeId}, gibt zurueck type: {type?.type}");
 }
 
-
+    
+/**
+ * Lädt die Typen asynchron vom Server, wenn sie noch nicht geladen wurden.
+ * Speichert die Typen in der statischen Liste Types.
+ */
 public static async Task LoadTypesAsync()
 {
     if (Types.Count == 0)
@@ -77,6 +94,10 @@ public static async Task LoadTypesAsync()
     MainWindow.Logger.Information($"LoadTypesAsync aufgerufen, gibt zurueck: {Types.Count} Types");
 }
     
+    /**
+     * Setzt die Event-Daten in die UI-Elemente.
+     * @param ev Das Event-Objekt, dessen Daten angezeigt werden sollen.
+     */
     public async void SetEventData(Event ev)
     {
         eid = ev.eid;
@@ -120,12 +141,23 @@ public static async Task LoadTypesAsync()
         }
     }
     
+    /**
+     * Event-Handler für den More-Button. Löst das MoreInfoButtonClickedNavMoreInfo-Event aus.
+     * Leitet zur MoreInfoPage weiter und übergibt die Event-ID.
+     * @param sender Das auslösende Objekt.
+     * @param e Event-Argumente.
+     */
     private void MoreButton_OnClick(object sender, RoutedEventArgs e)
     {
         MoreInfoButtonClickedNavMoreInfo?.Invoke(this, eid);
         MainWindow.Logger.Information("MoreButton geklickt, Navigation zur MoreInfoPage.");
     }
-
+    
+    /**
+     * Event-Handler für den Favoriten-Button. Fügt das Event zu den Favoriten hinzu oder entfernt es.
+     * @param sender Das auslösende Objekt.
+     * @param e Event-Argumente.
+     */
     private async void FavButton_OnClick(object sender, RoutedEventArgs e)
     {
         if (_isFavorite)
@@ -170,6 +202,11 @@ public static async Task LoadTypesAsync()
             
         }
     }
+    
+    /**
+     * Setzt das FavIcon basierend auf dem Favoritenstatus.
+     * @param isFavorite Gibt an, ob das Event favorisiert ist.
+     */
     private void SetFavIcon(bool isFavorite)
     {
         if (FavButton.Content is Viewbox viewbox && viewbox.Child is Path path)
@@ -178,7 +215,12 @@ public static async Task LoadTypesAsync()
             MainWindow.Logger.Information($"FavIcon gesetzt: {isFavorite}");
         }
     }
-
+    
+    /**
+     * Überprüft, ob das Event in den Favoriten des Benutzers ist.
+     * @param uid Die Benutzer-ID.
+     * @param eid Die Event-ID.
+     */
     public async void CheckIfFavoriteAsync(int uid, int eid)
     {
         using (HttpClient client = new HttpClient())

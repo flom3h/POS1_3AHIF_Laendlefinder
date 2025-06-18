@@ -9,12 +9,10 @@ using Laendlefinder.Classes;
 namespace Laendlefinder.Collections;
 
 /**
- * Durchsucht alle Events nach dem angegebenen Suchbegriff und gibt passende Events zurück.
- *
- * Die Suche erfolgt in Name, Ort, Adresse, Beschreibung und Kategorie des Events.
- *
- * @param searchTerm Der Suchbegriff, nach dem gefiltert werden soll.
- * @return Eine Liste der gefundenen Events.
+ * @class EventCollection
+ * @brief Repräsentiert eine Sammlung von Events, die ObservableCollection erweitert.
+ * Diese Klasse ermöglicht das Serialisieren von Events in eine JSON-Datei, das Zeichnen der Events in ein Panel,
+ * sowie das Suchen und Filtern von Events basierend auf verschiedenen Kriterien.
  */
 public class EventCollection : ObservableCollection<Event>
 {
@@ -56,11 +54,14 @@ public class EventCollection : ObservableCollection<Event>
         MainWindow.Logger.Information("Events gezeichnet und in Panel hinzugefügt.");
     }
 
-    /// <summary>
-    /// Sucht Events, die den Suchbegriff enthalten, in Name, Ort, Adresse, Beschreibung oder Kategorie.
-    /// </summary>
-    /// <param name="searchTerm">Der Suchbegriff.</param>
-    /// <returns>Gefundene Events als EventCollection.</returns>
+    /**
+     * Durchsucht alle Events nach dem angegebenen Suchbegriff und gibt passende Events zurück.
+     *
+     * Die Suche erfolgt in Name, Ort, Adresse, Beschreibung und Kategorie des Events.
+     *
+     * @param searchTerm Der Suchbegriff, nach dem gefiltert werden soll.
+     * @return Eine Liste der gefundenen Events.
+     */
     public EventCollection Search(string searchTerm)
     {
         var types = EventMiniViewUserControl.Types;
@@ -73,40 +74,28 @@ public class EventCollection : ObservableCollection<Event>
                 continue;
             }
             bool matchFound = false;
-            /*
-             * Überprüft, ob der Eventname den Suchbegriff enthält.
-             * @see Event.name
-             */
+            
             if (ev.name != null && ev.name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
             {
                 matchFound = true;
                 MainWindow.Logger.Information($"Event durch Name gefunden: {ev.name}");
             }
-            /*!
-             * Überprüft, ob der Ortsname den Suchbegriff enthält.
-             * \see Location.name
-             */
+            
             else if (ev.Location?.name != null && ev.Location.name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
             {
                 matchFound = true;
                 MainWindow.Logger.Information($"Event durch Ort gefunden: {ev.Location.name}");
             }
-            /// Überprüft, ob die Adresse den Suchbegriff enthält.
             else if (ev.Location?.address != null && ev.Location.address.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
             {
                 matchFound = true;
                 MainWindow.Logger.Information($"Event durch Adresse gefunden: {ev.Location.address}");
             }
-            /// Überprüft, ob die Beschreibung den Suchbegriff enthält.
             else if (ev.description != null && ev.description.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
             {
                 matchFound = true;
                 MainWindow.Logger.Information($"Event durch Beschreibung gefunden: {ev.description}");
             }
-            /**
-             * Überprüft, ob die Kategorie (Typ) des Events den Suchbegriff enthält.
-             * @see Type.type
-             */
             else if (ev.type != 0)
             {
                 var type = types.FirstOrDefault(t => t.tid == ev.type);
@@ -125,10 +114,11 @@ public class EventCollection : ObservableCollection<Event>
         return results;
     }
 
-    /*! \brief Filtert Events nach einem bestimmten Datum.
+    /**
+     * Filtert Events nach einem bestimmten Datum.
      *
-     * \param date Das gewünschte Datum.
-     * \return Events, die an diesem Datum stattfinden.
+     * @param date Das Datum, nach dem gefiltert werden soll.
+     * @return Eine Sammlung von Events, die am angegebenen Datum stattfinden.
      */
     public EventCollection FilterByDate(DateTime date)
     {
@@ -150,12 +140,13 @@ public class EventCollection : ObservableCollection<Event>
         return results;
     }
 
-    /// <summary>
-    /// Filtert Events nach einem Datumsbereich.
-    /// </summary>
-    /// <param name="startDate">Startdatum.</param>
-    /// <param name="endDate">Enddatum.</param>
-    /// <returns>Events im angegebenen Zeitraum.</returns>
+    /**
+     * Filtert Events nach einem Datumsbereich.
+     *
+     * @param startDate Das Startdatum des Bereichs.
+     * @param endDate Das Enddatum des Bereichs.
+     * @return Eine Sammlung von Events, die im angegebenen Datumsbereich stattfinden.
+     */
     public EventCollection FilterByDateRange(DateTime startDate, DateTime endDate)
     {
         var results = new EventCollection();
