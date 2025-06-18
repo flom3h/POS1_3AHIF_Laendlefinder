@@ -163,6 +163,7 @@ public partial class LoginPage : Page
     */
     private void NavToRegisterPage(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("Register-Button wurde geklickt, Navigation zur RegisterPage.");
         LoginButtonClickedNavRegister?.Invoke(this, EventArgs.Empty);
     }
 }

@@ -180,6 +180,7 @@ public partial class MoreInfoPage : Page
     */
     private async void FavButton_OnClick(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information($"Favoriten-Button geklickt für Event von Benutzer");
         if (_isFavorite)
         {
             // DELETE
@@ -188,6 +189,7 @@ public partial class MoreInfoPage : Page
                 var response = await client.DeleteAsync($"http://127.0.0.1:8081/favoriten/delete/{uid}/{EventId}");
                 if (response.IsSuccessStatusCode)
                 {
+                    MainWindow.Logger.Information($"Event {EventId} wurde aus den Favoriten entfernt.");
                     _isFavorite = false;
                     SetFavIcon(false);
                 }
@@ -206,6 +208,7 @@ public partial class MoreInfoPage : Page
                 HttpResponseMessage response = await client.PostAsync("/favoriten", content);
                 if (response.IsSuccessStatusCode)
                 {
+                    MainWindow.Logger.Information($"Event {EventId} wurde zu den Favoriten hinzugefügt.");
                     _isFavorite = true;
                     SetFavIcon(true);
                 }
@@ -219,16 +222,19 @@ public partial class MoreInfoPage : Page
     */
     public async void CheckIfFavoriteAsync(int uid, int eid)
     {
+        MainWindow.Logger.Information($"Prüfe, ob Event ein Favorit für Benutzer ist.");
         using (HttpClient client = new HttpClient())
         {
             var response = await client.GetAsync($"http://127.0.0.1:8081/favoriten/{uid}/{eid}");
             if (response.IsSuccessStatusCode)
             {
+                MainWindow.Logger.Information($"Event {eid} ist ein Favorit für Benutzer {uid}.");
                 _isFavorite = true;
                 FavButton.Foreground = Brushes.Black;
             }
             else
             {
+                MainWindow.Logger.Information($"Event {eid} ist kein Favorit für Benutzer {uid}.");
                 _isFavorite = false;
                 FavButton.Foreground = Brushes.White;
             }
@@ -243,6 +249,7 @@ public partial class MoreInfoPage : Page
     */
     private void HomeButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("HomeButton geklickt, Navigation zur Startseite.");
         HomeButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
     }
     /**
@@ -253,6 +260,7 @@ public partial class MoreInfoPage : Page
     */
     private void ExploreButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("ExploreButton geklickt, Navigation zur Erkundungsseite.");
         ExploreButtonClickedNavExplore?.Invoke(this, EventArgs.Empty);
     }
     /**
@@ -263,6 +271,7 @@ public partial class MoreInfoPage : Page
     */
     private void CalndarButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("KalenderButton geklickt, Navigation zur Kalenderseite.");
         CalendarButtonClickedNavCalendar?.Invoke(this, EventArgs.Empty);
     }
     /**
@@ -273,6 +282,7 @@ public partial class MoreInfoPage : Page
     */
     private void FavsButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("FavsButton geklickt, Navigation zur Favoritenseite.");
         FavsButtonClickedNavFavs?.Invoke(this, EventArgs.Empty);
     }
     /**
@@ -283,6 +293,7 @@ public partial class MoreInfoPage : Page
     */
     private void MapButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("MapButton geklickt, Navigation zur Kartenseite.");
         MapButtonClickedNavMap?.Invoke(this, EventArgs.Empty);
     }
     /**
@@ -293,6 +304,7 @@ public partial class MoreInfoPage : Page
     */
     private void ProfileButton_Click(object sender, RoutedEventArgs e)
     {
+        MainWindow.Logger.Information("ProfileButton geklickt, Navigation zur Profilseite.");
         ProfileButtonClickedNavProfile?.Invoke(this, EventArgs.Empty);
     }
 }
