@@ -9,6 +9,11 @@ using Laendlefinder.Classes;
 
 namespace Laendlefinder.Pages;
 
+/**
+ * @class ProfilePage
+ * @brief Repräsentiert die Profilseite der Anwendung.
+ * Ermöglicht Benutzern, ihre persönlichen Daten zu sehen und zu ändern.
+ */
 public partial class ProfilePage : Page
 {
     private bool passwordVisible = false;
@@ -20,7 +25,10 @@ public partial class ProfilePage : Page
     public static event EventHandler ProfileButtonClickedNavProfile;
     public static event EventHandler SaveChangesButtonClickedNavHome;
     public static event EventHandler LogOutButtonClickedNavLogin;
-
+    
+    /**
+     * Konstruktor für die ProfilePage. Initialisiert die Komponenten und lädt das Profil.
+     */
     public ProfilePage()
     {
         InitializeComponent();
@@ -29,7 +37,11 @@ public partial class ProfilePage : Page
         PlainPasswordBox.Visibility = Visibility.Collapsed;
         LoadProfileAsync();
     }
-
+    
+    /**
+     * Lädt das Profil des Benutzers asynchron vom Server.
+     * Zeigt die persönlichen Daten im UI an.
+     */
     public async void LoadProfileAsync()
     {
         using (HttpClient client = new HttpClient())
@@ -46,7 +58,13 @@ public partial class ProfilePage : Page
             }
         }
     }
-
+    
+    /**
+     * Event-Handler zum Umschalten der Passwortsichtbarkeit.
+     * Zeigt oder versteckt das Passwort im Klartextfeld.
+     * @param sender Das auslösende Objekt.
+     * @param e Event-Argumente.
+     */
     private void ChangePasswordVisibility_Click(object sender, RoutedEventArgs e)
     {
         passwordVisible = !passwordVisible;
@@ -66,32 +84,68 @@ public partial class ProfilePage : Page
             MainWindow.Logger.Information("Passwortfeld auf versteckt umgeschaltet.");
         }
     }
-
+    
+    /**
+     * Event-Handler für den Home-Button. Löst das HomeButtonClickedNavHome-Event aus.
+     * Leitet zur HomePage weiter.
+     * @param sender Das auslösende Objekt.
+     * @param e Event-Argumente.
+     */
     private void HomeButton_Click(object sender, RoutedEventArgs e)
     {
         HomeButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
     }
-
+    
+    /**
+     * Event-Handler für den Explore-Button. Löst das ExploreButtonClickedNavExplore-Event aus.
+     * Leitet zur ExplorePage weiter.
+     * @param sender Das auslösende Objekt.
+     * @param e Event-Argumente.
+     */
     private void ExploreButton_Click(object sender, RoutedEventArgs e)
     {
         ExploreButtonClickedNavExplore?.Invoke(this, EventArgs.Empty);
     }
-
+    
+    /**
+     * Event-Handler für den Favs-Button. Löst das FavsButtonClickedNavFavs-Event aus.
+     * Leitet zur FavsPage weiter.
+     * @param sender Das auslösende Objekt.
+     * @param e Event-Argumente.
+     */
     private void FavsButton_Click(object sender, RoutedEventArgs e)
     {
         FavsButtonClickedNavFavs?.Invoke(this, EventArgs.Empty);
     }
-
+    
+    /**
+     * Event-Handler für den Map-Button. Löst das MapButtonClickedNavMap-Event aus.
+     * Leitet zur MapPage weiter.
+     * @param sender Das auslösende Objekt.
+     * @param e Event-Argumente.
+     */
     private void MapButton_Click(object sender, RoutedEventArgs e)
     {
         MapButtonClickedNavMap?.Invoke(this, EventArgs.Empty);
     }
-
+    
+    /**
+     * Event-Handler für den Profile-Button. Löst das ProfileButtonClickedNavProfile-Event aus.
+     * Leitet zur Profilseite weiter.
+     * @param sender Das auslösende Objekt.
+     * @param e Event-Argumente.
+     */
     private void ProfileButton_Click(object sender, RoutedEventArgs e)
     {
         ProfileButtonClickedNavProfile?.Invoke(this, EventArgs.Empty);
     }
-
+    
+    /**
+     * Event-Handler für den Speichern-Button. Speichert die Änderungen am Profil.
+     * Validiert die Eingaben und sendet die Daten an den Server.
+     * @param sender Das auslösende Objekt.
+     * @param e Event-Argumente.
+     */
     private async void SaveChangesButton_Click(object sender, RoutedEventArgs e)
     {
         string sn = string.IsNullOrEmpty(SnBox.Text.Trim())
@@ -158,38 +212,73 @@ public partial class ProfilePage : Page
             }
         }
 
-        
+
     }
+    
+    /**
+     * Event-Handler für den Logout-Button. Löst das LogOutButtonClickedNavLogin-Event aus.
+     * Leitet zur LoginPage weiter.
+     * @param sender Das auslösende Objekt.
+     * @param e Event-Argumente.
+     */
     private void LogOutButton_Click(object sender, RoutedEventArgs e)
     {
         LogOutButtonClickedNavLogin?.Invoke(this, EventArgs.Empty);
     }
-
+    
+    /**
+     * Event-Handler für den Zurück-Button. Leitet zur HomePage zurück.
+     * @param sender Das auslösende Objekt.
+     * @param e Event-Argumente.
+     */
     private void SnBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
         PlaceholderSn.Visibility = string.IsNullOrEmpty(SnBox.Text) ? Visibility.Visible : Visibility.Collapsed;
     }
-
+    
+    /**
+     * Event-Handler für den Nachname-TextBox. Blendet den Platzhalter je nach Inhalt ein oder aus.
+     * @param sender Das auslösende Objekt.
+     * @param e Event-Argumente.
+     */
     private void LnBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
         PlaceholderLn.Visibility = string.IsNullOrEmpty(LnBox.Text) ? Visibility.Visible : Visibility.Collapsed;
     }
-
+    
+    /**
+     * Event-Handler für Textänderungen in der MailBox.
+     * Blendet den Platzhalter je nach Inhalt ein oder aus.
+     * @param sender Das auslösende Objekt.
+     * @param e Event-Argumente.
+     */
     private void MailBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
         PlaceholderMail.Visibility = string.IsNullOrEmpty(MailBox.Text) ? Visibility.Visible : Visibility.Collapsed;
     }
-
+    
+    /**
+     * Event-Handler für Textänderungen im Klartext-Passwortfeld.
+     * Blendet den Platzhalter je nach Inhalt ein oder aus.
+     * @param sender Das auslösende Objekt.
+     * @param e Event-Argumente.
+     */
     private void PlainPasswordBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
         PlaceholderPassword.Visibility =
             string.IsNullOrEmpty(PlainPasswordBox.Text) ? Visibility.Visible : Visibility.Collapsed;
     }
-
+    
+    /**
+     * Event-Handler für Änderungen im versteckten Passwortfeld.
+     * Blendet den Platzhalter je nach Inhalt ein oder aus.
+     * @param sender Das auslösende Objekt.
+     * @param e Event-Argumente.
+     */
     private void PasswordBox_OnPasswordChanged(object sender, RoutedEventArgs e)
     {
         PlaceholderPassword.Visibility =
             string.IsNullOrEmpty(PasswordBox.Password) ? Visibility.Visible : Visibility.Collapsed;
     }
-    
+
 }

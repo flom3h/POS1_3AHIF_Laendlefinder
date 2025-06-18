@@ -1,0 +1,202 @@
+\hypertarget{class_laendlefinder_1_1_pages_1_1_favorites_page}{}\doxysection{Laendlefinder.\+Pages.\+Favorites\+Page Klassenreferenz}
+\label{class_laendlefinder_1_1_pages_1_1_favorites_page}\index{Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}}
+
+
+Favorites\+Page.  
+
+
+\doxysubsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_favorites_page_aea396519a98e741441605f9e0c958f01}{Favorites\+Page}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Ereignisse}
+\begin{DoxyCompactItemize}
+\item 
+static Event\+Handler \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_favorites_page_a33073dc86667f3064932f4ce618e4576}{Home\+Button\+Clicked\+Nav\+Home}}
+\item 
+static Event\+Handler \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_favorites_page_a5264272b9fd79abd335224745696ca9d}{Explore\+Button\+Clicked\+Nav\+Explore}}
+\item 
+static Event\+Handler \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_favorites_page_a5b6deef051249e32cd9ea08fe271e7c8}{Favs\+Button\+Clicked\+Nav\+Favs}}
+\item 
+static Event\+Handler \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_favorites_page_afbf52fcb95e8b4b0aaf5923ad8fa7ca5}{Map\+Button\+Clicked\+Nav\+Map}}
+\item 
+static Event\+Handler \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_favorites_page_ac950c7be10b86236d9a2a591046c851b}{Profile\+Button\+Clicked\+Nav\+Profile}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Methoden}
+\begin{DoxyCompactItemize}
+\item 
+async void \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_favorites_page_a331311ced950df8481bbecec5c0942ee}{Load\+Events\+Async}} ()
+\item 
+void \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_favorites_page_a28443bf3ca8ea477ce6ffb65217783f6}{Home\+Button\+\_\+\+Click}} (object sender, Routed\+Event\+Args e)
+\item 
+void \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_favorites_page_aa6c9e1e2aca44191fcd9e648ad91b3d5}{Explore\+Button\+\_\+\+Click}} (object sender, Routed\+Event\+Args e)
+\item 
+void \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_favorites_page_ab1452cd9b90d84cb0cd4c4b64300fc9c}{Favs\+Button\+\_\+\+Click}} (object sender, Routed\+Event\+Args e)
+\item 
+void \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_favorites_page_abcbb73ee61b3e65e4b034c6929e9c5d1}{Map\+Button\+\_\+\+Click}} (object sender, Routed\+Event\+Args e)
+\item 
+void \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_favorites_page_a6b65c3e2378e6ab0c240ac8c2f994888}{Profile\+Button\+\_\+\+Click}} (object sender, Routed\+Event\+Args e)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attribute}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_favorites_page_a63b8a21870a95af450140fd36d40c125}{\+\_\+content\+Loaded}}
+\item 
+int \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_favorites_page_a5273fed552485421632095350ac99777}{uid}} = \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_login_page_a1c4550e88a90f4f7e2ed96002810ea35}{Login\+Page.\+Current\+User\+ID}} == 0 ? \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_register_page_ac8fa4581751afb420b17611da062c168}{Register\+Page.\+Current\+User\+ID}} \+: \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_login_page_a1c4550e88a90f4f7e2ed96002810ea35}{Login\+Page.\+Current\+User\+ID}}
+\item 
+\mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection}{Event\+Collection}} \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_favorites_page_af9a66705b6eaeeda73aecfd468aff041}{event\+Collection}} = new()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Ausführliche Beschreibung}
+Favorites\+Page. 
+
+Repräsentiert die Favoriten-\/\+Seite der Anwendung. Zeigt eine Liste von favorisierten Events des aktuellen Benutzers an. 
+
+\doxysubsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_laendlefinder_1_1_pages_1_1_favorites_page_aea396519a98e741441605f9e0c958f01}\label{class_laendlefinder_1_1_pages_1_1_favorites_page_aea396519a98e741441605f9e0c958f01}} 
+\index{Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}!FavoritesPage@{FavoritesPage}}
+\index{FavoritesPage@{FavoritesPage}!Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}}
+\doxysubsubsection{\texorpdfstring{FavoritesPage()}{FavoritesPage()}}
+{\footnotesize\ttfamily Laendlefinder.\+Pages.\+Favorites\+Page.\+Favorites\+Page (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Konstruktor für die Favorites\+Page. Initialisiert die Komponenten und lädt die Favoriten-\/\+Events. 
+
+\doxysubsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_laendlefinder_1_1_pages_1_1_favorites_page_aa6c9e1e2aca44191fcd9e648ad91b3d5}\label{class_laendlefinder_1_1_pages_1_1_favorites_page_aa6c9e1e2aca44191fcd9e648ad91b3d5}} 
+\index{Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}!ExploreButton\_Click@{ExploreButton\_Click}}
+\index{ExploreButton\_Click@{ExploreButton\_Click}!Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}}
+\doxysubsubsection{\texorpdfstring{ExploreButton\_Click()}{ExploreButton\_Click()}}
+{\footnotesize\ttfamily void Laendlefinder.\+Pages.\+Favorites\+Page.\+Explore\+Button\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Event-\/\+Handler für den Explore-\/\+Button. Löst das Explore\+Button\+Clicked\+Nav\+Explore-\/\+Event aus. Leitet zur Explore\+Page weiter. 
+\begin{DoxyParams}{Parameter}
+{\em sender} & Das auslösende Objekt. \\
+\hline
+{\em e} & Event-\/\+Argumente. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_laendlefinder_1_1_pages_1_1_favorites_page_ab1452cd9b90d84cb0cd4c4b64300fc9c}\label{class_laendlefinder_1_1_pages_1_1_favorites_page_ab1452cd9b90d84cb0cd4c4b64300fc9c}} 
+\index{Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}!FavsButton\_Click@{FavsButton\_Click}}
+\index{FavsButton\_Click@{FavsButton\_Click}!Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}}
+\doxysubsubsection{\texorpdfstring{FavsButton\_Click()}{FavsButton\_Click()}}
+{\footnotesize\ttfamily void Laendlefinder.\+Pages.\+Favorites\+Page.\+Favs\+Button\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Event-\/\+Handler für den Favs-\/\+Button. Löst das Favs\+Button\+Clicked\+Nav\+Favs-\/\+Event aus. Leitet zur Favorites\+Page weiter. 
+\begin{DoxyParams}{Parameter}
+{\em sender} & Das auslösende Objekt. \\
+\hline
+{\em e} & Event-\/\+Argumente. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_laendlefinder_1_1_pages_1_1_favorites_page_a28443bf3ca8ea477ce6ffb65217783f6}\label{class_laendlefinder_1_1_pages_1_1_favorites_page_a28443bf3ca8ea477ce6ffb65217783f6}} 
+\index{Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}!HomeButton\_Click@{HomeButton\_Click}}
+\index{HomeButton\_Click@{HomeButton\_Click}!Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}}
+\doxysubsubsection{\texorpdfstring{HomeButton\_Click()}{HomeButton\_Click()}}
+{\footnotesize\ttfamily void Laendlefinder.\+Pages.\+Favorites\+Page.\+Home\+Button\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Event-\/\+Handler für den Home-\/\+Button. Löst das Home\+Button\+Clicked\+Nav\+Home-\/\+Event aus. Leitet zur Home\+Page weiter. 
+\begin{DoxyParams}{Parameter}
+{\em sender} & Das auslösende Objekt. \\
+\hline
+{\em e} & Event-\/\+Argumente. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_laendlefinder_1_1_pages_1_1_favorites_page_a331311ced950df8481bbecec5c0942ee}\label{class_laendlefinder_1_1_pages_1_1_favorites_page_a331311ced950df8481bbecec5c0942ee}} 
+\index{Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}!LoadEventsAsync@{LoadEventsAsync}}
+\index{LoadEventsAsync@{LoadEventsAsync}!Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}}
+\doxysubsubsection{\texorpdfstring{LoadEventsAsync()}{LoadEventsAsync()}}
+{\footnotesize\ttfamily async void Laendlefinder.\+Pages.\+Favorites\+Page.\+Load\+Events\+Async (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Lädt die Favoriten-\/\+Events asynchron vom Server und zeigt sie an. \mbox{\Hypertarget{class_laendlefinder_1_1_pages_1_1_favorites_page_abcbb73ee61b3e65e4b034c6929e9c5d1}\label{class_laendlefinder_1_1_pages_1_1_favorites_page_abcbb73ee61b3e65e4b034c6929e9c5d1}} 
+\index{Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}!MapButton\_Click@{MapButton\_Click}}
+\index{MapButton\_Click@{MapButton\_Click}!Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}}
+\doxysubsubsection{\texorpdfstring{MapButton\_Click()}{MapButton\_Click()}}
+{\footnotesize\ttfamily void Laendlefinder.\+Pages.\+Favorites\+Page.\+Map\+Button\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Event-\/\+Handler für den Map-\/\+Button. Löst das Map\+Button\+Clicked\+Nav\+Map-\/\+Event aus. Leitet zur \mbox{\hyperlink{class_map_page}{Map\+Page}} weiter. 
+\begin{DoxyParams}{Parameter}
+{\em sender} & Das auslösende Objekt. \\
+\hline
+{\em e} & Event-\/\+Argumente. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_laendlefinder_1_1_pages_1_1_favorites_page_a6b65c3e2378e6ab0c240ac8c2f994888}\label{class_laendlefinder_1_1_pages_1_1_favorites_page_a6b65c3e2378e6ab0c240ac8c2f994888}} 
+\index{Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}!ProfileButton\_Click@{ProfileButton\_Click}}
+\index{ProfileButton\_Click@{ProfileButton\_Click}!Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}}
+\doxysubsubsection{\texorpdfstring{ProfileButton\_Click()}{ProfileButton\_Click()}}
+{\footnotesize\ttfamily void Laendlefinder.\+Pages.\+Favorites\+Page.\+Profile\+Button\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Event-\/\+Handler für den Profile-\/\+Button. Löst das Profile\+Button\+Clicked\+Nav\+Profile-\/\+Event aus. Leitet zur Profile\+Page weiter. 
+\begin{DoxyParams}{Parameter}
+{\em sender} & Das auslösende Objekt. \\
+\hline
+{\em e} & Event-\/\+Argumente. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Dokumentation der Datenelemente}
+\mbox{\Hypertarget{class_laendlefinder_1_1_pages_1_1_favorites_page_a63b8a21870a95af450140fd36d40c125}\label{class_laendlefinder_1_1_pages_1_1_favorites_page_a63b8a21870a95af450140fd36d40c125}} 
+\index{Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}!\_contentLoaded@{\_contentLoaded}}
+\index{\_contentLoaded@{\_contentLoaded}!Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}}
+\doxysubsubsection{\texorpdfstring{\_contentLoaded}{\_contentLoaded}}
+{\footnotesize\ttfamily bool Laendlefinder.\+Pages.\+Favorites\+Page.\+\_\+content\+Loaded\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_laendlefinder_1_1_pages_1_1_favorites_page_af9a66705b6eaeeda73aecfd468aff041}\label{class_laendlefinder_1_1_pages_1_1_favorites_page_af9a66705b6eaeeda73aecfd468aff041}} 
+\index{Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}!eventCollection@{eventCollection}}
+\index{eventCollection@{eventCollection}!Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}}
+\doxysubsubsection{\texorpdfstring{eventCollection}{eventCollection}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection}{Event\+Collection}} Laendlefinder.\+Pages.\+Favorites\+Page.\+event\+Collection = new()\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_laendlefinder_1_1_pages_1_1_favorites_page_a5273fed552485421632095350ac99777}\label{class_laendlefinder_1_1_pages_1_1_favorites_page_a5273fed552485421632095350ac99777}} 
+\index{Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}!uid@{uid}}
+\index{uid@{uid}!Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}}
+\doxysubsubsection{\texorpdfstring{uid}{uid}}
+{\footnotesize\ttfamily int Laendlefinder.\+Pages.\+Favorites\+Page.\+uid = \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_login_page_a1c4550e88a90f4f7e2ed96002810ea35}{Login\+Page.\+Current\+User\+ID}} == 0 ? \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_register_page_ac8fa4581751afb420b17611da062c168}{Register\+Page.\+Current\+User\+ID}} \+: \mbox{\hyperlink{class_laendlefinder_1_1_pages_1_1_login_page_a1c4550e88a90f4f7e2ed96002810ea35}{Login\+Page.\+Current\+User\+ID}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Ereignisdokumentation}
+\mbox{\Hypertarget{class_laendlefinder_1_1_pages_1_1_favorites_page_a5264272b9fd79abd335224745696ca9d}\label{class_laendlefinder_1_1_pages_1_1_favorites_page_a5264272b9fd79abd335224745696ca9d}} 
+\index{Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}!ExploreButtonClickedNavExplore@{ExploreButtonClickedNavExplore}}
+\index{ExploreButtonClickedNavExplore@{ExploreButtonClickedNavExplore}!Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}}
+\doxysubsubsection{\texorpdfstring{ExploreButtonClickedNavExplore}{ExploreButtonClickedNavExplore}}
+{\footnotesize\ttfamily Event\+Handler Laendlefinder.\+Pages.\+Favorites\+Page.\+Explore\+Button\+Clicked\+Nav\+Explore\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_laendlefinder_1_1_pages_1_1_favorites_page_a5b6deef051249e32cd9ea08fe271e7c8}\label{class_laendlefinder_1_1_pages_1_1_favorites_page_a5b6deef051249e32cd9ea08fe271e7c8}} 
+\index{Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}!FavsButtonClickedNavFavs@{FavsButtonClickedNavFavs}}
+\index{FavsButtonClickedNavFavs@{FavsButtonClickedNavFavs}!Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}}
+\doxysubsubsection{\texorpdfstring{FavsButtonClickedNavFavs}{FavsButtonClickedNavFavs}}
+{\footnotesize\ttfamily Event\+Handler Laendlefinder.\+Pages.\+Favorites\+Page.\+Favs\+Button\+Clicked\+Nav\+Favs\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_laendlefinder_1_1_pages_1_1_favorites_page_a33073dc86667f3064932f4ce618e4576}\label{class_laendlefinder_1_1_pages_1_1_favorites_page_a33073dc86667f3064932f4ce618e4576}} 
+\index{Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}!HomeButtonClickedNavHome@{HomeButtonClickedNavHome}}
+\index{HomeButtonClickedNavHome@{HomeButtonClickedNavHome}!Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}}
+\doxysubsubsection{\texorpdfstring{HomeButtonClickedNavHome}{HomeButtonClickedNavHome}}
+{\footnotesize\ttfamily Event\+Handler Laendlefinder.\+Pages.\+Favorites\+Page.\+Home\+Button\+Clicked\+Nav\+Home\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_laendlefinder_1_1_pages_1_1_favorites_page_afbf52fcb95e8b4b0aaf5923ad8fa7ca5}\label{class_laendlefinder_1_1_pages_1_1_favorites_page_afbf52fcb95e8b4b0aaf5923ad8fa7ca5}} 
+\index{Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}!MapButtonClickedNavMap@{MapButtonClickedNavMap}}
+\index{MapButtonClickedNavMap@{MapButtonClickedNavMap}!Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}}
+\doxysubsubsection{\texorpdfstring{MapButtonClickedNavMap}{MapButtonClickedNavMap}}
+{\footnotesize\ttfamily Event\+Handler Laendlefinder.\+Pages.\+Favorites\+Page.\+Map\+Button\+Clicked\+Nav\+Map\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_laendlefinder_1_1_pages_1_1_favorites_page_ac950c7be10b86236d9a2a591046c851b}\label{class_laendlefinder_1_1_pages_1_1_favorites_page_ac950c7be10b86236d9a2a591046c851b}} 
+\index{Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}!ProfileButtonClickedNavProfile@{ProfileButtonClickedNavProfile}}
+\index{ProfileButtonClickedNavProfile@{ProfileButtonClickedNavProfile}!Laendlefinder.Pages.FavoritesPage@{Laendlefinder.Pages.FavoritesPage}}
+\doxysubsubsection{\texorpdfstring{ProfileButtonClickedNavProfile}{ProfileButtonClickedNavProfile}}
+{\footnotesize\ttfamily Event\+Handler Laendlefinder.\+Pages.\+Favorites\+Page.\+Profile\+Button\+Clicked\+Nav\+Profile\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}
+\item 
+src/frontend-\/wpf/obj/\+Debug/net7.\+0-\/windows7.\+0/\+Pages/\mbox{\hyperlink{net7_80-windows7_80_2_pages_2_favorites_page_8g_8cs}{Favorites\+Page.\+g.\+cs}}\item 
+src/frontend-\/wpf/obj/\+Debug/net7.\+0-\/windows7.\+0/\+Pages/\mbox{\hyperlink{net7_80-windows7_80_2_pages_2_favorites_page_8g_8i_8cs}{Favorites\+Page.\+g.\+i.\+cs}}\item 
+src/frontend-\/wpf/obj/\+Debug/net8.\+0-\/windows/\+Pages/\mbox{\hyperlink{net8_80-windows_2_pages_2_favorites_page_8g_8cs}{Favorites\+Page.\+g.\+cs}}\item 
+src/frontend-\/wpf/obj/\+Debug/net8.\+0-\/windows/\+Pages/\mbox{\hyperlink{net8_80-windows_2_pages_2_favorites_page_8g_8i_8cs}{Favorites\+Page.\+g.\+i.\+cs}}\item 
+src/frontend-\/wpf/obj/\+Debug/net8.\+0-\/windows7.\+0/\+Pages/\mbox{\hyperlink{net8_80-windows7_80_2_pages_2_favorites_page_8g_8cs}{Favorites\+Page.\+g.\+cs}}\item 
+src/frontend-\/wpf/obj/\+Debug/net8.\+0-\/windows7.\+0/\+Pages/\mbox{\hyperlink{net8_80-windows7_80_2_pages_2_favorites_page_8g_8i_8cs}{Favorites\+Page.\+g.\+i.\+cs}}\item 
+src/frontend-\/wpf/\+Pages/\mbox{\hyperlink{_favorites_page_8xaml_8cs}{Favorites\+Page.\+xaml.\+cs}}\end{DoxyCompactItemize}

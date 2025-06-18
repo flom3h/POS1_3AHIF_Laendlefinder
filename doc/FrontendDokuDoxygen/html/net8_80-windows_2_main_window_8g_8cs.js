@@ -1,0 +1,4 @@
+var net8_80_windows_2_main_window_8g_8cs =
+[
+    [ "Laendlefinder.MainWindow", "class_laendlefinder_1_1_main_window.html", "class_laendlefinder_1_1_main_window" ]
+];

@@ -19,6 +19,11 @@ using Laendlefinder.Classes;
 using Laendlefinder.Collections;
 using Mapsui.Utilities;
 
+/**
+* @class MapPage
+* @brief Repräsentiert die Karten-Seite der Anwendung.
+* Zeigt eine Karte mit Events an und ermöglicht die Navigation zu anderen Seiten.
+*/
 namespace Laendlefinder.Pages
 {
     public partial class MapPage : Page
@@ -31,6 +36,9 @@ namespace Laendlefinder.Pages
 
         private readonly BoundingBox _vorarlbergEnvelope;
 
+        /**
+        * Konstruktor für die MapPage. Initialisiert die Komponenten, Karte und Events.
+        */
         public MapPage()
         {
             InitializeComponent();
@@ -54,6 +62,12 @@ namespace Laendlefinder.Pages
             LoadEventsAsync();
         }
         
+        /**
+        * Event-Handler für Mausbewegungen über der Karte.
+        * Ändert den Cursor, wenn sich die Maus über einem Event-Marker befindet.
+        * @param sender Das auslösende Objekt.
+        * @param e Maus-Event-Argumente.
+        */
         private void MapView_MouseMove(object sender, MouseEventArgs e)
         {
             var wpfPoint = e.GetPosition(MapView);
@@ -63,6 +77,12 @@ namespace Laendlefinder.Pages
             MapView.Cursor = (info?.Feature != null && info.Layer?.Name == "EventMarkerLayer") ? Cursors.Hand : Cursors.Arrow;
         }
 
+        /**
+        * Event-Handler für Mausklicks auf der Karte.
+        * Öffnet die Detailansicht eines Events, wenn ein Marker angeklickt wird.
+        * @param sender Das auslösende Objekt.
+        * @param e Maus-Event-Argumente.
+        */
         private void MapView_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             var wpfPoint = e.GetPosition(MapView);
@@ -104,6 +124,9 @@ namespace Laendlefinder.Pages
             }
         }
 
+        /**
+        * Lädt die Events asynchron vom Server und zeigt sie auf der Karte an.
+        */
         private async void LoadEventsAsync()
         {
             using var client = new HttpClient { BaseAddress = new Uri("http://127.0.0.1:8081") };
@@ -133,6 +156,10 @@ namespace Laendlefinder.Pages
             }
         }
 
+        /**
+        * Zeigt die Event-Locations als Marker auf der Karte an.
+        * @param events Die anzuzeigenden Events.
+        */
         private void ShowEventLocationsOnMap(IEnumerable<Event> events)
         {
             var existingLayer = MapView.Map.Layers.FirstOrDefault(l => l.Name == "EventMarkerLayer");
@@ -175,10 +202,44 @@ namespace Laendlefinder.Pages
             MapView.Refresh();
         }
 
+        /**
+        * Event-Handler für den Home-Button. Löst das HomeButtonClickedNavHome-Event aus.
+        * Leitet zur HomePage weiter.
+        * @param sender Das auslösende Objekt.
+        * @param e Event-Argumente.
+        */
         private void HomeButton_Click(object sender, RoutedEventArgs e) => HomeButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
+
+        /**
+        * Event-Handler für den Explore-Button. Löst das ExploreButtonClickedNavExplore-Event aus.
+        * Leitet zur ExplorePage weiter.
+        * @param sender Das auslösende Objekt.
+        * @param e Event-Argumente.
+        */
         private void ExploreButton_Click(object sender, RoutedEventArgs e) => ExploreButtonClickedNavExplore?.Invoke(this, EventArgs.Empty);
+
+        /**
+        * Event-Handler für den Favs-Button. Löst das FavsButtonClickedNavFavs-Event aus.
+        * Leitet zur FavsPage weiter.
+        * @param sender Das auslösende Objekt.
+        * @param e Event-Argumente.
+        */
         private void FavsButton_Click(object sender, RoutedEventArgs e) => FavsButtonClickedNavFavs?.Invoke(this, EventArgs.Empty);
+
+        /**
+        * Event-Handler für den Map-Button. Löst das MapButtonClickedNavMap-Event aus.
+        * Leitet zur MapPage weiter.
+        * @param sender Das auslösende Objekt.
+        * @param e Event-Argumente.
+        */
         private void MapButton_Click(object sender, RoutedEventArgs e)  => MapButtonClickedNavMap?.Invoke(this, EventArgs.Empty);
+
+        /**
+        * Event-Handler für den Profile-Button. Löst das ProfileButtonClickedNavProfile-Event aus.
+        * Leitet zur ProfilePage weiter.
+        * @param sender Das auslösende Objekt.
+        * @param e Event-Argumente.
+        */
         private void ProfileButton_Click(object sender, RoutedEventArgs e) => ProfileButtonClickedNavProfile?.Invoke(this, EventArgs.Empty);
     }
 }

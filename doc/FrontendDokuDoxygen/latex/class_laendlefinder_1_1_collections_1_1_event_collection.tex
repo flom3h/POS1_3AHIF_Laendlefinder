@@ -1,0 +1,131 @@
+\hypertarget{class_laendlefinder_1_1_collections_1_1_event_collection}{}\doxysection{Laendlefinder.\+Collections.\+Event\+Collection Klassenreferenz}
+\label{class_laendlefinder_1_1_collections_1_1_event_collection}\index{Laendlefinder.Collections.EventCollection@{Laendlefinder.Collections.EventCollection}}
+
+
+Repräsentiert eine Sammlung von Events, die Observable\+Collection erweitert. Diese Klasse ermöglicht das Serialisieren von Events in eine JSON-\/\+Datei, das Zeichnen der Events in ein Panel, sowie das Suchen und Filtern von Events basierend auf verschiedenen Kriterien.  
+
+
+\doxysubsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection_a601efb066979ef729ddf372b17000bd2}{Serialize}} (string filename)
+\item 
+void \mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection_abe2b7e619b775b2cfd3d2ef4e60b82a5}{Draw}} (Panel panel)
+\item 
+\mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection}{Event\+Collection}} \mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection_a869b20534dfc2ec00510b3eb240d3034}{Search}} (string search\+Term)
+\item 
+\mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection}{Event\+Collection}} \mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection_a1fc231180dce5ca6d91965df5f515549}{Filter\+By\+Date}} (Date\+Time date)
+\item 
+\mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection}{Event\+Collection}} \mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection_aa7b8af706d94ff580f2c5f1971d9bd76}{Filter\+By\+Date\+Range}} (Date\+Time start\+Date, Date\+Time end\+Date)
+\end{DoxyCompactItemize}
+\doxysubsection*{Propertys}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection}{Event\+Collection}} \mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection_a7628d8ab42209c7b9e02e7213e646a70}{Events}} = new \mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection}{Event\+Collection}}()\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+List$<$ \mbox{\hyperlink{class_laendlefinder_1_1_classes_1_1_event}{Event}} $>$ \mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection_aec4f9b0113d4234beded9c3cceb101e1}{events}} = new List$<$\mbox{\hyperlink{class_laendlefinder_1_1_classes_1_1_event}{Event}}$>$()\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Ausführliche Beschreibung}
+Repräsentiert eine Sammlung von Events, die Observable\+Collection erweitert. Diese Klasse ermöglicht das Serialisieren von Events in eine JSON-\/\+Datei, das Zeichnen der Events in ein Panel, sowie das Suchen und Filtern von Events basierend auf verschiedenen Kriterien. 
+
+\doxysubsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_laendlefinder_1_1_collections_1_1_event_collection_abe2b7e619b775b2cfd3d2ef4e60b82a5}\label{class_laendlefinder_1_1_collections_1_1_event_collection_abe2b7e619b775b2cfd3d2ef4e60b82a5}} 
+\index{Laendlefinder.Collections.EventCollection@{Laendlefinder.Collections.EventCollection}!Draw@{Draw}}
+\index{Draw@{Draw}!Laendlefinder.Collections.EventCollection@{Laendlefinder.Collections.EventCollection}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Laendlefinder.\+Collections.\+Event\+Collection.\+Draw (\begin{DoxyParamCaption}\item[{Panel}]{panel }\end{DoxyParamCaption})}
+
+Zeichnet alle Events in das angegebene Panel.
+
+
+\begin{DoxyParams}{Parameter}
+{\em panel} & Das Panel, in das die Events gezeichnet werden. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_laendlefinder_1_1_collections_1_1_event_collection_a1fc231180dce5ca6d91965df5f515549}\label{class_laendlefinder_1_1_collections_1_1_event_collection_a1fc231180dce5ca6d91965df5f515549}} 
+\index{Laendlefinder.Collections.EventCollection@{Laendlefinder.Collections.EventCollection}!FilterByDate@{FilterByDate}}
+\index{FilterByDate@{FilterByDate}!Laendlefinder.Collections.EventCollection@{Laendlefinder.Collections.EventCollection}}
+\doxysubsubsection{\texorpdfstring{FilterByDate()}{FilterByDate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection}{Event\+Collection}} Laendlefinder.\+Collections.\+Event\+Collection.\+Filter\+By\+Date (\begin{DoxyParamCaption}\item[{Date\+Time}]{date }\end{DoxyParamCaption})}
+
+Filtert Events nach einem bestimmten Datum.
+
+
+\begin{DoxyParams}{Parameter}
+{\em date} & Das Datum, nach dem gefiltert werden soll. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Eine Sammlung von Events, die am angegebenen Datum stattfinden. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_laendlefinder_1_1_collections_1_1_event_collection_aa7b8af706d94ff580f2c5f1971d9bd76}\label{class_laendlefinder_1_1_collections_1_1_event_collection_aa7b8af706d94ff580f2c5f1971d9bd76}} 
+\index{Laendlefinder.Collections.EventCollection@{Laendlefinder.Collections.EventCollection}!FilterByDateRange@{FilterByDateRange}}
+\index{FilterByDateRange@{FilterByDateRange}!Laendlefinder.Collections.EventCollection@{Laendlefinder.Collections.EventCollection}}
+\doxysubsubsection{\texorpdfstring{FilterByDateRange()}{FilterByDateRange()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection}{Event\+Collection}} Laendlefinder.\+Collections.\+Event\+Collection.\+Filter\+By\+Date\+Range (\begin{DoxyParamCaption}\item[{Date\+Time}]{start\+Date,  }\item[{Date\+Time}]{end\+Date }\end{DoxyParamCaption})}
+
+Filtert Events nach einem Datumsbereich.
+
+
+\begin{DoxyParams}{Parameter}
+{\em start\+Date} & Das Startdatum des Bereichs. \\
+\hline
+{\em end\+Date} & Das Enddatum des Bereichs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Eine Sammlung von Events, die im angegebenen Datumsbereich stattfinden. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_laendlefinder_1_1_collections_1_1_event_collection_a869b20534dfc2ec00510b3eb240d3034}\label{class_laendlefinder_1_1_collections_1_1_event_collection_a869b20534dfc2ec00510b3eb240d3034}} 
+\index{Laendlefinder.Collections.EventCollection@{Laendlefinder.Collections.EventCollection}!Search@{Search}}
+\index{Search@{Search}!Laendlefinder.Collections.EventCollection@{Laendlefinder.Collections.EventCollection}}
+\doxysubsubsection{\texorpdfstring{Search()}{Search()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection}{Event\+Collection}} Laendlefinder.\+Collections.\+Event\+Collection.\+Search (\begin{DoxyParamCaption}\item[{string}]{search\+Term }\end{DoxyParamCaption})}
+
+Durchsucht alle Events nach dem angegebenen Suchbegriff und gibt passende Events zurück.
+
+Die Suche erfolgt in Name, Ort, Adresse, Beschreibung und Kategorie des Events.
+
+
+\begin{DoxyParams}{Parameter}
+{\em search\+Term} & Der Suchbegriff, nach dem gefiltert werden soll. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Eine Liste der gefundenen Events. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_laendlefinder_1_1_collections_1_1_event_collection_a601efb066979ef729ddf372b17000bd2}\label{class_laendlefinder_1_1_collections_1_1_event_collection_a601efb066979ef729ddf372b17000bd2}} 
+\index{Laendlefinder.Collections.EventCollection@{Laendlefinder.Collections.EventCollection}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!Laendlefinder.Collections.EventCollection@{Laendlefinder.Collections.EventCollection}}
+\doxysubsubsection{\texorpdfstring{Serialize()}{Serialize()}}
+{\footnotesize\ttfamily void Laendlefinder.\+Collections.\+Event\+Collection.\+Serialize (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+Serialisiert die Events in eine JSON-\/\+Datei.
+
+
+\begin{DoxyParams}{Parameter}
+{\em filename} & Der Name der Datei, in die die Events serialisiert werden. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Dokumentation der Propertys}
+\mbox{\Hypertarget{class_laendlefinder_1_1_collections_1_1_event_collection_a7628d8ab42209c7b9e02e7213e646a70}\label{class_laendlefinder_1_1_collections_1_1_event_collection_a7628d8ab42209c7b9e02e7213e646a70}} 
+\index{Laendlefinder.Collections.EventCollection@{Laendlefinder.Collections.EventCollection}!Events@{Events}}
+\index{Events@{Events}!Laendlefinder.Collections.EventCollection@{Laendlefinder.Collections.EventCollection}}
+\doxysubsubsection{\texorpdfstring{Events}{Events}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection}{Event\+Collection}} Laendlefinder.\+Collections.\+Event\+Collection.\+Events = new \mbox{\hyperlink{class_laendlefinder_1_1_collections_1_1_event_collection}{Event\+Collection}}()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+\mbox{\Hypertarget{class_laendlefinder_1_1_collections_1_1_event_collection_aec4f9b0113d4234beded9c3cceb101e1}\label{class_laendlefinder_1_1_collections_1_1_event_collection_aec4f9b0113d4234beded9c3cceb101e1}} 
+\index{Laendlefinder.Collections.EventCollection@{Laendlefinder.Collections.EventCollection}!events@{events}}
+\index{events@{events}!Laendlefinder.Collections.EventCollection@{Laendlefinder.Collections.EventCollection}}
+\doxysubsubsection{\texorpdfstring{events}{events}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_laendlefinder_1_1_classes_1_1_event}{Event}}$>$ Laendlefinder.\+Collections.\+Event\+Collection.\+events = new List$<$\mbox{\hyperlink{class_laendlefinder_1_1_classes_1_1_event}{Event}}$>$()\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+src/frontend-\/wpf/\+Collections/\mbox{\hyperlink{_event_collection_8cs}{Event\+Collection.\+cs}}\end{DoxyCompactItemize}

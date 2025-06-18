@@ -11,6 +11,11 @@ using Serilog.Core;
 
 namespace Laendlefinder.Pages;
 
+/**
+ * @class MainPage
+ * @brief Repräsentiert die Hauptseite der Anwendung.
+ * Zeigt eine Liste von Events an und ermöglicht die Navigation zu anderen Seiten.
+ */
 public partial class MainPage : Page
 {
     public static EventCollection eventCollection = new();
@@ -20,6 +25,10 @@ public partial class MainPage : Page
     public static event EventHandler FavsButtonClickedNavFavs;
     public static event EventHandler MapButtonClickedNavMap;
     public static event EventHandler ProfileButtonClickedNavProfile;
+
+    /**
+    * Konstruktor für die MainPage. Initialisiert die Komponenten und lädt die Events.
+    */
     public MainPage()
     {
         InitializeComponent();
@@ -56,6 +65,9 @@ public partial class MainPage : Page
         Process.Start(startInfo);
     }*/
 
+    /**
+    * Lädt die Events asynchron vom Server und zeigt sie an.
+    */
     private async void LoadEventsAsync()
     {
         using (HttpClient client = new HttpClient())
@@ -88,36 +100,71 @@ public partial class MainPage : Page
         }
     }
     
+    /**
+    * Event-Handler für den Home-Button. Löst das HomeButtonClickedNavHome-Event aus.
+    * Leitet zur HomePage weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void HomeButton_Click(object sender, RoutedEventArgs e)
     {
         HomeButtonClickedNavHome?.Invoke(this, EventArgs.Empty);
         MainWindow.Logger.Information("HomeButton geklickt, Navigation zur Startseite.");
     }
 
+    /**
+    * Event-Handler für den Explore-Button. Löst das ExploreButtonClickedNavExplore-Event aus.
+    * Leitet zur ExplorePage weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void ExploreButton_Click(object sender, RoutedEventArgs e)
     {
         ExploreButtonClickedNavExplore?.Invoke(this, EventArgs.Empty);
         MainWindow.Logger.Information("ExploreButton geklickt, Navigation zur Erkundungsseite.");
     }
 
+    /**
+    * Event-Handler für den Favs-Button. Löst das FavsButtonClickedNavFavs-Event aus.
+    * Leitet zur Favoritenseite weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void FavsButton_Click(object sender, RoutedEventArgs e)
     {
         FavsButtonClickedNavFavs?.Invoke(this, EventArgs.Empty);
         MainWindow.Logger.Information("FavsButton geklickt, Navigation zur Favoritenseite.");
     }
 
+    /**
+    * Event-Handler für den Map-Button. Löst das MapButtonClickedNavMap-Event aus.
+    * Leitet zur Kartenseite weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void MapButton_Click(object sender, RoutedEventArgs e)
     {
         MapButtonClickedNavMap?.Invoke(this, EventArgs.Empty);
         MainWindow.Logger.Information("MapButton geklickt, Navigation zur Kartenseite.");
     }
 
+    /**
+    * Event-Handler für den Profile-Button. Löst das ProfileButtonClickedNavProfile-Event aus.
+    * Leitet zur Profilseite weiter.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void ProfileButton_Click(object sender, RoutedEventArgs e)
     {
         ProfileButtonClickedNavProfile?.Invoke(this, EventArgs.Empty);
         MainWindow.Logger.Information("ProfileButton geklickt, Navigation zur Profilseite.");
     }
 
+    /**
+    * Event-Handler für den Search-Button. Sucht nach Events anhand des eingegebenen Suchtextes und zeigt die Ergebnisse an.
+    * @param sender Das auslösende Objekt.
+    * @param e Event-Argumente.
+    */
     private void SearchButton_Click(object sender, RoutedEventArgs e)
     {
         string searchText = SearchBox.Text.Trim();
