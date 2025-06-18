@@ -20,6 +20,8 @@
     <None Remove="FontStyles\static\OpenSans-ExtraBold.ttf" />
     <None Remove="FontStyles\static\OpenSans_Condensed-Light.ttf" />
     <None Remove="FontStyles\static\OpenSans-Regular.ttf" />
+    <None Remove="TestProject1\**" />
+    <None Remove="TestLaendlefinder\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -66,6 +68,21 @@
     <Resource Include="images\WhiteLogo.png" />
     <None Remove="images\star-light-svgrepo-com.svg" />
     <Resource Include="images\star-light-svgrepo-com.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="TestProject1\**" />
+    <Compile Remove="TestLaendlefinder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="TestProject1\**" />
+    <EmbeddedResource Remove="TestLaendlefinder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="TestProject1\**" />
+    <Page Remove="TestLaendlefinder\**" />
   </ItemGroup>
 
 </Project>
