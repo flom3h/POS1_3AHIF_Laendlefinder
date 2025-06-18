@@ -1,0 +1,100 @@
+\hypertarget{namespaceswagger__server_1_1controllers_1_1favoriten__controller}{}\doxysection{swagger\+\_\+server.\+controllers.\+favoriten\+\_\+controller Namespace Reference}
+\label{namespaceswagger__server_1_1controllers_1_1favoriten__controller}\index{swagger\_server.controllers.favoriten\_controller@{swagger\_server.controllers.favoriten\_controller}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1controllers_1_1favoriten__controller_a53161738ba883ebb62c66972cdd5840d}{favoriten\+\_\+delete}} (uid, eid)
+\begin{DoxyCompactList}\small\item\em Entfernt ein Event aus den Favoriten eines Benutzers. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1controllers_1_1favoriten__controller_a4f6ce5bd1fed2860a8e5d3504b46841a}{favoriten\+\_\+get}} (uid)
+\begin{DoxyCompactList}\small\item\em Gibt die Favoriten eines Benutzers zurück. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1controllers_1_1favoriten__controller_a28de305ef3b326383739f4d0dc4b8b30}{is\+\_\+favorit}} (uid, eid)
+\begin{DoxyCompactList}\small\item\em Prüft, ob ein Event in den Favoriten eines Benutzers ist. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1controllers_1_1favoriten__controller_ad4be806b002d9b33d25a8b33f063fe88}{favoriten\+\_\+post}} (body)
+\begin{DoxyCompactList}\small\item\em Fügt ein Event zu den Favoriten eines Benutzers hinzu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceswagger__server_1_1controllers_1_1favoriten__controller_a53161738ba883ebb62c66972cdd5840d}\label{namespaceswagger__server_1_1controllers_1_1favoriten__controller_a53161738ba883ebb62c66972cdd5840d}} 
+\index{swagger\_server.controllers.favoriten\_controller@{swagger\_server.controllers.favoriten\_controller}!favoriten\_delete@{favoriten\_delete}}
+\index{favoriten\_delete@{favoriten\_delete}!swagger\_server.controllers.favoriten\_controller@{swagger\_server.controllers.favoriten\_controller}}
+\doxysubsubsection{\texorpdfstring{favoriten\_delete()}{favoriten\_delete()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+controllers.\+favoriten\+\_\+controller.\+favoriten\+\_\+delete (\begin{DoxyParamCaption}\item[{}]{uid,  }\item[{}]{eid }\end{DoxyParamCaption})}
+
+
+
+Entfernt ein Event aus den Favoriten eines Benutzers. 
+
+Löscht den Eintrag aus der Tabelle \char`\"{}\+Favourites\char`\"{} für den angegebenen Benutzer und das Event.
+
+
+\begin{DoxyParams}{Parameters}
+{\em uid} & Die ID des Benutzers, dessen Favoriten bearbeitet werden. \\
+\hline
+{\em eid} & Die ID des Events, das entfernt werden soll. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple\+: Nachricht und HTTP-\/\+Statuscode. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceswagger__server_1_1controllers_1_1favoriten__controller_a4f6ce5bd1fed2860a8e5d3504b46841a}\label{namespaceswagger__server_1_1controllers_1_1favoriten__controller_a4f6ce5bd1fed2860a8e5d3504b46841a}} 
+\index{swagger\_server.controllers.favoriten\_controller@{swagger\_server.controllers.favoriten\_controller}!favoriten\_get@{favoriten\_get}}
+\index{favoriten\_get@{favoriten\_get}!swagger\_server.controllers.favoriten\_controller@{swagger\_server.controllers.favoriten\_controller}}
+\doxysubsubsection{\texorpdfstring{favoriten\_get()}{favoriten\_get()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+controllers.\+favoriten\+\_\+controller.\+favoriten\+\_\+get (\begin{DoxyParamCaption}\item[{}]{uid }\end{DoxyParamCaption})}
+
+
+
+Gibt die Favoriten eines Benutzers zurück. 
+
+Holt alle Events, die als Favoriten für den angegebenen Benutzer gespeichert sind.
+
+
+\begin{DoxyParams}{Parameters}
+{\em uid} & Die ID des Benutzers, dessen Favoriten abgerufen werden. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple\+: Events als JSON und HTTP-\/\+Statuscode. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceswagger__server_1_1controllers_1_1favoriten__controller_ad4be806b002d9b33d25a8b33f063fe88}\label{namespaceswagger__server_1_1controllers_1_1favoriten__controller_ad4be806b002d9b33d25a8b33f063fe88}} 
+\index{swagger\_server.controllers.favoriten\_controller@{swagger\_server.controllers.favoriten\_controller}!favoriten\_post@{favoriten\_post}}
+\index{favoriten\_post@{favoriten\_post}!swagger\_server.controllers.favoriten\_controller@{swagger\_server.controllers.favoriten\_controller}}
+\doxysubsubsection{\texorpdfstring{favoriten\_post()}{favoriten\_post()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+controllers.\+favoriten\+\_\+controller.\+favoriten\+\_\+post (\begin{DoxyParamCaption}\item[{}]{body }\end{DoxyParamCaption})}
+
+
+
+Fügt ein Event zu den Favoriten eines Benutzers hinzu. 
+
+Legt einen neuen Eintrag in der Tabelle \char`\"{}\+Favourites\char`\"{} für den Benutzer und das Event an.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body} & Favoriten\+Body mit uid und eid. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple\+: Nachricht und HTTP-\/\+Statuscode. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceswagger__server_1_1controllers_1_1favoriten__controller_a28de305ef3b326383739f4d0dc4b8b30}\label{namespaceswagger__server_1_1controllers_1_1favoriten__controller_a28de305ef3b326383739f4d0dc4b8b30}} 
+\index{swagger\_server.controllers.favoriten\_controller@{swagger\_server.controllers.favoriten\_controller}!is\_favorit@{is\_favorit}}
+\index{is\_favorit@{is\_favorit}!swagger\_server.controllers.favoriten\_controller@{swagger\_server.controllers.favoriten\_controller}}
+\doxysubsubsection{\texorpdfstring{is\_favorit()}{is\_favorit()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+controllers.\+favoriten\+\_\+controller.\+is\+\_\+favorit (\begin{DoxyParamCaption}\item[{}]{uid,  }\item[{}]{eid }\end{DoxyParamCaption})}
+
+
+
+Prüft, ob ein Event in den Favoriten eines Benutzers ist. 
+
+Sucht in der Tabelle \char`\"{}\+Favourites\char`\"{} nach einem Eintrag für den Benutzer und das Event.
+
+
+\begin{DoxyParams}{Parameters}
+{\em uid} & Die ID des Benutzers. \\
+\hline
+{\em eid} & Die ID des Events. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple\+: Nachricht und HTTP-\/\+Statuscode. 
+\end{DoxyReturn}

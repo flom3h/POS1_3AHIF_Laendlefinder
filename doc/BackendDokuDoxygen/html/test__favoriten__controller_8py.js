@@ -1,0 +1,4 @@
+var test__favoriten__controller_8py =
+[
+    [ "swagger_server.unittests.test_favoriten_controller.TestFavoritenController", "classswagger__server_1_1unittests_1_1test__favoriten__controller_1_1_test_favoriten_controller.html", "classswagger__server_1_1unittests_1_1test__favoriten__controller_1_1_test_favoriten_controller" ]
+];

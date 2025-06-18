@@ -1,0 +1,108 @@
+\hypertarget{namespaceevent__fetcher}{}\doxysection{event\+\_\+fetcher Namespace Reference}
+\label{namespaceevent__fetcher}\index{event\_fetcher@{event\_fetcher}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceevent__fetcher_a57d2f02868193a6844c8dfc6c50a8c73}{extract\+\_\+event\+\_\+data}} (event)
+\item 
+def \mbox{\hyperlink{namespaceevent__fetcher_a6bdca58839edacd53bb508af232ab6fe}{upload\+\_\+to\+\_\+database}} (\mbox{\hyperlink{namespaceevent__fetcher_a02414d1eca346496c655051c67ace55e}{events}})
+\item 
+def \mbox{\hyperlink{namespaceevent__fetcher_a00c86cee26e748616dbd940169c43dd3}{fetch\+\_\+and\+\_\+store\+\_\+events}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespaceevent__fetcher_a74d477bc63ac52919e74bd1404da1276}{url}} = \char`\"{}https\+://v-\/cloud.\+vorarlberg.\+travel/api/v4/endpoints/b24513ef-\/acbb-\/4d9b-\/8cdc-\/eda44787baee?token=aed0e815dc2374d59cfc2e9f397a8653\char`\"{}
+\item 
+dict \mbox{\hyperlink{namespaceevent__fetcher_a5ae773086b89384da07f44df7deff278}{params}}
+\item 
+def \mbox{\hyperlink{namespaceevent__fetcher_a02414d1eca346496c655051c67ace55e}{events}} = \mbox{\hyperlink{namespaceevent__fetcher_a00c86cee26e748616dbd940169c43dd3}{fetch\+\_\+and\+\_\+store\+\_\+events}}()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceevent__fetcher_a57d2f02868193a6844c8dfc6c50a8c73}\label{namespaceevent__fetcher_a57d2f02868193a6844c8dfc6c50a8c73}} 
+\index{event\_fetcher@{event\_fetcher}!extract\_event\_data@{extract\_event\_data}}
+\index{extract\_event\_data@{extract\_event\_data}!event\_fetcher@{event\_fetcher}}
+\doxysubsubsection{\texorpdfstring{extract\_event\_data()}{extract\_event\_data()}}
+{\footnotesize\ttfamily def event\+\_\+fetcher.\+extract\+\_\+event\+\_\+data (\begin{DoxyParamCaption}\item[{}]{event }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Extrahiert relevante Eventdaten aus einem Event-Objekt.
+
+Args:
+    event (dict): Das Event-Objekt aus der API.
+
+Returns:
+    dict or None: Extrahierte Eventdaten oder None, falls keine Geo-Daten vorhanden sind.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceevent__fetcher_a00c86cee26e748616dbd940169c43dd3}\label{namespaceevent__fetcher_a00c86cee26e748616dbd940169c43dd3}} 
+\index{event\_fetcher@{event\_fetcher}!fetch\_and\_store\_events@{fetch\_and\_store\_events}}
+\index{fetch\_and\_store\_events@{fetch\_and\_store\_events}!event\_fetcher@{event\_fetcher}}
+\doxysubsubsection{\texorpdfstring{fetch\_and\_store\_events()}{fetch\_and\_store\_events()}}
+{\footnotesize\ttfamily def event\+\_\+fetcher.\+fetch\+\_\+and\+\_\+store\+\_\+events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Holt Events von der Vorarlberg API, extrahiert und speichert sie in der Datenbank.
+
+Returns:
+    list: Liste der extrahierten Events.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceevent__fetcher_a6bdca58839edacd53bb508af232ab6fe}\label{namespaceevent__fetcher_a6bdca58839edacd53bb508af232ab6fe}} 
+\index{event\_fetcher@{event\_fetcher}!upload\_to\_database@{upload\_to\_database}}
+\index{upload\_to\_database@{upload\_to\_database}!event\_fetcher@{event\_fetcher}}
+\doxysubsubsection{\texorpdfstring{upload\_to\_database()}{upload\_to\_database()}}
+{\footnotesize\ttfamily def event\+\_\+fetcher.\+upload\+\_\+to\+\_\+database (\begin{DoxyParamCaption}\item[{}]{events }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Lädt extrahierte Events in die Supabase-Datenbank.
+
+Args:
+    events (list): Liste von Event-Dictionaries.
+
+Returns:
+    None
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceevent__fetcher_a02414d1eca346496c655051c67ace55e}\label{namespaceevent__fetcher_a02414d1eca346496c655051c67ace55e}} 
+\index{event\_fetcher@{event\_fetcher}!events@{events}}
+\index{events@{events}!event\_fetcher@{event\_fetcher}}
+\doxysubsubsection{\texorpdfstring{events}{events}}
+{\footnotesize\ttfamily def event\+\_\+fetcher.\+events = \mbox{\hyperlink{namespaceevent__fetcher_a00c86cee26e748616dbd940169c43dd3}{fetch\+\_\+and\+\_\+store\+\_\+events}}()}
+
+\mbox{\Hypertarget{namespaceevent__fetcher_a5ae773086b89384da07f44df7deff278}\label{namespaceevent__fetcher_a5ae773086b89384da07f44df7deff278}} 
+\index{event\_fetcher@{event\_fetcher}!params@{params}}
+\index{params@{params}!event\_fetcher@{event\_fetcher}}
+\doxysubsubsection{\texorpdfstring{params}{params}}
+{\footnotesize\ttfamily dict event\+\_\+fetcher.\+params}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \{}
+\DoxyCodeLine{00002\ \ \ \ \ \textcolor{stringliteral}{"{}page"{}}:\ \{}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}number"{}}:\ 1,}
+\DoxyCodeLine{00004\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}size"{}}:\ 24}
+\DoxyCodeLine{00005\ \ \ \ \ \},}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{stringliteral}{"{}include"{}}:\ \textcolor{stringliteral}{"{}image,description,address,location,dc:classification,eventSchedule,dc:additionalInformation.dc:classification.skos:inScheme,organizer,potentialAction,aggregateRating,amenityFeature,subjectOf,subjectOf.contentBlock,subjectOf.about,containsPlace,subjectOf.dcls:video"{}},}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{stringliteral}{"{}sort"{}}:\ \textcolor{stringliteral}{"{}proximity.occurrence"{}},}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{stringliteral}{"{}section"{}}:\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}@context"{}}:\ 0,}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}meta"{}}:\ 1}
+\DoxyCodeLine{00011\ \ \ \ \ \},}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{stringliteral}{"{}filter"{}}:\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}schedule"{}}:\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}in"{}}:\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}min"{}}:\ \textcolor{stringliteral}{"{}2025-\/07-\/03T22:00:00.000Z"{}}}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}search"{}}:\ \textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00019\ \ \ \ \ \},}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{stringliteral}{"{}language"{}}:\ \textcolor{stringliteral}{"{}de"{}}}
+\DoxyCodeLine{00021\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceevent__fetcher_a74d477bc63ac52919e74bd1404da1276}\label{namespaceevent__fetcher_a74d477bc63ac52919e74bd1404da1276}} 
+\index{event\_fetcher@{event\_fetcher}!url@{url}}
+\index{url@{url}!event\_fetcher@{event\_fetcher}}
+\doxysubsubsection{\texorpdfstring{url}{url}}
+{\footnotesize\ttfamily str event\+\_\+fetcher.\+url = \char`\"{}https\+://v-\/cloud.\+vorarlberg.\+travel/api/v4/endpoints/b24513ef-\/acbb-\/4d9b-\/8cdc-\/eda44787baee?token=aed0e815dc2374d59cfc2e9f397a8653\char`\"{}}
+

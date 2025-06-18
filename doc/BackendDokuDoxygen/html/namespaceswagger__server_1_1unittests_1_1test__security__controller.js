@@ -1,0 +1,4 @@
+var namespaceswagger__server_1_1unittests_1_1test__security__controller =
+[
+    [ "TestSecurityController", "classswagger__server_1_1unittests_1_1test__security__controller_1_1_test_security_controller.html", "classswagger__server_1_1unittests_1_1test__security__controller_1_1_test_security_controller" ]
+];

@@ -1,0 +1,133 @@
+\hypertarget{namespaceswagger__server_1_1util}{}\doxysection{swagger\+\_\+server.\+util Namespace Reference}
+\label{namespaceswagger__server_1_1util}\index{swagger\_server.util@{swagger\_server.util}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1util_a84627ae3374ce5fdacc099c5844e1779}{\+\_\+deserialize}} (data, klass)
+\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1util_ab366c7fa9dc1d59aafbabf69b4977abb}{\+\_\+deserialize\+\_\+primitive}} (data, klass)
+\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1util_a01f073438917edff2428bf079342b0ed}{\+\_\+deserialize\+\_\+object}} (value)
+\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1util_a5378cf2c048dfdcb8364b5ee8469086e}{deserialize\+\_\+date}} (string)
+\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1util_a89203daa9ec6d1c7fdf47276fbe96bcf}{deserialize\+\_\+datetime}} (string)
+\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1util_af12eb427963bf98c475e6dc322b50e89}{deserialize\+\_\+model}} (data, klass)
+\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1util_a8889f70bafcb06fafd772a002255b28d}{\+\_\+deserialize\+\_\+list}} (data, boxed\+\_\+type)
+\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1util_afd75a10f0a32932cb0beb00503e774a7}{\+\_\+deserialize\+\_\+dict}} (data, boxed\+\_\+type)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceswagger__server_1_1util_a84627ae3374ce5fdacc099c5844e1779}\label{namespaceswagger__server_1_1util_a84627ae3374ce5fdacc099c5844e1779}} 
+\index{swagger\_server.util@{swagger\_server.util}!\_deserialize@{\_deserialize}}
+\index{\_deserialize@{\_deserialize}!swagger\_server.util@{swagger\_server.util}}
+\doxysubsubsection{\texorpdfstring{\_deserialize()}{\_deserialize()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+util.\+\_\+deserialize (\begin{DoxyParamCaption}\item[{}]{data,  }\item[{}]{klass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\begin{DoxyVerb}Deserializes dict, list, str into an object.
+
+:param data: dict, list or str.
+:param klass: class literal, or string of class name.
+
+:return: object.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceswagger__server_1_1util_afd75a10f0a32932cb0beb00503e774a7}\label{namespaceswagger__server_1_1util_afd75a10f0a32932cb0beb00503e774a7}} 
+\index{swagger\_server.util@{swagger\_server.util}!\_deserialize\_dict@{\_deserialize\_dict}}
+\index{\_deserialize\_dict@{\_deserialize\_dict}!swagger\_server.util@{swagger\_server.util}}
+\doxysubsubsection{\texorpdfstring{\_deserialize\_dict()}{\_deserialize\_dict()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+util.\+\_\+deserialize\+\_\+dict (\begin{DoxyParamCaption}\item[{}]{data,  }\item[{}]{boxed\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\begin{DoxyVerb}Deserializes a dict and its elements.
+
+:param data: dict to deserialize.
+:type data: dict
+:param boxed_type: class literal.
+
+:return: deserialized dict.
+:rtype: dict
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceswagger__server_1_1util_a8889f70bafcb06fafd772a002255b28d}\label{namespaceswagger__server_1_1util_a8889f70bafcb06fafd772a002255b28d}} 
+\index{swagger\_server.util@{swagger\_server.util}!\_deserialize\_list@{\_deserialize\_list}}
+\index{\_deserialize\_list@{\_deserialize\_list}!swagger\_server.util@{swagger\_server.util}}
+\doxysubsubsection{\texorpdfstring{\_deserialize\_list()}{\_deserialize\_list()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+util.\+\_\+deserialize\+\_\+list (\begin{DoxyParamCaption}\item[{}]{data,  }\item[{}]{boxed\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\begin{DoxyVerb}Deserializes a list and its elements.
+
+:param data: list to deserialize.
+:type data: list
+:param boxed_type: class literal.
+
+:return: deserialized list.
+:rtype: list
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceswagger__server_1_1util_a01f073438917edff2428bf079342b0ed}\label{namespaceswagger__server_1_1util_a01f073438917edff2428bf079342b0ed}} 
+\index{swagger\_server.util@{swagger\_server.util}!\_deserialize\_object@{\_deserialize\_object}}
+\index{\_deserialize\_object@{\_deserialize\_object}!swagger\_server.util@{swagger\_server.util}}
+\doxysubsubsection{\texorpdfstring{\_deserialize\_object()}{\_deserialize\_object()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+util.\+\_\+deserialize\+\_\+object (\begin{DoxyParamCaption}\item[{}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\begin{DoxyVerb}Return an original value.
+
+:return: object.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceswagger__server_1_1util_ab366c7fa9dc1d59aafbabf69b4977abb}\label{namespaceswagger__server_1_1util_ab366c7fa9dc1d59aafbabf69b4977abb}} 
+\index{swagger\_server.util@{swagger\_server.util}!\_deserialize\_primitive@{\_deserialize\_primitive}}
+\index{\_deserialize\_primitive@{\_deserialize\_primitive}!swagger\_server.util@{swagger\_server.util}}
+\doxysubsubsection{\texorpdfstring{\_deserialize\_primitive()}{\_deserialize\_primitive()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+util.\+\_\+deserialize\+\_\+primitive (\begin{DoxyParamCaption}\item[{}]{data,  }\item[{}]{klass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\begin{DoxyVerb}Deserializes to primitive type.
+
+:param data: data to deserialize.
+:param klass: class literal.
+
+:return: int, long, float, str, bool.
+:rtype: int | long | float | str | bool
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceswagger__server_1_1util_a5378cf2c048dfdcb8364b5ee8469086e}\label{namespaceswagger__server_1_1util_a5378cf2c048dfdcb8364b5ee8469086e}} 
+\index{swagger\_server.util@{swagger\_server.util}!deserialize\_date@{deserialize\_date}}
+\index{deserialize\_date@{deserialize\_date}!swagger\_server.util@{swagger\_server.util}}
+\doxysubsubsection{\texorpdfstring{deserialize\_date()}{deserialize\_date()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+util.\+deserialize\+\_\+date (\begin{DoxyParamCaption}\item[{}]{string }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Deserializes string to date.
+
+:param string: str.
+:type string: str
+:return: date.
+:rtype: date
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceswagger__server_1_1util_a89203daa9ec6d1c7fdf47276fbe96bcf}\label{namespaceswagger__server_1_1util_a89203daa9ec6d1c7fdf47276fbe96bcf}} 
+\index{swagger\_server.util@{swagger\_server.util}!deserialize\_datetime@{deserialize\_datetime}}
+\index{deserialize\_datetime@{deserialize\_datetime}!swagger\_server.util@{swagger\_server.util}}
+\doxysubsubsection{\texorpdfstring{deserialize\_datetime()}{deserialize\_datetime()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+util.\+deserialize\+\_\+datetime (\begin{DoxyParamCaption}\item[{}]{string }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Deserializes string to datetime.
+
+The string should be in iso8601 datetime format.
+
+:param string: str.
+:type string: str
+:return: datetime.
+:rtype: datetime
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceswagger__server_1_1util_af12eb427963bf98c475e6dc322b50e89}\label{namespaceswagger__server_1_1util_af12eb427963bf98c475e6dc322b50e89}} 
+\index{swagger\_server.util@{swagger\_server.util}!deserialize\_model@{deserialize\_model}}
+\index{deserialize\_model@{deserialize\_model}!swagger\_server.util@{swagger\_server.util}}
+\doxysubsubsection{\texorpdfstring{deserialize\_model()}{deserialize\_model()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+util.\+deserialize\+\_\+model (\begin{DoxyParamCaption}\item[{}]{data,  }\item[{}]{klass }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Deserializes list or dict to model.
+
+:param data: dict, list.
+:type data: dict | list
+:param klass: class literal.
+:return: model object.
+\end{DoxyVerb}
+ 

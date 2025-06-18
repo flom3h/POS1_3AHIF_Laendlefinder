@@ -1,0 +1,76 @@
+\hypertarget{namespaceswagger__server_1_1controllers_1_1registrieren__controller}{}\doxysection{swagger\+\_\+server.\+controllers.\+registrieren\+\_\+controller Namespace Reference}
+\label{namespaceswagger__server_1_1controllers_1_1registrieren__controller}\index{swagger\_server.controllers.registrieren\_controller@{swagger\_server.controllers.registrieren\_controller}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1controllers_1_1registrieren__controller_a3af8ff7962e4ca11cf91e0879d188eed}{user\+\_\+reg\+\_\+post}} (body)
+\begin{DoxyCompactList}\small\item\em Erstellt einen neuen Benutzer-\/\+Account. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1controllers_1_1registrieren__controller_a32911403a0fdda222ae820ecb68e7033}{get\+\_\+user\+\_\+data}} (uid)
+\begin{DoxyCompactList}\small\item\em Holt die Benutzerdaten basierend auf der User-\/\+ID. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1controllers_1_1registrieren__controller_a33f795a0b9481f68a31500dd2ba2498d}{update\+\_\+user\+\_\+data}} (uid, body)
+\begin{DoxyCompactList}\small\item\em Aktualisiert die Benutzerdaten. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceswagger__server_1_1controllers_1_1registrieren__controller_a32911403a0fdda222ae820ecb68e7033}\label{namespaceswagger__server_1_1controllers_1_1registrieren__controller_a32911403a0fdda222ae820ecb68e7033}} 
+\index{swagger\_server.controllers.registrieren\_controller@{swagger\_server.controllers.registrieren\_controller}!get\_user\_data@{get\_user\_data}}
+\index{get\_user\_data@{get\_user\_data}!swagger\_server.controllers.registrieren\_controller@{swagger\_server.controllers.registrieren\_controller}}
+\doxysubsubsection{\texorpdfstring{get\_user\_data()}{get\_user\_data()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+controllers.\+registrieren\+\_\+controller.\+get\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{}]{uid }\end{DoxyParamCaption})}
+
+
+
+Holt die Benutzerdaten basierend auf der User-\/\+ID. 
+
+Gibt Vorname, Nachname und E-\/\+Mail des Benutzers zurück.
+
+
+\begin{DoxyParams}{Parameters}
+{\em uid} & Die ID des Benutzers. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple\+: Benutzerdaten und HTTP-\/\+Statuscode. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceswagger__server_1_1controllers_1_1registrieren__controller_a33f795a0b9481f68a31500dd2ba2498d}\label{namespaceswagger__server_1_1controllers_1_1registrieren__controller_a33f795a0b9481f68a31500dd2ba2498d}} 
+\index{swagger\_server.controllers.registrieren\_controller@{swagger\_server.controllers.registrieren\_controller}!update\_user\_data@{update\_user\_data}}
+\index{update\_user\_data@{update\_user\_data}!swagger\_server.controllers.registrieren\_controller@{swagger\_server.controllers.registrieren\_controller}}
+\doxysubsubsection{\texorpdfstring{update\_user\_data()}{update\_user\_data()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+controllers.\+registrieren\+\_\+controller.\+update\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{}]{uid,  }\item[{}]{body }\end{DoxyParamCaption})}
+
+
+
+Aktualisiert die Benutzerdaten. 
+
+Überschreibt die Benutzerdaten in der Datenbank mit den neuen Werten.
+
+
+\begin{DoxyParams}{Parameters}
+{\em uid} & Die ID des Benutzers. \\
+\hline
+{\em body} & Das Reg\+Body-\/\+Objekt mit neuen Benutzerdaten. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple\+: Nachricht und HTTP-\/\+Statuscode. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceswagger__server_1_1controllers_1_1registrieren__controller_a3af8ff7962e4ca11cf91e0879d188eed}\label{namespaceswagger__server_1_1controllers_1_1registrieren__controller_a3af8ff7962e4ca11cf91e0879d188eed}} 
+\index{swagger\_server.controllers.registrieren\_controller@{swagger\_server.controllers.registrieren\_controller}!user\_reg\_post@{user\_reg\_post}}
+\index{user\_reg\_post@{user\_reg\_post}!swagger\_server.controllers.registrieren\_controller@{swagger\_server.controllers.registrieren\_controller}}
+\doxysubsubsection{\texorpdfstring{user\_reg\_post()}{user\_reg\_post()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+controllers.\+registrieren\+\_\+controller.\+user\+\_\+reg\+\_\+post (\begin{DoxyParamCaption}\item[{}]{body }\end{DoxyParamCaption})}
+
+
+
+Erstellt einen neuen Benutzer-\/\+Account. 
+
+Legt einen neuen Benutzer in der Datenbank an, sofern die E-\/\+Mail noch nicht existiert. Das Passwort wird sicher gehasht gespeichert.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body} & Das Reg\+Body-\/\+Objekt mit Benutzerinformationen. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple\+: Nachricht, ggf. User-\/\+ID und HTTP-\/\+Statuscode. 
+\end{DoxyReturn}
