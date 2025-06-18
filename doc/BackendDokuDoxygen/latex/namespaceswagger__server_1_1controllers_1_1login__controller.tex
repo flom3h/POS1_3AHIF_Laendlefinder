@@ -1,0 +1,30 @@
+\hypertarget{namespaceswagger__server_1_1controllers_1_1login__controller}{}\doxysection{swagger\+\_\+server.\+controllers.\+login\+\_\+controller Namespace Reference}
+\label{namespaceswagger__server_1_1controllers_1_1login__controller}\index{swagger\_server.controllers.login\_controller@{swagger\_server.controllers.login\_controller}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1controllers_1_1login__controller_ae2ef1755299e64bfedc566572b45a4d6}{user\+\_\+login\+\_\+post}} (body)
+\begin{DoxyCompactList}\small\item\em Authentifiziert einen Benutzer anhand seiner E-\/\+Mail und seines Passworts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceswagger__server_1_1controllers_1_1login__controller_ae2ef1755299e64bfedc566572b45a4d6}\label{namespaceswagger__server_1_1controllers_1_1login__controller_ae2ef1755299e64bfedc566572b45a4d6}} 
+\index{swagger\_server.controllers.login\_controller@{swagger\_server.controllers.login\_controller}!user\_login\_post@{user\_login\_post}}
+\index{user\_login\_post@{user\_login\_post}!swagger\_server.controllers.login\_controller@{swagger\_server.controllers.login\_controller}}
+\doxysubsubsection{\texorpdfstring{user\_login\_post()}{user\_login\_post()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+controllers.\+login\+\_\+controller.\+user\+\_\+login\+\_\+post (\begin{DoxyParamCaption}\item[{}]{body }\end{DoxyParamCaption})}
+
+
+
+Authentifiziert einen Benutzer anhand seiner E-\/\+Mail und seines Passworts. 
+
+Prüft, ob die E-\/\+Mail existiert und das Passwort korrekt ist. Gibt bei Erfolg die User-\/\+ID zurück.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body} & Das User\+Body-\/\+Objekt mit E-\/\+Mail und Passwort. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple\+: Nachricht, ggf. User-\/\+ID und HTTP-\/\+Statuscode. 
+\end{DoxyReturn}

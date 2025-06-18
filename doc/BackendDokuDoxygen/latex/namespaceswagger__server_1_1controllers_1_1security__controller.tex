@@ -1,0 +1,34 @@
+\hypertarget{namespaceswagger__server_1_1controllers_1_1security__controller}{}\doxysection{swagger\+\_\+server.\+controllers.\+security\+\_\+controller Namespace Reference}
+\label{namespaceswagger__server_1_1controllers_1_1security__controller}\index{swagger\_server.controllers.security\_controller@{swagger\_server.controllers.security\_controller}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1controllers_1_1security__controller_a65e8098ceeb52d71da305b42559dabe0}{basic\+\_\+auth}} (username, password, required\+\_\+scopes=None)
+\begin{DoxyCompactList}\small\item\em Führt eine einfache Benutzername/\+Passwort-\/\+Authentifizierung durch. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceswagger__server_1_1controllers_1_1security__controller_a65e8098ceeb52d71da305b42559dabe0}\label{namespaceswagger__server_1_1controllers_1_1security__controller_a65e8098ceeb52d71da305b42559dabe0}} 
+\index{swagger\_server.controllers.security\_controller@{swagger\_server.controllers.security\_controller}!basic\_auth@{basic\_auth}}
+\index{basic\_auth@{basic\_auth}!swagger\_server.controllers.security\_controller@{swagger\_server.controllers.security\_controller}}
+\doxysubsubsection{\texorpdfstring{basic\_auth()}{basic\_auth()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+controllers.\+security\+\_\+controller.\+basic\+\_\+auth (\begin{DoxyParamCaption}\item[{}]{username,  }\item[{}]{password,  }\item[{}]{required\+\_\+scopes = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Führt eine einfache Benutzername/\+Passwort-\/\+Authentifizierung durch. 
+
+Gibt ein Dictionary mit dem Benutzernamen zurück, wenn die Authentifizierung erfolgreich ist.
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & Der Benutzername. \\
+\hline
+{\em password} & Das Passwort. \\
+\hline
+{\em required\+\_\+scopes} & (optional) Benötigte Berechtigungen (wird hier ignoriert). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict mit \char`\"{}sub\char`\"{} (Benutzername) bei Erfolg, sonst None. 
+\end{DoxyReturn}

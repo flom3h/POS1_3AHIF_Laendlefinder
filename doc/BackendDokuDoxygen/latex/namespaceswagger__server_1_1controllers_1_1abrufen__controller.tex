@@ -1,0 +1,103 @@
+\hypertarget{namespaceswagger__server_1_1controllers_1_1abrufen__controller}{}\doxysection{swagger\+\_\+server.\+controllers.\+abrufen\+\_\+controller Namespace Reference}
+\label{namespaceswagger__server_1_1controllers_1_1abrufen__controller}\index{swagger\_server.controllers.abrufen\_controller@{swagger\_server.controllers.abrufen\_controller}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1controllers_1_1abrufen__controller_a019e8141c0a667ffb4e4c16e47ce4a2e}{event\+\_\+by\+\_\+id\+\_\+get}} (eid)
+\begin{DoxyCompactList}\small\item\em Holt ein einzelnes Event und die zugehörige Location anhand der Event-\/\+ID. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1controllers_1_1abrufen__controller_a4e3b180e64dec7383bbd310a12f7f811}{events\+\_\+get}} ()
+\begin{DoxyCompactList}\small\item\em Holt alle Events mit zugehöriger Location. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1controllers_1_1abrufen__controller_aca089660314efce9d828ea83d6a3150f}{kategorien\+\_\+get}} ()
+\begin{DoxyCompactList}\small\item\em Holt alle Kategorien (Types) aus der Datenbank. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1controllers_1_1abrufen__controller_a0125ef3de897b3720c5365bc476c94ca}{events\+\_\+import\+\_\+post}} ()
+\begin{DoxyCompactList}\small\item\em Importiert Events von der externen API und speichert sie in der Datenbank. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceswagger__server_1_1controllers_1_1abrufen__controller_a1a85a4344ca21e90d2996332a815eb3c}{get\+\_\+user\+\_\+id}} (email)
+\begin{DoxyCompactList}\small\item\em Holt die User-\/\+ID basierend auf der E-\/\+Mail-\/\+Adresse. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceswagger__server_1_1controllers_1_1abrufen__controller_a019e8141c0a667ffb4e4c16e47ce4a2e}\label{namespaceswagger__server_1_1controllers_1_1abrufen__controller_a019e8141c0a667ffb4e4c16e47ce4a2e}} 
+\index{swagger\_server.controllers.abrufen\_controller@{swagger\_server.controllers.abrufen\_controller}!event\_by\_id\_get@{event\_by\_id\_get}}
+\index{event\_by\_id\_get@{event\_by\_id\_get}!swagger\_server.controllers.abrufen\_controller@{swagger\_server.controllers.abrufen\_controller}}
+\doxysubsubsection{\texorpdfstring{event\_by\_id\_get()}{event\_by\_id\_get()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+controllers.\+abrufen\+\_\+controller.\+event\+\_\+by\+\_\+id\+\_\+get (\begin{DoxyParamCaption}\item[{}]{eid }\end{DoxyParamCaption})}
+
+
+
+Holt ein einzelnes Event und die zugehörige Location anhand der Event-\/\+ID. 
+
+Sucht das Event mit der angegebenen ID in der Datenbank und gibt es zusammen mit der zugehörigen Location zurück.
+
+
+\begin{DoxyParams}{Parameters}
+{\em eid} & Die Event-\/\+ID. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple\+: Eventdaten inkl. Location und HTTP-\/\+Statuscode. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceswagger__server_1_1controllers_1_1abrufen__controller_a4e3b180e64dec7383bbd310a12f7f811}\label{namespaceswagger__server_1_1controllers_1_1abrufen__controller_a4e3b180e64dec7383bbd310a12f7f811}} 
+\index{swagger\_server.controllers.abrufen\_controller@{swagger\_server.controllers.abrufen\_controller}!events\_get@{events\_get}}
+\index{events\_get@{events\_get}!swagger\_server.controllers.abrufen\_controller@{swagger\_server.controllers.abrufen\_controller}}
+\doxysubsubsection{\texorpdfstring{events\_get()}{events\_get()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+controllers.\+abrufen\+\_\+controller.\+events\+\_\+get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Holt alle Events mit zugehöriger Location. 
+
+Gibt eine Liste aller Events aus der Datenbank zurück, jeweils mit der zugehörigen Location.
+
+\begin{DoxyReturn}{Returns}
+tuple\+: Liste aller Events inkl. Location und HTTP-\/\+Statuscode. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceswagger__server_1_1controllers_1_1abrufen__controller_a0125ef3de897b3720c5365bc476c94ca}\label{namespaceswagger__server_1_1controllers_1_1abrufen__controller_a0125ef3de897b3720c5365bc476c94ca}} 
+\index{swagger\_server.controllers.abrufen\_controller@{swagger\_server.controllers.abrufen\_controller}!events\_import\_post@{events\_import\_post}}
+\index{events\_import\_post@{events\_import\_post}!swagger\_server.controllers.abrufen\_controller@{swagger\_server.controllers.abrufen\_controller}}
+\doxysubsubsection{\texorpdfstring{events\_import\_post()}{events\_import\_post()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+controllers.\+abrufen\+\_\+controller.\+events\+\_\+import\+\_\+post (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Importiert Events von der externen API und speichert sie in der Datenbank. 
+
+Ruft Events von einer externen API ab, speichert sie in der Datenbank und gibt eine Erfolgs-\/ oder Fehlermeldung zurück.
+
+\begin{DoxyReturn}{Returns}
+tuple\+: Erfolgs-\/ oder Fehlermeldung und HTTP-\/\+Statuscode. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceswagger__server_1_1controllers_1_1abrufen__controller_a1a85a4344ca21e90d2996332a815eb3c}\label{namespaceswagger__server_1_1controllers_1_1abrufen__controller_a1a85a4344ca21e90d2996332a815eb3c}} 
+\index{swagger\_server.controllers.abrufen\_controller@{swagger\_server.controllers.abrufen\_controller}!get\_user\_id@{get\_user\_id}}
+\index{get\_user\_id@{get\_user\_id}!swagger\_server.controllers.abrufen\_controller@{swagger\_server.controllers.abrufen\_controller}}
+\doxysubsubsection{\texorpdfstring{get\_user\_id()}{get\_user\_id()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+controllers.\+abrufen\+\_\+controller.\+get\+\_\+user\+\_\+id (\begin{DoxyParamCaption}\item[{}]{email }\end{DoxyParamCaption})}
+
+
+
+Holt die User-\/\+ID basierend auf der E-\/\+Mail-\/\+Adresse. 
+
+Sucht die User-\/\+ID in der Datenbank anhand der angegebenen E-\/\+Mail-\/\+Adresse.
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & Die E-\/\+Mail-\/\+Adresse des Benutzers. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple\+: User-\/\+ID und HTTP-\/\+Statuscode. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceswagger__server_1_1controllers_1_1abrufen__controller_aca089660314efce9d828ea83d6a3150f}\label{namespaceswagger__server_1_1controllers_1_1abrufen__controller_aca089660314efce9d828ea83d6a3150f}} 
+\index{swagger\_server.controllers.abrufen\_controller@{swagger\_server.controllers.abrufen\_controller}!kategorien\_get@{kategorien\_get}}
+\index{kategorien\_get@{kategorien\_get}!swagger\_server.controllers.abrufen\_controller@{swagger\_server.controllers.abrufen\_controller}}
+\doxysubsubsection{\texorpdfstring{kategorien\_get()}{kategorien\_get()}}
+{\footnotesize\ttfamily def swagger\+\_\+server.\+controllers.\+abrufen\+\_\+controller.\+kategorien\+\_\+get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Holt alle Kategorien (Types) aus der Datenbank. 
+
+Gibt alle verfügbaren Kategorien (Types) aus der Tabelle \char`\"{}\+Type\char`\"{} zurück.
+
+\begin{DoxyReturn}{Returns}
+tuple\+: Liste der Kategorien und HTTP-\/\+Statuscode. 
+\end{DoxyReturn}

@@ -9,8 +9,8 @@ from swagger_server.controllers.abrufen_controller import get_user_id
 from logger import logger
 
 def user_reg_post(body):  # noqa: E501
-    """
-    @brief Erstellt einen neuen Benutzer-Account.
+    """! Erstellt einen neuen Benutzer-Account.
+
     @details Legt einen neuen Benutzer in der Datenbank an, sofern die E-Mail noch nicht existiert. Das Passwort wird sicher gehasht gespeichert.
 
     @param body Das RegBody-Objekt mit Benutzerinformationen.
@@ -43,8 +43,8 @@ def user_reg_post(body):  # noqa: E501
     return {"message": "success", "userID": get_user_id(body.email)[0]}, 201
 
 def get_user_data(uid):  # noqa: E501
-    """
-    @brief Holt die Benutzerdaten basierend auf der User-ID.
+    """! Holt die Benutzerdaten basierend auf der User-ID.
+
     @details Gibt Vorname, Nachname und E-Mail des Benutzers zurück.
 
     @param uid Die ID des Benutzers.
@@ -59,8 +59,8 @@ def get_user_data(uid):  # noqa: E501
     return user.data[0], 200
 
 def update_user_data(uid, body):  # noqa: E501
-    """
-    @brief Aktualisiert die Benutzerdaten.
+    """! Aktualisiert die Benutzerdaten.
+    
     @details Überschreibt die Benutzerdaten in der Datenbank mit den neuen Werten.
 
     @param uid Die ID des Benutzers.
