@@ -27,7 +27,7 @@
   Auf den Event Objekten befindet sich der Titel, ein Bild, ein Knopf zum Favorisieren, das Datum, die Uhrzeit, und der Button zur Detailansicht.
   </br>
 
-  In der Detailansicht befindet sich, neben den schon genannten Dingen auch eine Karte, um genau zu wissen, wo sich das Event befindet, und noch eine Beschreibung, welche einem mehr über die Attraktion erzählt. Zudem gibt es auch, Eventabhängig, Ticketpreise.
+  In der Detailansicht befindet sich, neben den schon genannten Dingen auch eine Karte, um genau zu wissen, wo sich das Event befindet, und noch eine Beschreibung, welche einem mehr über die Attraktion erzählt.
   </br>
 
   Auf der Entdecken Seite findet man Events, welche in den nächsten Tagen stattfinden werden. Die Entdecken Seite, ist gleich aufgebaut, wie die HomePage um eine vereinheitlichte Erfahrung zu schaffen.
@@ -50,4 +50,68 @@
         Wir haben keinen Zugang bekommen zu API und als wir den Zugang bekommen haben, war der durchblick nicht wirklich gegeben.
     Fix:
         Dank Herrn Nesensohn bekamen wir den Zugang zur API und Dank Herrn Bechtold konnten wir die JSON-Dumps analysieren und verarbeiten.
+2. **NuGet Package WatermarkTextBox**
+    Problem:
+        Das Package war grundsätzlich gut, aber es hatte einige Designschwierigkeiten, welche uns nicht gefallen haben.
+    Fix:
+        Eigene Placeholder Logik eingebaut, um mehr Kontrolle über das Design zu haben.
+3. **Map-Bilder**
+    Problem:
+        Die Map GPS Bilder konnten nicht geladen werden, da es Probleme mit dem Pfad gab.
+    Fix:
+        Wir haben eigene GPS Bilder improvisiert im Code.
+4. **Zeit**
+    Problem:
+        Wir hatten nicht genug Zeit für unser Projekt, da wir einige Prüfungen hatten und auch hatten wir einen späteren Start, als letztes Jahr.
+    Fix:
+        Wir haben das beste aus der Zeit gemacht, welche wir hatten und haben uns auf die wichtigsten Features konzentriert, um ein funktionierendes Projekt zu haben.
+        
+## Wie wurde die Software getestet?
+  Die Software wurde zum Teil manuell getestet, indem wir das Programm gestartet haben und die Funktionen ausprobiert haben. Wir haben auch Unit-Tests geschrieben, um sicherzustellen, dass die wichtigsten Funktionen funktionieren. Außerdem haben wir Logging eingebaut, um Fehler zu protokollieren und zu debuggen.
 
+## Bedienungsanleitung
+
+### 1. Start und Login
+Nach dem Start der Anwendung erscheint der Login-Screen. Hier gibst du deine E-Mail und dein Passwort ein. Falls du noch keinen Account hast, klicke auf „Registrieren“ und fülle das Formular aus.
+
+![Login](ProgrammScreenshots/LoginScreenshot.png)
+![Registrieren](ProgrammScreenshots/RegistrierenScreenshot.png)
+
+### 2. Home & Events entdecken
+Nach dem Login landest du auf der Startseite (Home). Hier werden dir aktuelle Events angezeigt. Über die Suchleiste kannst du nach Namen, Kategorie oder anderen Attributen filtern. Die Navigation erfolgt über die Sidebar links.
+
+![Home](ProgrammScreenshots/HomeScreenshot.png)
+
+### 3. Event-Details
+Klicke bei einem Event auf den "Mehr erfahren"-Button, um die Detailansicht zu öffnen. Dort findest du weitere Informationen, ein Bild, das Datum, die Uhrzeit, eine Karte mit dem Standort und eine ausführliche Beschreibung. Bei einem Event kannst du es favorisieren, indem du auf das Stern-Symbol klickst. So kannst du es später bei deinen Favoriten leichter wiederfinden. Wenn der Stern 
+
+![Mehr erfahren](ProgrammScreenshots/MehrErfahrenScreenshot.png)
+
+### 4. Entdecken
+Auf der Entdecken-Seite findest du Events, die in den nächsten Tagen stattfinden mit Zeit-Filter Möglichkeiten. Die Seite ist ähnlich wie die Startseite aufgebaut.
+
+![Entdecken](ProgrammScreenshots/EntdeckenScreenshot.png)
+
+### 5. Favoriten
+Unter Favoriten findest du deine gespeicherten Events. So kannst du schnell auf deine persönlichen Highlights zugreifen.
+
+![Favoriten](ProgrammScreenshots/FavoritenScreenshot.png)
+
+### 6. Karte
+Die Map-Seite zeigt dir alle Events auf einer Karte an. So siehst du sofort, was in deiner Umgebung los ist.
+
+![Map](ProgrammScreenshots/MapScreenshot.png)
+
+### 7. Profil
+Im Profil kannst du deine Benutzerdaten ändern und dich abmelden.
+
+![Profil](ProgrammScreenshots/ProfilScreenshot.png)
+
+---
+
+Mit diesen Schritten kannst du die Anwendung einfach bedienen und alle Funktionen nutzen. Die Screenshots geben dir einen schnellen Überblick über die wichtigsten Seiten.
+
+## Quellen
+- Bilder der Events wurden von der Event-API von Vorarlberg geladen.
+  - Durch folgenden API Link: [EventAPILink](https://v-cloud.vorarlberg.travel/api/v4/endpoints/b24513ef-acbb-4d9b-8cdc-eda44787baee?token=aed0e815dc2374d59cfc2e9f397a8653)
+- Die Icons wurden von [Flaticon](https://www.flaticon.com/) geladen.
