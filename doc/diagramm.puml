@@ -1,8 +1,10 @@
-@startuml diagramm
+@startuml
 package "Frontend" {
   [MainWindow.xaml]
   [MainWindow.xaml.cs]
-
+  [Models]
+  [Resources]
+  [Services]
   package Pages {
     [LoginPage.xaml]
     [LoginPage.xaml.cs]
@@ -21,11 +23,9 @@ package "Frontend" {
     [MoreInfoPage.xaml]
     [MoreInfoPage.xaml.cs]
   }
-
   package UserControls {
     [EventMiniViewUserControl]
   }
-
   package ViewModels {
     [MainViewModel.cs]
     [LoginViewModel.cs]
@@ -36,87 +36,46 @@ package "Frontend" {
     [MapViewModel.cs]
     [MoreInfoViewModel.cs]
   }
-
-  package Services {
-    [DataService.cs]
-    [AuthService.cs]
-  }
-
-    package Models {
-    [User.cs]
-    [Event.cs]
-    [Category.cs]
-    [Location.cs]
-    [Favorite.cs]
-    }
-
-  package Resources {
-    [Images]
-    [Styles.xaml]
-    [Weitere Ressourcen ...]
-  }
 }
 
 package "Backend" {
   [Swagger API]
 
-  package "swagger_server" {
-    [swagger.yaml]
+  package swagger_server {
     package swagger {
       [swagger.yaml]
     }
-    package controllers {
-      [login_controller.py]
-      [registrieren_controller.py]
-      [abrufen_controller.py]
-      [update_controller.py]
-      [user_controller.py]
-      [favorites_controller.py]
-    }
-    package models {
-      [user_model.py]
-      [event_model.py]
-    }
-    package utils {
-      [auth.py]
-      [database.py]
-    }
+    [controllers]
+    [models]
+    [utils]
   }
 
   package services {
     [event_fetcher.py]
   }
 
+
+}
+
   [Supabase DB]
   [Externe API]
-}
 
 [MainWindow.xaml.cs] --> Pages
 Pages --> UserControls
 Pages --> ViewModels
 Pages --> Services
-Services ..> [Swagger API] : REST-API
 Pages --> Models
 Pages --> Resources
 
 [MainWindow.xaml.cs] ..> [Swagger API] : REST-API
 
-
+[Swagger API] --> swagger_server
+swagger_server --> controllers
+swagger_server --> models
+swagger_server --> utils
 controllers --> services
-controllers --> models
-controllers --> utils
-services --> utils
-services --> models
-
-[Swagger API] --> "swagger_server"
-"swagger_server" --> controllers
-"swagger_server" --> models
-"swagger_server" --> utils
-[Swagger API] --> services
-services --> eventfetcher
-
-[Swagger API] --> [Supabase DB]
-[Swagger API] --> [Externe API]
+controllers --> [Supabase DB]
+services --> [Externe API]
 
 
 @enduml

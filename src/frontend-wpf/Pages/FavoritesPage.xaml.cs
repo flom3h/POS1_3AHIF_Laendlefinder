@@ -22,6 +22,7 @@ public partial class FavoritesPage : Page
     {
         InitializeComponent();
         LoadEventsAsync();
+        MainWindow.Logger.Information("FavoritesPage initialized");
     }
     
     private async void LoadEventsAsync()

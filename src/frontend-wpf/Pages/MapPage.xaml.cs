@@ -34,30 +34,26 @@ namespace Laendlefinder.Pages
         public MapPage()
         {
             InitializeComponent();
-
-            // Basiskarte hinzufügen
+            MainWindow.Logger.Information("MapPage initialized");
+            
             var tileLayer = OpenStreetMap.CreateTileLayer();
             MapView.Map?.Layers.Add(tileLayer);
-
-            // Viewport auf Vorarlberg setzen
+            
             var min = SphericalMercator.FromLonLat(9.60, 46.88);
             var max = SphericalMercator.FromLonLat(10.23, 47.60);
             _vorarlbergEnvelope = new BoundingBox(min.X, min.Y, max.X, max.Y);
-    
-            // Events & Cursor-Handling
+            
             MapView.MouseMove += MapView_MouseMove;
             MapView.MouseLeftButtonUp += MapView_MouseLeftButtonUp;
-
-            // Initiales Zoomen nach Laden der MapView
+            
             MapView.Loaded += (sender, e) => 
             {
-                MapView.Navigator.NavigateTo(_vorarlbergEnvelope, ScaleMethod.Fit, 0); // 0 = keine Animation
+                MapView.Navigator.NavigateTo(_vorarlbergEnvelope, ScaleMethod.Fit, 0);
             };
 
             LoadEventsAsync();
         }
-
-        // Cursor ändern, wenn über einem Event-Marker
+        
         private void MapView_MouseMove(object sender, MouseEventArgs e)
         {
             var wpfPoint = e.GetPosition(MapView);
@@ -74,10 +70,17 @@ namespace Laendlefinder.Pages
             var info = MapView.GetMapInfo(mapsuiPoint);
 
             if (info?.Feature == null || info.Layer?.Name != "EventMarkerLayer")
+            {
+                MainWindow.Logger.Information("MapView_MouseLeftButtonUp: Kein Event-Marker angeklickt.");
                 return;
-
+            }
+            
             var eventIdObj = info.Feature["EventId"];
-            if (eventIdObj == null) return;
+            if (eventIdObj == null)
+            {
+                MainWindow.Logger.Error("MapView_MouseLeftButtonUp: EventID wurde nicht gefunden");
+                return;
+            }
 
             int eventId;
             try
@@ -86,16 +89,19 @@ namespace Laendlefinder.Pages
             }
             catch
             {
+                MainWindow.Logger.Error("MapView_MouseLeftButtonUp: Falsche EventID");
                 MessageBox.Show("Ungültige Event-ID.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
-            // Navigation zur Detailseite
+            
             var moreInfoPage = new MoreInfoPage(eventId);
             if (NavigationService != null)
                 NavigationService.Navigate(moreInfoPage);
             else
-                MessageBox.Show("NavigationService ist nicht verfügbar.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+            {
+                MainWindow.Logger.Error("MapView_MouseLeftButtonUp: NavigationService ist nicht verfügbar.");
+                MessageBox.Show("NavigationService ist nicht verfügbar.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);   
+            }
         }
 
         private async void LoadEventsAsync()
@@ -119,6 +125,7 @@ namespace Laendlefinder.Pages
                 }
 
                 ShowEventLocationsOnMap(EventCollection.Events);
+                MainWindow.Logger.Information("Events auf Karte geladen");
             }
             catch (Exception ex)
             {
@@ -128,7 +135,6 @@ namespace Laendlefinder.Pages
 
         private void ShowEventLocationsOnMap(IEnumerable<Event> events)
         {
-            // Alten Layer entfernen
             var existingLayer = MapView.Map.Layers.FirstOrDefault(l => l.Name == "EventMarkerLayer");
             if (existingLayer != null)
                 MapView.Map.Layers.Remove(existingLayer);
@@ -165,6 +171,7 @@ namespace Laendlefinder.Pages
             };
 
             MapView.Map.Layers.Add(markerLayer);
+            MainWindow.Logger.Information("Marker hinzugefügt");
             MapView.Refresh();
         }
 

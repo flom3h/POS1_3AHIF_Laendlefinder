@@ -26,6 +26,7 @@ public partial class MainPage : Page
         /*StartBackendServer();
         Task.Delay(16000);*/
         LoadEventsAsync();
+        MainWindow.Logger.Information("FavoritesPage initialized");
     }
     
     /*private void StartBackendServer()

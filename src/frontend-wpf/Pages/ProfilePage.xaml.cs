@@ -24,6 +24,7 @@ public partial class ProfilePage : Page
     public ProfilePage()
     {
         InitializeComponent();
+        MainWindow.Logger.Information("ProfilePage initialized");
         PasswordBox.Visibility = Visibility.Visible;
         PlainPasswordBox.Visibility = Visibility.Collapsed;
         LoadProfileAsync();
