@@ -1,0 +1,634 @@
+openapi: 3.0.0
+info:
+  title: Events API
+  description: Eine API zur Verwaltung von Benutzern, Events und Favoriten.
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /login:
+    post:
+      tags:
+      - login
+      summary: Benutzer logt sich ein
+      description: |
+        Authentifiziert einen Benutzer anhand seiner E-Mail und seines Passworts. 
+        Prüft die Anmeldedaten gegen die Datenbank und gibt bei Erfolg eine 
+        Bestätigungsmeldung zurück. Bei falschen Daten wird aus Sicherheitsgründen 
+        eine einheitliche Fehlermeldung ausgegeben.
+      operationId: user_login_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/user_body"
+            example:
+              email: "max@domain.at"
+              passwort: "geheim123"
+        required: true
+      responses:
+        "201":
+          description: Benutzer konnte sich einloggen
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  email:
+                    type: string
+              example:
+                message: "Erfolgreich angemeldet"
+                email: "max@domain.at"
+        "404":
+          description: Benutzer konnte nicht gefunden werden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: "Ungültige Anmeldeinformationen"
+      x-openapi-router-controller: swagger_server.controllers.login_controller
+  /registrieren:
+    post:
+      tags:
+      - registrieren
+      summary: Benutzer erstellt seinen Account
+      description: |
+        Erstellt einen neuen Benutzer-Account in der Datenbank mit den angegebenen 
+        persönlichen Daten. Das Passwort wird sicher gehasht gespeichert. Die E-Mail 
+        muss eindeutig sein und darf noch nicht im System existieren.
+      operationId: user_reg_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/reg_body"
+            example:
+              firstname: "Anna"
+              lastname: "Beispiel"
+              email: "anna@example.com"
+              passwort: "sicher1234"
+        required: true
+      responses:
+        "201":
+          description: Benutzer konnte erstellt werden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  email:
+                    type: string
+              example:
+                message: "success"
+                email: "anna@example.com"
+        "404":
+          description: Benutzer konnte nicht erstellt werden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: "User existiert bereits"
+      x-openapi-router-controller: swagger_server.controllers.registrieren_controller
+  /update/{uid}:
+    post:
+      tags:
+      - Benutzer aktualisieren
+      summary: Benutzer aktualisiert seine Daten
+      description: |
+        Aktualisiert die Benutzerdaten für die angegebene User-ID. Alle Felder 
+        werden mit den neuen Werten überschrieben. Das Passwort wird erneut 
+        sicher gehasht und gespeichert.
+      operationId: update_user_data
+      parameters:
+      - name: uid
+        in: path
+        description: Die ID des Benutzers, dessen Daten aktualisiert werden sollen
+        required: true
+        schema:
+          type: integer
+        example: 42
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/reg_body"
+            example:
+              firstname: "Anna"
+              lastname: "Beispiel-Neu"
+              email: "anna.neu@example.com"
+              passwort: "neuessicher123"
+        required: true
+      responses:
+        "200":
+          description: Benutzerdaten erfolgreich aktualisiert
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: "Benutzerdaten aktualisiert"
+        "404":
+          description: Benutzer nicht gefunden
+        "500":
+          description: Fehler beim Aktualisieren der Benutzerdaten
+      x-openapi-router-controller: swagger_server.controllers.registrieren_controller
+  /kategorien:
+    get:
+      tags:
+      - abrufen
+      summary: Kategorien abrufen von API
+      description: |
+        Ruft alle verfügbaren Event-Kategorien (Types) aus der Datenbank ab. 
+        Liefert eine Liste mit ID und Namen aller Kategorien, die für die 
+        Filterung von Events verwendet werden können.
+      operationId: kategorien_get
+      responses:
+        "200":
+          description: Erfolgreiches Erhalten der API Kategorien
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    tid:
+                      type: integer
+                    type:
+                      type: string
+              example:
+                - tid: 1
+                  type: "Konzert"
+                - tid: 2
+                  type: "Workshop"
+                - tid: 3
+                  type: "Theater"
+        "500":
+          description: Fehler beim Abrufen der Kategorien
+      x-openapi-router-controller: swagger_server.controllers.abrufen_controller
+  /user_id/{email}:
+    get:
+      tags:
+      - abrufen
+      summary: User-ID eines Benutzers abrufen
+      description: |
+        Ermittelt die eindeutige Benutzer-ID basierend auf der angegebenen 
+        E-Mail-Adresse. Diese ID wird oft für andere API-Endpunkte benötigt, 
+        die eine Benutzer-Identifikation erfordern.
+      operationId: get_user_id
+      parameters:
+      - name: email
+        in: path
+        description: Die E-Mail-Adresse des Benutzers, dessen ID abgerufen werden soll
+        required: true
+        schema:
+          type: string
+        example: "anna@example.com"
+      responses:
+        "200":
+          description: Erfolgreiches Abrufen der User-ID
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: integer
+              example:
+                42
+        "404":
+          description: Benutzer nicht gefunden
+      x-openapi-router-controller: swagger_server.controllers.abrufen_controller
+  /user/{uid}:
+    get:
+      tags:
+      - abrufen
+      summary: Benutzerinformationen abrufen
+      description: |
+        Liefert alle gespeicherten Benutzerdaten zu einer bestimmten User-ID. 
+        Gibt Vorname, Nachname und E-Mail-Adresse des Benutzers zurück.
+      operationId: get_user_data
+      parameters:
+      - name: uid
+        in: path
+        description: Die ID des Benutzers, dessen Informationen abgerufen werden sollen
+        required: true
+        schema:
+          type: integer
+        example: 42
+      responses:
+        "200":
+          description: Erfolgreiches Abrufen der Benutzerinformationen
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  firstname:
+                    type: string
+                  lastname:
+                    type: string
+                  email:
+                    type: string
+              example:
+                firstname: "Anna"
+                lastname: "Beispiel"
+                email: "anna@example.com"
+        "404":
+          description: Benutzer nicht gefunden
+        "500":
+          description: Fehler beim Abrufen der Benutzerinformationen
+      x-openapi-router-controller: swagger_server.controllers.registrieren_controller
+  /events:
+    get:
+      tags:
+      - abrufen
+      summary: Events abrufen     
+      description: |
+        Ruft alle Events aus der Datenbank ab, jeweils mit der zugehörigen Location. 
+        Liefert eine vollständige Liste aller verfügbaren Events mit ihren 
+        Detailinformationen und Standortdaten zurück.
+      operationId: events_get
+      responses:
+        "200":
+          description: Erfolgreiche Antwort mit Eventdaten
+        "500":
+          description: Fehler beim Abrufen der Events
+      x-openapi-router-controller: swagger_server.controllers.abrufen_controller
+  /events/{eid}:
+    get:
+      tags:
+      - abrufen
+      summary: Details zu einem einzelnen Event abrufen
+      description: |
+        Ruft ein einzelnes Event mit der angegebenen Event-ID aus der Datenbank ab. 
+        Liefert alle verfügbaren Details zum Event inklusive der zugehörigen 
+        Location-Informationen mit Adresse und Koordinaten.
+      operationId: event_by_id_get
+      parameters:
+      - name: eid
+        in: path
+        description: Die ID des Events
+        required: true
+        schema:
+          type: integer
+        example: 789
+      responses:
+        "200":
+          description: Erfolgreiche Antwort mit Eventdetails
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  eid:
+                    type: integer
+                  name:
+                    type: string
+                  date:
+                    type: string
+                  time:
+                    type: string
+                  description:
+                    type: string
+                  picture:
+                    type: string
+                  type:
+                    type: integer
+                  Location:
+                    type: object
+                    properties:
+                      lid:
+                        type: integer
+                      address:
+                        type: string
+                      name:
+                        type: string
+                      longitude:
+                        type: number
+                      latitude:
+                        type: number
+                      picture:
+                        type: string
+              example:
+                eid: 789
+                name: "Weihnachtskonzert"
+                date: "2023-12-24"
+                time: "19:30:00"
+                description: "Klassische Weihnachtslieder in festlicher Atmosphäre"
+                picture: "https://example.com/bild.jpg"
+                type: 24
+                Location:
+                  lid: 789
+                  address: "Lothringerstraße 20"
+                  name: "Wiener Konzerthaus"
+                  longitude: 16.3789
+                  latitude: 48.2015
+                  picture: "https://example.com/location.jpg"
+        "404":
+          description: Event nicht gefunden
+        "500":
+          description: Fehler beim Abrufen des Events
+      x-openapi-router-controller: swagger_server.controllers.abrufen_controller
+  /events/import:
+    post:
+      tags:
+      - abrufen
+      summary: Importiert Events von der externen API in die Datenbank
+      description: |
+        Ruft Events von einer externen API-Quelle ab und speichert sie in der 
+        lokalen Datenbank. Dieser Endpunkt wird normalerweise für die 
+        Synchronisation mit externen Event-Datenbanken verwendet.
+      operationId: events_import_post
+      responses:
+        "201":
+          description: Events erfolgreich importiert
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: "42 Events importiert."
+        "500":
+          description: Fehler beim Importieren der Events
+      x-openapi-router-controller: swagger_server.controllers.abrufen_controller
+  /favoriten/{uid}:
+    get:
+      tags:
+      - favoriten
+      summary: Favoriten eines Benutzers abrufen
+      description: |
+        Ruft alle Events ab, die als Favoriten für den angegebenen Benutzer 
+        gespeichert sind. Liefert eine Liste mit den wichtigsten Event-Informationen.
+      operationId: favoriten_get
+      parameters:
+      - name: uid
+        in: path
+        description: "Der Benutzer, dessen Favoriten abgerufen werden"
+        required: true
+        schema:
+          type: integer
+        example: 42
+      responses:
+        "200":
+          description: Liste der Favoriten wurde erfolgreich abgerufen
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    eid:
+                      type: integer
+                    name:
+                      type: string
+                    date:
+                      type: string
+                    time:
+                      type: string
+              example:
+                - eid: 789
+                  name: "Weihnachtskonzert"
+                  date: "2023-12-24"
+                  time: "19:30:00"
+        "404":
+          description: Keine Favoriten für den angegebenen Benutzer gefunden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: "Keine Favoriten gefunden"
+        "500":
+          description: Fehler beim Abrufen der Favoriten
+      x-openapi-router-controller: swagger_server.controllers.favoriten_controller
+      
+  /favoriten/{uid}/{eid}:
+    get:
+      tags:
+      - favoriten
+      summary: Überprüfen, ob ein Event in den Favoriten eines Benutzers ist
+      description: |
+        Prüft, ob ein bestimmtes Event in der Favoriten-Liste eines Benutzers 
+        gespeichert ist. Sucht in der Favourites-Tabelle nach einem entsprechenden 
+        Eintrag für Benutzer und Event.
+      operationId: is_favorit
+      parameters:
+      - name: uid
+        in: path
+        description: "Der Benutzer, dessen Favoriten überprüft werden"
+        required: true
+        schema:
+          type: integer
+        example: 42
+      - name: eid
+        in: path
+        description: "Die ID des Events, das überprüft werden soll"
+        required: true
+        schema:
+          type: integer
+        example: 789
+      responses:
+        "200":
+          description: Event ist in den Favoriten des Benutzers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: "Event ist in den Favoriten"
+        "404":
+          description: Event oder Benutzer nicht gefunden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: "Event ist nicht in den Favoriten"
+        "500":
+          description: Fehler beim Überprüfen der Favoriten
+      x-openapi-router-controller: swagger_server.controllers.favoriten_controller
+  /favoriten:
+    post:
+      tags:
+      - favoriten
+      summary: Event zu den Favoriten hinzufügen
+      description: |
+        Fügt ein Event zu den Favoriten eines Benutzers hinzu, indem ein neuer 
+        Eintrag in der Favourites-Tabelle erstellt wird. Beide IDs (Benutzer und Event) 
+        müssen in der Datenbank existieren.
+      operationId: favoriten_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/favoriten_body"
+            example:
+              uid: 42
+              eid: 789
+        required: true
+      responses:
+        "201":
+          description: Event erfolgreich zu den Favoriten hinzugefügt
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: "Event erfolgreich zu den Favoriten hinzugefügt"
+        "400":
+          description: Ungültige Anfrage (z. B. fehlender Parameter)
+        "404":
+          description: Benutzer oder Event nicht gefunden
+        "500":
+          description: Serverfehler beim Hinzufügen zu Favoriten
+      x-openapi-router-controller: swagger_server.controllers.favoriten_controller
+  /favoriten/delete/{uid}/{eid}:
+    delete:
+      tags:
+      - favoriten
+      summary: Event aus den Favoriten entfernen
+      description: |
+        Entfernt ein Event aus den Favoriten eines Benutzers, indem der entsprechende 
+        Eintrag aus der Favourites-Tabelle gelöscht wird. Falls das Event nicht in 
+        den Favoriten ist, wird eine entsprechende Meldung zurückgegeben.
+      operationId: favoriten_delete
+      parameters:
+      - name: uid
+        in: path
+        description: "Der Benutzer, dessen Favoriten bearbeitet werden"
+        required: true
+        schema:
+          type: integer
+        example: 42
+      - name: eid
+        in: path
+        description: "Die ID des Events, das entfernt werden soll"
+        required: true
+        schema:
+          type: integer
+        example: 789
+      responses:
+        "200":
+          description: Event wurde erfolgreich aus den Favoriten entfernt
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: "Event erfolgreich aus den Favoriten entfernt"
+        "404":
+          description: Benutzer oder Event nicht gefunden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: "Event ist nicht in den Favoriten"
+        "500":
+          description: Fehler beim Entfernen des Events aus den Favoriten
+      x-openapi-router-controller: swagger_server.controllers.favoriten_controller
+      
+  
+
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+  schemas:
+    user_body:
+      required:
+      - email
+      - passwort
+      type: object
+      properties:
+        email:
+          type: string
+          description: E-Mail-Adresse des Benutzers
+          example: "max@domain.at"
+        passwort:
+          type: string
+          description: Passwort des Benutzers
+          example: "geheim1234"
+    reg_body:
+      required:
+      - firstname
+      - lastname
+      - email
+      - passwort
+      type: object
+      properties:
+        firstname:
+          type: string
+          description: Vorname des Benutzers
+          example: "Anna"
+        lastname:
+          type: string
+          description: Nachname des Benutzers
+          example: "Muller"
+        email:
+          type: string
+          description: E-Mail-Adresse des Benutzers
+          example: "anna@example.com"
+        passwort:
+          type: string
+          description: Passwort des Benutzers
+          example: "sicher1234"
+    favoriten_body:
+      required:
+      - uid
+      - eid
+      type: object
+      properties:
+        uid:
+          type: integer
+          description: Benutzer-ID
+          example: 42
+        eid:
+          type: integer
+          description: Event-ID
+          example: 789
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Basic Authentication für die API
+
