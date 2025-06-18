@@ -8,8 +8,8 @@ from swagger_server.__main__ import supabase  # Supabase-Client importieren
 from logger import logger
 
 def favoriten_delete(uid, eid):  # noqa: E501
-    """
-    @brief Entfernt ein Event aus den Favoriten eines Benutzers.
+    """! Entfernt ein Event aus den Favoriten eines Benutzers.
+
     @details Löscht den Eintrag aus der Tabelle "Favourites" für den angegebenen Benutzer und das Event.
 
     @param uid Die ID des Benutzers, dessen Favoriten bearbeitet werden.
@@ -28,8 +28,8 @@ def favoriten_delete(uid, eid):  # noqa: E501
 
 
 def favoriten_get(uid):  # noqa: E501
-    """
-    @brief Gibt die Favoriten eines Benutzers zurück.
+    """! Gibt die Favoriten eines Benutzers zurück.
+
     @details Holt alle Events, die als Favoriten für den angegebenen Benutzer gespeichert sind.
 
     @param uid Die ID des Benutzers, dessen Favoriten abgerufen werden.
@@ -50,8 +50,8 @@ def favoriten_get(uid):  # noqa: E501
     return jsonify(events.data), 200
 
 def is_favorit(uid, eid): # noqa: E501
-    """
-    @brief Prüft, ob ein Event in den Favoriten eines Benutzers ist.
+    """! Prüft, ob ein Event in den Favoriten eines Benutzers ist.
+
     @details Sucht in der Tabelle "Favourites" nach einem Eintrag für den Benutzer und das Event.
 
     @param uid Die ID des Benutzers.
@@ -68,8 +68,8 @@ def is_favorit(uid, eid): # noqa: E501
     return {"message": "Event ist in den Favoriten"}, 200
 
 def favoriten_post(body):  # noqa: E501
-    """
-    @brief Fügt ein Event zu den Favoriten eines Benutzers hinzu.
+    """! Fügt ein Event zu den Favoriten eines Benutzers hinzu.
+    
     @details Legt einen neuen Eintrag in der Tabelle "Favourites" für den Benutzer und das Event an.
 
     @param body FavoritenBody mit uid und eid.

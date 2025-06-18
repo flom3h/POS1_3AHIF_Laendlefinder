@@ -1,6 +1,6 @@
 def basic_auth(username, password, required_scopes=None):
-    """
-    @brief Führt eine einfache Benutzername/Passwort-Authentifizierung durch.
+    """! Führt eine einfache Benutzername/Passwort-Authentifizierung durch.
+    
     @details Gibt ein Dictionary mit dem Benutzernamen zurück, wenn die Authentifizierung erfolgreich ist.
 
     @param username Der Benutzername.

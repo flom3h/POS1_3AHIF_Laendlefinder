@@ -9,8 +9,8 @@ from swagger_server.controllers.abrufen_controller import get_user_id
 from logger import logger
 
 def user_login_post(body):  # noqa: E501
-    """
-    @brief Authentifiziert einen Benutzer anhand seiner E-Mail und seines Passworts.
+    """! Authentifiziert einen Benutzer anhand seiner E-Mail und seines Passworts.
+    
     @details Prüft, ob die E-Mail existiert und das Passwort korrekt ist. Gibt bei Erfolg die User-ID zurück.
 
     @param body Das UserBody-Objekt mit E-Mail und Passwort.

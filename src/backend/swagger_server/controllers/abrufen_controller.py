@@ -5,8 +5,8 @@ from swagger_server import util
 from swagger_server.__main__ import supabase
 
 def event_by_id_get(eid):  
-    """
-    @brief Holt ein einzelnes Event und die zugehörige Location anhand der Event-ID.
+    """! Holt ein einzelnes Event und die zugehörige Location anhand der Event-ID.
+
     @details Sucht das Event mit der angegebenen ID in der Datenbank und gibt es zusammen mit der zugehörigen Location zurück.
 
     @param eid Die Event-ID.
@@ -30,8 +30,7 @@ def event_by_id_get(eid):
 
 
 def events_get():  # noqa: E501
-    """
-    @brief Holt alle Events mit zugehöriger Location.
+    """! Holt alle Events mit zugehöriger Location.
     @details Gibt eine Liste aller Events aus der Datenbank zurück, jeweils mit der zugehörigen Location.
 
     @return tuple: Liste aller Events inkl. Location und HTTP-Statuscode.
@@ -46,8 +45,8 @@ def events_get():  # noqa: E501
 
 
 def kategorien_get():
-    """
-    @brief Holt alle Kategorien (Types) aus der Datenbank.
+    """! Holt alle Kategorien (Types) aus der Datenbank.
+
     @details Gibt alle verfügbaren Kategorien (Types) aus der Tabelle "Type" zurück.
 
     @return tuple: Liste der Kategorien und HTTP-Statuscode.
@@ -62,8 +61,7 @@ def kategorien_get():
 from swagger_server.services.event_fetcher import fetch_and_store_events
 
 def events_import_post():  # noqa: E501
-    """
-    @brief Importiert Events von der externen API und speichert sie in der Datenbank.
+    """! Importiert Events von der externen API und speichert sie in der Datenbank.
     @details Ruft Events von einer externen API ab, speichert sie in der Datenbank und gibt eine Erfolgs- oder Fehlermeldung zurück.
 
     @return tuple: Erfolgs- oder Fehlermeldung und HTTP-Statuscode.
@@ -79,8 +77,7 @@ def events_import_post():  # noqa: E501
         return {"error": str(e)}, 500
     
 def get_user_id(email):
-    """
-    @brief Holt die User-ID basierend auf der E-Mail-Adresse.
+    """! Holt die User-ID basierend auf der E-Mail-Adresse.
     @details Sucht die User-ID in der Datenbank anhand der angegebenen E-Mail-Adresse.
 
     @param email Die E-Mail-Adresse des Benutzers.
