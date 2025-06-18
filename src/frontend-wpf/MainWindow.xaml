@@ -1,6 +1,9 @@
 ﻿<Window x:Class="Laendlefinder.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title = "MainWindow">
+        Title = "Laendlefinder"
+        MinWidth="1350"
+        MinHeight="700"
+        Icon="images/WhiteLogo.png">
     <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
 </Window>
