@@ -35,6 +35,7 @@
 | 15.06.2025         | Page designs verbessert                                |
 | 15.06.2025         | Google Maps integriert                                 |
 | 16.06.2025         | Designs geupdated                                      |
+| 18.06.2025         | Backend: Logging, Doxygen yamml doku gemacht           |
 
 ## Joudi
 
