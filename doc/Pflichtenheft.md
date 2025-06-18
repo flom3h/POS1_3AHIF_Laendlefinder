@@ -78,7 +78,7 @@ Nach dem Start der Anwendung erscheint der Login-Screen. Hier gibst du deine E-M
 ![Registrieren](ProgrammScreenshots/RegistrierenScreenshot.png)
 
 ### 2. Home & Events entdecken
-Nach dem Login landest du auf der Startseite (Home). Hier werden dir aktuelle Events angezeigt. Über die Suchleiste kannst du nach Namen, Kategorie oder anderen Attributen filtern. Die Navigation erfolgt über die Sidebar links.
+Nach dem Login landest du auf der Startseite (Home). Hier werden dir aktuelle Events angezeigt. Über die Suchleiste kannst du nach Namen, Kategorie oder anderen Attributen filtern. Die Navigation erfolgt über die Sidebar links. Hier kannst einzelne Events favorisieren, indem du auf das Stern-Symbol klickst. Favorisierte Events findest du später unter "Favoriten".
 
 ![Home](ProgrammScreenshots/HomeScreenshot.png)
 
@@ -88,7 +88,7 @@ Klicke bei einem Event auf den "Mehr erfahren"-Button, um die Detailansicht zu �
 ![Mehr erfahren](ProgrammScreenshots/MehrErfahrenScreenshot.png)
 
 ### 4. Entdecken
-Auf der Entdecken-Seite findest du Events, die in den nächsten Tagen stattfinden mit Zeit-Filter Möglichkeiten. Die Seite ist ähnlich wie die Startseite aufgebaut.
+Auf der Entdecken-Seite findest du Events, die in den nächsten Tagen stattfinden mit Zeit-Filter Möglichkeiten. Die Seite ist ähnlich wie die Startseite aufgebaut. Du kannst auch hier natürlich Events favorisieren und Details ansehen.
 
 ![Entdecken](ProgrammScreenshots/EntdeckenScreenshot.png)
 
@@ -98,7 +98,7 @@ Unter Favoriten findest du deine gespeicherten Events. So kannst du schnell auf 
 ![Favoriten](ProgrammScreenshots/FavoritenScreenshot.png)
 
 ### 6. Karte
-Die Map-Seite zeigt dir alle Events auf einer Karte an. So siehst du sofort, was in deiner Umgebung los ist.
+Die Map-Seite zeigt dir alle Events auf einer Karte an. So siehst du sofort, was in deiner Umgebung los ist. Man kann die Karte zoomen und verschieben, um verschiedene Bereiche zu erkunden. Die Event-Standorte sind durch Marker gekennzeichnet. Wenn du auf einen Marker klickst, öffnet wirst du zu den Details des Events weitergeleitet.
 
 ![Map](ProgrammScreenshots/MapScreenshot.png)
 
